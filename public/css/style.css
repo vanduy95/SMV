@@ -1,0 +1,14 @@
+.content{
+	min-height: 0px!important; 
+	padding: 0px 15px 15px 15px;
+}
+.wrapper {
+	overflow-x: hidden!important;
+	overflow-y: hidden!important;
+}
+.checkbox {
+	width: 20px!important;
+}
+.content-header>h1 {
+	margin-bottom: 20px!important;
+}
