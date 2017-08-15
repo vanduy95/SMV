@@ -106,6 +106,25 @@
 				</div>
 			</div>
 			@endif
+			<!-- Modal -->
+			<div class="modal fade" id="myModal" role="dialog">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+							<h4 class="modal-title">Xác nhận</h4>
+						</div>
+						<div class="modal-body">
+							<p>Bạn có muôn xóa đơn hàng này không?</p>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							<input formnovalidate="formnovalidate" type="submit" class="btn btn-warning" name="delete" value="Hủy đơn hàng"/>
+						</div>
+					</div>
+
+				</div>
+			</div>
 			<div class="row" style="padding-bottom: 10px">
 				<div class="col-md-6"></div>
 				<div class="col-md-6">
@@ -116,7 +135,7 @@
 						<input type="button" id="accuracy" class="btn btn-success" name="accuracy" value="Yêu cầu xác thực"/>
 					</div>
 					<div class="col-md-4">
-						<input formnovalidate="formnovalidate" type="submit" class="btn btn-warning" name="delete" value="Hủy đơn hàng"/>
+						<input data-toggle="modal" data-target="#myModal" type="button" class="btn btn-warning" value="Hủy đơn hàng"/>
 					</div>
 				</div>
 			</div>
