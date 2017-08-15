@@ -575,6 +575,7 @@ function convertname($str) {
  	// 		return redirect()->route('success');
  	// 	}
  	// }
+ 	
  	public function orderInfo($id)
  	{
 		// eq() Bằng
@@ -600,7 +601,8 @@ function convertname($str) {
  			}
 
  			$buys = Orders::where(['user_id'=>$orders->user_id,'process_id'=>5])->get()->sum('price')-Orders::where(['user_id'=>$orders->user_id,'process_id'=>5])->get()->sum('prepay');//sức mua đã sử dụng
- 			$buy=$orders->User->UserInfo->salary*2.5-$buys;// sức mua hiện tại
+ 			$total_buy=round_down($orders->User->UserInfo->salary*2.5);
+ 			$buy=$total_buy-$buys;// sức mua hiện tại
  			$city = RetailSystem::groupBy('retailcity')->pluck('retailcity');
  			$retailsystem = RetailSystem::groupBy('nameretail')->pluck('nameretail');
  			$organization=Organization::all();
@@ -613,10 +615,10 @@ function convertname($str) {
  		switch (Auth::user()->groupuser_id) {
  			case 1:
  			if($orders->process_id==1){
- 				return view('business.orders.update.order_info',compact('UserInfo','orders','city','buy','buys','retailsystem','organization'));
+ 				return view('business.orders.update.order_info',compact('UserInfo','orders','city','buy','buys','retailsystem','organization','total_buy'));
  			}
  			if($orders->process_id==2){
- 				return view('business.orders.accuracy.index',compact('UserInfo','orders','city','buy','buys','retailsystem','comparison'));
+ 				return view('business.orders.accuracy.index',compact('UserInfo','orders','city','buy','buys','retailsystem','comparison','total_buy'));
  			}
  			if($orders->process_id==3){
  				$days = $this->first_day_payment($orders->updated_at,$UserInfo->salary_day);
@@ -624,15 +626,15 @@ function convertname($str) {
  					$day=$days;
  				else
  					$day=\Carbon::setDate(0,0,0);
- 				return view('business.orders.approval.index',compact('UserInfo','orders','city','buy','buys','retailsystem','day'));
+ 				return view('business.orders.approval.index',compact('UserInfo','orders','city','buy','buys','retailsystem','day','total_buy'));
  			}
  			if($orders->process_id==4 || $orders->process_id==6|| $orders->process_id==5){
- 				return view('business.orders.sale.index',compact('UserInfo','orders','city','buy','buys','retailsystem'));
+ 				return view('business.orders.sale.index',compact('UserInfo','orders','city','buy','buys','retailsystem','total_buy'));
  			}
  			break;
  			case 3:
  			if($orders->process_id==1){
- 				return view('business.orders.update.order_info',compact('UserInfo','orders','city','buy','buys','retailsystem','organization'));
+ 				return view('business.orders.update.order_info',compact('UserInfo','orders','city','buy','buys','retailsystem','organization','total_buy'));
  			}
  			else{
  				\Session::flash('success_accruracy','Đơn hàng đã được xử lý hoặc đã chuyển trạng thái');
@@ -641,7 +643,7 @@ function convertname($str) {
  			break;
  			case 4:
  			if($orders->process_id==2){
- 				return view('business.orders.accuracy.index',compact('UserInfo','orders','city','buy','buys','retailsystem','comparison'));
+ 				return view('business.orders.accuracy.index',compact('UserInfo','orders','city','buy','buys','retailsystem','comparison','total_buy'));
  			}
  			else{
  				\Session::flash('success_accruracy','Đơn hàng đã được xử lý hoặc đã chuyển trạng thái');
@@ -653,7 +655,7 @@ function convertname($str) {
  				$days = $this->first_day_payment($orders->updated_at,$UserInfo->salary_day);
  				if($days!=null)
  					$day=$days;
- 				return view('business.orders.approval.index',compact('UserInfo','orders','city','buy','buys','retailsystem','day'));
+ 				return view('business.orders.approval.index',compact('UserInfo','orders','city','buy','buys','retailsystem','day','total_buy'));
  			}
  			else{
  				\Session::flash('success_accruracy','Đơn hàng đã được xử lý hoặc đã chuyển trạng thái');
@@ -663,7 +665,7 @@ function convertname($str) {
  			case 6:
  			$sys_id=DB::table('user_retailsystem')->where('user_id',Auth::user()->id)->pluck('retailsystem_id');
  			if($sys_id->contains($orders->retailsystem_id)&&($orders->process_id==4 || $orders->process_id==6|| $orders->process_id==5)){
- 				return view('business.orders.sale.index',compact('UserInfo','orders','city','buy','buys','retailsystem'));
+ 				return view('business.orders.sale.index',compact('UserInfo','orders','city','buy','buys','retailsystem','total_buy'));
  			}
  			else
  			{
@@ -673,7 +675,7 @@ function convertname($str) {
  			break;
  			case 7:
  			if($orders->process_id==4 || $orders->process_id==6|| $orders->process_id==5){
- 				return view('business.orders.sale.index',compact('UserInfo','orders','city','buy','buys','retailsystem'));
+ 				return view('business.orders.sale.index',compact('UserInfo','orders','city','buy','buys','retailsystem','total_buy'));
  			}
  			else
  			{
@@ -684,7 +686,7 @@ function convertname($str) {
  			case 8:
  			$sys_id=DB::table('user_retailsystem')->where('user_id',Auth::user()->id)->pluck('retailsystem_id');
  			if($sys_id->contains($orders->retailsystem_id)&&($orders->process_id==4 || $orders->process_id==6|| $orders->process_id==5)){
- 				return view('business.orders.sale.index',compact('UserInfo','orders','city','buy','buys','retailsystem'));
+ 				return view('business.orders.sale.index',compact('UserInfo','orders','city','buy','buys','retailsystem','total_buy'));
  			}
  			else
  			{

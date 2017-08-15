@@ -117,7 +117,7 @@ $(document).ready(function() {
 				required:true,
 				maxlength:255,
 				remote: {
-					url: "http://"+window.location.host+"/admin/userinfo/AjaxcheckEmployee_id",
+					url: "http://"+window.location.host+"/checkEmployee_id",
 					type: "post",
 					data: {
 						employee_id: function() {
