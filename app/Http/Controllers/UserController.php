@@ -256,8 +256,8 @@ class UserController extends Controller
 	}
 
 	public function accountregister(){
-		$user3 = DB::table('user')->join('userinfo','userinfo.user_id','=','user.id')->where('groupuser_id','=','3')->select('user.id','username','email','phone1','status','user.created_at','userinfo.address1')->where('status','=',0)->get();
-		$user6 = DB::table('user')->join('user_retailsystem','user_retailsystem.user_id','=','user.id')->where('groupuser_id','=','6')->select('user.id','username','email','phone','status','user.created_at','address')->where('status','=',0)->get();
+		$user3 = DB::table('user')->join('userinfo','userinfo.user_id','=','user.id')->where('groupuser_id','=','4')->select('user.id','username','email','phone1','status','user.created_at','userinfo.address1')->where('status','=',0)->get();
+		$user6 = DB::table('user')->join('user_retailsystem','user_retailsystem.user_id','=','user.id')->where('groupuser_id','=','6')->select('user.id','username','email','phone','status','user.created_at','address')->where('status','=',0)->get();	
 		return view('business.user.accountnew',compact('user6','user3'));
 	}
 	public function checkStatus(Request $r){
@@ -266,7 +266,7 @@ class UserController extends Controller
 			return response()->json($user);
 		}
 		if(!empty($r->user_3)){
-			$user = DB::table('user')->join('userinfo','userinfo.user_id','=','user.id')->where('groupuser_id','=','3')->select('user.id','username','email','phone1','status','user.created_at')->where('user.id','=',$r->user_3)->get();
+			$user = DB::table('user')->join('userinfo','userinfo.user_id','=','user.id')->where('groupuser_id','=','4')->select('user.id','username','email','phone1','status','user.created_at')->where('user.id','=',$r->user_3)->get();
 			return response()->json($user);
 		}
 	}

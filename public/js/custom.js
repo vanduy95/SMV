@@ -155,6 +155,7 @@ $(document).ready(function(){
 		}
 	});
 	$('#submit_search').click(function(){
+		$('#loading').show();
 		var id_comp = $('#id_company').val();
 		var cmt = $('#txt_cmt').val();
 		var code = $('#txt_code').val();
@@ -181,6 +182,7 @@ $(document).ready(function(){
 			},
 			dataType:"json",
 			success: function(res){
+				$('#loading').hide();
 				var url  = "http://"+document.location.host;
 				if(!res.error_r){
 					if(!res.cmt){

@@ -44,6 +44,15 @@
 		.clear{
 			clear: both;
 		}
+		 #loading{
+                background: url({{ asset('img/loading.gif') }}) center no-repeat #fff;
+                position: fixed;
+                left: 0px;
+                top: 0px,;
+                width: 100%;
+                height: 100%;
+                z-index: 9999
+            }
 	</style>
 	{{-- <script>
 		$(document).ready(function(){
@@ -53,6 +62,7 @@
 	</script> --}}
 </head>
 <body>
+ <div class="loading" id="loading" style="display: none"></div>
 	<header class="col-lg-12 col-md-12 col-xs-18 container-fluid">
 		<div class="container header-mobile">
 			<div class="row-menu-mobile">
