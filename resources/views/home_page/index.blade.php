@@ -317,7 +317,7 @@
 		</div>
 		<div class="info-content-xs col-md-12 col-xs-18">
 			<div class="row-info-content col-md-6 col-xs-6">
-				<h1>500 000+</h1>
+				<h1>200 000+</h1>
 				<p>Sức mua được cung cấp</p>
 			</div>
 			<div class="row-info-content col-md-6 col-xs-6">
