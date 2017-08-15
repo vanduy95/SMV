@@ -31,7 +31,7 @@
       </div>
     </div>
     <div class="form-group">
-      <label class="control-label col-sm-4" for="issuedby">Nơi cấp : </label>
+      <label class="control-label col-sm-4" for="issuedby">Nơi cấp *: </label>
       <div class="col-sm-8"> 
         <input type="text" tabindex="5" name="issuedby" class="form-control" value="{{$UserInfo['issuedby']}}">
       </div>

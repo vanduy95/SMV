@@ -54,10 +54,10 @@ class Handler extends ExceptionHandler
         {
             return redirect()->back();
         }
-        if($exception)
-        {   
-            return response()->view('business.404.404', [], 404);               
-        }
+        // if($exception)
+        // {   
+        //     return response()->view('business.404.404', [], 404);               
+        // }
         if($exception instanceof ModelNotFoundException)
         {
             $modelname = strtolower(class_basename($exception->getModel()));

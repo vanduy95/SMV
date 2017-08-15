@@ -36,7 +36,7 @@
       <div class="form-group">
         <label class="control-label col-sm-4" for="birthday">Sức mua đã được cấp : </label>
         <div class="col-sm-8"> 
-         <label class="bg-gray-fix form-control">{{number_format($UserInfo['salary']*2.5)}} đồng</label>
+         <label class="bg-gray-fix form-control">{{number_format($total_buy)}} đồng</label>
         </div>
       </div>
       <div class="form-group">

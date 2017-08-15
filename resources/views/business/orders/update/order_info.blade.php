@@ -101,7 +101,7 @@
 				<label class="col-md-6 offset-md-3">Ảnh Phiếu đăng ký mua hàng:</label>
 				<div class="col-md-12">
 					<div class="box">
-						<img width=1000 src={{ asset('/uploadfile/orders/')}}/{{$orders->uploadfile->where('type',1)->first()->path}}>
+						<img class="img-responsive" src={{ asset('/uploadfile/orders/')}}/{{$orders->uploadfile->where('type',1)->first()->path}}>
 					</div>
 				</div>
 			</div>

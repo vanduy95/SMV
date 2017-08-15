@@ -38,7 +38,7 @@
         <div class="form-group">
           <label class="control-label col-sm-4" for="">Sức mua đã được cấp : </label>
           <div class="col-sm-8"> 
-            <label   name="" class="bg-gray-fix form-control">{{str_replace(',','.',number_format($UserInfo['salary']*2.5))." đồng"}}</label>
+            <label   name="" class="bg-gray-fix form-control">{{str_replace(',','.',number_format($total_buy))." đồng"}}</label>
           </div>
         </div>
         <div class="form-group">

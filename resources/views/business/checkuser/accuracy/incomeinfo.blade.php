@@ -36,7 +36,7 @@
         <div class="form-group">
           <label class="control-label col-sm-4" for="">Sức mua đã được cấp : </label>
           <div class="col-sm-8"> 
-            <label   name="" class="bg-gray-fix form-control">{{str_replace(',','.',number_format($user->userinfo->salary*2.5))." đồng"}}</label>
+            <label   name="" class="bg-gray-fix form-control">{{str_replace(',','.',number_format(round_down($user->userinfo->salary*2.5)))." đồng"}}</label>
           </div>
         </div>
         <h3 style="text-align: center;">THÔNG TIN CẦN XÁC THỰC</h3>
