@@ -5,10 +5,14 @@
 		display: flex !important;
 		align-items: center;
 		justify-content: center;
+		display: -webkit-flex;
+		-webkit-justify-content: center;
 	}
 	ul.nav.nav-tabs{
 		display: flex;
 		justify-content: center;
+		display: -webkit-flex;
+		-webkit-justify-content: center;
 	}
 	.div-comment{
 		color: red;
