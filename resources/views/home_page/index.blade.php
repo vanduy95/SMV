@@ -330,7 +330,7 @@
 	</div>
 </section>
 <section class="info-content container-fluid" style="padding: 0 ;border-bottom: 5px solid white">
-	<div class="py-5 py-xs-0 py-md-5 col-lg-12 col-xs-18 col-md-12" style="background: #464646;padding: 0">
+	<div class="py-5 py-xs-0 py-md-5 col-lg-12 col-xs-18 col-md-12 div-flex display-none" style="background: #464646;padding: 0">
 		<div class="col-lg-6 col-md-12 col-xs-18" style="border-right: 4px solid white">
 			<h1 class="text-center" style="color: white;;font-size: 60px;">200 000+</h1>
 			<p class="text-center" style="color: white;">đã được cung cấp sức mua</p>
