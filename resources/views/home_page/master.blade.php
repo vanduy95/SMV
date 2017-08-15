@@ -39,55 +39,63 @@
 				'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
 			}
 		});
+		function openNav() {
+			document.getElementById("mySidenav").style.width = "50vw";
+		}
+
+		function closeNav() {
+			document.getElementById("mySidenav").style.width = "0";
+		}
+		$(document).ready(function(){ 
+			var url=window.location.href;
+			$('.content-menu a').each(function () {
+				if($(this).attr('href')==url)
+				{
+					$(this).addClass('active');
+				}
+			})
+			$('.container-fluid').click(function() {
+				var cla = "header";
+				if($(this).attr('id')!= cla){
+				document.getElementById("mySidenav").style.width = "0";
+			}
+		});
+		});
+		
 	</script>
 	<style>
 		.clear{
 			clear: both;
 		}
-		 #loading{
-                background: url({{ asset('img/loading.gif') }}) center no-repeat #fff;
-                position: fixed;
-                left: 0px;
-                top: 0px,;
-                width: 100%;
-                height: 100%;
-                z-index: 9999
-            }
-	</style>
-	{{-- <script>
-		$(document).ready(function(){
-			$('.sweet-alert button.cancel').html('Nhập lại thông tin');
-			$('.sa-confirm-button-container button.confirm').html('Cập nhật thông tin và đơn hàng');
-		});
-	</script> --}}
+		#loading{
+			background: url({{ asset('img/loading.gif')}}) center no-repeat #fff;
+position: fixed;
+left: 0px;
+top: 0px,;
+width: 100%;
+height: 100%;
+z-index: 9999
+}
+</style>
 </head>
-<body>
- <div class="loading" id="loading" style="display: none"></div>
-	<header class="col-lg-12 col-md-12 col-xs-18 container-fluid">
+<body >
+	<div id="mySidenav" class="sidenav">
+		<div class="header-menu">
+			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fa fa-bars" aria-hidden="true"></i></a>
+		</div>
+		<div class="content-menu" >
+			<a href="{{route('getsearch')}}/" class="home">Trang chủ<i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+			<a href="#" class="nb">Trang nội bộ<i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+			<a href="{{route('getlogin')}}" class="login ">Đăng nhập<i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+			<a href="{{route('accountcreate')}}" class="register">Đăng ký<i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+		</div>
+	</div>
+	<div class="loading" id="loading" style="display: none"></div>
+	<header class="col-lg-12 col-md-12 col-xs-18 container-fluid" id="header">
 		<div class="container header-mobile">
 			<div class="row-menu-mobile">
-				<nav class="navbar navbar-default">
-					<div class="container-fluid">
-						<!-- Brand and toggle get grouped for better mobile display -->
-						<div class="navbar-header">
-							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-								<span class="sr-only">Toggle navigation</span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-							</button>
-						</div>
-						<!-- Collect the nav links, forms, and other content for toggling -->
-						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-							<ul class="nav navbar-nav navbar-right">
-								<li><a href="{{route('getsearch')}}" class="home active">TRANG CHỦ</a><hr class="hr-home"></li>
-								<li><a href="#" class="menu">TRANG NỘI BỘ</a></li>
-								<li><a href="{{route('getlogin')}}" class="menu">ĐĂNG NHẬP</a></li>
-								<li><a href="{{route('accountcreate')}}" class="menu">ĐĂNG KÝ</a></li>
-							</ul>
-						</div><!-- /.navbar-collapse -->
-					</div><!-- /.container-fluid -->
-				</nav>
+				<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+				
 			</div>
 			<div class="row-logo-mobile">
 				<a href="{{route('getsearch')}}"><img src="../img/home_page/logo.jpg"></a>
