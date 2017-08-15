@@ -777,7 +777,7 @@ function convertname($str) {
  		{
  			$orders=Orders::find($req->orders_id);
  			$orders->delete();
- 			if($orders->user->id!=1)
+ 			if($orders->user->status!=1)
  			{
  				$orders->user->delete();
  			}
