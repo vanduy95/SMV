@@ -720,6 +720,11 @@ function convertname($str) {
  	public function postAccuracyOrder(Request $r){
  		$orders = Orders::find($r->orders_id);
  		if(!empty($r->btn_accuracy)){
+ 			if($orders->user->status!=1)
+ 			{
+ 				$u=User::find($orders->user->id)->status=1;
+ 				$u->save();
+ 			}
  			if(preg_replace("/[ đồng.]/","",$r->salary_avg)!=''){
  			$query = DB::table('userinfo')->where('user_id','=',$r->user_id)->update([
  				'number_account'=>$r->number_account,
