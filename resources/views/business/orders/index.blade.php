@@ -84,7 +84,7 @@
   <script type="text/javascript">
     $(document).ready(function() {
       $('table').on('click', '.tr',function(){
-        window.location.href="{{ url('admin/order_info') }}"+$(this).attr('id');
+        window.location.href="{{ url('admin/order_info') }}/"+$(this).attr('id');
       });
     });
   </script>
