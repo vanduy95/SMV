@@ -57,6 +57,8 @@
 		</div>
 	</div>
 </section>
+@stop
+@section('script')
 <script type="text/javascript">
 $(document).ready(function() {
 	$("#register_form").validate({

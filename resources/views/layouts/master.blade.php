@@ -55,6 +55,9 @@
   <![endif]-->
   @yield('style')
   <style>
+    .error{
+      color:red;
+    }
     .clear{
       clear: both;
     }
@@ -143,17 +146,17 @@
     });
   </script>
   <script type="text/javascript">var _Hasync= _Hasync|| [];
-_Hasync.push(['Histats.start', '1,3877614,4,306,118,60,00011001']);
-_Hasync.push(['Histats.fasi', '1']);
-_Hasync.push(['Histats.track_hits', '']);
-(function() {
-var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
-hs.src = ('//s10.histats.com/js15_as.js');
-(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
-})();</script>
-  <style type="text/css">
-    #loading{
-      background: url({{ asset('img/loading.gif') }}) center no-repeat ;
+    _Hasync.push(['Histats.start', '1,3877614,4,306,118,60,00011001']);
+    _Hasync.push(['Histats.fasi', '1']);
+    _Hasync.push(['Histats.track_hits', '']);
+    (function() {
+      var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
+      hs.src = ('//s10.histats.com/js15_as.js');
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
+    })();</script>
+    <style type="text/css">
+      #loading{
+        background: url({{ asset('img/loading.gif') }}) center no-repeat ;
 position: fixed;
 left: 0px;
 top: 0px,;

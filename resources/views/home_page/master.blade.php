@@ -40,7 +40,7 @@
 			}
 		});
 		function openNav() {
-			document.getElementById("mySidenav").style.width = "50vw";
+			document.getElementById("mySidenav").style.width = "70vw";
 		}
 
 		function closeNav() {
@@ -56,7 +56,7 @@
 			})
 			$('.container-fluid').click(function() {
 				var cla = "header";
-				if($(this).attr('id')!= cla){
+				if($(this).attr('id')!= cla || $(this).attr('id')==null){
 				document.getElementById("mySidenav").style.width = "0";
 			}
 		});
@@ -81,7 +81,7 @@ z-index: 9999
 <body >
 	<div id="mySidenav" class="sidenav">
 		<div class="header-menu">
-			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fa fa-bars" aria-hidden="true"></i></a>
+			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fa fa-times" aria-hidden="true"></i></a>
 		</div>
 		<div class="content-menu" >
 			<a href="{{route('getsearch')}}/" class="home">Trang chủ<i class="fa fa-chevron-right" aria-hidden="true"></i></a>
@@ -197,5 +197,6 @@ z-index: 9999
 			</div>
 		</div>
 	</footer>
+	@yield('script')
 </body>
 </html>

@@ -464,10 +464,10 @@
 		@media only screen and (max-width: 576px){
 			i.fa.fa-chevron-right {
 				font-size: 3vw;
-				line-height: 5!important;
+				line-height: 2!important;
 			}
 			.header-menu{
-				height: 14vw!important;
+				height: 15vw!important;
 			}
 			.row-logo-mobile>a>img {
 				width: 45vw!important;
@@ -1040,19 +1040,19 @@ div.member div.line{
 	/*css header-mobile*/
 	i.fa.fa-chevron-right {
 		float: right;
-		font-size: 2vw;
+		font-size: 3vw;
 		line-height: 2;
 	}
-	i.fa.fa-bars {
-		margin-top: 3vw;
-		color: #fff!important;
+	i.fa.fa-times {
+		color: #fff;
+		font-size: 5vw;
 	}
 	a.active {
 		color: #fff!important;
 		background-color: #663399;
 	}
 	.header-menu {
-		height: 10vw;
+		height: 11vw;
 	}
 	.header-desktop{
 		display: none;
@@ -1131,6 +1131,10 @@ div.member div.line{
 	.sidenav a {font-size: 18px;}
 }
 .header-menu{
+	display: flex;
+	justify-content: flex-end;
+	display: -webkit-flex;
+	-webkit-justify-content: flex-end;
 	background-color: #000066!important;
 }
 
