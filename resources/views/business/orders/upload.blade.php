@@ -61,7 +61,7 @@
     $('#error_img').html("");
   }
   $(document).ready(function(){
-    $('#select_list').show(500);
+    $('#select_list').show();
     $('#img').hide();
     $('#btnUpload').click(function(){
       $("#img").fadeIn("slow").attr('src','../img/noimage.gif');
@@ -88,12 +88,12 @@
         $('#lb_dis').val($('#select_dis').val());
         $('#lb_store').val($('#select_store').val());
         $('#select_list').hide();
-        $('#row-data').fadeIn(1000);
+        $('#row-data').fadeIn();
       }
     });
     $('#btn_show').click(function(){
       $('#er_data').html("");
-      $('#select_list').show(500);
+      $('#select_list').show();
       $('#row-data').hide();
     });
     $('#send_data').mouseover(function(){
@@ -126,7 +126,7 @@
           <label class="control-label col-lg-4">Siêu thị</label>
         <div class="col-lg-8">
           <select name="" id="select_market" class="form-control" >
-            <option value="" selected="">Chọn List</option>
+            <option value="" selected="">Lựa Chọn</option>
             @foreach ($name as $n)
             <option value="{{$n}}">{{$n}}</option>
             @endforeach
@@ -139,7 +139,7 @@
         <div class="col-lg-8">
           <select  name="" id="select_city" class="form-control">
             <optgroup style="height: 65px;">
-              <option value="">Chọn List</option>
+              <option value="">Lựa Chọn</option>
               @foreach ($city as $c)
               <option value="{{$c}}">{{$c}}</option>
               @endforeach
@@ -152,7 +152,7 @@
           <label class="control-label col-lg-4">Quận/Huyện:</label>
         <div class="col-lg-8">
           <select name="" id="select_dis" class="form-control">
-            <option value="">Chọn List</option>
+            <option value="">Lựa Chọn</option>
           </select>
         </div>
         <div class="clear"></div>
@@ -161,7 +161,7 @@
           <label class="control-label col-lg-4"> Cửa hàng:</label>
         <div class="col-lg-8">
           <select name="" id="select_store" class="form-control">
-            <option value="">Chọn List</option>
+            <option value="">Lựa Chọn</option>
           </select>
         </div>
         <div class="clear"></div>
@@ -184,7 +184,7 @@
          <div class=" col-lg-12 form-group ">
            <div class="col-lg-12">
              <div class="col-lg-4">
-               <label  class="pull-right" for="">Hệ thống siêu thị</label>
+               <label  class=" " for="">Hệ thống siêu thị</label>
              </div>
              <div class="col-lg-8">
               <input type="text" name="lb_market" id="lb_market" readonly="" class="form-control">
@@ -194,7 +194,7 @@
         <div class=" col-lg-12 form-group ">
           <div class="col-lg-12">
            <div class="col-lg-4">
-             <label  class="pull-right" for="">Quận Huyện</label>
+             <label  class="" for="">Quận Huyện</label>
            </div>
            <div class="col-lg-8">
             <input type="text" name="lb_dis" id="lb_dis" class="form-control" readonly>
@@ -204,7 +204,7 @@
       <div class=" col-lg-12 form-group ">
        <div class="col-lg-12">
          <div class="col-lg-4">
-           <label  class="pull-right" for="">Thành phố</label>
+           <label  class=" " for="">Thành phố</label>
          </div>
          <div class="col-lg-8">
            <input type="text" name="lb_city" id="lb_city" class="form-control" readonly>
@@ -214,7 +214,7 @@
      <div class=" col-lg-12 form-group ">
        <div class="col-lg-12">
          <div class="col-lg-4">
-           <label  class="pull-right" for="">Cửa hàng</label>
+           <label  class=" " for="">Cửa hàng</label>
          </div>
          <div class="col-lg-8">
            <input type="text" name="lb_store" id="lb_store" class="form-control" readonly>
@@ -224,7 +224,7 @@
      <div class="col-lg-12 form-group ">
        <div class="col-lg-12">
         <div class="col-lg-4">
-          <label class="pull-right" >Chọn phiếu đăng ký</label>
+          <label class=" " >Chọn phiếu đăng ký</label>
         </div>
         <div class="col-lg-8">
           <div class="input-group">
@@ -242,8 +242,8 @@
     </div>
     <div class="col-lg-12">
      <div class="col-lg-12 div-center">
-      {!! Form::submit('Gửi phiếu đăng ký', ['class'=>' btn btn-primary col-lg-5','id'=>'send_data','style'=>'background: #170e66;font-size: 20px;']) !!}
-      <input type="button" id="btn_show"  style="background: #cccccc; border: 1px solid #cccccc;color: #373737;font-size: 20px;" class="col-lg-offset-1 col-lg-3 btn btn-primary" value="Chọn lại ">
+      {!! Form::submit('Gửi phiếu đăng ký', ['class'=>' btn btn-primary col-lg-5 col-xs-7 col-md-6','id'=>'send_data','style'=>'background: #170e66;font-size: 20px;']) !!}
+      <input type="button" id="btn_show"  style="background: #cccccc; border: 1px solid #cccccc;color: #373737;font-size: 20px;" class="col-lg-offset-1 col-xs-offset-1 col-md-offset-1 col-lg-3 col-xs-4 col-md-4 btn btn-primary" value="Chọn lại ">
     </div>
     <div class="clear"></div>
   </div>
