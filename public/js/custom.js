@@ -86,6 +86,18 @@ $(document).ready(function(){
 		$('#id_company').val($(this).val());
 		$('#data-company').hide("slow");
 	});
+	$('#form-input-u').focusin(function(){
+		$('#form-label-u').text('Nhập vào tài khoản');
+	});
+	$('#form-input-u').focusout(function(){
+		$('#form-label-u').text('Tên đăng nhập');
+	});
+	$('#form-input-p').focusin(function(){
+		$('#form-label-p').text('Nhập vào mật khẩu');
+	});
+	$('#form-input-p').focusout(function(){
+		$('#form-label-p').text('Mật khẩu');
+	});
 	$('#text-input').keyup(function(){
 		var url  = "http://"+document.location.host+"/organizationPostCompany";
 		var name_cp =$('#text-input').val();

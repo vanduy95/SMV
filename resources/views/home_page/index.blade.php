@@ -385,16 +385,16 @@
 					</div>
 					<div class="pt-xs-0 pt-md-5 pt-5 col-lg-12 col-xs-18 col-md-12 div-flex">
 						<div id="hoverb1" class="mx-4 col-lg-3 col-md-2 col-xs-3 div-flex background-step">
-							<p  class="pt-3" style="font-family: Calibri;font-size: 17px;">Kiểm tra sức mua</p>
+							<p  class="" style="font-family: Calibri;">Kiểm tra sức mua</p>
 						</div>
 						<div  id="hoverb2"  class="mx-4 col-lg-3 col-md-2 col-xs-3 div-flex background-step">
-							<p  class="pt-3" style="font-family: Calibri;font-size: 17px;">Lựa chọn sản phẩm</p>
+							<p  class="" style="font-family: Calibri;">Lựa chọn sản phẩm</p>
 						</div>
 						<div id="hoverb3" class="mx-4 col-lg-3 col-md-3 col-xs-5 div-flex background-step">
-							<p    class="pt-3" style="font-family: Calibri;font-size: 17px;">Nhận hàng</p>
+							<p    class="" style="font-family: Calibri;">Nhận hàng</p>
 						</div>
 						<div  id="hoverb4"  class="mx-4 col-lg-3 col-md-2 col-xs-3 div-flex background-step">
-							<p   class="pt-3" style="font-family: Calibri;font-size: 17px;">Thanh toán</p>
+							<p   class="" style="font-family: Calibri;">Thanh toán</p>
 						</div>
 					</div>
 					<div  class="py-xs-0 py-md-4 py-4 col-lg-12 col-xs-18 col-md-12 div-flex" style="z-index: 999999">

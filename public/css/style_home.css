@@ -1,3 +1,7 @@
+#hoverb1 > p,#hoverb2 > p,#hoverb3 > p,#hoverb4 > p {
+	font-size: 1.3vw;
+	padding: 1vw 0vw;
+}
 .conddtion-member > p{
 	text-align: left;
 	z-index: -1;
