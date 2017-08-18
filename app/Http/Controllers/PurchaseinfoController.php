@@ -82,9 +82,9 @@ class PurchaseinfoController extends Controller
 						$cal = ($userall[0]->salary*2.5)-$userall[0]->price;
 						if($cal==0 || $cal < 0){
 							$usercut = [
-							['price'=>$userall[0]->price,
+							['price'=>round_down($userall[0]->price),
 							'fullname'=>$userall[0]->fullname,
-							'salary'=>$userall[0]->salary,
+							'salary'=>round_down($userall[0]->salary),
 							'notify'=>'notify']];
 							return Response::json($usercut);
 						}
@@ -95,9 +95,9 @@ class PurchaseinfoController extends Controller
 						}
 						else{
 							$usercut = [
-							['price'=>$userall[0]->price,
+							['price'=>round_down($userall[0]->price),
 							'fullname'=>$userall[0]->fullname,
-							'salary'=>$userall[0]->salary,
+							'salary'=>round_down($userall[0]->salary),
 							'notify'=>'notify']];
 							return Response::json($usercut);
 						}
@@ -143,9 +143,9 @@ class PurchaseinfoController extends Controller
 						$cal = ($userall[0]->salary*2.5)-$userall[0]->price;
 						if($cal==0 || $cal < 0){
 							$usercut = [
-							['price'=>$userall[0]->price,
+							['price'=>round_down($userall[0]->price),
 							'fullname'=>$userall[0]->fullname,
-							'salary'=>$userall[0]->salary,
+							'salary'=>round_down($userall[0]->salary),
 							'notify'=>'notify']];
 							return Response::json($usercut);
 						}
@@ -156,9 +156,9 @@ class PurchaseinfoController extends Controller
 						}
 						else{
 							$usercut = [
-							['price'=>$userall[0]->price,
+							['price'=>round_down($userall[0]->price),
 							'fullname'=>$userall[0]->fullname,
-							'salary'=>$userall[0]->salary,
+							'salary'=>round_down($userall[0]->salary),
 							'notify'=>'notify']];
 							return Response::json($usercut);
 						}
@@ -199,9 +199,9 @@ class PurchaseinfoController extends Controller
 						$cal = ($userall[0]->salary*2.5)-$userall[0]->price;
 						if($cal==0 || $cal < 0){
 							$usercut = [
-							['price'=>$userall[0]->price,
+							['price'=>round_down($userall[0]->price),
 							'fullname'=>$userall[0]->fullname,
-							'salary'=>$userall[0]->salary,
+							'salary'=>round_down($userall[0]->salary),
 							'notify'=>'notify']];
 							return Response::json($usercut);
 						}
@@ -212,9 +212,9 @@ class PurchaseinfoController extends Controller
 						}
 						else{
 							$usercut = [
-							['price'=>$userall[0]->price,
+							['price'=>round_down($userall[0]->price),
 							'fullname'=>$userall[0]->fullname,
-							'salary'=>$userall[0]->salary,
+							'salary'=>round_down($userall[0]->salary),
 							'notify'=>'notify']];
 							return Response::json($usercut);
 						}
