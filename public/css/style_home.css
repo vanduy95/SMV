@@ -2,6 +2,9 @@
 	font-size: 1.3vw;
 	padding: 1vw 0vw;
 }
+.header-desktop{
+	margin-top: 1.5vw;
+}
 .conddtion-member > p{
 	text-align: left;
 	z-index: -1;
@@ -786,7 +789,7 @@
 			margin-left: 10px !important;
 		}
 		.row-logo img{
-			max-width: 250px;
+			max-width: 90%;
 		}
 		.navbar{
 			border: none !important;
@@ -1309,3 +1312,10 @@ div.member div.line{
 .button-ok .btn:hover{
 	color: #fff;
 } 
+.Hotline-logo .fa-phone:before {
+	color: red;
+    width: 4vw;
+    border: 1px solid red;
+    border-radius: 50%;
+    padding: 0.2vw 0.4vw;
+}

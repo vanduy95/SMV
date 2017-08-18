@@ -57,9 +57,9 @@
 			$('.container-fluid').click(function() {
 				var cla = "header";
 				if($(this).attr('id')!= cla || $(this).attr('id')==null){
-				document.getElementById("mySidenav").style.width = "0";
-			}
-		});
+					document.getElementById("mySidenav").style.width = "0";
+				}
+			});
 		});
 		
 	</script>
@@ -107,24 +107,14 @@ z-index: 9999
 			</div>
 		</div>
 		<div class="container header-desktop">
-			<span><b>HOTLINE: 0904633568</b></span>
-			<div class="row row-search">
-				<a href="" class="social-icon"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-				<a href="" class="social-icon"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-				<a href="" class="social-icon"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-				<div id="imaginary_container"> 
-					<div class="input-group stylish-input-group">
-						<input type="text" class="form-control"  placeholder="Tìm kiếm" >
-						<span class="input-group-addon">
-							<button type="submit">
-								<span class="glyphicon glyphicon-search"></span>
-							</button>  
-						</span>
-					</div>
-				</div>
-			</div>
 			<div class="row row-logo">
-				<a href="{{route('getsearch')}}"><img src="../img/home_page/logo.jpg"></a>
+				<div class="col-lg-4" style="padding: 0;">
+					<a href="{{route('getsearch')}}"><img src="../img/home_page/logo.jpg"></a>
+				</div>
+				<div class="Hotline-logo col-lg-3">
+					<p style="font-size: 1.7vw;"><i class="fa fa-phone" aria-hidden="true" style="margin-right: 1vw;"></i>Hotline</p>
+					<p><span>024.6655.2428</span><span>0904.633.568</span></p>
+				</div>
 			</div>
 			<div class="row row-menu">
 				<nav class="navbar navbar-default">
