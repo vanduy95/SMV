@@ -40,6 +40,7 @@ Route::get('orders/show',function(){if(session()->has('customer_id'))
 		return redirect('orders/create');
 
 });
+Route::get('checkUsername', ['as'=>'checkUsername','uses'=>'UserController@checkUsername']);
 Route::post('checkidentitycard',['as'=>'','uses'=>'CheckUserController@checkidentitycard']);
 Route::post('checkEmployee_id',array('as'=>'AjaxcheckEmployee_id','uses'=>'CheckUserController@checkEmployee_id'));
 Route::post('orders',array('as'=>'postAjaxOrder','uses'=>'OrdersController@postAjax'))->name('redirectAjax');

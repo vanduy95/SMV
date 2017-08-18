@@ -10,7 +10,7 @@ $(document).ready(function() {
 			},
 			username: {
 				required: true,
-				minlength: 3
+				minlength: 3,
 			},
 			email: {
 				required: true,
