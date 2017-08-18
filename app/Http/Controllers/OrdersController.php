@@ -786,8 +786,8 @@ function convertname($str) {
  		}
  		$userinfo=UserInfo::find($req->userinfo_id);
  		$user=User::find($req->user_id);
- 		$user->organization_id=$req->organization_id;
- 		$user->save();
+ 		//$user->organization_id=$req->organization_id;
+ 		//$user->save();
  		$userinfo->employee_id=$req->employee_id;
  		$userinfo->user_id=$req->user_id;
  		$userinfo->fullname=$req->name;
