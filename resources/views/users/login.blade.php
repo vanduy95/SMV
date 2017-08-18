@@ -72,20 +72,22 @@
             <div class="form-title col-lg-12 col-xs-12 col-md-12 text-center">
                 <h1>ĐĂNG NHẬP</h1>
             </div>
-            <div class="form-title col-lg-6 col-xs-6 col-md-6">
-                <img src="" alt="">
-            </div>
+            <div class="form-title col-lg-6 col-xs-6 col-md-6">            </div>
             <div class="clear"></div>
         </div>
         <div class="col-lg-12" style="padding: 0">
-            <form class="form-login col-lg-12 col-md-12 col-xs-12" action="">
+            <form class="form-login col-lg-12 col-md-12 col-xs-12" method="post" action="/login">
+                {{csrf_field()}}
                 <div  class="form-input col-lg-12 col-xs-12 col-md-12 form-group">
                     <label id="form-label-u" for="">Tên đăng nhập</label>
-                    <input id="form-input-u"  class="form-control" type="text">
+                    <input id="form-input-u" name="username"  class="form-control" type="text">
                 </div>
+                @if($errors->has('username')) <p>{{"a"}}</p>
+                @endif
                 <div  class="form-input col-lg-12 col-xs-12 col-md-12 form-group">
                     <label id="form-label-p" for="">Mật khẩu</label>
-                    <input id="form-input-p" class="form-control" type="text">
+                    <input id="form-input-p" name="password" class="form-control" type="password">
+                    @if($errors->has('password'))<p style="color: red;font-family: Arial">{{$errors->first('password')}}</p>@endif
                 </div>
                 <div class="form-input col-lg-12 col-xs-12 col-md-12">
                     <label for=""><a href="">Quên mật khẩu</a></label>
