@@ -9,7 +9,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::post('fix','LoginController@fix');
 Route::get('home',['as'=>'indexHome','uses'=>'PurchaseinfoController@getsearch']);
 Route::get('change/user',array('as'=>'indexChangeUser','uses'=>'LoginController@indexchangeUser'));
 Route::post('user/checkuser',array('as'=>'AjaxCheckUser','uses'=>'UserController@AjaxCheckUser'));

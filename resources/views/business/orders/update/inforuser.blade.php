@@ -37,16 +37,9 @@
       </div>
     </div>
       <div class="form-group">
-      <label class="control-label col-sm-4" for="organization_id">Công ty hiện tại: </label>
+      <label class="control-label col-sm-4">Công ty hiện tại: </label>
       <div class="col-sm-8"> 
-        <select class="form-control" name="organization_id">
-          @foreach ($organization as $value)
-             <option 
-             @if ($value->id==$UserInfo->user->organization_id)
-                selected
-             @endif value="{{$value->id}}">{{$value->name}}</option>
-          @endforeach
-        </select>
+        <label type="text" tabindex="6" class="form-control" id="compnay" name="compnay" >{{$UserInfo->user->organization->name}}</label>
       </div>
     </div>
     <div class="form-group">

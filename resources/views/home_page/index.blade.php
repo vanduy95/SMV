@@ -517,7 +517,7 @@
 	</div>
 	<div class="col-lg-12 col-md-12 col-xs-18 div-flex" style="padding: 0">
 		<div class="col-lg-4 col-md-4 col-xs-5  conddtion-member" style="padding: 0">
-			<p class="">1. Đơn vị bạn đang công tác đã tham  gia chương trình của Sức Mua Việt</p>
+			<p class="">1. Doanh nghiệp bạn đang công tác đã có trong danh sách lựa chọn của Sức Mua Việt</p>
 			<img  src="../img/home_page/tick.png"/>
 		</div>
 		<div class="col-lg-offset-1 col-xs-offset-1 col-md-offset-1 col-lg-4 col-md-4 col-xs-5 conddtion-member">
