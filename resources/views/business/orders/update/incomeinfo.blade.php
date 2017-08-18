@@ -72,9 +72,9 @@
     <div class="col-sm-8"> 
       <select readonly tabindex="7" class="form-control" id="exchange_status">
         <option  value="">chọn</option>
-        <option {{$UserInfo['exchange_status']==0?"selected":""}} value="0">Có phát sinh trong 3 tháng liền kề </option>
-        <option {{$UserInfo['exchange_status']==1?"selected":""}} value="1">Có phát sinh trong 6 tháng liền kề </option>
-        <option {{$UserInfo['exchange_status']==2?"selected":""}} value="2">Không phát sinh hoặc phát sinh dưới 3 tháng liền kề</option>
+        <option {{$UserInfo['exchange_status']==0?"selected":""}} value="0">Liên tục 3 tháng liền kề </option>
+        <option {{$UserInfo['exchange_status']==1?"selected":""}} value="1">Liên tục 6 tháng liền kề </option>
+        <option {{$UserInfo['exchange_status']==2?"selected":""}} value="2">Không, hoặc không liên tục</option>
       </select>
     </div>
   </div>

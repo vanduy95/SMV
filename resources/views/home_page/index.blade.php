@@ -197,6 +197,7 @@
 							<div class="col-md-12 col-xs-18">
 								<div class="col-xs-18 div-flex">
 									<select id="selectpicker_xs" name="selectpicker_xs" class="col-xs-16 col-md-12 form-control selectpicker"  data-show-subtext="true" data-live-search="true">
+										<option>Chọn công ty</option>
 										@foreach ($company as $c)
 										<option value="{{$c->id}}">{{$c->name}}</option>
 										@endforeach
