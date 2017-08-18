@@ -200,6 +200,11 @@ $(document).ready(function(){
 			success: function(res){
 				$('#loading').hide();
 				var url  = "http://"+document.location.host;
+				if(res.error_all){
+					$('#error_com').html("Bạn phải chọn công ty");
+					$('#error_cmt').html("Nhập số chứng minh nhân dân hoặc mã nhân viên");
+					$('#error_code').html("Nhập mã nhân viên hoặc số chứng minh nhân dân");
+				}
 				if(!res.error_r){
 					if(!res.cmt){
 						if(!res.data){
@@ -277,16 +282,16 @@ $(document).ready(function(){
 					}
 				}
 				else{
-					$('#error_com').html("Bạn phải chọn công ty");
+					// $('#error_com').html("Bạn phải chọn công ty");
 					$('#error_cmt').html("Nhập số chứng minh nhân dân hoặc mã nhân viên");
 					$('#error_code').html("Nhập mã nhân viên hoặc số chứng minh nhân dân");
 				}
 			},
 			error: function(res){
 				// console.log(res);
-				// (JSON.parse(res.responseText).id_com)==""?$('#error_com').html(""):$('#error_com').html((JSON.parse(res.responseText).id_com));
-				// (JSON.parse(res.responseText).cmt)==""?$('#error_cmt').html(""):$('#error_cmt').html((JSON.parse(res.responseText).cmt));
-				// (JSON.parse(res.responseText).code)==""?$('#error_code').html(""): $('#error_code').html((JSON.parse(res.responseText).code));    
+				(JSON.parse(res.responseText).id_com)==""?$('#error_com').html(""):$('#error_com').html((JSON.parse(res.responseText).id_com));
+				(JSON.parse(res.responseText).cmt)==""?$('#error_cmt').html(""):$('#error_cmt').html((JSON.parse(res.responseText).cmt));
+				(JSON.parse(res.responseText).code)==""?$('#error_code').html(""): $('#error_code').html((JSON.parse(res.responseText).code));    
 			},
 		});
 });
@@ -382,11 +387,10 @@ $('#btn_search_xs').click(function(){
 			}
 		},
 		error: function(res){
-			console.log(res);
-				// (JSON.parse(res.responseText).id_com)==""?$('#error_com').html(""):$('#error_com').html((JSON.parse(res.responseText).id_com));
-				// (JSON.parse(res.responseText).cmt)==""?$('#error_cmt').html(""):$('#error_cmt').html((JSON.parse(res.responseText).cmt));
-				// (JSON.parse(res.responseText).code)==""?$('#error_code').html(""): $('#error_code').html((JSON.parse(res.responseText).code));    
-			},
-		});
+			(JSON.parse(res.responseText).id_com)==""?$('#error_com').html(""):$('#error_com').html((JSON.parse(res.responseText).id_com));
+			(JSON.parse(res.responseText).cmt)==""?$('#error_cmt').html(""):$('#error_cmt').html((JSON.parse(res.responseText).cmt));
+			(JSON.parse(res.responseText).code)==""?$('#error_code').html(""): $('#error_code').html((JSON.parse(res.responseText).code));    
+		},
+	});
 });
 });

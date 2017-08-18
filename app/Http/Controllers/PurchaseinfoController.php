@@ -225,8 +225,8 @@ class PurchaseinfoController extends Controller
 				return Response::json(["data"=>$ex]);
 			}
 		}
-		else if(!empty($r->id_com)){
-			return Response::json(["error_com"=>' ']);
+		else if(($r->id_com=="") && ($r->cmt=="") && ($r->code=="")){
+			return Response::json(["error_all"=>' ']);
 		}
 		else{
 			return Response::json(['error_r'=>' ']);
