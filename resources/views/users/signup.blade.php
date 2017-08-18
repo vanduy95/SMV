@@ -18,6 +18,7 @@
     <!-- Custom styles -->
     {!!Html::style('css/style1.css')!!} 
     {!!Html::style('css/style-responsive.css')!!} 
+    {{-- {!!Html::script('js/custom.js')!!} --}}
 </head>
 <body class="login-img3-body">
     <div class="container">

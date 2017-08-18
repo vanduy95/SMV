@@ -1,7 +1,17 @@
+#hoverb1 > p,#hoverb2 > p,#hoverb3 > p,#hoverb4 > p {
+	font-size: 1.3vw;
+	padding: 1vw 0vw;
+}
 .conddtion-member > p{
 	text-align: left;
 	z-index: -1;
 	padding: 2vw;background: #170e66;border-radius: 10px;color: white;vertical-align: middle;margin: 0;font-size: 1.5vw;position: relative;
+}
+.step-buy-product{
+	display: block !important;
+}
+.step-buy-product-xs{
+	display: none !important;
 }
 .conddtion-member > img{
 	width: 5vw;
@@ -66,23 +76,20 @@
 			font-size: 2vw;
 		}	
 	}
-	@media (min-width: 1023px){
+	@media screen and (max-width: 1023px){
 		.step-buy-product{
-			display: block !important;
+			display: none !important;
 		}
 		.step-buy-product-xs{
-			display: none !important;
+			display: block !important;
 		}
 		*{
 			font-family: Calibri,Candara,Segoe,Segoe UI,Optima,Arial,sans-serif, cursive;
 		}
 
 	}
-	@media (max-width: 1023px){
-		/*aboutus*/
-
-
-		/**/
+	
+	@media (max-width: 1024px){
 		.text-sm{
 			font-size: 5vw!important;
 		}
@@ -95,7 +102,6 @@
 		.flex-direction{
 			flex-direction: column;
 		}
-
 		.info-content{
 			display: block !important;
 		}
@@ -206,6 +212,12 @@
 	@media only screen and (max-width: 768px){
 		.member-botton{
 			margin-bottom: 10px;
+		}
+		.step-buy-product{
+			display: none !important;
+		}
+		.step-buy-product-xs{
+			display: block !important;
 		}
 	}
 	@media only screen and (max-width: 769px){
@@ -471,6 +483,12 @@
 			i.fa.fa-chevron-right {
 				font-size: 3vw;
 				line-height: 2!important;
+			}
+			.step-buy-product{
+				display: none !important;
+			}
+			.step-buy-product-xs{
+				display: block !important;
 			}
 			.header-menu{
 				height: 15vw!important;
