@@ -4,7 +4,7 @@
 	<div class="background-xs col-lg-12 col-xs-18 col-md-12" style="padding: 0">
 		<div  class="banner-content col-lg-12 col-md-12 col-xs-18" style="padding: 0">
 			<div class="bg-content col-xs-18 col-md-12" style="padding: 0">
-				<div id="alert_info" class="container-fluid div-flex col-lg-12 col-xs-18 col-md-12" style="position: absolute; min-height: 100%; background: rgba(255,255,255,0.7);z-index: 999999; display: none;">
+				<div id="alert_info" class="container-fluid div-flex col-lg-12 col-xs-18 col-md-12" style="position: absolute; min-height: 100%; background: rgba(0,0,0,0.6);z-index: 999999; display: none;">
 					<div class="col-lg-5 col-xs-18 col-md-12">
 						<div class="col-lg-12 col-md-12 col-xs-18"  style="background: #170e66">
 							<h1 class="text-center" style="color: white">THÔNG TIN HỘI VIÊN</h1>
