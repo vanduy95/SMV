@@ -7,6 +7,9 @@
 .row{
 	margin: 0 !important;
 }
+nav.navbar.navbar-default {
+    margin-bottom: 0.5vw;
+}
 .div-center{
 	display: flex;
 	justify-content: center;
@@ -1455,4 +1458,7 @@ div.member div.line{
     border: 1px solid red;
     border-radius: 50%;
     padding: 0.2vw 0.4vw;
+}
+.Hotline-logo>p>span{
+	font-size: 1.1vw;
 }
