@@ -6,7 +6,7 @@
     <meta name="description" content="Creative - Bootstrap 3 Responsive Admin Template">
     <meta name="author" content="GeeksLabs">
     <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
-    <link rel="shortcut icon" type="image/x-icon" href="../img/home_page/logo.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{url('img/demo/shortcut-icon.png')}}" />
     <title>SỨC MUA VIỆT</title>
     <!-- Bootstrap CSS -->
     {!!Html::style('css/bootstrap.min.css')!!}    

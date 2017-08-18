@@ -68,7 +68,7 @@
 			clear: both;
 		}
 		#loading{
-			background: url({{ asset('img/loading.gif')}}) center no-repeat #fff;
+			background: url({{ asset('img/loading.gif')}}) center no-repeat rgba(0,0,0,0.5);
 position: fixed;
 left: 0px;
 top: 0px,;
@@ -161,7 +161,7 @@ z-index: 9999
 			<div class="row footer-menu">
 				<span class="short-menu line"><a href="">Mua hàng trả góp</a></span>
 				<span class="short-menu line"><a href="">Trang nội bộ</a></span>
-				<span class="short-menu"><a href="">Thông tin công ty</a></span>
+				<span class="short-menu"><a href="">Giới thiệu</a></span>
 			</div>
 			<div class="row footer-contact">
 				<h2>CÔNG TY TNHH PHÁT TRIỂN  SỨC MUA VIỆT</h2>

@@ -25,14 +25,14 @@ class LoginController extends Controller
   return view('users.login');
 }
 // public function indexchangeUser(){
-  // if(session()->get('username')){
-   // return view('business.user.changeuser',compact(session()->get('username')));
-   // return view('business.user.demo');
+// if(session()->get('username')){
+ // return view('business.user.changeuser',compact(session()->get('username')));
+ // return view('business.user.demo');
 
- // }
- // else{
- //   return view('users.login');
- // }
+// }
+// else{
+//   return view('users.login');
+// }
 // }
 public function login(LoginRequest $request){
   if($request->back_url != null){
@@ -54,23 +54,23 @@ public function login(LoginRequest $request){
     $errors = new MessageBag(['errorslogin'=>'Tên đăng nhập hoặc mật khẩu không đúng']);
     return redirect()->back()->withErrors($errors);
   }
-  // if($auth==true){
-  //   $user =  DB::table('user')->select('remember_token','username')->where('user.username','=',$request->username)->get()->first();
-  //   if($user->remember_token==""){
-  //     Auth::guard('web')->logout();
-  //     session()->put('username',$user->username);
-  //     return redirect()->route('indexChangeUser');
-  //   }else{
-  //     return redirect()->route($nameroute);
-  //   }
-  // }
-  // else{
-  //   $errors = new MessageBag(['errorslogin'=>'Tên đăng nhập hoặc mật khẩu không đúng']);
-  //   return redirect()->back()->withErrors($errors);
-  // }
+// if($auth==true){
+//   $user =  DB::table('user')->select('remember_token','username')->where('user.username','=',$request->username)->get()->first();
+//   if($user->remember_token==""){
+//     Auth::guard('web')->logout();
+//     session()->put('username',$user->username);
+//     return redirect()->route('indexChangeUser');
+//   }else{
+//     return redirect()->route($nameroute);
+//   }
+// }
+// else{
+//   $errors = new MessageBag(['errorslogin'=>'Tên đăng nhập hoặc mật khẩu không đúng']);
+//   return redirect()->back()->withErrors($errors);
+// }
 }
 public function signout(){
- Auth::guard('web')->logout();
- return redirect()->route('getlogin');
+  Auth::guard('web')->logout();
+  return redirect()->route('getlogin');
 }
 }

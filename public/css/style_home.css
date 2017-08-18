@@ -1254,3 +1254,58 @@ div.member div.line{
 .background-program{
 	background: rgba(243, 245, 240, 0.7);
 }
+/*success*/
+.div-center{
+	display: flex;
+	justify-content: space-between;
+	display: -webkit-flex;
+	-webkit-justify-content: center;
+	background: rgba(255,255,255,0.8);
+}
+.content-center{
+	text-align: center;
+	padding: 0;
+	background: rgba(255,255,255,0.8); top: 10px;
+	margin-top: 6vw;
+	margin-bottom: 6vw;
+}
+.header-success{
+	padding: 0px;
+	background: #1c1c70;
+}
+.header-success{
+	color: #fff;
+}
+.header-success>h1{
+	font-size: 3vw;
+	font-weight: bold;
+}
+.client-success>div>p{
+	font-size: 1.7vw;
+	font-family: arial;
+}
+.client-success>div{
+	padding: 2vw 2vw 0vw 2vw;
+}
+.client-success>h1{
+	font-weight: bold;
+	font-size: 2.5vw;
+}
+.client-success{
+	padding: 2vw 6vw 1vw 6vw;
+}
+.button-ok{
+	display: flex;
+	justify-content: space-between;
+	display: -webkit-flex;
+	-webkit-justify-content: center;
+	padding-bottom: 3vw;
+}
+.button-ok>a{
+	background:#1c1c70;
+	color: #fff;
+
+}
+.button-ok .btn:hover{
+	color: #fff;
+} 
