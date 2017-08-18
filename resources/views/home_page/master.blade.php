@@ -85,13 +85,13 @@ z-index: 9999
 		</div>
 		<div class="content-menu" >
 			<a href="{{route('getsearch')}}/" class="home">Trang chủ<i class="fa fa-chevron-right" aria-hidden="true"></i></a>
-			<a href="#" class="nb">Trang nội bộ<i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+			<a href="{{route('aboutus')}}" class="nb">Trang nội bộ<i class="fa fa-chevron-right" aria-hidden="true"></i></a>
 			<a href="{{route('getlogin')}}" class="login ">Đăng nhập<i class="fa fa-chevron-right" aria-hidden="true"></i></a>
 			<a href="{{route('accountcreate')}}" class="register">Đăng ký<i class="fa fa-chevron-right" aria-hidden="true"></i></a>
 		</div>
 	</div>
 	<div class="loading" id="loading" style="display: none"></div>
-	<header class="col-lg-12 col-md-12 col-xs-18 container-fluid" id="header">
+	<header class="container-fluid" id="header">
 		<div class="container header-mobile">
 			<div class="row-menu-mobile">
 				<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
@@ -142,7 +142,7 @@ z-index: 9999
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav navbar-right">
 								<li><a href="{{route('getsearch')}}" class="home active">TRANG CHỦ</a><hr class="hr-home"></li>
-								<li><a href="#" class="menu">TRANG NỘI BỘ</a></li>
+								<li><a href="{{route('aboutus')}}" class="menu">TRANG NỘI BỘ</a></li>
 								<li><a href="{{route('getlogin')}}" class="menu">ĐĂNG NHẬP</a></li>
 								<li><a href="{{route('accountcreate')}}" class="menu">ĐĂNG KÝ</a></li>
 							</ul>

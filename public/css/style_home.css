@@ -73,10 +73,16 @@
 		.step-buy-product-xs{
 			display: none !important;
 		}
-
+		*{
+			font-family: Calibri,Candara,Segoe,Segoe UI,Optima,Arial,sans-serif, cursive;
+		}
 
 	}
 	@media (max-width: 1023px){
+		/*aboutus*/
+
+
+		/**/
 		.text-sm{
 			font-size: 5vw!important;
 		}
@@ -1138,3 +1144,95 @@ div.member div.line{
 	background-color: #000066!important;
 }
 
+.content>h1{
+	font-weight: bold;
+	color: #fff;
+	font-size: 4vw;
+	display: flex;
+	justify-content: flex-start;
+	display: -webkit-flex;
+	-webkit-justify-content: flex-start;
+}
+.content>h1>span{
+	border-bottom: 0.5vw solid;
+	margin: 3vw 3vw 3vw 7vw;
+}
+.about-company{
+	background: #ebebeb;
+}
+.row.aboutus.content>h2 {
+	font-size: 1.9vw;
+}
+.aboutus{
+	margin: 2.5vw 6vw 8.5vw 6vw;
+}
+.title-bold{
+	font-weight: bold;
+	font-size: 2vw;
+}
+.definition{
+	font-size: 1.3vw;
+}
+.col-first{
+	padding-left: 0px;
+}
+.col-last{
+	padding-right: 0px;
+}
+.col-lg-12.col-first.col-last {
+	display: flex;
+	justify-content: flex-end;
+	display: -webkit-flex;
+	-webkit-justify-content: flex-end;
+}
+.interest-background{
+	background-color: #fff;
+}
+.interest-title{
+	padding-top: 2vw;
+	padding-bottom: 3vw;
+	font-size: 2vw;
+	font-weight: bold;
+}
+.interest{
+	padding-right: 4vw;
+	display: flex;
+	justify-content: space-between;
+	display: -webkit-flex;
+	-webkit-justify-content: space-between;
+}
+.interest-content{
+	padding: 0vw 0vw 3vw 14vw;
+	font-size: 1.4vw;
+	margin-right: 2vw;
+}
+.background{
+	background: url('../img/home_page/accounting.jpg');
+}
+.program{
+	font-size: 2.8vw;
+}
+.img-content{
+	padding-right: 4vw;
+	display: flex;
+	justify-content: space-between;
+	display: -webkit-flex;
+	-webkit-justify-content: space-between;
+}
+.content-sm{
+	width: 72%;
+	padding-top: 1vw;
+}
+.content-sm>span{
+	font-size: 1.5vw;
+}
+.content-sm>span>i{
+	font-size: 0.8vw;
+	padding-right: 2vw;
+}
+.interest-0{
+	font-weight: bold;
+}
+.background-program{
+	background: rgba(243, 245, 240, 0.7);
+}

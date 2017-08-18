@@ -266,4 +266,9 @@ class PurchaseinfoController extends Controller
 		$company = DB::table('organization')->where('ma','<>','HT')->select('name','id')->get();
 		return view('business.orders.ordershowadd',compact('city','name','company','today'));
 	}
+
+	public function aboutus()
+	{
+		return view('home_page.aboutus');
+	}
 }
