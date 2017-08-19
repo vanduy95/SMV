@@ -301,6 +301,7 @@ $('#btn_search_xs').click(function(){
 	var code = $('#code_employ').val();
 	var url  = "http://"+document.location.host;
 	$('#selectpicker_xs').val("");
+	$('span.filter-option').text("Chọn công ty");
 	$('#number_iden').val("");
 	$('#code_employ').val("");
 	$('#txt_code').val("");
