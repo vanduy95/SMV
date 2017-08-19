@@ -323,7 +323,12 @@ $('#btn_search_xs').click(function(){
 		dataType:"json",
 		success: function(res){
 			var url  = "http://"+document.location.host;
-			if(!res.error_com){
+			if(res.error_all){
+				$('#error_com_xs').html("Bạn phải chọn công ty");
+				$('#error_cmt_xs').html("Nhập số chứng minh nhân dân hoặc mã nhân viên");
+				$('#error_code_xs').html("Nhập mã nhân viên hoặc số chứng minh nhân dân");
+			}
+			if(!res.error_r){
 				if(!res.cmt){
 					if(!res.data){
 						if(res.nonotify=="nonotify"){
@@ -377,14 +382,14 @@ $('#btn_search_xs').click(function(){
 				}
 			}
 			else{
-				$('#error_com_xs').html("Bạn phải chọn công ty");
+				// $('#error_com_xs').html("Bạn phải chọn công ty");
 				$('#error_cmt_xs').html("Nhập số chứng minh nhân dân hoặc mã nhân viên");
 				$('#error_code_xs').html("Nhập mã nhân viên hoặc số chứng minh nhân dân");
 			}
-			if(res.error_com){
-				$('#error_cmt_xs').html("Nhập số chứng minh nhân dân hoặc mã nhân viên");
-				$('#error_code_xs').html("Nhập mã nhân viên hoặc số chứng minh nhân dân");
-			}
+			// if(res.error_all){
+			// 	$('#error_cmt_xs').html("Nhập số chứng minh nhân dân hoặc mã nhân viên");
+			// 	$('#error_code_xs').html("Nhập mã nhân viên hoặc số chứng minh nhân dân");
+			// }
 		},
 		error: function(res){
 			(JSON.parse(res.responseText).id_com)==""?$('#error_com').html(""):$('#error_com').html((JSON.parse(res.responseText).id_com));
