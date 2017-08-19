@@ -62,7 +62,7 @@
         <a href="/"><img src="../img/home_page/logo.png" alt=""></a>
     </div>
     <div class="head-logo col-lg-8 col-md-6 col-xs-6">
-        <a href="/account/register"><h3>Đăng ký</h3></a>
+        <a href="{{route('accountcreate')}}"><h3>Đăng ký</h3></a>
     </div>
     <div class="clear"></div>
 </div>
