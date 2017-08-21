@@ -85,7 +85,7 @@ z-index: 9999
 		</div>
 		<div class="content-menu" >
 			<a href="{{route('getsearch')}}/" class="home">Trang chủ<i class="fa fa-chevron-right" aria-hidden="true"></i></a>
-			<a href="{{route('aboutus')}}" class="nb">Trang nội bộ<i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+			<a href="{{route('aboutus')}}" class="nb">Giới thiệu<i class="fa fa-chevron-right" aria-hidden="true"></i></a>
 			<a href="{{route('getlogin')}}" class="login ">Đăng nhập<i class="fa fa-chevron-right" aria-hidden="true"></i></a>
 			<a href="{{route('accountcreate')}}" class="register">Đăng ký<i class="fa fa-chevron-right" aria-hidden="true"></i></a>
 		</div>
@@ -132,7 +132,7 @@ z-index: 9999
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav navbar-right">
 								<li><a href="{{route('getsearch')}}" class="home active">TRANG CHỦ</a><hr class="hr-home"></li>
-								<li><a href="{{route('aboutus')}}" class="menu">TRANG NỘI BỘ</a></li>
+								<li><a href="{{route('aboutus')}}" class="menu">GIỚI THIỆU</a></li>
 								<li><a href="{{route('getlogin')}}" class="menu">ĐĂNG NHẬP</a></li>
 								<li><a href="{{route('accountcreate')}}" class="menu">ĐĂNG KÝ</a></li>
 							</ul>
@@ -151,7 +151,7 @@ z-index: 9999
 			<div class="row footer-menu">
 				<span class="short-menu line"><a href="">Mua hàng trả góp</a></span>
 				<span class="short-menu line"><a href="">Trang nội bộ</a></span>
-				<span class="short-menu"><a href="">Giới thiệu</a></span>
+				<span class="short-menu"><a href="{{route('aboutus')}}">Giới thiệu</a></span>
 			</div>
 			<div class="row footer-contact">
 				<h2>CÔNG TY TNHH PHÁT TRIỂN  SỨC MUA VIỆT</h2>
