@@ -4,7 +4,7 @@
 	<div class="background-xs col-lg-12 col-xs-18 col-md-12" style="padding: 0">
 		<div  class="banner-content col-lg-12 col-md-12 col-xs-18" style="padding: 0">
 			<div class="bg-content col-xs-18 col-md-12" style="padding: 0">
-				<div id="alert_info" class="container-fluid div-flex col-lg-12 col-xs-18 col-md-12" style="position: absolute; min-height: 100%; background: rgba(255,255,255,0.7);z-index: 999999; display: none;">
+				<div id="alert_info" class="container-fluid div-flex col-lg-12 col-xs-18 col-md-12" style="position: absolute; min-height: 100%; background: rgba(0,0,0,0.6);z-index: 999999; display: none;">
 					<div class="col-lg-5 col-xs-18 col-md-12">
 						<div class="col-lg-12 col-md-12 col-xs-18"  style="background: #170e66">
 							<h1 class="text-center" style="color: white">THÔNG TIN HỘI VIÊN</h1>
@@ -197,6 +197,7 @@
 							<div class="col-md-12 col-xs-18">
 								<div class="col-xs-18 div-flex">
 									<select id="selectpicker_xs" name="selectpicker_xs" class="col-xs-16 col-md-12 form-control selectpicker"  data-show-subtext="true" data-live-search="true">
+										<option>Chọn công ty</option>
 										@foreach ($company as $c)
 										<option value="{{$c->id}}">{{$c->name}}</option>
 										@endforeach
@@ -385,16 +386,16 @@
 					</div>
 					<div class="pt-xs-0 pt-md-5 pt-5 col-lg-12 col-xs-18 col-md-12 div-flex">
 						<div id="hoverb1" class="mx-4 col-lg-3 col-md-2 col-xs-3 div-flex background-step">
-							<p  class="pt-3" style="font-family: Calibri;font-size: 17px;">Kiểm tra sức mua</p>
+							<p  class="" style="font-family: Calibri;">Kiểm tra sức mua</p>
 						</div>
 						<div  id="hoverb2"  class="mx-4 col-lg-3 col-md-2 col-xs-3 div-flex background-step">
-							<p  class="pt-3" style="font-family: Calibri;font-size: 17px;">Lựa chọn sản phẩm</p>
+							<p  class="" style="font-family: Calibri;">Lựa chọn sản phẩm</p>
 						</div>
 						<div id="hoverb3" class="mx-4 col-lg-3 col-md-3 col-xs-5 div-flex background-step">
-							<p    class="pt-3" style="font-family: Calibri;font-size: 17px;">Nhận hàng</p>
+							<p    class="" style="font-family: Calibri;">Nhận hàng</p>
 						</div>
 						<div  id="hoverb4"  class="mx-4 col-lg-3 col-md-2 col-xs-3 div-flex background-step">
-							<p   class="pt-3" style="font-family: Calibri;font-size: 17px;">Thanh toán</p>
+							<p   class="" style="font-family: Calibri;">Thanh toán</p>
 						</div>
 					</div>
 					<div  class="py-xs-0 py-md-4 py-4 col-lg-12 col-xs-18 col-md-12 div-flex" style="z-index: 999999">
@@ -517,7 +518,7 @@
 	</div>
 	<div class="col-lg-12 col-md-12 col-xs-18 div-flex" style="padding: 0">
 		<div class="col-lg-4 col-md-4 col-xs-5  conddtion-member" style="padding: 0">
-			<p class="">1. Đơn vị bạn đang công tác đã tham  gia chương trình của Sức Mua Việt</p>
+			<p class="">1. Doanh nghiệp bạn đang công tác đã có trong danh sách lựa chọn của Sức Mua Việt</p>
 			<img  src="../img/home_page/tick.png"/>
 		</div>
 		<div class="col-lg-offset-1 col-xs-offset-1 col-md-offset-1 col-lg-4 col-md-4 col-xs-5 conddtion-member">

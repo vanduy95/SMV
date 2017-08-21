@@ -17,11 +17,28 @@ use Illuminate\Support\Facades\Input;
 use League\Csv\Reader;
 use App\Http\Requests\UserinfoRequest;
 use App\Http\Requests\UpdateUserInfoRequest;
-
-
 class UserInfoController extends Controller
 {
-    public function index(){
+    public function convertnameinfo($str) {
+    // In thường
+        $str = preg_replace("/(à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ)/", 'a', $str);
+        $str = preg_replace("/(è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ)/", 'e', $str);
+        $str = preg_replace("/(ì|í|ị|ỉ|ĩ)/", 'i', $str);
+        $str = preg_replace("/(ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ)/", 'o', $str);
+        $str = preg_replace("/(ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ)/", 'u', $str);
+        $str = preg_replace("/(ỳ|ý|ỵ|ỷ|ỹ)/", 'y', $str);
+        $str = preg_replace("/(đ)/", 'd', $str);    
+    // In đậm
+        $str = preg_replace("/(À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ)/", 'A', $str);
+        $str = preg_replace("/(È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ)/", 'E', $str);
+        $str = preg_replace("/(Ì|Í|Ị|Ỉ|Ĩ)/", 'I', $str);
+        $str = preg_replace("/(Ò|Ó|Ọ|Ỏ|Õ|Ô|ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ)/", 'O', $str);
+        $str = preg_replace("/(Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ)/", 'U', $str);
+        $str = preg_replace("/(Ỳ|Ý|Ỵ|Ỷ|Ỹ)/", 'Y', $str);
+        $str = preg_replace("/(Đ)/", 'D', $str);
+         return $str; // Trả về chuỗi đã chuyển
+     } 
+     public function index(){
         $userinfo = UserInfo::all();
         $user = User::all();
         return view('business.userinfo.index',compact('userinfo','user'));
@@ -98,16 +115,16 @@ class UserInfoController extends Controller
         return $assess_id;
     }
     public function show($id){
-     $userinfo = UserInfo::find($id);
-     $user = User::find($userinfo->user_id);
-     $groupuser = GroupUser::all();
-     $organization = Organization::all();
-     $assess = Assess::all();
+       $userinfo = UserInfo::find($id);
+       $user = User::find($userinfo->user_id);
+       $groupuser = GroupUser::all();
+       $organization = Organization::all();
+       $assess = Assess::all();
          // return $userinfo;
-     return view('business.userinfo.show',compact('userinfo','user','groupuser','organization','assess'));
- }
+       return view('business.userinfo.show',compact('userinfo','user','groupuser','organization','assess'));
+   }
 
- public function update(UpdateUserInfoRequest $request, UserInfo $userinfo){
+   public function update(UpdateUserInfoRequest $request, UserInfo $userinfo){
     $userinfo->fill($request->all());
     $userinfo->save();
     \Session::flash('notify','Sửa thông tin user thành công');
@@ -135,38 +152,36 @@ public function postcreateExcel(Request $r,User $user, UserInfo $userinfo){
     set_time_limit(1800);
     try{
 
-     $file = $r->file('upExcel')->getRealPath();
-     Excel::filter('chunk')->load($file)->chunk(5000, function($results)
-     {
-               // dd($results);
+       $file = $r->file('upExcel')->getRealPath();
+       Excel::filter('chunk')->load($file)->chunk(5000, function($results)
+       {
         foreach($results as $key=>$row)
         {
-
-            foreach ($row as $key => $value) {
-                $username =explode(" ",$value['ho_va_ten']);
-                $user =  new User();
-                $user->username = reset($username).end($username).$value['ma_nhan_vien'];
-                $user->email = "";
-                $user->password = Hash::make("password");
-                $user->status = 0;
-                $user->syslock = 1;
-                $user->groupuser_id =2;
-                $user->organization_id =2;
-                $user->save();
-                $userinfo = new UserInfo();
-                $userinfo->user_id=$user->id;
-                $userinfo->fullname = $value['ho_va_ten'];
-                $userinfo->employee_id = $value['ma_nhan_vien'];
-                $userinfo->salary =is_numeric(str_replace(".","",$value['muc_luong']))?str_replace(".","",$value['muc_luong']):0;
-                $userinfo->assess_id = "3";
-                $userinfo->save();
-            }
+            // foreach ($row as  $value) {
+            $username =explode(" ",$this->convertnameinfo($row['ho_va_ten']));
+            $user =  new User();
+            $user->username = (reset($username)).(end($username)).$row['ma_nhan_vien'];
+            $user->email = "";
+            $user->password = Hash::make("password");
+            $user->status = 0;
+            $user->syslock = 1;
+            $user->groupuser_id =2;
+            $user->organization_id =2;
+            $user->save();
+            $userinfo = new UserInfo();
+            $userinfo->user_id=$user->id;
+            $userinfo->fullname = $row['ho_va_ten'];
+            $userinfo->employee_id = $row['ma_nhan_vien'];
+            $userinfo->salary =is_numeric(str_replace(".","",$row['muc_luong']))?str_replace(".","",$row['muc_luong']):0;
+            $userinfo->assess_id = "3";
+            $userinfo->save();
+            // }
         }
 
     });
- }
+   }
 
- catch(\Exception $ex){
+   catch(\Exception $ex){
     echo $ex->getMessage()."</br>";
     echo "<a href='/admin/user' class='col-lg-12'>Quay Lại Trang List User</a>";
 }

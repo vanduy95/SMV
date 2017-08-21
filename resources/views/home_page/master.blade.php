@@ -39,55 +39,63 @@
 				'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
 			}
 		});
+		function openNav() {
+			document.getElementById("mySidenav").style.width = "70vw";
+		}
+
+		function closeNav() {
+			document.getElementById("mySidenav").style.width = "0";
+		}
+		$(document).ready(function(){ 
+			var url=window.location.href;
+			$('.content-menu a').each(function () {
+				if($(this).attr('href')==url)
+				{
+					$(this).addClass('active');
+				}
+			})
+			$('.container-fluid').click(function() {
+				var cla = "header";
+				if($(this).attr('id')!= cla || $(this).attr('id')==null){
+					document.getElementById("mySidenav").style.width = "0";
+				}
+			});
+		});
+		
 	</script>
 	<style>
 		.clear{
 			clear: both;
 		}
-		 #loading{
-                background: url({{ asset('img/loading.gif') }}) center no-repeat #fff;
-                position: fixed;
-                left: 0px;
-                top: 0px,;
-                width: 100%;
-                height: 100%;
-                z-index: 9999
-            }
-	</style>
-	{{-- <script>
-		$(document).ready(function(){
-			$('.sweet-alert button.cancel').html('Nhập lại thông tin');
-			$('.sa-confirm-button-container button.confirm').html('Cập nhật thông tin và đơn hàng');
-		});
-	</script> --}}
+		#loading{
+			background: url({{ asset('img/loading.gif')}}) center no-repeat rgba(0,0,0,0.5);
+position: fixed;
+left: 0px;
+top: 0px,;
+width: 100%;
+height: 100%;
+z-index: 9999
+}
+</style>
 </head>
-<body>
- <div class="loading" id="loading" style="display: none"></div>
-	<header class="col-lg-12 col-md-12 col-xs-18 container-fluid">
+<body >
+	<div id="mySidenav" class="sidenav">
+		<div class="header-menu">
+			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fa fa-times" aria-hidden="true"></i></a>
+		</div>
+		<div class="content-menu" >
+			<a href="{{route('getsearch')}}/" class="home">Trang chủ<i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+			<a href="{{route('aboutus')}}" class="nb">Trang nội bộ<i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+			<a href="{{route('getlogin')}}" class="login ">Đăng nhập<i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+			<a href="{{route('accountcreate')}}" class="register">Đăng ký<i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+		</div>
+	</div>
+	<div class="loading" id="loading" style="display: none"></div>
+	<header class="container-fluid" id="header">
 		<div class="container header-mobile">
 			<div class="row-menu-mobile">
-				<nav class="navbar navbar-default">
-					<div class="container-fluid">
-						<!-- Brand and toggle get grouped for better mobile display -->
-						<div class="navbar-header">
-							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-								<span class="sr-only">Toggle navigation</span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-							</button>
-						</div>
-						<!-- Collect the nav links, forms, and other content for toggling -->
-						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-							<ul class="nav navbar-nav navbar-right">
-								<li><a href="{{route('getsearch')}}" class="home active">TRANG CHỦ</a><hr class="hr-home"></li>
-								<li><a href="#" class="menu">TRANG NỘI BỘ</a></li>
-								<li><a href="{{route('getlogin')}}" class="menu">ĐĂNG NHẬP</a></li>
-								<li><a href="{{route('accountcreate')}}" class="menu">ĐĂNG KÝ</a></li>
-							</ul>
-						</div><!-- /.navbar-collapse -->
-					</div><!-- /.container-fluid -->
-				</nav>
+				<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+				
 			</div>
 			<div class="row-logo-mobile">
 				<a href="{{route('getsearch')}}"><img src="../img/home_page/logo.jpg"></a>
@@ -99,24 +107,14 @@
 			</div>
 		</div>
 		<div class="container header-desktop">
-			<span><b>HOTLINE: 0904633568</b></span>
-			<div class="row row-search">
-				<a href="" class="social-icon"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-				<a href="" class="social-icon"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-				<a href="" class="social-icon"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-				<div id="imaginary_container"> 
-					<div class="input-group stylish-input-group">
-						<input type="text" class="form-control"  placeholder="Tìm kiếm" >
-						<span class="input-group-addon">
-							<button type="submit">
-								<span class="glyphicon glyphicon-search"></span>
-							</button>  
-						</span>
-					</div>
-				</div>
-			</div>
 			<div class="row row-logo">
-				<a href="{{route('getsearch')}}"><img src="../img/home_page/logo.jpg"></a>
+				<div class="col-lg-4" style="padding: 0;">
+					<a href="{{route('getsearch')}}"><img src="../img/home_page/logo.jpg"></a>
+				</div>
+				<div class="Hotline-logo col-lg-3">
+					<p style="font-size: 1.7vw;"><i class="fa fa-phone" aria-hidden="true" style="margin-right: 1vw;"></i>Hotline</p>
+					<p style="padding-left: 3.5vw;"><span>024.6655.2428</span><span style="padding-left: 2vw;">0904.633.568</span></p>
+				</div>
 			</div>
 			<div class="row row-menu">
 				<nav class="navbar navbar-default">
@@ -134,7 +132,7 @@
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav navbar-right">
 								<li><a href="{{route('getsearch')}}" class="home active">TRANG CHỦ</a><hr class="hr-home"></li>
-								<li><a href="#" class="menu">TRANG NỘI BỘ</a></li>
+								<li><a href="{{route('aboutus')}}" class="menu">TRANG NỘI BỘ</a></li>
 								<li><a href="{{route('getlogin')}}" class="menu">ĐĂNG NHẬP</a></li>
 								<li><a href="{{route('accountcreate')}}" class="menu">ĐĂNG KÝ</a></li>
 							</ul>
@@ -153,7 +151,7 @@
 			<div class="row footer-menu">
 				<span class="short-menu line"><a href="">Mua hàng trả góp</a></span>
 				<span class="short-menu line"><a href="">Trang nội bộ</a></span>
-				<span class="short-menu"><a href="">Thông tin công ty</a></span>
+				<span class="short-menu"><a href="">Giới thiệu</a></span>
 			</div>
 			<div class="row footer-contact">
 				<h2>CÔNG TY TNHH PHÁT TRIỂN  SỨC MUA VIỆT</h2>
@@ -189,5 +187,6 @@
 			</div>
 		</div>
 	</footer>
+	@yield('script')
 </body>
 </html>

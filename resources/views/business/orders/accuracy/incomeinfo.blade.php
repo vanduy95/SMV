@@ -77,9 +77,9 @@
           <div class="col-sm-8"> 
             <select tabindex="7" class="form-control" name="exchange_status" id="exchange_status">
               <option  value="">chọn</option>
-              <option value="0">Có phát sinh trong 3 tháng liền kề </option>
-              <option  value="1">Có phát sinh trong 6 tháng liền kề </option>
-              <option  value="2">Không phát sinh hoặc phát sinh dưới 3 tháng liền kề</option>
+              <option value="0">Liên tục 3 tháng liền kề </option>
+              <option  value="1">Liên tục 6 tháng liền kề </option>
+              <option  value="2">Không, hoặc không liên tục</option>
             </select>
           </div>
         </div>

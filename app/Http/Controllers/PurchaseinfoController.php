@@ -82,9 +82,9 @@ class PurchaseinfoController extends Controller
 						$cal = ($userall[0]->salary*2.5)-$userall[0]->price;
 						if($cal==0 || $cal < 0){
 							$usercut = [
-							['price'=>$userall[0]->price,
+							['price'=>round_down($userall[0]->price),
 							'fullname'=>$userall[0]->fullname,
-							'salary'=>$userall[0]->salary,
+							'salary'=>round_down($userall[0]->salary),
 							'notify'=>'notify']];
 							return Response::json($usercut);
 						}
@@ -95,9 +95,9 @@ class PurchaseinfoController extends Controller
 						}
 						else{
 							$usercut = [
-							['price'=>$userall[0]->price,
+							['price'=>round_down($userall[0]->price),
 							'fullname'=>$userall[0]->fullname,
-							'salary'=>$userall[0]->salary,
+							'salary'=>round_down($userall[0]->salary),
 							'notify'=>'notify']];
 							return Response::json($usercut);
 						}
@@ -143,9 +143,9 @@ class PurchaseinfoController extends Controller
 						$cal = ($userall[0]->salary*2.5)-$userall[0]->price;
 						if($cal==0 || $cal < 0){
 							$usercut = [
-							['price'=>$userall[0]->price,
+							['price'=>round_down($userall[0]->price),
 							'fullname'=>$userall[0]->fullname,
-							'salary'=>$userall[0]->salary,
+							'salary'=>round_down($userall[0]->salary),
 							'notify'=>'notify']];
 							return Response::json($usercut);
 						}
@@ -156,9 +156,9 @@ class PurchaseinfoController extends Controller
 						}
 						else{
 							$usercut = [
-							['price'=>$userall[0]->price,
+							['price'=>round_down($userall[0]->price),
 							'fullname'=>$userall[0]->fullname,
-							'salary'=>$userall[0]->salary,
+							'salary'=>round_down($userall[0]->salary),
 							'notify'=>'notify']];
 							return Response::json($usercut);
 						}
@@ -199,9 +199,9 @@ class PurchaseinfoController extends Controller
 						$cal = ($userall[0]->salary*2.5)-$userall[0]->price;
 						if($cal==0 || $cal < 0){
 							$usercut = [
-							['price'=>$userall[0]->price,
+							['price'=>round_down($userall[0]->price),
 							'fullname'=>$userall[0]->fullname,
-							'salary'=>$userall[0]->salary,
+							'salary'=>round_down($userall[0]->salary),
 							'notify'=>'notify']];
 							return Response::json($usercut);
 						}
@@ -212,9 +212,9 @@ class PurchaseinfoController extends Controller
 						}
 						else{
 							$usercut = [
-							['price'=>$userall[0]->price,
+							['price'=>round_down($userall[0]->price),
 							'fullname'=>$userall[0]->fullname,
-							'salary'=>$userall[0]->salary,
+							'salary'=>round_down($userall[0]->salary),
 							'notify'=>'notify']];
 							return Response::json($usercut);
 						}
@@ -225,8 +225,8 @@ class PurchaseinfoController extends Controller
 				return Response::json(["data"=>$ex]);
 			}
 		}
-		else if(!empty($r->id_com)){
-			return Response::json(["error_com"=>' ']);
+		else if(($r->id_com=="") && ($r->cmt=="") && ($r->code=="")){
+			return Response::json(["error_all"=>' ']);
 		}
 		else{
 			return Response::json(['error_r'=>' ']);
@@ -265,5 +265,10 @@ class PurchaseinfoController extends Controller
 		$name = RetailSystem::groupBy('nameretail')->pluck('nameretail');
 		$company = DB::table('organization')->where('ma','<>','HT')->select('name','id')->get();
 		return view('business.orders.ordershowadd',compact('city','name','company','today'));
+	}
+
+	public function aboutus()
+	{
+		return view('home_page.aboutus');
 	}
 }

@@ -9,6 +9,8 @@ use Hash;
 use Illuminate\Support\Facades\Input;
 use Maatwebsite\Excel\Facades\Excel;
 use DB;	
+use App\Http\Requests\StoreRequest;
+
 class StoreController extends Controller
 {
 	public function index(){
@@ -53,22 +55,43 @@ class StoreController extends Controller
 	}
 
 	public function getcreate(){
-		return view('business.store.create');
+		$retaisystem = RetailSystem::groupBy('nameretail')->pluck('nameretail');
+		return view('business.store.create',compact('retaisystem'));
 	}
-	public function postcreate(ProcessStatusRequest $request){
-		RetailSystem::create($request->all());
+
+	public function postcreate(Request $request){
+		$interest_rate = RetailSystem::where('nameretail','=',$request->store)->pluck('interest_rate')->first();
+		$store = new RetailSystem;
+		$store->nameretail = $request->store;
+		$store->retailcity =$request->retailcity;
+		$store->retaildistrict=$request->retaildistrict;
+		$store->storeaddress=$request->storeaddress;
+		$store->name_center=$request->name_center;
+		$store->phonecontact=$request->phonecontact;
+		$store->interest_rate=(double)$interest_rate;
+		$store->save();
 		\Session::flash('notify','Thêm thành công');
-		return redirect('processstatus');
+		return redirect()->route('indexStore');
 	}
+
 	public function show($id){
 		$store = RetailSystem::find($id);
-		return view('business.store.show',compact('store'));
+		$retaisystem = RetailSystem::groupBy('nameretail')->pluck('nameretail');
+		return view('business.store.show',compact('store','retaisystem'));
 	}
-	public function update(UpdateProcessStatusRequest $request,RetailSystem $store){
-		$store->fill($request->all());
+
+	public function update(Request $request,RetailSystem $store){
+		$interest_rate = RetailSystem::where('nameretail','=',$request->store)->pluck('interest_rate')->first();
+		$store->nameretail = $request->store;
+		$store->retailcity =$request->retailcity;
+		$store->retaildistrict=$request->retaildistrict;
+		$store->storeaddress=$request->storeaddress;
+		$store->name_center=$request->name_center;
+		$store->phonecontact=$request->phonecontact;
+		$store->interest_rate=(double)$interest_rate;
 		$store->save();
 		\Session::flash('notify','Sửa thành công');
-		return redirect('store');
+		return redirect()->route('indexStore');
 
 	}
 

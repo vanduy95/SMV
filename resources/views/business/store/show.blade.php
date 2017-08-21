@@ -18,91 +18,113 @@
 				</div>
 				<div class="panel-body">
 					<div class="form">
-						{!!Form::open(array('class'=>'form-validate form-horizontal','id'=>'register_form','action'=>['StoreController@show',$store->id]))!!}
-						@if(session('notify'))
-							<div class="alert bg-teal disabled color-palette">
-						{{session('notify')}}
-						</div>
-						@endif
+						{!!Form::open(array('class'=>'form-validate form-horizontal','id'=>'register_form','action'=>['StoreController@update',$store->id]))!!}
 						<div class="form-group ">
-							{!!Html::decode(Form::label('fullname','Hệ thống bán lẻ *',['class'=>'control-label col-lg-2']))!!}
+							{!!Html::decode(Form::label('fullname','Hệ thống *',['class'=>'control-label col-lg-2']))!!}
 							<div class="col-lg-8">
-								{!!Form::text('nameretail',$store->nameretail,['class'=>'form-control','placeholder'=>'Tên người dùng '])!!}
+								<select class="form-control" name="store">
+									@foreach($retaisystem as $gu)
+									<option value="{{$gu}}" @if($gu == $store->nameretail) selected="selected" @endif >{{$gu}}</option>
+									@endforeach
+								</select>
+								@if($errors->has('retaisystem'))<p style="color: red;">{!!$errors->first('retaisystem')!!}</p>@endif
+							</div>
+						</div>
+						<div class="form-group ">
+							{!!Html::decode(Form::label('fullname','Thành phố *',['class'=>'control-label col-lg-2']))!!}
+							<div class="col-lg-8">
+								{!!Form::text('retailcity',$store->retailcity,['class'=>'form-control','placeholder'=>''])!!}
 								@if($errors->has('nameretail'))<p style="color: red;">{!!$errors->first('nameretail')!!}</p>@endif
 							</div>
 						</div>
 						<div class="form-group ">
-							{!!Html::decode(Form::label('fullname','Hệ thống bán lẻ *',['class'=>'control-label col-lg-2']))!!}
+							{!!Html::decode(Form::label('fullname','Quận/Huyện *',['class'=>'control-label col-lg-2']))!!}
 							<div class="col-lg-8">
-								{!!Form::text('nameretail',$store->nameretail,['class'=>'form-control','placeholder'=>'Tên người dùng '])!!}
+								{!!Form::text('retaildistrict',$store->retaildistrict,['class'=>'form-control','placeholder'=>''])!!}
 								@if($errors->has('nameretail'))<p style="color: red;">{!!$errors->first('nameretail')!!}</p>@endif
 							</div>
 						</div>
 						<div class="form-group ">
-							{!!Html::decode(Form::label('fullname','Hệ thống bán lẻ *',['class'=>'control-label col-lg-2']))!!}
+							{!!Html::decode(Form::label('fullname','Tên chi nhánh *',['class'=>'control-label col-lg-2']))!!}
 							<div class="col-lg-8">
-								{!!Form::text('nameretail',$store->nameretail,['class'=>'form-control','placeholder'=>'Tên người dùng '])!!}
+								{!!Form::text('name_center',$store->name_center,['class'=>'form-control'])!!}
 								@if($errors->has('nameretail'))<p style="color: red;">{!!$errors->first('nameretail')!!}</p>@endif
 							</div>
 						</div>
 						<div class="form-group ">
-							{!!Html::decode(Form::label('fullname','Hệ thống bán lẻ *',['class'=>'control-label col-lg-2']))!!}
+							{!!Html::decode(Form::label('fullname','Địa chỉ *',['class'=>'control-label col-lg-2']))!!}
 							<div class="col-lg-8">
-								{!!Form::text('nameretail',$store->nameretail,['class'=>'form-control','placeholder'=>'Tên người dùng '])!!}
+								{!!Form::text('storeaddress',$store->storeaddress,['class'=>'form-control'])!!}
 								@if($errors->has('nameretail'))<p style="color: red;">{!!$errors->first('nameretail')!!}</p>@endif
 							</div>
 						</div>
 						<div class="form-group ">
-							{!!Html::decode(Form::label('fullname','Hệ thống bán lẻ *',['class'=>'control-label col-lg-2']))!!}
+							{!!Html::decode(Form::label('fullname','Số điện thoại',['class'=>'control-label col-lg-2']))!!}
 							<div class="col-lg-8">
-								{!!Form::text('nameretail',$store->nameretail,['class'=>'form-control','placeholder'=>'Tên người dùng '])!!}
+								{!!Form::text('phonecontact',$store->phonecontact,['class'=>'form-control'])!!}
 								@if($errors->has('nameretail'))<p style="color: red;">{!!$errors->first('nameretail')!!}</p>@endif
 							</div>
 						</div>
-						<div class="form-group ">
-							{!!Html::decode(Form::label('fullname','Hệ thống bán lẻ *',['class'=>'control-label col-lg-2']))!!}
-							<div class="col-lg-8">
-								{!!Form::text('nameretail',$store->nameretail,['class'=>'form-control','placeholder'=>'Tên người dùng '])!!}
-								@if($errors->has('nameretail'))<p style="color: red;">{!!$errors->first('nameretail')!!}</p>@endif
+						<div class="form-group">
+							<div class="col-lg-offset-2 col-lg-10">
+								{!!Form::submit('Lưu',['class'=>'btn btn-primary col-lg-2'])!!}
 							</div>
 						</div>
-						<div class="form-group ">
-							{!!Html::decode(Form::label('fullname','Hệ thống bán lẻ *',['class'=>'control-label col-lg-2']))!!}
-							<div class="col-lg-8">
-								{!!Form::text('nameretail',$store->nameretail,['class'=>'form-control','placeholder'=>'Tên người dùng '])!!}
-								@if($errors->has('nameretail'))<p style="color: red;">{!!$errors->first('nameretail')!!}</p>@endif
-							</div>
-						</div>
-						<div class="form-group ">
-							{!!Html::decode(Form::label('fullname','Hệ thống bán lẻ *',['class'=>'control-label col-lg-2']))!!}
-							<div class="col-lg-8">
-								{!!Form::text('nameretail',$store->nameretail,['class'=>'form-control','placeholder'=>'Tên người dùng '])!!}
-								@if($errors->has('nameretail'))<p style="color: red;">{!!$errors->first('nameretail')!!}</p>@endif
-							</div>
-						</div>
+						{!!Form::close() !!}
 					</div>
 				</div>
 			</div>
 		</div>
-	</section>
-	@stop
-	@section('script')
-	<script>
-		$(function(){
-			if ($('#syslock').is(':checked') == true && $('#syslock').val()==1) {
-				$('#hidden').removeClass('hidden');
-				$('#grouphidden').removeClass('hidden');
+	</div>
+</section>
+@stop
+@section('script')
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#register_form").validate({
+			rules:{
+				store:{
+					required:true,
+				},
+				retailcity:{
+					required:true,
+				},
+				retaildistrict:{
+					required:true,
+				},
+				name_center:{
+					required:true,
+				},
+				storeaddress:{
+					required:true,
+				},
+				phonecontact:{
+					required:true,
+					number:true,
+				},
+			},
+			messages: {
+				store:{
+					required: "Trường này không được để trống",
+				},
+				retailcity:{
+					required: "Trường này không được để trống",
+				},
+				retaildistrict:{
+					required: "Trường này không được để trống",
+				},
+				name_center:{
+					required: "Trường này không được để trống",
+				},
+				storeaddress:{
+					required: "Trường này không được để trống",
+				},
+				phonecontact:{
+					number: "Trường này là số",
+					required: "Trường này không được để trống",
+				},
 			}
 		});
-		$('#syslock').change(function() {
-			if ($('#syslock').is(':checked') == true) {
-				$('#hidden').removeClass('hidden');
-				$('#grouphidden').removeClass('hidden');
-			} else {
-				$('#hidden').addClass('hidden');
-				$('#grouphidden').addClass('hidden');
-			}
-		});
-		$('#datepicker').datepicker();
-	</script>
-	@stop
+	});
+</script>
+@stop

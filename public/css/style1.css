@@ -5,13 +5,12 @@
     Author URL: https://bootstrapmade.com
     */
     /* Import fonts */
-
+.clear{
+    clear: both;
+}
     @import url(https://fonts.googleapis.com/css?family=Lato:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic);
 
     @import url(line-icons.css);
-
-
-
     body {
 
         color: #797979;
@@ -170,19 +169,19 @@
 
     background: url(http://localhost:8000/img/bg-2.jpg) no-repeat; 
     background-size: 100% 100%;
-      -webkit-background-size: cover;
+    -webkit-background-size: cover;
 
-      -moz-background-size: cover;
+    -moz-background-size: cover;
 
-      -o-background-size: cover;
+    -o-background-size: cover;
 
-      background-size: cover;
+    background-size: cover;
 
-  }
+}
 
 
 
-  .login-form {
+.login-form {
 
     max-width: 350px;
 
@@ -4058,9 +4057,9 @@ div[data-role="editor-toolbar"] {
 
 .easy-pie-chart {
 
- display: inline-block;
+   display: inline-block;
 
- padding: 30px 0;
+   padding: 30px 0;
 
 }
 
@@ -5164,15 +5163,15 @@ ul.ft-link li a i {
 
 .profile-widget img {
 
- border-radius: 50%;
+   border-radius: 50%;
 
- -webkit-border-radius: 50%;
+   -webkit-border-radius: 50%;
 
- width: 62px;
+   width: 62px;
 
- height: 62px;
+   height: 62px;
 
- /*display: inline-block;*/
+   /*display: inline-block;*/
 
 }
 
@@ -6008,7 +6007,7 @@ ul.mail-nav li a i {
 
 ul.mail-nav li a span.label {
 
- margin-top: 13px;
+   margin-top: 13px;
 
 }
 
@@ -6086,7 +6085,7 @@ ul.inbox-nav li a i {
 
 ul.inbox-nav li a span.label {
 
- margin-top: 13px;
+   margin-top: 13px;
 
 }
 
@@ -6112,7 +6111,7 @@ ul.labels-info li h4 {
 
 ul.labels-info li  {
 
- margin: 0;
+   margin: 0;
 
 }
 
@@ -8110,17 +8109,17 @@ ul.summary-list > li:last-child  {
 
     .checkbox, .checkbox:hover, .checkbox:focus  {
 
-       border:none;
+     border:none;
 
-   }
-
-
+ }
 
 
 
-   /*slider*/
 
-   table.sliders tr td {
+
+ /*slider*/
+
+ table.sliders tr td {
 
     padding: 30px 0;
 
@@ -9869,4 +9868,71 @@ span.customSelect.changed {
     background:url(../img/customSelect-arrow.gif) no-repeat center right;
 
 }
-
+body{
+    min-height: 100%;
+}
+.login-background{
+    background: rgba(254,254,254,1);
+    position: fixed;
+    min-height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form-login{
+    /*background: #f9f9f9;*/
+}
+.form-input > input{
+    background: #f7f7f7;
+    height: 50px;
+    border-radius: 0;
+    border: none;
+    border-bottom: 1px solid black;
+}
+.form-input > input:focus{
+    outline: 2px solid #1c5291;
+    background: rgba(130,205,299,0.1);
+}
+.form-input > a{
+    font-family: Calibri;
+    font-size: 1vw;
+}
+.form-input > input[type=submit]{
+    width: 100%;
+    background: #1c5291;
+    border:none;
+    font-weight: bold;
+    font-size: 20px;
+}
+.form-input > input[type=submit]:hover{
+    background: #18467c;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+}
+.form-title > h1{
+    font-family: Calibri;
+    font-weight: bold;
+    color:#18467c;
+}
+.head-logo >a> img {
+    width: 100%;
+}
+.head-logo{
+    height: 100%;
+}
+.head-bg{
+    display: flex;
+    align-items: center;
+    padding: 0.5vw;
+    background: rgb(37, 33, 98);
+}
+.head-logo > a > h3{
+    margin: 0;
+    text-align: right;
+    color: white;
+}
+.head-logo > a > h3:hover{
+    text-decoration: underline;
+}

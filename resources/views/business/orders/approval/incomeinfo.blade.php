@@ -70,14 +70,12 @@
       <div class="col-sm-8"> 
         <label class="bg-gray-fix form-control">
           @if ($UserInfo['exchange_status']==0)
-            Có phát sinh trong 3 tháng liền kề 
+            Liên tục 3 tháng liền kề 
           @elseif($UserInfo['exchange_status']==1)
-            Có phát sinh trong 6 tháng liền kề 
+            Liên tục 6 tháng liền kề 
           @elseif($UserInfo['exchange_status']==2)
-            Không phát sinh hoặc phát sinh dưới 3 tháng liền kề
-          @else
+            Không, hoặc không liên tục
           @endif
-          
         </label>
       </div>
     </div>
