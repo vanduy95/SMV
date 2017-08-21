@@ -9,16 +9,14 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::post('fix','LoginController@fix');
 Route::get('home',['as'=>'indexHome','uses'=>'PurchaseinfoController@getsearch']);
 Route::get('change/user',array('as'=>'indexChangeUser','uses'=>'LoginController@indexchangeUser'));
 Route::post('user/checkuser',array('as'=>'AjaxCheckUser','uses'=>'UserController@AjaxCheckUser'));
 Route::post('change/user',array('as'=>'UserChangePassword','uses'=>'UserController@UserChangePasswordEmployee'));
 
-
-Route::get('account/register',array('as'=>'accountcreate','uses'=>'UserController@account'));
-Route::post('account/register',array('as'=>'accountcreate','uses'=>'UserController@accountcreate'));
-
+Route::get('dang-ky',array('as'=>'accountcreate','uses'=>'UserController@account'));
+Route::post('dang-ky',array('as'=>'accountcreate','uses'=>'UserController@accountcreate'));
 
 Route::get('login',array('as'=>'getlogin','uses'=>'LoginController@index'));
 Route::post('login',array('as'=>'postlogin','uses'=>'LoginController@login'));
@@ -27,6 +25,7 @@ Route::get('signout',array('as'=>'signout','uses'=>'LoginController@signout'));
 Route::get('404.php',array('as'=>'àd',function(){return view('business.404.404');}));
 Route::get('permissiondenied',function(){return view('business.errors.permissiondenied');})->name('permissiondenied');
 Route::get('/',array('as'=>'getsearch','uses'=>'PurchaseinfoController@getsearch'));
+Route::get('gioi-thieu',['as'=>'aboutus','uses'=>'PurchaseinfoController@aboutus']);
 // Route::post('/',array('as'=>'postsearch','uses'=>'PurchaseinfoController@postsearch'));
 Route::post('organizationPostCompany',array('as'=>'organizationPostCompany','uses'=>'PurchaseinfoController@getAjaxCompany'));
 Route::post('userPostAjax',array('as'=>'userPostAjax','uses'=>'PurchaseinfoController@getAjaxUser'));
@@ -40,9 +39,10 @@ Route::get('orders/show',function(){if(session()->has('customer_id'))
 		return redirect('orders/create');
 
 });
-Route::get('checkUsername', ['as'=>'checkUsername','uses'=>'UserController@checkUsername']);
+
 Route::post('checkidentitycard',['as'=>'','uses'=>'CheckUserController@checkidentitycard']);
 Route::post('checkEmployee_id',array('as'=>'AjaxcheckEmployee_id','uses'=>'CheckUserController@checkEmployee_id'));
+Route::get('checkUsername', ['as'=>'checkUsername','uses'=>'UserController@checkUsername']);
 Route::post('orders',array('as'=>'postAjaxOrder','uses'=>'OrdersController@postAjax'))->name('redirectAjax');
 Route::post('ordersPostAjax',array('as'=>'ordersPostAjax','uses'=>'OrdersController@getAjax'))->name('redirectAjax');
 Route::post('orders',array('as'=>'postAjaxOrder','uses'=>'OrdersController@postAjax'))->name('redirectAjax');
@@ -66,7 +66,7 @@ Route::group(['middleware'=>['authen']],function(){
 		Route::post('/pusher/auth',  ['as'=>'PusherAuth','uses'=>'PusherController@pusherAuth']);
 		Route::get('print_orders/{id}', ['as'=>'print_orders','uses'=>'OrdersController@printOrders']);
 		Route::get('printAutoPay/{id}', ['as'=>'printAutoPay','uses'=>'OrdersController@printAutoPay']);
-		Route::get('exportOrders', ['as'=>'exportOrders','uses'=>'OrdersController@exportOrders']);
+		Route::post('exportOrders', ['as'=>'exportOrders','uses'=>'OrdersController@exportOrders']);
 		Route::get('changepassword/{id}',array('as'=>'changepassword', 'uses'=>'ChangePasswordController@index'));
 		Route::post('changepassword/{id}',array('as'=>'updatepassword', 'uses'=>'ChangePasswordController@update'));
 		Route::get('profile',array('as'=>'profile','uses'=>'UserController@getProfile'));
