@@ -9836,7 +9836,11 @@ ul.summary-list > li:last-child  {
 /*custom select*/
 
 
-
+@media only screen and (min-width: 1024px){
+    .data-form-login{
+        padding: 0vw 0 !important;
+    }
+}
 span.customSelect {
 
     font-size:12px;
@@ -9872,7 +9876,7 @@ body{
     min-height: 100%;
 }
 .login-background{
-    background: rgba(254,254,254,1);
+    background: rgba(192,192,192,0.1);
     position: fixed;
     min-height: 100%;
     width: 100%;
@@ -9882,6 +9886,12 @@ body{
 }
 .form-login{
     /*background: #f9f9f9;*/
+}
+.data-form-login{
+    border-radius: 1px;
+    background: white;
+    padding: 5vw 0vw;
+    box-shadow: 0px 0px 20px 15px rgba(0,0,0,0.2);
 }
 .form-input > input{
     background: #f7f7f7;

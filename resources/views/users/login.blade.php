@@ -67,7 +67,7 @@
     <div class="clear"></div>
 </div>
 <div class="login-background col-lg-12 col-md-12">
-    <div class="col-lg-5 col-md-6 col-xs-8">
+    <div class="data-form-login col-lg-4 col-md-8 col-xs-12">
         <div class="col-lg-12 col-md-12 col-xs-12">
             <div class="form-title col-lg-12 col-xs-12 col-md-12 text-center">
                 <h1>ĐĂNG NHẬP</h1>
