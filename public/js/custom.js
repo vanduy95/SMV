@@ -176,7 +176,7 @@ $(document).ready(function(){
 		var cmt = $('#txt_cmt').val();
 		var code = $('#txt_code').val();
 		var url  = "http://"+document.location.host;
-		$('#id_company').val("");
+		$('select#id_company').val("").change();
 		$('#text-input').val("");
 		$('#txt_cmt').val("");
 		$('#txt_code').val("");

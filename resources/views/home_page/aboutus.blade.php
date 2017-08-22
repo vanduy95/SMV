@@ -12,8 +12,8 @@
 				<h2>Công ty TNHH Phát triển Sức Mua Việt được thành lập với mục tiêu mang đến cho khách hàng trải nghiệm "Mua trước trả sau" hoàn toàn mới.</h2>
 			</div>
 			<div class="row aboutus content col-first col-last">
-				<div class="col-lg-12 col-first col-last">
-					<div class="col-lg-3 col-first">
+				<div class="col-lg-12 col-xs-12 col-first col-last">
+					<div class="text-aboutus col-lg-3  col-xs-3 col-first">
 						<span class="title-bold">Tiết kiệm: </span>
 						<span class="definition">
 							Không phải ngân hàng hay công ty tài chính, hoạt động của chúng tôi là bán hàng trả chậm với mức chi phí thấp nhất và hoàn toàn
@@ -21,20 +21,20 @@
 						<span class="title-bold">KHÔNG LÃI SUẤT</span>
 
 					</div>
-					<div class="col-lg-3">
+					<div class="text-aboutus col-lg-3 col-xs-3">
 						<span class="title-bold">Dễ dàng trong thanh toán: </span>
 						<span class="definition">
 							Hình thức thanh toán tự động qua tài khoản ngân hàng, khách hàng không phải đến ngân hàng nộp tiền trả gớp hàng tháng.
 						</span>
 
 					</div>
-					<div class="col-lg-3">
+					<div class="text-aboutus col-lg-3 col-xs-3">
 						<span class="title-bold">Đa dạng lựa chọn: </span>
 						<span class="definition">
 							Chúng tôi không ngừng xây dựng hệ thống đối tác lớn mạnh và đa dạng mang đến nhiều lựa chọn cho khách hàng.
 						</span>
 					</div>
-					<div class="col-lg-3 col-last">
+					<div class="text-aboutus col-lg-3 col-xs-3">
 						<span class="title-bold">Tiện lợi trong mua sắm: </span>
 						<span class="definition">
 							Khách hàng có thể xác định được "Sức mua" trước khi mua sắm.

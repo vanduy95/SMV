@@ -65,13 +65,19 @@
 								</div>
 								<div class="py-xs-0 py-md-4 py-4 col-lg-12 col-md-12 col-xs-18 form-group"></div>
 								<div class=" col-lg-12 col-md-12 col-xs-18 form-group">
-									<input name="name" id="text-input" class="form-control text-padding-input" style="border-radius: 0; height: 4.5rem;position: relative;" type="text" placeholder="Nhập tên công ty" autocomplete="off">
+									{{-- <input name="name" id="text-input" class="form-control text-padding-input" style="border-radius: 0; height: 4.5rem;position: relative;" type="text" placeholder="Nhập tên công ty" autocomplete="off">
 									<input type="hidden" id="id_company" />
 									<div id="data-company" style="height: 200px; position: absolute;z-index: 999999 ;background: white;overflow-y: scroll;padding: 0" class="col-lg-11 col-md-11 col-xs-17">
 										@foreach ($company as $c)
 										<option value="{{$c->id}}">{{$c->name}}</option>
 										@endforeach
-									</div>
+									</div> --}}
+									<select id="id_company" name="selectpicker_xs" class="col-xs-16 col-md-12 form-control selectpicker"  data-show-subtext="true" data-live-search="true">
+										<option value="">Chọn công ty</option>
+										@foreach ($company as $c)
+										<option value="{{$c->id}}">{{$c->name}}</option>
+										@endforeach
+									</select>
 									<p class="text-center error" id="error_com"></p>
 								</div>
 								<div class=" col-lg-12 col-md-12 col-xs-18 form-group">

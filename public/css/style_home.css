@@ -8,7 +8,7 @@
 	margin: 0 !important;
 }
 nav.navbar.navbar-default {
-    margin-bottom: 0.5vw;
+	margin-bottom: 0.5vw;
 }
 .div-center{
 	display: flex;
@@ -99,13 +99,15 @@ nav.navbar.navbar-default {
 	}
 }
 @media (min-width: 769px){
-
 	.row-info-content h1,p{
 		margin: 0 !important;
 	}
-/*		.info-content{
+	/*.info-content{
 		display: none !important;
 		}*/
+		.text-aboutus > span:nth-child(1){
+			font-size: 1.5vw;
+		}
 		#alert_info_xs{
 			width: 100%;
 		}
@@ -544,10 +546,56 @@ nav.navbar.navbar-default {
 			}
 		}
 		@media only screen and (max-width: 576px){
+			body{
+				overflow-y: scroll !important;
+			}
 			i.fa.fa-chevron-right {
 				font-size: 3vw;
 				line-height: 2!important;
 			}
+			.text-aboutus{
+				padding-left: 0 !important;
+			}
+			.text-aboutus > span:nth-child(1){
+				font-size: 1.3vw;
+			}
+			.text-aboutus > span:nth-child(3){
+				white-space: nowrap;
+			}
+			.data-member >p:nth-child(1){
+				justify-content: flex-start !important;
+			}
+			.data-member > p{
+				text-align: left;
+				margin: 0;
+			}
+			.data-member > p:nth-child(2):before{
+				margin-right: 1vw;
+				display: inline-block;
+				background-size: cover !important;
+				height: 3vw;
+				background: url(../img/home_page/arrow-l.png) no-repeat;
+				width: 3vw;
+				color: green;
+				content: '';
+				/* padding: 4vw 0; */
+
+			}
+			.data-member > p:nth-child(3):before{
+				margin-right: 1vw;
+				display: inline-block;
+				height: 3vw;
+				background: url(../img/home_page/arrow-l.png) no-repeat;
+				width: 3vw;
+				color: green;
+				content: '';
+				/* padding: 4vw 0; */
+				background-size: cover !important;
+			}
+			.div-item{
+				height: 5vw;
+			}
+
 			.step-buy-product{
 				display: none !important;
 			}
@@ -1454,10 +1502,10 @@ div.member div.line{
 } 
 .Hotline-logo .fa-phone:before {
 	color: red;
-    width: 4vw;
-    border: 1px solid red;
-    border-radius: 50%;
-    padding: 0.2vw 0.4vw;
+	width: 4vw;
+	border: 1px solid red;
+	border-radius: 50%;
+	padding: 0.2vw 0.4vw;
 }
 .Hotline-logo>p>span{
 	font-size: 1.1vw;
