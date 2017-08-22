@@ -82,7 +82,7 @@
 							<div class="form-group form-top ">
 								{!!Html::decode(Form::label('fullname','Tên đăng nhập ',['class'=>'control-label col-lg-4']))!!}
 								<div class="col-lg-6">
-									{!! Form::text('username','',['class'=>'form-control']) !!}
+									{!! Form::text('username','',['class'=>'form-control','id'=>'username']) !!}
 									@if($errors->has('username'))<p style="color: red;">{{$errors->first('username')}}</p>@endif
 								</div>
 							</div>
@@ -183,7 +183,7 @@
 							<div class="form-group">
 								{!!Html::decode(Form::label('fullname','Tên đăng nhập ',['class'=>'control-label col-lg-4']))!!}
 								<div class="col-lg-6">
-									{!! Form::text('usernamedt','',['class'=>'form-control','placeholder'=>' ']) !!}
+									{!! Form::text('usernamedt','',['class'=>'form-control','id'=>'usernamedt','placeholder'=>' ']) !!}
 									@if($errors->has('usernamedt'))<p style="color: red;">{{$errors->first('usernamedt')}}</p>@endif
 								</div>
 							</div>

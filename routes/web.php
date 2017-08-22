@@ -42,6 +42,7 @@ Route::get('orders/show',function(){if(session()->has('customer_id'))
 
 Route::post('checkidentitycard',['as'=>'','uses'=>'CheckUserController@checkidentitycard']);
 Route::post('checkEmployee_id',array('as'=>'AjaxcheckEmployee_id','uses'=>'CheckUserController@checkEmployee_id'));
+Route::get('checkUsername', ['as'=>'checkUsername','uses'=>'UserController@checkUsername']);
 Route::post('orders',array('as'=>'postAjaxOrder','uses'=>'OrdersController@postAjax'))->name('redirectAjax');
 Route::post('ordersPostAjax',array('as'=>'ordersPostAjax','uses'=>'OrdersController@getAjax'))->name('redirectAjax');
 Route::post('orders',array('as'=>'postAjaxOrder','uses'=>'OrdersController@postAjax'))->name('redirectAjax');
@@ -65,7 +66,7 @@ Route::group(['middleware'=>['authen']],function(){
 		Route::post('/pusher/auth',  ['as'=>'PusherAuth','uses'=>'PusherController@pusherAuth']);
 		Route::get('print_orders/{id}', ['as'=>'print_orders','uses'=>'OrdersController@printOrders']);
 		Route::get('printAutoPay/{id}', ['as'=>'printAutoPay','uses'=>'OrdersController@printAutoPay']);
-		Route::get('exportOrders', ['as'=>'exportOrders','uses'=>'OrdersController@exportOrders']);
+		Route::post('exportOrders', ['as'=>'exportOrders','uses'=>'OrdersController@exportOrders']);
 		Route::get('changepassword/{id}',array('as'=>'changepassword', 'uses'=>'ChangePasswordController@index'));
 		Route::post('changepassword/{id}',array('as'=>'updatepassword', 'uses'=>'ChangePasswordController@update'));
 		Route::get('profile',array('as'=>'profile','uses'=>'UserController@getProfile'));

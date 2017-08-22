@@ -486,12 +486,12 @@ function convertname($str) {
 
  	}
 
- 	public function exportOrders()
+ 	public function exportOrders(Request $req)
  	{
  		$today=Carbon::today()->format('d-m-Y');
  		$sys_id=DB::table('user_retailsystem')->where('user_id',Auth::user()->id)->pluck('retailsystem_id');
  		// $order=DB::table('orders')->select(DB::raw('name as Tên,buy_now as "Sức mua hiện tại",product_reg as "Sản phẩm đăng kí",product_code as "Mã sản phẩm",color as "Màu sắc",price as "Giá bán",prepay as "Trả trước",select_rate as "Tỉ lệ",lead_time as "Thời hạn",supmarket as "Siêu thị",city as "Thành phố",district as "Quận Huyện", store as "Cửa hàng",salesman as "Người bán hàng",phonesale as "Số điện thoại bán hàng",created_at as "Ngày Tạo"'))->get();
- 		$order = Orders::select('name','buy_now','product_reg','product_code','color','price','prepay','select_rate','lead_time','supmarket','city','district','store','salesman','phonesale','created_at')->whereIn('retailsystem_id',$sys_id)->get();
+ 		$order = Orders::select('name','buy_now','product_reg','product_code','color','price','prepay','select_rate','lead_time','supmarket','city','district','store','salesman','phonesale','created_at')->whereIn('retailsystem_id',$sys_id)->whereBetween('created_at', array($req->date1, $req->date2))->get();
  		Excel::create('Danh sách đơn hàng '.$today,function($excel) use ($order)
  		{
  			$excel->sheet('sheet 1',function ($sheet) use ($order)
@@ -720,6 +720,11 @@ function convertname($str) {
  	public function postAccuracyOrder(Request $r){
  		$orders = Orders::find($r->orders_id);
  		if(!empty($r->btn_accuracy)){
+ 			if($orders->user->status!=1)
+ 			{
+ 				$u=User::find($orders->user->id)->status=1;
+ 				$u->save();
+ 			}
  			if(preg_replace("/[ đồng.]/","",$r->salary_avg)!=''){
  			$query = DB::table('userinfo')->where('user_id','=',$r->user_id)->update([
  				'number_account'=>$r->number_account,

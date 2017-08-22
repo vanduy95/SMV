@@ -211,6 +211,10 @@
 		</section>
 		<script>
 			$('table').on('click', '#show_status_6', function(event) {
+				$('select')
+				.removeAttr('selected')
+				.filter('[value=0]')
+				.attr('selected', true)
 				$('.loading').fadeIn('400');
 				var user_id=$(this).data('user6_id');
 				$('#save_change6').data('user6_id',user_id);
@@ -240,6 +244,8 @@
 				});
 			});
 			$('#save_change6').click(function(event) {
+				if($("#status3").val()==1)
+				{
 				$('.loading').fadeIn('400');
 				var table = $('table').DataTable();
 				var user_id=$(this).data('user6_id');
@@ -264,12 +270,20 @@
 						$('.loading').hide();
 						$("#myModal6").modal('hide');
 					}
-				})       
+				})
+				}
+				else{
+					$("#myModal3").modal('hide');
+				}       
 			});
 
 
 //user 3
 $('table').on('click', '#show_status_3', function(event) {
+	$('select')
+	.removeAttr('selected')
+	.filter('[value=0]')
+	.attr('selected', true)
 	$('.loading').fadeIn('400');
 	var user_id=$(this).data('user3_id');
 	$('#save_change3').data('user3_id',user_id);
@@ -293,6 +307,9 @@ $('table').on('click', '#show_status_3', function(event) {
 	});
 });
 $('#save_change3').click(function(event) {
+
+	if($("#status3").val()==1)
+	{
 	$('.loading').fadeIn('400');
 	var table = $('table').DataTable();
 	var user_id=$(this).data('user3_id');
@@ -317,7 +334,11 @@ $('#save_change3').click(function(event) {
 						$('.loading').hide();
 						$("#myModal3").modal('hide');
 					}
-				})       
+				})
+		} 
+		else{
+			$("#myModal3").modal('hide');
+		}      
 });
 
 </script>

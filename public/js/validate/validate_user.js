@@ -9,8 +9,17 @@ $(document).ready(function() {
 				required: true,
 			},
 			username: {
+				remote: {
+					url: "/checkUsername",
+					type: "get",
+					data: {
+						username: function() {
+							return $( "#username" ).val();
+						}
+					}
+				},
 				required: true,
-				minlength: 3
+				minlength: 3,
 			},
 			email: {
 				required: true,
@@ -34,7 +43,8 @@ $(document).ready(function() {
 			},
 			username: {
 				required: "Tên đăng nhập không được để trống",
-				minlength: "Tên đăng nhập lớn hơn 6 ký tự"
+				minlength: "Tên đăng nhập lớn hơn 6 ký tự",
+				remote:"Tên đăng nhập đã tồn tại"
 			},
 			email: {
 				required: "Email không được để trống",
@@ -80,7 +90,16 @@ $(document).ready(function() {
 			},
 			usernamedt: {
 				required: true,
-				minlength: 3
+				minlength: 3,
+				remote: {
+					url: "/checkUsername",
+					type: "get",
+					data: {
+						username: function() {
+							return $( "#usernamedt" ).val();
+						}
+					}
+				},
 			},
 			emaildt: {
 				required: true,
@@ -116,7 +135,8 @@ $(document).ready(function() {
 			},
 			usernamedt: {
 				required: "Tên đăng nhập không được để trống",
-				minlength: "Tên đăng nhập lớn hơn 6 ký tự"
+				minlength: "Tên đăng nhập lớn hơn 6 ký tự",
+				remote:"Tên đăng nhập đã tồn tại"
 			},
 			emaildt: {
 				required: "Email không được để trống",

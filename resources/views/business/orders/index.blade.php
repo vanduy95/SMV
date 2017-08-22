@@ -23,9 +23,19 @@
         <div class="box-header">
           <h3 class="box-title">Danh sách đơn hàng</h3>
             @if (Auth::user()->groupuser_id==6||Auth::user()->groupuser_id==7||Auth::user()->groupuser_id==8)
-               <a href="{{ url('admin/exportOrders') }}"><button class="btn btn-primary pull-right">Xuất danh sách</button></a>
-            @endif
-             
+            <form class="form-inline pull-right" action="{{ url('admin/exportOrders') }}" method="post">
+            {{csrf_field()}}
+              <div class="form-group">
+                <label for="date1">Từ:</label>
+                <input type="date" class="form-control" name="date1" id="date1">
+              </div>
+              <div class="form-group">
+                <label for="date2">đến:</label>
+                <input type="date" class="form-control" name="date2" id="date2">
+              </div>
+              <button type="submit" class="btn btn-primary">Xuất danh sách</button>
+            </form>
+            @endif 
         </div>
         <div class="box-body">
          <div class="table-responsive">

@@ -896,6 +896,8 @@ nav.navbar.navbar-default {
 			display: flex;
 			justify-content: flex-start;
 			margin-left: 10px !important;
+			display: -webkit-flex;
+    			-webkit-justify-content: flex-start;
 		}
 		.row-logo img{
 			max-width: 90%;
@@ -1443,7 +1445,7 @@ div.member div.line{
 	position: relative;
 	padding: 0;
 	z-index: 3;
-	background: rgba(243, 245, 240, 0.7);
+	background: rgba(243, 245, 240, 0.2);
 }
 /*success*/
 .div-center{
@@ -1509,4 +1511,19 @@ div.member div.line{
 }
 .Hotline-logo>p>span{
 	font-size: 1.1vw;
+}
+.footer-mobile {
+	padding-top: 2vw;
+}
+.Hotline-logo>p>span{
+	 font-weight: bold;
+}
+.footer-desktop {
+	padding-top: 1vw;
+}
+section.container-fluid.about-company.col-lg-12.col-md-12.col-xs-12.div-center {
+	background: #e8eaeb;
+}
+.row.data-aboutus.col-lg-12.col-md-12.col-xs-12.div-center {
+	background: rgba(196, 196, 197, 0.9);
 }
