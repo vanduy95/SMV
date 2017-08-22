@@ -4,6 +4,9 @@
 	height: 10vw;
 	padding: 0;
 }
+div.dropdown-menu.open{
+	width: 100%;
+}
 .row{
 	margin: 0 !important;
 }
