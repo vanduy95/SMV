@@ -133,9 +133,9 @@
 	$(document).ready(function() {
 		$('#upload_form').validate({
 			rules:{
-				// upExcel:{
-				// 	required:true,
-				// },
+				upExcel:{
+					required:true,
+				},
 				organization:{
 					required:true,
 				}

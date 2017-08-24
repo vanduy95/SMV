@@ -150,7 +150,6 @@ public function checkuser(){
     }
 }
 public function postcreateExcel(Request $r,User $user, UserInfo $userinfo){
-    dd($r);
     set_time_limit(1800);
     try{
 
@@ -168,7 +167,7 @@ public function postcreateExcel(Request $r,User $user, UserInfo $userinfo){
             $user->status = 0;
             $user->syslock = 1;
             $user->groupuser_id =2;
-            $user->organization_id =2;
+            $user->organization_id =$r->organization;
             $user->save();
             $userinfo = new UserInfo();
             $userinfo->user_id=$user->id;
