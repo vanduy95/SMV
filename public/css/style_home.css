@@ -25,13 +25,13 @@ nav.navbar.navbar-default {
 .div-item:nth-child(1){
 	border-bottom: 0.6vw solid white;
 	border-right: 0.6vw solid white;
-	background: url('../img/home_page/accounting.jpg') no-repeat #fff;
-	background-size: 100% 100%;
+	background: url('../img/home_page/accounting1.jpg') no-repeat #fff;
+	background-size:  100% 100%;
 }
 .div-item:nth-child(2){
 	border-bottom: 0.6vw solid white;
 	border-left: 0.6vw solid white;
-	background: url('../img/home_page/accounting.jpg') no-repeat #fff;
+	background: url('../img/home_page/accounting3.jpg') no-repeat #fff;
 	background-size: 100% 100%;
 }
 .div-bg-gradient{
@@ -52,7 +52,7 @@ nav.navbar.navbar-default {
 .div-item:nth-child(4){
 	border-top: 0.6vw solid white;
 	border-left: 0.6vw solid white;
-	background: url('../img/home_page/accounting.jpg') no-repeat #fff;
+	background: url('../img/home_page/accounting2.jpg') no-repeat #fff;
 	background-size: 100% 100%;
 }
 .div-items{
@@ -63,7 +63,8 @@ nav.navbar.navbar-default {
 	transform: rotate(45deg)
 }
 #hoverb1 > p,#hoverb2 > p,#hoverb3 > p,#hoverb4 > p {
-	font-size: 1.3vw;
+	font-size: 1.2vw;
+	font-weight: bold;
 	padding: 1vw 0vw;
 }
 .header-desktop{
@@ -118,7 +119,7 @@ nav.navbar.navbar-default {
 			display: none !important;
 		}
 		.data-left-rate-xs > p{
-			font-size: 7vw;
+			font-size: 6vw;
 		}
 		.data-left h1{
 			font-size: 4.3vw;
@@ -159,6 +160,25 @@ nav.navbar.navbar-default {
 	}
 	
 	@media (max-width: 1024px){
+		.title-banner{
+			/*display: flex;*/
+			/*justify-content: flex-end;*/
+		}
+		.reset-margin-md{
+			margin: 0 !important;
+		}
+		.pd-left-md{
+			padding-left: 0 !important;
+		}
+		.pd-top-md{
+			padding-top: 0  !important;
+		}
+		.font-next-step{
+			font-size: 1.4vw !important;
+		}
+		.text-resize{
+			font-size: 2vw !important;
+		}
 		.text-sm{
 			font-size: 5vw!important;
 		}
@@ -1148,7 +1168,9 @@ div.member div.line{
 	justify-content: center;
 }
 .font-next-step{
-	font-size: 15px;
+	/*font-weight: 600;*/
+	font-family: Calibri;
+	font-size: 1.2vw;
 }
 #hoverb1:hover,#hoverb2:hover,#hoverb3:hover,#hoverb4:hover{
 	transition: all 1s;
@@ -1290,7 +1312,7 @@ div.member div.line{
 }
 .content>h1>span{
 	border-bottom: 0.5vw solid;
-	margin: 3vw 3vw 3vw 7vw;
+	margin: 3vw 3vw 3vw 9.9vw;
 }
 .about-company{
 	background: #ebebeb;
@@ -1366,11 +1388,11 @@ div.member div.line{
 .interest-title{
 	padding-top: 2vw;
 	padding-bottom: 3vw;
-	font-size: 2vw;
+	font-size: 1.5vw;
 	font-weight: bold;
 }
 .interest{
-	padding-right: 4vw;
+	/*padding-right: 4vw;*/
 	display: flex;
 	justify-content: space-between;
 	display: -webkit-flex;
@@ -1382,14 +1404,17 @@ div.member div.line{
 	margin-right: 2vw;
 }
 .background{
-	background: url('../img/home_page/accounting.jpg') no-repeat;
-	background-size: 100% 100%;
+	background: url('../img/home_page/accountin.png') no-repeat;
+	background-size: 100%;
 }
 .content-program{
 	padding: 3vw;
 }
 .program{
-	font-size: 2.3vw;
+	font-size: 2.45vw;
+}
+.data-member{
+	margin-right: 4vw;
 }
 .data-member > p:nth-child(1){
 	font-size: 2.5vw;

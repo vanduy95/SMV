@@ -45,7 +45,7 @@
 		</div>
 	</section>
 	<section class="container-fluid interest-background">
-		<div class="row interest col-lg-12 col-md-12 col-xs-12">
+		<div class="row  col-lg-12 col-md-12 col-xs-12">
 			<div class="interest-client col-lg-3 col-md-3 col-xs-3">
 				<div class="div-items col-lg-12 col-md-12 col-xs-12">
 					<div class="div-item col-lg-6 col-md-6 col-xs-6">
@@ -58,7 +58,7 @@
 					<div class="clear"></div>
 				</div>
 			</div>
-			<div class="col-lg-9">
+			<div class="col-lg-offfset-1 col-md-offset-1 col-xs-offset-1 col-lg-7 col-md-7 col-xs-7">
 				<p class="interest-title">
 					ĐỂ MANG LẠI LỢI ÍCH TỐT NHẤT CHO KHÁCH HÀNG, CHÚNG TÔI ĐÃ NỖ LỰC:
 				</p> 
@@ -70,13 +70,14 @@
 				</p>
 			</div>
 		</div>
+		<div class="clear"></div>
 	</section>
 	<section class="container-fluid background-program">
 		<div class="col-lg-12 col-md-12 col-xs-12" style="padding: 0">
 			<div class="row data-aboutus col-lg-12 col-md-12 col-xs-12 div-center">
-				<div class="content-program col-lg-9 col-md-9 col-xs-9">
+				<div class="content-program col-lg-10 col-md-10 col-xs-10">
 					<div class="program">
-						<span>Chương trình "ĐẶC QUYỀN MUA SẮM DÀNH CHO HỘI VIÊN". Sức Mua việt mang đến những ưu đãi thiết thực cho khách hàng.</span>
+						<span>Chương trình "ĐẶC QUYỀN MUA SẮM DÀNH CHO HỘI VIÊN". Sức Mua Việt mang đến những ưu đãi thiết thực cho khách hàng.</span>
 					</div>
 					<div class="img-content">
 						<div class="content-sm col-lg-9">
@@ -91,14 +92,14 @@
 				</div>
 			</div>
 			<div class="col-lg-12 col-md-12 col-xs-12 div-center">
-				<div class="data-member col-lg-8 col-md-8 col-xs-8">
+				<div class="data-member col-lg-10 col-md-10 col-xs-10">
 					<p class="col-lg-12 col-md-12 col-xs-12 text-right">Để trở thành hội viên</p>
 					<p class=" col-lg-12 col-md-12 col-xs-12 text-right">Doanh nghiệp bạn đang công tác đã có trong danh sách lựa chọn của Sức Mua Việt.</p>
 					<p class="  col-lg-12 col-md-12 col-xs-12 text-right">Bạn đã ký hợp đồng chính thức với doanh nghiệp, thời gian làm việc trên 6 tháng.</p>
 				</div>
 			</div>
 			<div class="col-lg-12 col-md-12 col-xs-12 div-center">
-				<div class="contact-info col-lg-10 col-md-10 col-xs-10">
+				<div class="contact-info col-lg-9 col-md-9 col-xs-9">
 					<p class="info-contact">THÔNG TIN LIÊN HỆ</p>
 					<p class="name-company">Công Ty TNHH Phát Triển Sức Mua Việt</p>
 					<p>
