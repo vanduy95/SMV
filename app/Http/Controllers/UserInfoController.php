@@ -41,7 +41,8 @@ class UserInfoController extends Controller
      public function index(){
         $userinfo = UserInfo::all();
         $user = User::all();
-        return view('business.userinfo.index',compact('userinfo','user'));
+        $organization=Organization::all();
+        return view('business.userinfo.index',compact('userinfo','user','organization'));
     }
     public function getcreate(){
         $groupuser = GroupUser::where('name','<>','Admin')->get();
@@ -149,6 +150,7 @@ public function checkuser(){
     }
 }
 public function postcreateExcel(Request $r,User $user, UserInfo $userinfo){
+    dd($r);
     set_time_limit(1800);
     try{
 

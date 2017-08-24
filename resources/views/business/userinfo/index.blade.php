@@ -1,12 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-<script>
-	function myFun(){
-		var x= document.getElementById("btnUpload").value.split("\\");
-		document.getElementById("btnFile").value = x[2];
-	}
-</script>
+
 <style type="text/css">
 	.div-center{
 		display: flex;
@@ -29,26 +24,43 @@
 		<li class="active">User</li>
 	</ol>
 </section>
-<div class="modal fade" id="progress" role="dialog">
+<div class="modal fade" id="upload" role="dialog">
 	<div class="modal-dialog">
 		
 		<!-- Modal content-->
 		<div class="modal-content">
 			<div class="modal-header">
-				<h4 class="modal-title">Modal Header</h4>
+				<h4 class="modal-title">Tải lên danh sách</h4>
 			</div>
 			<div class="modal-body">
-				<div class="progress">
-					<div class="progress-bar" id="progressbar" role="progressbar" aria-valuenow="0"
-					aria-valuemin="0" aria-valuemax="100" style="width:0%">
-					0%
-				</div>
+				<form class="form-horizontal" id="upload_form" action="" method="post" enctype="multipart/form-data">
+					{{ csrf_field() }}
+					<div class="form-group">
+						<label class="control-label col-md-3" for="organization">Chọn công ty:</label>
+						<div class="col-md-9"> 
+							<select name="organization" class="form-control" id="organization" placeholder="Enter password">
+							<option value="">Chọn công ty</option>
+								@foreach ($organization as $organization)
+									<option value="{{$organization->id}}" >{{$organization->name}}</option>
+								@endforeach
+							</select> 
+						</div>
+					</div>	
+					<div class="form-group">
+						<label class="control-label col-md-3">Tải lên danh sách:</label>
+						<div class="input-group col-md-8">
+							<input name="upExcel" type="text" class="form-control" >
+						</div>
+					</div>
+					<div class="form-group"> 
+						<div class="col-md-offset-3 col-md-9">
+							<input type="submit" class="btn btn-primary" id="save" name="save"  value="UpLoad">
+						</div>
+					</div>
+				</form>
 			</div>
 		</div>
-		
 	</div>
-	
-</div>
 </div>
 <section class="content">
 	<div class="row">
@@ -58,29 +70,11 @@
 					<h3 class="box-title">List User Client</h3>
 				</div>
 				<div class="box-header">
-					<div class="col-lg-8">
-						<form class="div-center" action="" method="post" enctype="multipart/form-data">
-							{{ csrf_field() }}
-							<div class="col-lg-3">
-								<label>Tải lên danh sách:</label>
-							</div>
-							<div class="col-lg-6">
-								<div class="input-group">
-									<label class="input-group-btn">
-										<span class="btn btn-primary">
-											Browse&hellip; <input id="btnUpload" name="upExcel" onchange="myFun();" type="file" style="display: none;" multiple>
-										</span>
-									</label>
-									<input id="btnFile" name="name_company" type="text" class="form-control" >
-								</div>
-							</div>
-							<div class="col-lg-2">
-								<input type="button" class="btn btn-primary" id="save" name="save"  value="UpLoad">
-							</div>
-						</form>
+					<div class="col-lg-2"> 
+						<button class="btn btn-primary" data-toggle="modal" data-target="#upload"><i class="fa fa-upload" aria-hidden="true"></i> Tải lên danh sách</button>
 					</div>
-					<div class=" col-lg-offset-2 col-lg-2"> 
-						<a href="admin/user/xls"><input type="submit" class="btn btn-primary" value="Tải về danh sách" /></a>
+					<div class=" col-lg-offset-2 col-lg-2 pull-right"> 
+						<a href="/admin/user/xls"><button type="submit" class="btn btn-primary"/><i class="fa fa-download" aria-hidden="true"></i>Tải về danh sách</button></a>
 					</div>
 				</div>
 				@if(Session::has('mess_userinfo'))
@@ -134,47 +128,28 @@
 			</div>
 		</div>
 	</div>
-
-	<script type="text/javascript">
-		
-		$(document).ready(function() {
-			$('#save').click(function() {
-				
-				var formData = new FormData();
-				formData.append('upExcel', $('#btnUpload')[0].files[0]);
-				$('#progress').modal({backdrop: "static"});
-				$.ajax({
-					
-					xhr: function() {
-						var myXhr = $.ajaxSettings.xhr();
-						if (myXhr.upload) {
-                // For handling the progress of the upload
-                myXhr.upload.addEventListener('progress', function(e) {
-                	if (e.lengthComputable) {
-                		var Percentage = Math.round(e.loaded/e.total)*100;
-                		$('#progressbar').attr('aria-valuenow',Percentage).css('width',Percentage+'%').text(Percentage+'%');			
-                		
-                	}
-                } , false);
-            }
-            return myXhr;
-        },
-        cache:false,
-        url : '{{url('admin/userinfo')}}',
-        type : 'POST',
-        data : formData,
-        processData: false,  
-        contentType: false,
-        success:function (data) {
-        	$('#progress').modal('hide');
-        }
-    });
-			})
-		});
-	</script>
-
-
 </section>
-
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#upload_form').validate({
+			rules:{
+				// upExcel:{
+				// 	required:true,
+				// },
+				organization:{
+					required:true,
+				}
+			},
+			messages:{
+				upExcel:{
+					required:"Không được để trống trường này",
+				},
+				organization:{
+					required:"Không được để trống trường này",
+				}
+			}
+		});
+	});
+</script>
 <!-- page end-->
 @stop
