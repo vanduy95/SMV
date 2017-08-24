@@ -64,11 +64,11 @@ label.control-label.col-lg-4 {
       </div>
       <form action="postAjaxNewUserOrder" method="post" id="userifo_form">
         {{csrf_field()}}
-        <div class="pb-5 col-lg-12 " style="padding: 0;background: rgba(255,255,255,0.8); ">
-          <div class="py-3 col-lg-12 div-center" style="padding: 0">
-            <div class="col-lg-4" style="border: 1px solid black"></div>
-            <div class="col-lg-4"><span style="font-size: 29px;" class="text-infoo">Thông tin cá nhân</span></div>
-            <div class="col-lg-4" style="border: 1px solid black"></div>
+        <div class="pb-5 col-lg-12 col-xs-12 col-md-12 " style="padding: 0;background: rgba(255,255,255,0.8); ">
+          <div class="py-3 col-lg-12 col-md-12 col-xs-12 div-center" style="padding: 0">
+            <div class="col-lg-4 col-md-4 col-xs-4" style="border: 1px solid black;margin: 0;padding:0;"></div>
+            <div class="col-lg-4 col-md-4 col-xs-4"><span style="font-size: 2.1vw;" class="text-infoo">Thông tin cá nhân</span></div>
+            <div class="col-lg-4 col-md-4 col-xs-4" style="border: 1px solid black;margin: 0;padding:0;"></div>
           </div>
           <div class="col-lg-12 form-group">
               <label class="control-label col-lg-4">Chọn công ty đang làm việc</label>

@@ -112,8 +112,8 @@ z-index: 9999
 					<a href="{{route('getsearch')}}"><img src="../img/home_page/logo.jpg"></a>
 				</div>
 				<div class="Hotline-logo col-lg-3">
-					<p style="font-size: 1.7vw;"><i class="fa fa-phone" aria-hidden="true" style="margin-right: 1vw;"></i>Hotline</p>
-					<p style="padding-left: 3.5vw;"><span>024.6655.2428</span><span style="padding-left: 2vw;">0904.633.568</span></p>
+					<p style="font-size: 1.7vw;"><i class="fa fa-phone" aria-hidden="true" style="margin-right: 1vw;"></i><span style="font-size: 1.5vw">Hotline</span></p>
+					<p style="padding-left: 3.5vw;"><span style="font-size: 1.5vw">024.6655.2428</span><span style="padding-left: 2vw;font-size: 1.5vw">0904.633.568</span></p>
 				</div>
 			</div>
 			<div class="row row-menu">
