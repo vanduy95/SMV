@@ -70,12 +70,12 @@
 					<h3 class="box-title">List User Client</h3>
 				</div>
 				<div class="box-header">
-					<div class="col-lg-2"> 
+					<div class="col-lg-2 pull-right"> 
 						<button class="btn btn-primary" data-toggle="modal" data-target="#upload"><i class="fa fa-upload" aria-hidden="true"></i> Tải lên danh sách</button>
 					</div>
-					<div class=" col-lg-offset-2 col-lg-2 pull-right"> 
+					{{-- <div class=" col-lg-offset-2 col-lg-2 pull-right"> 
 						<a href="/admin/user/xls"><button type="submit" class="btn btn-primary"/><i class="fa fa-download" aria-hidden="true"></i>Tải về danh sách</button></a>
-					</div>
+					</div> --}}
 				</div>
 				@if(Session::has('mess_userinfo'))
 				<p class="alert alert-info">{{ Session::get('mess_userinfo') }}</p>
