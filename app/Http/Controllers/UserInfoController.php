@@ -41,7 +41,8 @@ class UserInfoController extends Controller
      public function index(){
         $userinfo = UserInfo::all();
         $user = User::all();
-        return view('business.userinfo.index',compact('userinfo','user'));
+        $organization=Organization::all();
+        return view('business.userinfo.index',compact('userinfo','user','organization'));
     }
     public function getcreate(){
         $groupuser = GroupUser::where('name','<>','Admin')->get();
@@ -166,7 +167,7 @@ public function postcreateExcel(Request $r,User $user, UserInfo $userinfo){
             $user->status = 0;
             $user->syslock = 1;
             $user->groupuser_id =2;
-            $user->organization_id =2;
+            $user->organization_id =$r->organization;
             $user->save();
             $userinfo = new UserInfo();
             $userinfo->user_id=$user->id;
