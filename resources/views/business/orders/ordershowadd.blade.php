@@ -4,11 +4,6 @@
 @endsection
 @section('content')
 <style rel="stylesheet">
- .div-center{
-   display: flex;
-   align-items: center;
-   justify-content: center;
- }
  .form-group{
   margin-bottom: 5px !important;
 }
@@ -124,10 +119,10 @@ label.control-label.col-lg-4 {
               <input type="text" name="addr_issue" id="addr_issue" class="form-control">
             </div>
           </div>
-          <div class="my-5 col-lg-12 form-group div-center flex-direction">
-            <input type="button" id="btn_register" name="btn_register" value="Đăng ký sức mua" class="btn btn-primary col-lg-2 " style="background: #160d65" />
-            <input type="button" id="btn_new_orders" name="btn_new_orders" value="Nhập đơn hàng" class="col-lg-offset-1 btn btn-primary col-lg-2 " style="background: #160d65">
-            <input type="submit" id="btn_upload" name="btn_upload" value="Tải phiếu đăng ký" class="col-lg-offset-1 btn btn-primary col-lg-2 " style="background: #160d65">
+          <div class="my-5 col-lg-12 col-md-12 col-xs-12 form-group div-center">
+            <input type="button" id="btn_register" name="btn_register" value="Đăng ký sức mua" class="btn btn-primary col-lg-2 col-md-2 col-xs-2  div-center " style="background: #160d65;font-size: 1vw;" />
+            <input type="button" id="btn_new_orders" name="btn_new_orders" value="Nhập đơn hàng" class=" div-center col-lg-offset-1 btn btn-primary col-lg-2  col-md-2 col-xs-2 col-md-offset-1 col-xs-offset-1" style="background: #160d65;font-size: 1vw;">
+            <input type="submit" id="btn_upload" name="btn_upload" value="Tải phiếu đăng ký" class=" div-center col-lg-offset-1 btn btn-primary col-lg-2 col-md-2 col-xs-2 col-md-offset-1 col-xs-offset-1 " style="background: #160d65;font-size: 1vw;">
           </div>
         </div>
       </div>
