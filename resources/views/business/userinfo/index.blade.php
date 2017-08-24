@@ -49,7 +49,7 @@
 					<div class="form-group">
 						<label class="control-label col-md-3">Tải lên danh sách:</label>
 						<div class="input-group col-md-8">
-							<input name="upExcel" type="text" class="form-control" >
+							<input name="upExcel" type="file" class="form-control" >
 						</div>
 					</div>
 					<div class="form-group"> 
