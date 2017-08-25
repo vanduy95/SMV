@@ -69,14 +69,14 @@
 		}
 		#loading{
 			background: url({{ asset('img/loading.gif')}}) center no-repeat rgba(0,0,0,0.5);
-position: fixed;
-left: 0px;
-top: 0px,;
-width: 100%;
-height: 100%;
-z-index: 9999
-}
-</style>
+			position: fixed;
+			left: 0px;
+			top: 0px,;
+			width: 100%;
+			height: 100%;
+			z-index: 9999
+		}
+	</style>
 </head>
 <body >
 	<div id="mySidenav" class="sidenav">
@@ -143,7 +143,7 @@ z-index: 9999
 		</div>
 	</header>
 	@yield('content')
-	<footer class="container-fluid col-lg-12 col-md-12 col-xs-18">
+	<footer class="container-fluid col-lg-12 col-md-12 col-xs-12">
 		<div class="footer-desktop">
 			<div class="row footer-logo">
 				<a href="{{route('getsearch')}}"><img src="../img/home_page/logo_footer.png"></a>
@@ -171,10 +171,8 @@ z-index: 9999
 			</div>
 		</div>
 		<div class="footer-mobile">
-			<div class="row footer-social-icon">
-				<a href="" class="f-social-icon"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-				<a href="" class="f-social-icon"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-				<a href="" class="f-social-icon"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+			<div class="footer-logo">
+				<a href="{{route('getsearch')}}"><img src="../img/home_page/logo_footer.png"></a>
 			</div>
 			<div class="row footer-contact">
 				<h2>CÔNG TY TNHH PHÁT TRIỂN  SỨC MUA VIỆT</h2>
@@ -185,6 +183,13 @@ z-index: 9999
 			<div class="row footer-hotline">
 				<span>HOTLINE : 0904 633 568</span>
 			</div>
+			<div class="footer-social-icon footer-logo" style="width: 100%;">
+				<a href="" class="f-social-icon"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+				<a href="" class="f-social-icon"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+				<a href="" class="f-social-icon"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+				<div class="clear"></div>
+			</div>
+			<div class="clear"></div>
 		</div>
 	</footer>
 	@yield('script')
