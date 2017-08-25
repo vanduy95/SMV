@@ -43,7 +43,8 @@ class PurchaseinfoController extends Controller
 					['userinfo.employee_id','=',$code],
 					['orders.process_id','=',5],
 					['organization.ma','<>','HT'],
-					['user.syslock','=',1]
+					['user.syslock','=',1],
+					['user.status','=',0]
 					])
 				->select('user.organization_id','userinfo.employee_id','user.id','userinfo.salary','userinfo.identitycard','userinfo.fullname')->get()->count();
 				if(!empty($_POST['id_com'] && !empty($_POST['code']) && !empty($_POST['cmt']))){
@@ -53,7 +54,8 @@ class PurchaseinfoController extends Controller
 							['organization.id','=',$id_com],
 							['userinfo.employee_id','=',$code],
 							['organization.ma','<>','HT'],
-							['user.syslock','=',1]
+							['user.syslock','=',1],
+							['user.status','=',0]
 							])
 						->select('user.organization_id','userinfo.employee_id','user.id','userinfo.salary','userinfo.identitycard','userinfo.fullname')->get()->count();
 						if($count_d==1){
@@ -76,7 +78,8 @@ class PurchaseinfoController extends Controller
 							['organization.id','=',$id_com],
 							['orders.process_id','=',5],
 							['userinfo.employee_id','=',$code],
-							['user.syslock','=',1]])
+							['user.syslock','=',1],
+							['user.status','=',0]])
 						->select(DB::raw('user.id,SUM(orders.price) as price, SUM(orders.prepay) as prepay,userinfo.fullname,userinfo.salary,user.id'))->get()->toArray();
 						session()->put('customer_id', $userall[0]->id);
 						$cal = ($userall[0]->salary*2.5)-$userall[0]->price;
@@ -115,14 +118,16 @@ class PurchaseinfoController extends Controller
 							['organization.id','=',$id_com],
 							['userinfo.identitycard','=',$cmt],
 							['organization.ma','<>','HT'],
-							['user.syslock','=',1]
+							['user.syslock','=',1],
+							['user.status','=',0]
 							])
 						->select('user.organization_id','userinfo.employee_id','user.id','userinfo.salary','userinfo.identitycard','userinfo.fullname')->get()->count();
 						$userall = DB::table('userinfo')->join('user','user.id','=','userinfo.user_id')->join('organization','organization.id','=','user.organization_id')
 						->where([
 							['organization.id','=',$id_com],
 							['userinfo.identitycard','=',$cmt],
-							['user.syslock','=',1]
+							['user.syslock','=',1],
+							['user.status','=',0]
 							])
 						->select('user.organization_id','userinfo.employee_id','user.id','userinfo.salary','userinfo.identitycard','userinfo.fullname')->get()->toArray();
 						if($count_d==1){
@@ -138,7 +143,8 @@ class PurchaseinfoController extends Controller
 							['organization.id','=',$id_com],
 							['orders.process_id','=',5],
 							['userinfo.identitycard','=',$cmt],
-							['user.syslock','=',1]
+							['user.syslock','=',1],
+							['user.status','=',0]
 							])
 						->select(DB::raw('user.id,SUM(orders.price) as price, SUM(orders.prepay) as prepay,userinfo.fullname,userinfo.salary,user.id'))->get()->toArray();
 						session()->put('customer_id', $userall[0]->id);
@@ -174,7 +180,8 @@ class PurchaseinfoController extends Controller
 						->where([
 							['organization.id','=',$id_com],
 							['userinfo.employee_id','=',$code],
-							['user.syslock','=',1]
+							['user.syslock','=',1],
+							['user.status','=',0]
 							])
 						->select('user.organization_id','userinfo.employee_id','user.id','userinfo.salary','userinfo.identitycard','userinfo.fullname')->get()->count();
 						if($count_d==1){
@@ -182,7 +189,8 @@ class PurchaseinfoController extends Controller
 							->where([
 								['userinfo.employee_id','=',$code],
 								['organization.id','=',$id_com],
-								['user.syslock','=',1]
+								['user.syslock','=',1],
+								['user.status','=',0]
 								])
 							->select('user.organization_id','userinfo.employee_id','user.id','userinfo.salary','userinfo.identitycard','userinfo.fullname')->get()->toArray();
 							session()->put('customer_id', $userall[0]->id);
@@ -197,7 +205,8 @@ class PurchaseinfoController extends Controller
 							['organization.id','=',$id_com],
 							['orders.process_id','=',5],
 							['userinfo.employee_id','=',$code],
-							['user.syslock','=',1]
+							['user.syslock','=',1],
+							['user.status','=',0]
 							])
 						->select(DB::raw('user.id,SUM(orders.price) as price, SUM(orders.prepay) as prepay,userinfo.fullname,userinfo.salary,user.id'))->get()->toArray();
 						$cal = ($userall[0]->salary*2.5)-$userall[0]->price;
