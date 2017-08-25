@@ -228,7 +228,7 @@ $(document).ready(function(){
 								$('#u_name').val(res[0].fullname);
 								$('#id_user').val(res[0].id);
 								$('#sum_buy').val(round_d((res[0].salary)*2.5));
-								$('#buy_use').val(round_d(res[0].price));
+								$('#buy_use').val(round_d(res[0].price-res[0].prepay));
 								$('#rest').val(round_d((res[0].salary*2.5)-(res[0].price-res[0].prepay)));
 								$('#id_user').val(res[0].id);
 								$('#upload').attr('href',url+'/orders/upload/'+res[0].id);
@@ -254,7 +254,7 @@ $(document).ready(function(){
 								$('#id_user').val(res[0].id);
 								$('#sum_buy').val((numeral(round_d((res[0].salary)*2.5)).format('0,0')).replace(',','.').replace(',','.').replace(',','.')+" đồng");
 								$('#buy_use').val((res[0].price)==null?0+" đồng":(numeral(round_d(res[0].price-res[0].prepay)).format('0,0')).replace(',','.').replace(',','.').replace(',','.')+" đồng");
-								$('#rest').val(((res[0].price)==null?(numeral(round_d((res[0].salary)*2.5)).format('0,0')).replace(',','.').replace(',','.').replace(',','.')+" đồng":(numeral((res[0].salary)*2.5-(res[0].price-res[0].prepay)).format('0,0')).replace(',','.').replace(',','.').replace(',','.')+" đồng"));
+								$('#rest').val(((res[0].price)==null?(numeral(round_d((res[0].salary)*2.5)).format('0,0')).replace(',','.').replace(',','.').replace(',','.')+" đồng":(numeral(round_d((res[0].salary)*2.5-(res[0].price-res[0].prepay))).format('0,0')).replace(',','.').replace(',','.').replace(',','.')+" đồng"));
 								$('#id_user').val(res[0].id);
 								$('#upload').attr('href',url+'/orders/upload/'+res[0].id);
 							}
