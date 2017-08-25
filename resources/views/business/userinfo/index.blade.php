@@ -49,7 +49,7 @@
 					<div class="form-group">
 						<label class="control-label col-md-3">Tải lên danh sách:</label>
 						<div class="input-group col-md-8">
-							<input name="upExcel" type="file" class="form-control" >
+							<input name="upExcel" type="file" accept="" class="form-control" >
 						</div>
 					</div>
 					<div class="form-group"> 
@@ -79,7 +79,7 @@
 				</div>
 				@if(Session::has('mess_userinfo'))
 				<p class="alert alert-info">{{ Session::get('mess_userinfo') }}</p>
-				@endif
+				@endifbtnb
 				<div class="box-body">
 					<div class="table-responsive">
 

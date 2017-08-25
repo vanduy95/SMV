@@ -15,7 +15,7 @@
          <div class="text">
           <h4>Khách hàng ký nhận</h4>
           <p><i class="fa fa-check" aria-hidden="true"></i>Hợp đồng mua hàng (02)bản.</p>
-          <p><i class="fa fa-check" aria-hidden="true"></i>Phiếu yêu cầu thanh toán tự động (01 bản). Chú ý: Khách hàng ký nháy từng trang.</p>
+{{--           <p><i class="fa fa-check" aria-hidden="true"></i>Phiếu yêu cầu thanh toán tự động (01 bản). Chú ý: Khách hàng ký nháy từng trang.</p> --}}
         </div>
       </div>
     </div>
