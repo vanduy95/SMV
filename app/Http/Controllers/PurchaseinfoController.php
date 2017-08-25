@@ -77,13 +77,14 @@ class PurchaseinfoController extends Controller
 							['orders.process_id','=',5],
 							['userinfo.employee_id','=',$code],
 							['user.syslock','=',1]])
-						->select(DB::raw('user.id,SUM(orders.price) as price,userinfo.fullname,userinfo.salary,user.id'))->get()->toArray();
+						->select(DB::raw('user.id,SUM(orders.price) as price, SUM(orders.prepay) as prepay,userinfo.fullname,userinfo.salary,user.id'))->get()->toArray();
 						session()->put('customer_id', $userall[0]->id);
 						$cal = ($userall[0]->salary*2.5)-$userall[0]->price;
 						if($cal==0 || $cal < 0){
 							$usercut = [
 							['price'=>round_down($userall[0]->price),
 							'fullname'=>$userall[0]->fullname,
+							'prepay' =>$userall[0]->prepay,
 							'salary'=>round_down($userall[0]->salary),
 							'notify'=>'notify']];
 							return Response::json($usercut);
@@ -97,6 +98,7 @@ class PurchaseinfoController extends Controller
 							$usercut = [
 							['price'=>round_down($userall[0]->price),
 							'fullname'=>$userall[0]->fullname,
+							'prepay' =>$userall[0]->prepay,
 							'salary'=>round_down($userall[0]->salary),
 							'notify'=>'notify']];
 							return Response::json($usercut);
@@ -138,13 +140,14 @@ class PurchaseinfoController extends Controller
 							['userinfo.identitycard','=',$cmt],
 							['user.syslock','=',1]
 							])
-						->select(DB::raw('user.id,SUM(orders.price) as price,userinfo.fullname,userinfo.salary,user.id'))->get()->toArray();
+						->select(DB::raw('user.id,SUM(orders.price) as price, SUM(orders.prepay) as prepay,userinfo.fullname,userinfo.salary,user.id'))->get()->toArray();
 						session()->put('customer_id', $userall[0]->id);
 						$cal = ($userall[0]->salary*2.5)-$userall[0]->price;
 						if($cal==0 || $cal < 0){
 							$usercut = [
 							['price'=>round_down($userall[0]->price),
 							'fullname'=>$userall[0]->fullname,
+							'prepay' =>$userall[0]->prepay,
 							'salary'=>round_down($userall[0]->salary),
 							'notify'=>'notify']];
 							return Response::json($usercut);
@@ -158,6 +161,7 @@ class PurchaseinfoController extends Controller
 							$usercut = [
 							['price'=>round_down($userall[0]->price),
 							'fullname'=>$userall[0]->fullname,
+							'prepay' =>$userall[0]->prepay,
 							'salary'=>round_down($userall[0]->salary),
 							'notify'=>'notify']];
 							return Response::json($usercut);
@@ -195,12 +199,13 @@ class PurchaseinfoController extends Controller
 							['userinfo.employee_id','=',$code],
 							['user.syslock','=',1]
 							])
-						->select(DB::raw('user.id,SUM(orders.price) as price,userinfo.fullname,userinfo.salary,user.id'))->get()->toArray();
+						->select(DB::raw('user.id,SUM(orders.price) as price, SUM(orders.prepay) as prepay,userinfo.fullname,userinfo.salary,user.id'))->get()->toArray();
 						$cal = ($userall[0]->salary*2.5)-$userall[0]->price;
 						if($cal==0 || $cal < 0){
 							$usercut = [
 							['price'=>round_down($userall[0]->price),
 							'fullname'=>$userall[0]->fullname,
+							'prepay'=>$userall[0]->prepay,
 							'salary'=>round_down($userall[0]->salary),
 							'notify'=>'notify']];
 							return Response::json($usercut);
@@ -214,6 +219,7 @@ class PurchaseinfoController extends Controller
 							$usercut = [
 							['price'=>round_down($userall[0]->price),
 							'fullname'=>$userall[0]->fullname,
+							'prepay'=>$userall[0]->prepay,
 							'salary'=>round_down($userall[0]->salary),
 							'notify'=>'notify']];
 							return Response::json($usercut);
