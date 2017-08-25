@@ -81,13 +81,12 @@
                 <div  class="form-input col-lg-12 col-xs-12 col-md-12 form-group">
                     <label id="form-label-u" for="">Tên đăng nhập</label>
                     <input id="form-input-u" name="username"  class="form-control" type="text">
+                    @if($errors->has('username'))<p style="color: red;font-family: Arial">{!!$errors->first('username')!!}</p>@endif
                 </div>
-                @if($errors->has('username')) <p>{{"a"}}</p>
-                @endif
                 <div  class="form-input col-lg-12 col-xs-12 col-md-12 form-group">
                     <label id="form-label-p" for="">Mật khẩu</label>
                     <input id="form-input-p" name="password" class="form-control" type="password">
-                    @if($errors->has('password'))<p style="color: red;font-family: Arial">{{$errors->first('password')}}</p>@endif
+                    @if($errors->has('password'))<p style="color: red;font-family: Arial">{!!$errors->first('password')!!}</p>@endif
                 </div>
                 <div class="form-input col-lg-12 col-xs-12 col-md-12">
                     <label for=""><a href="">Quên mật khẩu</a></label>
@@ -95,6 +94,11 @@
                 <div class="col-lg-12 col-xs-12 col-md-12 form-group">
                     <input type="checkbox">
                     <label for="">Lưu mật khẩu</label>
+                    @if($errors->has('errorslogin'))
+                    <div class="alert alert-danger">
+                        {{$errors->first('errorslogin')}}
+                    </div>
+                    @endif
                 </div>
                 <div class="form-input col-lg-12 col-xs-12 col-md-12 form-group">
                     <input class="btn btn-primary" type="submit" value="Đăng nhập">
