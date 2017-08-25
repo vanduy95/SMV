@@ -135,10 +135,9 @@ class UserInfoController extends Controller
 
 public function destroy($id){
     $userinfo = UserInfo::find($id);
-    $userinfo->delete();
+    $userinfo->user->delete();
     \Session::flash('notify','Xóa thành công');
     return redirect()->route('indexuserinfo');
-
 }
 public function checkuser(){
     $user = User::all();

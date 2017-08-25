@@ -68,6 +68,17 @@ function convertname($str) {
  		$m = $update_day->month;
  		$d_salary = $salaryday;
  		$c->setDate($y,$m,$d_salary);
+ 		if($salaryday==null){
+ 			if($update_day->day>11&&$update_day->day<25)
+ 			{
+ 				return $c->setDate($y,$m+1,5);
+ 			}
+ 			else
+ 			{
+ 				return $c->setDate($y,$m+1,25);
+ 			}
+
+ 		}
  		if($d_salary > $update_day->day && (abs($d_salary-$update_day->day)>10)){
  			return $c->setDate($y,$m,$d_salary);
  		}
@@ -400,6 +411,7 @@ function convertname($str) {
 
 
  			$doc->setValue('issuedby',$order->user->userinfo->issuedby);
+ 			$doc->setValue('issuedby',$order->user->userinfo->issuedby);
  			$doc->setValue('address1',$order->user->userinfo->address1);
  			$doc->setValue('phone1',$order->user->userinfo->phone1);
  			$doc->setValue('address2',$order->user->userinfo->address2);
@@ -445,7 +457,6 @@ function convertname($str) {
  			header('Content-Length: ' . filesize($name));
  			readfile($name);
  			unlink($name);
-
  		}
  		return redirect('admin');
 
@@ -722,7 +733,8 @@ function convertname($str) {
  		if(!empty($r->btn_accuracy)){
  			if($orders->user->status!=1)
  			{
- 				$u=User::find($orders->user->id)->status=1;
+ 				$u=User::find($orders->user->id);
+ 				$u->status=1;
  				$u->save();
  			}
  			if(preg_replace("/[ đồng.]/","",$r->salary_avg)!=''){
