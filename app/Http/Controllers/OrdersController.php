@@ -729,12 +729,13 @@ function convertname($str) {
  	}
 
  	public function postAccuracyOrder(Request $r){
+ 		dd($r);
  		$orders = Orders::find($r->orders_id);
  		if(!empty($r->btn_accuracy)){
- 			if($orders->user->status!=1)
+ 			if($orders->user->status!=0)
  			{
  				$u=User::find($orders->user->id);
- 				$u->status=1;
+ 				$u->status=0;
  				$u->save();
  			}
  			if(preg_replace("/[ đồng.]/","",$r->salary_avg)!=''){
@@ -794,7 +795,7 @@ function convertname($str) {
  		{
  			$orders=Orders::find($req->orders_id);
  			$orders->delete();
- 			if($orders->user->status!=1)
+ 			if($orders->user->status!=0)
  			{
  				$orders->user->delete();
  			}
@@ -1054,7 +1055,7 @@ function convertname($str) {
  		}
  		else if(!empty($r->approval)){
  			$u=User::find($orders->user->id);
- 			$u->status=1;
+ 			$u->status=0;
  			$u->save();
  			DB::table('orders')->where('id','=',$r->order_id)->update([
  				'process_id'=>'4'
