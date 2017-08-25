@@ -722,7 +722,8 @@ function convertname($str) {
  		if(!empty($r->btn_accuracy)){
  			if($orders->user->status!=1)
  			{
- 				$u=User::find($orders->user->id)->status=1;
+ 				$u=User::find($orders->user->id);
+ 				$u->status=1;
  				$u->save();
  			}
  			if(preg_replace("/[ đồng.]/","",$r->salary_avg)!=''){
