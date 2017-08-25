@@ -207,11 +207,9 @@ $(document).ready(function(){
 				}
 				else if(res.error_code){
 					$('#error_com').html("Bạn phải chọn công ty");
-					$('#error_code').html("Nhập mã số nhân viên");
 				}
 				else if(res.error_cmt){
 					$('#error_com').html("Bạn phải chọn công ty");
-					$('#error_cmt').html("Nhập số chứng minh nhân dân");
 				}
 				else if(res.error_com){
 					$('#error_com').html("Bạn phải chọn công ty");
@@ -341,11 +339,9 @@ $('#btn_search_xs').click(function(){
 			}
 			else if(res.error_code){
 				$('#error_com_xs').html("Bạn phải chọn công ty");
-				$('#error_code_xs').html("Nhập mã số nhân viên");
 			}
 			else if(res.error_cmt){
 				$('#error_com_xs').html("Bạn phải chọn công ty");
-				$('#error_cmt_xs').html("Nhập số chứng minh nhân dân");
 			}
 			else if(res.error_com){
 				$('#error_com_xs').html("Bạn phải chọn công ty");
