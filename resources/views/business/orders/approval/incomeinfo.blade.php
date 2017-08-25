@@ -69,7 +69,9 @@
       <label class="control-label col-sm-4" for="">Giao dịch trả lương qua tài khoản: </label>
       <div class="col-sm-8"> 
         <label class="bg-gray-fix form-control">
-          @if ($UserInfo['exchange_status']==0)
+          @if($UserInfo['exchange_status']==null)
+            
+          @elseif ($UserInfo['exchange_status']==0)
             Liên tục 3 tháng liền kề 
           @elseif($UserInfo['exchange_status']==1)
             Liên tục 6 tháng liền kề 

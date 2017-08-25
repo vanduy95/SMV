@@ -22,7 +22,7 @@
 					{!!Form::open(array('class'=>'form-validate form-horizontal','id'=>'register_form','enctype'=>"multipart/form-data",'action'=>['UserInfoController@postcreate']))!!}
 					@if(session('notify'))
 					<div class="alert bg-teal disabled color-palette">
-						{{session('notify')}}
+						{{session('notify')}}	
 					</div>
 					@endif
 					<div class="form-group ">

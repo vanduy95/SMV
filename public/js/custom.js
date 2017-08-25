@@ -207,11 +207,9 @@ $(document).ready(function(){
 				}
 				else if(res.error_code){
 					$('#error_com').html("Bạn phải chọn công ty");
-					$('#error_code').html("Nhập mã số nhân viên");
 				}
 				else if(res.error_cmt){
 					$('#error_com').html("Bạn phải chọn công ty");
-					$('#error_cmt').html("Nhập số chứng minh nhân dân");
 				}
 				else if(res.error_com){
 					$('#error_com').html("Bạn phải chọn công ty");
@@ -231,7 +229,7 @@ $(document).ready(function(){
 								$('#id_user').val(res[0].id);
 								$('#sum_buy').val(round_d((res[0].salary)*2.5));
 								$('#buy_use').val(round_d(res[0].price));
-								$('#rest').val(round_d((res[0].salary*2.5)-res[0].price));
+								$('#rest').val(round_d((res[0].salary*2.5)-(res[0].price-res[0].prepay)));
 								$('#id_user').val(res[0].id);
 								$('#upload').attr('href',url+'/orders/upload/'+res[0].id);
 							}
@@ -242,8 +240,8 @@ $(document).ready(function(){
 								$('#dont_next').show();
 								$('#u_name').val(res[0].fullname);
 								$('#sum_buy').val((numeral(round_d(res[0].salary*2.5)).format('0,0').replace(/,/g,'.')+" đồng"));
-								$('#buy_use').val(numeral(round_d(res[0].price)).format('0,0').replace(/,/g,'.')+" đồng");
-								$('#rest').val((numeral(round_d((res[0].salary*2.5)-res[0].price)).format('0,0').replace(/,/g,'.'))+" đồng");
+								$('#buy_use').val(numeral(round_d(res[0].price-res[0].prepay)).format('0,0').replace(/,/g,'.')+" đồng");
+								$('#rest').val((numeral(round_d((res[0].salary*2.5)-(res[0].price-res[0].prepay))).format('0,0').replace(/,/g,'.'))+" đồng");
 								$('#notify').text('Sức mua hiện tại của bạn không đủ thực hiện giao dịch. Liên hệ với chúng tôi để được hỗ trợ.');
 								$('#hotline').text('Hotline: ');
 								$('#return_local').attr('href',url);
@@ -255,8 +253,8 @@ $(document).ready(function(){
 								$('#u_name').val(res[0].fullname);
 								$('#id_user').val(res[0].id);
 								$('#sum_buy').val((numeral(round_d((res[0].salary)*2.5)).format('0,0')).replace(',','.').replace(',','.').replace(',','.')+" đồng");
-								$('#buy_use').val((res[0].price)==null?0+" đồng":(numeral(round_d(res[0].price)).format('0,0')).replace(',','.').replace(',','.').replace(',','.')+" đồng");
-								$('#rest').val(((res[0].price)==null?(numeral(round_d((res[0].salary)*2.5)).format('0,0')).replace(',','.').replace(',','.').replace(',','.')+" đồng":(numeral((res[0].salary)*2.5-res[0].price).format('0,0')).replace(',','.').replace(',','.').replace(',','.')+" đồng"));
+								$('#buy_use').val((res[0].price)==null?0+" đồng":(numeral(round_d(res[0].price-res[0].prepay)).format('0,0')).replace(',','.').replace(',','.').replace(',','.')+" đồng");
+								$('#rest').val(((res[0].price)==null?(numeral(round_d((res[0].salary)*2.5)).format('0,0')).replace(',','.').replace(',','.').replace(',','.')+" đồng":(numeral((res[0].salary)*2.5-(res[0].price-res[0].prepay)).format('0,0')).replace(',','.').replace(',','.').replace(',','.')+" đồng"));
 								$('#id_user').val(res[0].id);
 								$('#upload').attr('href',url+'/orders/upload/'+res[0].id);
 							}
@@ -341,11 +339,9 @@ $('#btn_search_xs').click(function(){
 			}
 			else if(res.error_code){
 				$('#error_com_xs').html("Bạn phải chọn công ty");
-				$('#error_code_xs').html("Nhập mã số nhân viên");
 			}
 			else if(res.error_cmt){
 				$('#error_com_xs').html("Bạn phải chọn công ty");
-				$('#error_cmt_xs').html("Nhập số chứng minh nhân dân");
 			}
 			else if(res.error_com){
 				$('#error_com_xs').html("Bạn phải chọn công ty");
@@ -364,7 +360,7 @@ $('#btn_search_xs').click(function(){
 							$('#u_name_xs').val(res[0].fullname);
 							$('#sum_buy_xs').val(round_d((res[0].salary)*2.5));
 							$('#buy_use_xs').val(round_d(res[0].price));
-							$('#rest_xs').val(round_d((res[0].salary*2.5)-res[0].price));
+							$('#rest_xs').val(round_d((res[0].salary*2.5)-(res[0].price-res[0].prepay)));
 							$('#id_user_xs').val(res[0].id);
 							$('#btn_upload_xs').attr('href',url+'/orders/upload/'+res[0].id);
 						}
@@ -375,8 +371,8 @@ $('#btn_search_xs').click(function(){
 							$('#dont_next').show();
 							$('#u_name').val(res[0].fullname);
 							$('#sum_buy').val((numeral(round_d(res[0].salary*2.5)).format('0,0').replace(/,/g,'.')+" đồng"));
-							$('#buy_use').val(numeral(round_d(res[0].price)).format('0,0').replace(/,/g,'.')+" đồng");
-							$('#rest').val((numeral(round_d((res[0].salary*2.5)-res[0].price)).format('0,0').replace(/,/g,'.'))+" đồng");
+							$('#buy_use').val(numeral(round_d(res[0].price-res[0].prepay)).format('0,0').replace(/,/g,'.')+" đồng");
+							$('#rest').val((numeral(round_d((res[0].salary*2.5)-(res[0].price-res[0].prepay))).format('0,0').replace(/,/g,'.'))+" đồng");
 							$('#notify').text('Sức mua hiện tại của bạn không đủ thực hiện giao dịch. Liên hệ với chúng tôi để được hỗ trợ.');
 							$('#hotline').text('Hotline: ');
 							$('#return_local').attr('href',url);
@@ -387,8 +383,8 @@ $('#btn_search_xs').click(function(){
 							$('#next_register').show();
 							$('#u_name_xs').val(res[0].fullname);
 							$('#sum_buy_xs').val((numeral(round_d((res[0].salary)*2.5)).format('0,0')).replace(',','.').replace(',','.').replace(',','.')+" đồng");
-							$('#buy_use_xs').val((res[0].price)==null?0+" đồng":(numeral(round_d(res[0].price)).format('0,0')).replace(',','.').replace(',','.').replace(',','.')+" đồng");
-							$('#rest_xs').val(((res[0].price)==null?(numeral(round_d((res[0].salary)*2.5)).format('0,0')).replace(',','.').replace(',','.').replace(',','.')+" đồng":(numeral(round_d((res[0].salary)*2.5-res[0].price)).format('0,0')).replace(',','.').replace(',','.').replace(',','.')+" đồng"));
+							$('#buy_use_xs').val((res[0].price)==null?0+" đồng":(numeral(round_d(res[0].price-res[0].prepay)).format('0,0')).replace(',','.').replace(',','.').replace(',','.')+" đồng");
+							$('#rest_xs').val(((res[0].price)==null?(numeral(round_d((res[0].salary)*2.5)).format('0,0')).replace(',','.').replace(',','.').replace(',','.')+" đồng":(numeral(round_d((res[0].salary)*2.5-(res[0].price-res[0].prepay))).format('0,0')).replace(',','.').replace(',','.').replace(',','.')+" đồng"));
 							$('#id_user_xs').val(res[0].id);
 							$('#btn_upload_xs').attr('href',url+'/orders/upload/'+res[0].id);
 						}

@@ -234,7 +234,7 @@
 						<div class="col-md-12 col-xs-12 py-2">
 							<div class="col-md-12 col-xs-12 py-2">
 								<div class="col-md-12 col-xs-12 div-flex py-2" style="padding:0">
-									<input id=" btn_search_xs " class="  col-md-4 col-xs-6 btn btn-primary" type="button" style="background: #170e66; border-radius: 10px;align-items: center !important; font-size: 3.3vw;" value="Kiểm tra">
+									<input id="btn_search_xs" class="  col-md-4 col-xs-6 btn btn-primary" type="button" style="background: #170e66; border-radius: 10px;align-items: center !important; font-size: 3.3vw;" value="Kiểm tra">
 								</div>
 							</div>
 						</div>
