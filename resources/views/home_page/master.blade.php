@@ -171,8 +171,11 @@
 			</div>
 		</div>
 		<div class="footer-mobile">
-			<div class="footer-logo">
-				<a href="{{route('getsearch')}}"><img src="../img/home_page/logo_footer.png"></a>
+			<div class="footer-social-icon" style="width: 100%;">
+				<a href="" class="f-social-icon"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+				<a href="" class="f-social-icon"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+				<a href="" class="f-social-icon"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+				<div class="clear"></div>
 			</div>
 			<div class="row footer-contact">
 				<h2>CÔNG TY TNHH PHÁT TRIỂN  SỨC MUA VIỆT</h2>
@@ -182,12 +185,6 @@
 			</div>
 			<div class="row footer-hotline">
 				<span>HOTLINE : 0904 633 568</span>
-			</div>
-			<div class="footer-social-icon footer-logo" style="width: 100%;">
-				<a href="" class="f-social-icon"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-				<a href="" class="f-social-icon"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-				<a href="" class="f-social-icon"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-				<div class="clear"></div>
 			</div>
 			<div class="clear"></div>
 		</div>

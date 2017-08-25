@@ -205,7 +205,22 @@ $(document).ready(function(){
 					$('#error_cmt').html("Nhập số chứng minh nhân dân hoặc mã nhân viên");
 					$('#error_code').html("Nhập mã nhân viên hoặc số chứng minh nhân dân");
 				}
-				if(!res.error_r){
+				else if(res.error_code){
+					$('#error_com').html("Bạn phải chọn công ty");
+					$('#error_code').html("Nhập mã số nhân viên");
+				}
+				else if(res.error_cmt){
+					$('#error_com').html("Bạn phải chọn công ty");
+					$('#error_cmt').html("Nhập số chứng minh nhân dân");
+				}
+				else if(res.error_com){
+					$('#error_com').html("Bạn phải chọn công ty");
+				}
+				else if(res.error_cmt_code){
+					$('#error_cmt').html("Nhập số chứng minh nhân dân hoặc mã nhân viên");
+					$('#error_code').html("Nhập mã nhân viên hoặc số chứng minh nhân dân");
+				}
+				if(!res.error_all && !res.error_code && !res.error_cmt){
 					if(!res.cmt){
 						if(!res.data){
 							if(res.nonotify=="nonotify"){
@@ -281,17 +296,12 @@ $(document).ready(function(){
 						$('#error_cmt').html(res.cmt)
 					}
 				}
-				else{
-					// $('#error_com').html("Bạn phải chọn công ty");
-					$('#error_cmt').html("Nhập số chứng minh nhân dân hoặc mã nhân viên");
-					$('#error_code').html("Nhập mã nhân viên hoặc số chứng minh nhân dân");
-				}
 			},
 			error: function(res){
-				// console.log(res);
-				(JSON.parse(res.responseText).id_com)==""?$('#error_com').html(""):$('#error_com').html((JSON.parse(res.responseText).id_com));
-				(JSON.parse(res.responseText).cmt)==""?$('#error_cmt').html(""):$('#error_cmt').html((JSON.parse(res.responseText).cmt));
-				(JSON.parse(res.responseText).code)==""?$('#error_code').html(""): $('#error_code').html((JSON.parse(res.responseText).code));    
+				console.log(res.responseText);
+				// (JSON.parse(res.responseText).id_com)==""?$('#error_com').html(""):$('#error_com').html((JSON.parse(res.responseText).id_com));
+				// (JSON.parse(res.responseText).cmt)==""?$('#error_cmt').html(""):$('#error_cmt').html((JSON.parse(res.responseText).cmt));
+				// (JSON.parse(res.responseText).code)==""?$('#error_code').html(""): $('#error_code').html((JSON.parse(res.responseText).code));    
 			},
 		});
 });
@@ -329,7 +339,22 @@ $('#btn_search_xs').click(function(){
 				$('#error_cmt_xs').html("Nhập số chứng minh nhân dân hoặc mã nhân viên");
 				$('#error_code_xs').html("Nhập mã nhân viên hoặc số chứng minh nhân dân");
 			}
-			if(!res.error_r){
+			else if(res.error_code){
+				$('#error_com_xs').html("Bạn phải chọn công ty");
+				$('#error_code_xs').html("Nhập mã số nhân viên");
+			}
+			else if(res.error_cmt){
+				$('#error_com_xs').html("Bạn phải chọn công ty");
+				$('#error_cmt_xs').html("Nhập số chứng minh nhân dân");
+			}
+			else if(res.error_com){
+				$('#error_com_xs').html("Bạn phải chọn công ty");
+			}
+			else if(res.error_cmt_code){
+				$('#error_cmt_xs').html("Nhập số chứng minh nhân dân hoặc mã nhân viên");
+				$('#error_code_xs').html("Nhập mã nhân viên hoặc số chứng minh nhân dân");
+			}
+			else if(!res.error_all && !res.error_code && !res.error_cmt){
 				if(!res.cmt){
 					if(!res.data){
 						if(res.nonotify=="nonotify"){
@@ -381,11 +406,6 @@ $('#btn_search_xs').click(function(){
 				else{
 					$('#error_cmt').html(res.cmt)
 				}
-			}
-			else{
-				// $('#error_com_xs').html("Bạn phải chọn công ty");
-				$('#error_cmt_xs').html("Nhập số chứng minh nhân dân hoặc mã nhân viên");
-				$('#error_code_xs').html("Nhập mã nhân viên hoặc số chứng minh nhân dân");
 			}
 			// if(res.error_all){
 			// 	$('#error_cmt_xs').html("Nhập số chứng minh nhân dân hoặc mã nhân viên");

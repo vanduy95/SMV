@@ -89,8 +89,8 @@
 									<input id="txt_code" name="txt_code" class="form-control text-padding-input" style="border-radius: 0; height: 4.5rem" type="text" placeholder="Nhập mã nhân viên">
 									<p class="text-center error" id="error_code"></p>
 								</div>
-								<div class=" col-lg-12 col-md-12 div-flex col-xs-12 form-group">
-									<input class="my-3 btn-submit-form col-lg-6 col-md-6 col-xs-9" style="" type="button" name="submit_search" id="submit_search" value="Kiểm tra sức mua">
+								<div class=" col-lg-12 col-md-12 col-xs-12 div-flex  form-group">
+									<input class="div-flex my-3 btn-submit-form col-lg-7 col-md-7" type="button" name="submit_search" id="submit_search" value="Kiểm tra sức mua">
 								</div>
 								<div class="clear"></div>
 							</form>
@@ -233,8 +233,8 @@
 						</div>
 						<div class="col-md-12 col-xs-12 py-2">
 							<div class="col-md-12 col-xs-12 py-2">
-								<div class="col-xs-12 div-flex py-2" style="padding:0">
-									<input id="btn_search_xs" class="col-md-5 col-xs-6 col-xs div-flex btn btn-primary" type="button" style="background: #170e66; border-radius: 10px;" value="Kiểm tra">
+								<div class="col-md-12 col-xs-12 div-flex py-2" style="padding:0">
+									<input id=" btn_search_xs " class="  col-md-4 col-xs-6 btn btn-primary" type="button" style="background: #170e66; border-radius: 10px;align-items: center !important; font-size: 3.3vw;" value="Kiểm tra">
 								</div>
 							</div>
 						</div>

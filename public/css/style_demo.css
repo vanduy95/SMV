@@ -3,7 +3,8 @@
 	min-height: 86%;
 }
 .margin-div{
-	margin: 20px 0 15px 0;}
+	margin: 20px 0 15px 0;
+}
 .padding-div{
 	padding: 0px 0 10px 0;
 }
@@ -12,11 +13,6 @@ input:active{
 }
 .clear{
 	clear: both;
-}
-.div-flex{
-	display: flex;
-	justify-content: center;
-	align-items: center;
 }
 .font-size-content{
 	font-size: 30px;
@@ -29,11 +25,6 @@ input:active{
 	text-shadow: 6px 7px 14px -3px rgba(0,0,0,0.75);
 	}*/
 	text-shadow: 0px 3px 10px #000;
-}
-.div-flex{
-	display: flex;
-	justify-content: center;
-	align-items: center;
 }
 .text-white{
 	color: #170e66;
