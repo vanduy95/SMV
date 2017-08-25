@@ -225,11 +225,20 @@ class PurchaseinfoController extends Controller
 				return Response::json(["data"=>$ex]);
 			}
 		}
-		else if(($r->id_com=="") && ($r->cmt=="") && ($r->code=="")){
-			return Response::json(["error_all"=>' ']);
+		else if(empty($r->id_com) && empty($r->cmt) && empty($r->code)){
+			return Response::json(['error_all'=>' ']);
+		}
+		else if(empty($r->id_com) && empty($r->cmt)){
+			return Response::json(["error_cmt"=>' ']);
+		}
+		else if(empty($r->id_com) && empty($r->code)){
+			return Response::json(["error_code"=>' ']);
+		}
+		else if(empty($r->id_com)){
+			return Response::json(["error_com"=>' ']);
 		}
 		else{
-			return Response::json(['error_r'=>' ']);
+			return Response::json(["error_cmt_code"=>' ']);
 		}
 	}
 	public function postsearch(Request $request){

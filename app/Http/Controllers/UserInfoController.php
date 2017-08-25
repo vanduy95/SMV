@@ -153,14 +153,13 @@ public function postcreateExcel(Request $r,User $user, UserInfo $userinfo){
     try{
 
        $file = $r->file('upExcel')->getRealPath();
-       Excel::filter('chunk')->load($file)->chunk(5000, function($results)
-       {
-        foreach($results as $key=>$row)
+        $datas=Excel::load(Input::file('upExcel'), function ($reader) {})->get();
+        foreach($datas->toArray() as $key=>$row)
         {
-            // foreach ($row as  $value) {
-            $username =explode(" ",$this->convertnameinfo($row['ho_va_ten']));
+             foreach ($row as  $rows) {
+            $username =explode(" ",$this->convertnameinfo($rows['ho_va_ten']));
             $user =  new User();
-            $user->username = (reset($username)).(end($username)).$row['ma_nhan_vien'];
+            $user->username = (reset($username)).(end($username)).$rows['emp_id'];
             $user->email = "";
             $user->password = Hash::make("password");
             $user->status = 0;
@@ -170,15 +169,14 @@ public function postcreateExcel(Request $r,User $user, UserInfo $userinfo){
             $user->save();
             $userinfo = new UserInfo();
             $userinfo->user_id=$user->id;
-            $userinfo->fullname = $row['ho_va_ten'];
-            $userinfo->employee_id = $row['ma_nhan_vien'];
-            $userinfo->salary =is_numeric(str_replace(".","",$row['muc_luong']))?str_replace(".","",$row['muc_luong']):0;
+            $userinfo->fullname = $rows['ho_va_ten'];
+            $userinfo->employee_id = $rows['emp_id'];
+            $userinfo->salary =is_numeric(str_replace(".","",$rows['suc_mua_toi_da']))?str_replace(".","",$rows['suc_mua_toi_da']):0;
             $userinfo->assess_id = "3";
             $userinfo->save();
-            // }
+             }
         }
-
-    });
+       return redirect('admin/userinfo');
    }
 
    catch(\Exception $ex){

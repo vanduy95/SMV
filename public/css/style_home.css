@@ -13,10 +13,26 @@ div.dropdown-menu.open{
 nav.navbar.navbar-default {
 	margin-bottom: 0.5vw;
 }
+.div-flex{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	display: -webkit-flex;
+	/*display: -ms-flexbox;  */
+	display: -webkit-flex; 
+	-webkit-justify-content: center;
+	-webkit-align-items: center;
+	
+}
 .div-center{
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	display: -webkit-box;
+	/*display: -ms-flexbox;  */
+	display: -webkit-flex; 
+	-webkit-justify-content: center;
+	-webkit-align-items: center;
 }
 .div-item > img{
 	width: 100%;
@@ -183,7 +199,7 @@ nav.navbar.navbar-default {
 			font-size: 5vw!important;
 		}
 		.text-infoo{
-			font-size: 5vw!important;
+			font-size: 2.8vw!important;
 		}
 		.alert-info-xs{
 			width: 100%;
@@ -322,7 +338,7 @@ nav.navbar.navbar-default {
 			font-size: 5vw!important;
 		}
 		.text-infoo{
-			font-size: 5vw!important;
+			font-size: 2.6vw!important;
 		}
 		.alert-info-xs{
 			width: 100%;
@@ -548,7 +564,7 @@ nav.navbar.navbar-default {
 			display: none;
 		}
 		.form-banner-xs{
-			width: 80%;
+			width: 90%;
 			border-radius: 5px;
 			background: #cccccc;
 		}
@@ -680,7 +696,7 @@ nav.navbar.navbar-default {
 			}
 			.step-click-bg > p{
 				color: white;
-				font-size: 2vw;
+				font-size: 1.8vw;
 				text-align: center;
 				margin: 0;
 				padding: 2vw 0vw;
@@ -825,7 +841,7 @@ nav.navbar.navbar-default {
 				display: none;
 			}
 			.form-banner-xs{
-				width: 80%;
+				width: 90%;
 				border-radius: 5px;
 				background: #cccccc;
 			}
@@ -920,7 +936,7 @@ nav.navbar.navbar-default {
 			justify-content: flex-start;
 			margin-left: 10px !important;
 			display: -webkit-flex;
-    			-webkit-justify-content: flex-start;
+			-webkit-justify-content: flex-start;
 		}
 		.row-logo img{
 			max-width: 90%;
@@ -951,8 +967,7 @@ nav.navbar.navbar-default {
 			border: 2px solid black;
 		}
 		.footer-logo{
-			margin-top: 10px;
-			margin-bottom: 10px;
+			margin: 2vw 0vw;
 			display: flex;
 			justify-content: center;
 			display: -webkit-flex;
@@ -1034,13 +1049,7 @@ input.text-padding-input::-webkit-input-placeholder{
 	font-size: 17px;
 	color: white;
 }
-.div-flex{
-	display: flex;
-	display: -webkit-flex;
-	justify-content: center;
-	align-items: center;
-	-webkit-justify-content: center;
-}
+
 .div-partner{
 	background: #ebebeb;
 }
@@ -1253,6 +1262,24 @@ div.member div.line{
 	}
 
 }
+@media screen and (max-width: 320px){
+	.step-click-bg > p{
+		color: white;
+		font-size: 2vw;
+		text-align: center;
+		margin: 0;
+		padding: 2vw 0vw;
+		width: 100%;
+	}
+	.footer-logo{
+		margin-top: 10px;
+		margin-bottom: 10px;
+		display: flex;
+		justify-content: center;
+		display: -webkit-flex;
+		-webkit-justify-content: center;
+	}
+}
 .sidenav {
 	height: 100%;
 	width: 0;
@@ -1322,10 +1349,13 @@ div.member div.line{
 	padding: 2vw;
 }
 .row.aboutus.content>h2 {
-	font-size: 1.9vw;
+	font-size: 1.86vw;
 }
 .aboutus{
-	margin: 2.5vw 6vw 5vw 6vw;
+	/*margin: 2.5vw 6vw 5vw 6vw;*/
+}
+.aboutus h2{
+	font-size: 1.58vw !important;
 }
 .data-aboutus{
 	/*padding: 2.5vw 6vw 8.5vw 6vw;*/
@@ -1344,6 +1374,9 @@ div.member div.line{
 }
 .contact-info p{
 	margin: 0 !important;
+}
+.contact-info {
+	padding: 2.2vw;
 }
 .contact-info > p:nth-child(5) > span:first-of-type{
 	color: #0163b7;
@@ -1388,7 +1421,7 @@ div.member div.line{
 .interest-title{
 	padding-top: 2vw;
 	padding-bottom: 3vw;
-	font-size: 1.5vw;
+	font-size: 1.65vw;
 	font-weight: bold;
 }
 .interest{
@@ -1400,7 +1433,8 @@ div.member div.line{
 }
 .interest-content{
 	padding: 0vw 0vw 3vw 14vw;
-	font-size: 1.4vw;
+	font-size: 1.32vw;
+	/*text-align: right;*/
 	margin-right: 2vw;
 }
 .background{
@@ -1408,13 +1442,14 @@ div.member div.line{
 	background-size: 100%;
 }
 .content-program{
-	padding: 3vw;
+	padding: 2vw;
 }
 .program{
-	font-size: 2.45vw;
+	font-size: 2.5vw;
 }
 .data-member{
-	margin-right: 4vw;
+	/*margin-right: 4vw;*/
+	padding: 0vw 2vw;
 }
 .data-member > p:nth-child(1){
 	font-size: 2.5vw;
@@ -1446,7 +1481,7 @@ div.member div.line{
 	justify-content: flex-end;
 }
 .img-content{
-	padding-right: 4vw;
+	/*padding-right: 4vw;*/
 	display: flex;
 	justify-content: space-between;
 	display: -webkit-flex;
@@ -1544,7 +1579,7 @@ div.member div.line{
 	padding-top: 2vw;
 }
 .Hotline-logo>p>span{
-	 font-weight: bold;
+	font-weight: bold;
 }
 .footer-desktop {
 	padding-top: 1vw;

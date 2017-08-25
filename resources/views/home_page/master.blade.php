@@ -68,14 +68,14 @@
 		}
 		#loading{
 			background: url({{ asset('img/loading.gif')}}) center no-repeat rgba(0,0,0,0.5);
-position: fixed;
-left: 0px;
-top: 0px,;
-width: 100%;
-height: 100%;
-z-index: 9999
-}
-</style>
+			position: fixed;
+			left: 0px;
+			top: 0px,;
+			width: 100%;
+			height: 100%;
+			z-index: 9999
+		}
+	</style>
 </head>
 <body >
 	<div id="mySidenav" class="sidenav">
@@ -111,8 +111,8 @@ z-index: 9999
 					<a href="{{route('getsearch')}}"><img src="../img/home_page/logo.jpg"></a>
 				</div>
 				<div class="Hotline-logo col-lg-3">
-					<p style="font-size: 1.7vw;"><i class="fa fa-phone" aria-hidden="true" style="margin-right: 1vw;"></i>Hotline</p>
-					<p style="padding-left: 3.5vw;"><span>024.6655.2428</span><span style="padding-left: 2vw;">0904.633.568</span></p>
+					<p style="font-size: 1.7vw;"><i class="fa fa-phone" aria-hidden="true" style="margin-right: 1vw;"></i><span style="font-size: 1.5vw">Hotline</span></p>
+					<p style="padding-left: 3.5vw;"><span style="font-size: 1.5vw">024.6655.2428</span><span style="padding-left: 2vw;font-size: 1.5vw">0904.633.568</span></p>
 				</div>
 			</div>
 			<div class="row row-menu">
@@ -142,7 +142,7 @@ z-index: 9999
 		</div>
 	</header>
 	@yield('content')
-	<footer class="container-fluid col-lg-12 col-md-12 col-xs-18">
+	<footer class="container-fluid col-lg-12 col-md-12 col-xs-12">
 		<div class="footer-desktop">
 			<div class="row footer-logo">
 				<a href="{{route('getsearch')}}"><img src="../img/home_page/logo_footer.png"></a>
@@ -170,10 +170,11 @@ z-index: 9999
 			</div>
 		</div>
 		<div class="footer-mobile">
-			<div class="row footer-social-icon">
+			<div class="footer-social-icon" style="width: 100%;">
 				<a href="" class="f-social-icon"><i class="fa fa-facebook" aria-hidden="true"></i></a>
 				<a href="" class="f-social-icon"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
 				<a href="" class="f-social-icon"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+				<div class="clear"></div>
 			</div>
 			<div class="row footer-contact">
 				<h2>CÔNG TY TNHH PHÁT TRIỂN  SỨC MUA VIỆT</h2>
@@ -184,6 +185,7 @@ z-index: 9999
 			<div class="row footer-hotline">
 				<span>HOTLINE : 0904 633 568</span>
 			</div>
+			<div class="clear"></div>
 		</div>
 	</footer>
 	@yield('script')

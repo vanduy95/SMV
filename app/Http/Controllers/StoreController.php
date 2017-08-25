@@ -1,15 +1,16 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\RetailSystem;
-use App\User;
-use Illuminate\Http\Request;
-use Carbon\Carbon;
+use DB;
 use Hash;
-use Illuminate\Support\Facades\Input;
-use Maatwebsite\Excel\Facades\Excel;
-use DB;	
+use App\User;
+use Carbon\Carbon;
+use App\RetailSystem;
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreRequest;
+use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\Input;
+use App\Http\Requests\RetailsystemCreateRequest;
 
 class StoreController extends Controller
 {
@@ -173,5 +174,15 @@ class StoreController extends Controller
 		catch (Exception $e){
 			return $e;
 		}
+	}
+	public function getretailcreate(){
+		return view('business.store.retailsystem');
+	}
+	public function postretailcreate(RetailsystemCreateRequest $request){
+		$store = new RetailSystem;
+		$store->nameretail = $request->nameretail;
+		$store->save();
+		\Session::flash('notify','Thêm hệ thống mới thành công');
+		return redirect()->back();
 	}
 }

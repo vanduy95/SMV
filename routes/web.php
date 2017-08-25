@@ -148,6 +148,8 @@ Route::group(['middleware'=>['authen']],function(){
 		Route::get('getStoreInfor',array('as'=>'getStoreInfor','uses'=>'StoreController@getStoreInfor'));
 		Route::post('store/create',array('as'=>'storecreate','uses'=>'StoreController@postcreate'));
 		Route::post('store/{id}',array('as'=>'destroystore','uses'=>'StoreController@destroy'));
+		Route::get('store/create/retailsystem',array('as'=>'systemcreate','uses'=>'StoreController@getretailcreate'));
+		Route::post('store/create/retailsystem',array('as'=>'systemcreate','uses'=>'StoreController@postretailcreate'));
 
 		Route::get('interest',['as'=>'interest','uses'=>'StoreController@interest']);
 		Route::get('interest/{name}',['as'=>'updateinterest','uses'=>'StoreController@showinterest']);

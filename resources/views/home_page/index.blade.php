@@ -73,7 +73,7 @@
 										<option value="{{$c->id}}">{{$c->name}}</option>
 										@endforeach
 									</div> --}}
-									<select id="id_company" name="selectpicker_xs" class="col-xs-16 col-md-12 form-control selectpicker"  data-show-subtext="true" data-live-search="true">
+									<select id="id_company" name="selectpicker_xs" class="col-xs-10 col-md-12 form-control selectpicker"  data-show-subtext="true" data-live-search="true">
 										<option value="">Chọn công ty</option>
 										@foreach ($company as $c)
 										<option value="{{$c->id}}">{{$c->name}}</option>
@@ -89,8 +89,8 @@
 									<input id="txt_code" name="txt_code" class="form-control text-padding-input" style="border-radius: 0; height: 4.5rem" type="text" placeholder="Nhập mã nhân viên">
 									<p class="text-center error" id="error_code"></p>
 								</div>
-								<div class=" col-lg-12 col-md-12 div-flex col-xs-12 form-group">
-									<input class="my-3 btn-submit-form col-lg-6 col-md-6 col-xs-9" style="" type="button" name="submit_search" id="submit_search" value="Kiểm tra sức mua">
+								<div class=" col-lg-12 col-md-12 col-xs-12 div-flex  form-group">
+									<input class="div-flex my-3 btn-submit-form col-lg-7 col-md-7" type="button" name="submit_search" id="submit_search" value="Kiểm tra sức mua">
 								</div>
 								<div class="clear"></div>
 							</form>
@@ -193,17 +193,17 @@
 				<p class="text-vw-5	 col-lg-12 col-md-12 col-xs-12">ĐẶC QUYỀN DÀNH CHO HỘI VIÊN</p>
 			</div>
 			<div class="col-md-12 col-xs-12 div-flex" style="padding: 0;">
-				<form id="register_form_xs" class="form-banner-xs col-md-11 col-xs-17" style="padding: 0;" action="">
+				<form id="register_form_xs" class="form-banner-xs col-md-12 col-xs-12" style="padding: 0;" action="">
 					{{csrf_field()}}
 					<div class="col-md-12 col-xs-12" style="background: rgb(0,83,167);">
 						<p class="text-vw-5 py-xs-0 py-md-3" style="color: white; font-weight: 600;padding: 5px;">Kiểm tra sức mua của bạn</p>	
 					</div>
-					<div class="col-md-12 col-xs-12">
+					<div class="col-md-12 col-xs-12" style="padding:0">
 						<div class="col-md-12 col-xs-12 form-group">
 							<label for="">Tên công ty</label>
 							<div class="col-md-12 col-xs-12">
-								<div class="col-xs-12 div-flex">
-									<select id="selectpicker_xs" name="selectpicker_xs" class="col-xs-16 col-md-12 form-control selectpicker"  data-show-subtext="true" data-live-search="true">
+								<div class="col-xs-12 div-flex" style="padding:0">
+									<select id="selectpicker_xs" name="selectpicker_xs" class="col-xs-12 col-md-12 form-control selectpicker"  data-show-subtext="true" data-live-search="true">
 										<option value="">Chọn công ty</option>
 										@foreach ($company as $c)
 										<option value="{{$c->id}}">{{$c->name}}</option>
@@ -216,8 +216,8 @@
 						<div class="col-md-12 col-xs-12">
 							<label for="">Chứng minh nhân dân</label>
 							<div class="col-md-12 col-xs-12">
-								<div class="col-xs-12 div-flex">
-									<input id="number_iden" class="form-control col-xs-16" name="number_iden" type="text">
+								<div class="col-xs-12 div-flex" style="padding:0">
+									<input id="number_iden" class="form-control col-xs-10" name="number_iden" type="text">
 								</div>
 								<p class="error"  id="error_cmt_xs"></p>
 							</div>
@@ -225,16 +225,16 @@
 						<div class="col-md-12 col-xs-12">
 							<label for="">Mã số nhân viên</label>
 							<div class="col-md-12 col-xs-12">
-								<div class="col-xs-12 div-flex">
-									<input id="code_employ" class="form-control col-xs-16" name="code_employ" type="text">
+								<div class="col-xs-12 div-flex" style="padding:0">
+									<input id="code_employ" class="form-control col-xs-10" name="code_employ" type="text">
 								</div>
 								<p class="error"  id="error_code_xs"></p>
 							</div>
 						</div>
 						<div class="col-md-12 col-xs-12 py-2">
 							<div class="col-md-12 col-xs-12 py-2">
-								<div class="col-xs-12 div-flex py-2">
-									<input id="btn_search_xs" class="col-md-5 col-xs-5 col-xs  btn btn-primary" type="button" style="background: #170e66; border-radius: 10px;" value="Kiểm tra">
+								<div class="col-md-12 col-xs-12 div-flex py-2" style="padding:0">
+									<input id="btn_search_xs" class="  col-md-4 col-xs-6 btn btn-primary" type="button" style="background: #170e66; border-radius: 10px;align-items: center !important; font-size: 3.3vw;" value="Kiểm tra">
 								</div>
 							</div>
 						</div>
@@ -245,7 +245,7 @@
 				<div class="clear"></div>
 			</div>
 			<div class="col-md-12 col-xs-12 div-flex" style="padding: 0;">
-				<form id="data_form_xs" class="form-banner-xs col-md-11 col-xs-17" style="padding: 0; display: none" action="/orders/show" method="post">
+				<form id="data_form_xs" class="form-banner-xs col-md-12 col-xs-12" style="padding: 0; display: none" action="/orders/show" method="post">
 					{{csrf_field()}}
 					<div class="col-md-12 col-xs-12" style="background: rgb(0,83,167);">
 						<p class="py-xs-0 py-md-3" style="color: white;font-size: 1.5vw; font-weight: 600;padding: 5px;">Thông tin khách hàng</p>	
@@ -265,7 +265,7 @@
 							<label for="">Tổng sức mua</label>
 							<div class="col-md-12 col-xs-12">
 								<div class="col-xs-12 div-flex">
-									<input id="sum_buy_xs" class="form-control col-xs-16"  readonly="" name="" type="text">
+									<input id="sum_buy_xs" class="form-control col-xs-10"  readonly="" name="" type="text">
 								</div>
 								<p></p>
 							</div>
@@ -274,7 +274,7 @@
 							<label for="">Sức mua đã sử dụng</label>
 							<div class="col-md-12 col-xs-12">
 								<div class="col-xs-12 div-flex">
-									<input id="buy_use_xs" class="form-control col-xs-16" readonly=""  name="" type="text">
+									<input id="buy_use_xs" class="form-control col-xs-10" readonly=""  name="" type="text">
 								</div>
 							</div>
 						</div>
@@ -282,7 +282,7 @@
 							<label for="">Sức mua còn lại</label>
 							<div class="col-md-12 col-xs-12">
 								<div class="col-xs-12 div-flex">
-									<input id="rest_xs" class="form-control col-xs-16"  readonly="" name="" type="text">
+									<input id="rest_xs" class="form-control col-xs-10"  readonly="" name="" type="text">
 								</div>
 							</div>
 						</div>
@@ -472,29 +472,27 @@
 	</div>
 	<div style="background: #cccccc">
 		<div class="content-step col-md-12 col-xs-12 div-flex" style="background: #cccccc;"">
-			<div class="col-md-11 col-xs-17 div-flex">
-				<div  id="step-click-1" class="white-space step-click-bg col-md-10 col-xs-16 div-flex" style="padding: 0">
+			<div class="col-md-12 col-xs-11 div-flex">
+				<div  id="step-click-1" class="white-space step-click-bg col-md-10 col-xs-10 div-flex" style="padding: 0">
 					<p>Kiểm tra sức mua</p>
 				</div>
 				<div class="step-click col-md-2 col-xs-2 div-flex">
 					<img src="../img/home_page/arrow_b.png" alt="">
 				</div>
-				<div id="step-click-2" class="white-space step-click-bg  col-md-10 col-xs-16 div-flex" style="padding: 0">
+				<div id="step-click-2" class="white-space step-click-bg  col-md-10 col-xs-10 div-flex" style="padding: 0">
 					<p>Lựa chọn sản phẩm</p>
 				</div>
 				<div class=" step-click col-md-2 col-xs-2 div-flex">
 					<img src="../img/home_page/arrow_b.png" alt="">
 				</div>
-				<div  id="step-click-3" class="white-space step-click-bg col-md-10 col-xs-16 div-flex" style="padding: 0">
+				<div  id="step-click-3" class="white-space step-click-bg col-md-10 col-xs-10 div-flex" style="padding: 0">
 					<p>Nhận hàng</p>
 				</div>
 				<div class=" step-click col-md-2 col-xs-2 div-flex">
 					<img src="../img/home_page/arrow_b.png" alt="">
 				</div>
-				<div id="step-click-4" class="white-space step-click-bg col-md-10 col-xs-16 div-flex" style="padding: 0">
+				<div id="step-click-4" class="white-space step-click-bg col-md-12 col-xs-12 div-flex" style="padding: 0">
 					<p>Thanh toán</p>
-				</div>
-				<div class=" step-click col-md-2 col-xs-2">
 				</div>
 			</div>
 		</div>

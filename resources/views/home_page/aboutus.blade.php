@@ -8,10 +8,10 @@
 	</section>
 	<section class="container-fluid about-company col-lg-12 col-md-12 col-xs-12 div-center">
 		<div class="col-lg-10 col-md-10 col-xs-10">
-			<div class="row aboutus content ">
+			<div class=" aboutus content ">
 				<h2>Công ty TNHH Phát triển Sức Mua Việt được thành lập với mục tiêu mang đến cho khách hàng trải nghiệm "Mua trước trả sau" hoàn toàn mới.</h2>
 			</div>
-			<div class="row aboutus content col-first col-last">
+			<div class=" aboutus content col-first col-last">
 				<div class="col-lg-12 col-xs-12 col-first col-last">
 					<div class="text-aboutus col-lg-3  col-xs-3 col-first">
 						<span class="title-bold">Tiết kiệm: </span>
@@ -34,7 +34,7 @@
 							Chúng tôi không ngừng xây dựng hệ thống đối tác lớn mạnh và đa dạng mang đến nhiều lựa chọn cho khách hàng.
 						</span>
 					</div>
-					<div class="text-aboutus col-lg-3 col-xs-3">
+					<div class="text-aboutus col-lg-3 col-xs-3" style="padding-right: 0">
 						<span class="title-bold">Tiện lợi trong mua sắm: </span>
 						<span class="definition">
 							Khách hàng có thể xác định được "Sức mua" trước khi mua sắm.
@@ -45,7 +45,7 @@
 		</div>
 	</section>
 	<section class="container-fluid interest-background">
-		<div class="row  col-lg-12 col-md-12 col-xs-12">
+		<div class="row col-lg-12 col-md-12 col-xs-12">
 			<div class="interest-client col-lg-3 col-md-3 col-xs-3">
 				<div class="div-items col-lg-12 col-md-12 col-xs-12">
 					<div class="div-item col-lg-6 col-md-6 col-xs-6">
@@ -84,7 +84,7 @@
 							<span><i class="fa fa-circle" aria-hidden="true"></i>Cấp trước Sức Mua để mua sắm hàng hóa tương đương 200% - 300% lương hàng tháng.<br/></span>
 							<span><i class="fa fa-circle" aria-hidden="true"></i>Hội viên được thỏa mái mua sắm toàn bộ các mặt hàng tại hệ thống của hàng, siêu thị của đối tác với:<span class="interest-0"> Ưu đãi trả góp 6 tháng, lãi suất 0%</span>. Đây thực sự là cơ hội mua sắm tốt nhất và tiết kiệm nhất so với các hình thức mua sắm khác.</span>
 						</div>
-						<div class="img-logo col-lg-2 col-md-2 col-xs-3">
+						<div class="img-logo col-lg-2 col-md-2 col-xs-3" style="padding: 0">
 							<img src="img/home_page/logo-.png">
 						</div>
 					</div>
@@ -99,7 +99,7 @@
 				</div>
 			</div>
 			<div class="col-lg-12 col-md-12 col-xs-12 div-center">
-				<div class="contact-info col-lg-9 col-md-9 col-xs-9">
+				<div class="contact-info col-lg-10 col-md-10 col-xs-10">
 					<p class="info-contact">THÔNG TIN LIÊN HỆ</p>
 					<p class="name-company">Công Ty TNHH Phát Triển Sức Mua Việt</p>
 					<p>
