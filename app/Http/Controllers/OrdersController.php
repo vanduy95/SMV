@@ -610,15 +610,11 @@ function convertname($str) {
 
 	 	public function orderInfo($id)
 	 	{
-		// eq() Bằng
-		// ne() Không bằng
-		// gt() lớn hơn
-		// gte() Lớn hơn hoặc bằng
-		// lt() ít hơn
-		// lte() Ít hơn hoặc bằng
+
 	 		$orders=!empty(Orders::find($id))?Orders::find($id):"0";
+	 		$UserInfo = $orders->user->userinfo;
+	 		$warning_order = ($UserInfo->salary*2.5 - ($orders->price-$orders->prepay));
 	 		if($orders!="0"){
-	 			$UserInfo = $orders->user->userinfo;
 	 			if(((\Carbon::now()->subMonths(2))->lt($UserInfo->updated_at))==true){
 	 				$comparison  = "0";
 	 			}
@@ -653,6 +649,7 @@ function convertname($str) {
  				return view('business.orders.accuracy.index',compact('UserInfo','orders','city','buy','buys','retailsystem','comparison','total_buy'));
  			}
  			if($orders->process_id==3){
+ 				dd($warning_order);
  				$days = $this->first_day_payment($orders->updated_at,$UserInfo->salary_day);
  				if($days!=null)
  					$day=$days;
@@ -666,7 +663,7 @@ function convertname($str) {
  			break;
  			case 3:
  			if($orders->process_id==1){
- 				return view('business.orders.update.order_info',compact('UserInfo','orders','city','buy','buys','retailsystem','organization','total_buy'));
+ 				return view('business.orders.update.order_info',compact('UserInfo','orders','city','buy','buys','retailsystem','organization','total_buy','warning_order'));
  			}
  			else{
  				\Session::flash('success_accruracy','Đơn hàng đã được xử lý hoặc đã chuyển trạng thái');

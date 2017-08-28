@@ -126,7 +126,9 @@
 				</div>
 			</div>
 			<div class="row" style="padding-bottom: 10px">
-				<div class="col-md-6"></div>
+				<div class="col-md-6">
+					<p class="btn btn-danger">{{$warning_order<1?"Đơn hàng này đã vượt quá sức mua":""}}</p>
+				</div>
 				<div class="col-md-6">
 					<div class="col-md-4">
 						<input type="button" id="approval" class="btn btn-primary" name="approval" value="Chuyển phê duyệt"/>
