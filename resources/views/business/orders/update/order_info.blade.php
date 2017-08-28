@@ -127,7 +127,9 @@
 			</div>
 			<div class="row" style="padding-bottom: 10px">
 				<div class="col-md-6">
-					<p class="btn btn-danger">{{$warning_order<1?"Đơn hàng này đã vượt quá sức mua":""}}</p>
+					@if($warning_order<1)
+						<p class="alert alert-danger text-center">Đơn hàng này đã vượt quá sức mua</p> 
+					@endif()
 				</div>
 				<div class="col-md-6">
 					<div class="col-md-4">
