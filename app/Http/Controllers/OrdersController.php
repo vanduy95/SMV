@@ -1253,4 +1253,3 @@ function convertname($str) {
  	}
  }
 }
-

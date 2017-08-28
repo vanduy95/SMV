@@ -70,13 +70,22 @@
   <div class="form-group">
     <label class="control-label col-sm-4" for="exchange_status">Giao dịch trả lương qua tài khoản *: </label>
     <div class="col-sm-8"> 
-      <input readonly tabindex="9" type="text" id="" class="form-control">
+      <input readonly tabindex="9" type="text"
+          @if($UserInfo['exchange_status']==null)
+            
+          @elseif ($UserInfo['exchange_status']==0)
+           value="Liên tục 3 tháng liền kề" 
+          @elseif($UserInfo['exchange_status']==1)
+             value="Liên tục 6 tháng liền kề"
+          @elseif($UserInfo['exchange_status']==2)
+            value="Không, hoặc không liên tục"
+          @endif" id="" class="form-control">
     </div>
   </div>
   <div class="form-group">
     <label class="control-label col-sm-4" for="salary_avg">Lương trung bình 3 tháng liền kề *: </label>
     <div class="col-sm-8"> 
-      <input readonly tabindex="9" onchange="ChangeSalary_avg()" type="text" id="" class="form-control" value="{{$UserInfo['salary_avg']}}">
+      <input readonly tabindex="9" type="text" id="" class="form-control" value="{{number_format($UserInfo['salary_avg'])}} đồng">
     </div>
   </div>
   <div class="form-group">
