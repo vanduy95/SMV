@@ -241,7 +241,8 @@ $(document).ready(function(){
 								$('#u_name').val(res[0].fullname);
 								$('#sum_buy').val((numeral(round_d(res[0].salary*2.5)).format('0,0').replace(/,/g,'.')+" đồng"));
 								$('#buy_use').val(numeral(round_d(res[0].price-res[0].prepay)).format('0,0').replace(/,/g,'.')+" đồng");
-								$('#rest').val((numeral(round_d((res[0].salary*2.5)-(res[0].price-res[0].prepay))).format('0,0').replace(/,/g,'.'))+" đồng");
+								// $('#rest').val((numeral(round_d((res[0].salary*2.5)-(res[0].price-res[0].prepay))).format('0,0').replace(/,/g,'.'))+" đồng");
+								$('#rest').val(((res[0].salary*2.5)-(res[0].price-res[0].prepay))<1?"0 đồng":(numeral(round_d((res[0].salary*2.5)-(res[0].price-res[0].prepay))).format('0,0').replace(/,/g,'.'))+" đồng");
 								$('#notify').text('Sức mua hiện tại của bạn không đủ thực hiện giao dịch. Liên hệ với chúng tôi để được hỗ trợ.');
 								$('#hotline').text('Hotline: ');
 								$('#return_local').attr('href',url);
