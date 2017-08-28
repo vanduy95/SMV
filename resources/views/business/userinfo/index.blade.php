@@ -1,7 +1,5 @@
 @extends('layouts.master')
-
 @section('content')
-
 <style type="text/css">
 	.div-center{
 		display: flex;
@@ -79,7 +77,7 @@
 				</div>
 				@if(Session::has('mess_userinfo'))
 				<p class="alert alert-info">{{ Session::get('mess_userinfo') }}</p>
-				@endifbtnb
+				@endif
 				<div class="box-body">
 					<div class="table-responsive">
 
