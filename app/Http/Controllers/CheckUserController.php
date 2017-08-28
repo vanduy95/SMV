@@ -177,7 +177,7 @@ public function postApproval(Request $req)
  $user=User::find($req->user_id);
  if($req->has('approval'))
  {
-    $user->status=1;
+    $user->status=0;
     $user->save();
     \Session::flash('notify','Duyệt thành công.');
     return redirect('admin/checkuser/list');
@@ -220,7 +220,7 @@ public function checkidentitycard(Request $req)
       }
       else
       {
-          $user=User::where('status',1)->pluck('id');
+          $user=User::where(['status'=>0,'syslock'=>1])->pluck('id');
           $userinfos=UserInfo::whereIn('user_id',$user)->where('identitycard',$req->identitycard)->get();
           if(count($userinfos))
           {
@@ -234,7 +234,7 @@ public function checkidentitycard(Request $req)
  }
  else
  {
-    $user=User::where('status',1)->pluck('id');
+    $user=User::where(['status'=>0,'syslock'=>1])->pluck('id');
     $userinfos=UserInfo::whereIn('user_id',$user)->where('identitycard',$req->identitycard)->get();
     if(count($userinfos))
     {
@@ -256,7 +256,7 @@ public function checkEmployee_id(Request $req)
       return 'true';
   }
   else{
-    $user=User::where('status',1)->where('organization_id',$req->organization_id)->pluck('id');
+    $user=User::where(['status'=>0,'syslock'=>1])->where('organization_id',$req->organization_id)->pluck('id');
     $userinfos=UserInfo::whereIn('user_id',$user)->where('employee_id',$req->employee_id)->get();
     if(count($userinfos))
     {
@@ -269,7 +269,7 @@ public function checkEmployee_id(Request $req)
 }
 }
 else{
-    $user=User::where('status',1)->where('organization_id',$req->organization_id)->pluck('id');
+    $user=User::where(['status'=>0,'syslock'=>1])->where('organization_id',$req->organization_id)->pluck('id');
     $userinfos=UserInfo::whereIn('user_id',$user)->where('employee_id',$req->employee_id)->get();
     if(count($userinfos))
     {

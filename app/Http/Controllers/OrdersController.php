@@ -42,231 +42,252 @@ class indexObject{
 }
 function convertname($str) {
 	// In thường
-		$str = preg_replace("/(à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ)/", 'a', $str);
-		$str = preg_replace("/(è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ)/", 'e', $str);
-		$str = preg_replace("/(ì|í|ị|ỉ|ĩ)/", 'i', $str);
-		$str = preg_replace("/(ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ)/", 'o', $str);
-		$str = preg_replace("/(ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ)/", 'u', $str);
-		$str = preg_replace("/(ỳ|ý|ỵ|ỷ|ỹ)/", 'y', $str);
-		$str = preg_replace("/(đ)/", 'd', $str);    
+	$str = preg_replace("/(à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ)/", 'a', $str);
+	$str = preg_replace("/(è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ)/", 'e', $str);
+	$str = preg_replace("/(ì|í|ị|ỉ|ĩ)/", 'i', $str);
+	$str = preg_replace("/(ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ)/", 'o', $str);
+	$str = preg_replace("/(ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ)/", 'u', $str);
+	$str = preg_replace("/(ỳ|ý|ỵ|ỷ|ỹ)/", 'y', $str);
+	$str = preg_replace("/(đ)/", 'd', $str);    
 	// In đậm
-		$str = preg_replace("/(À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ)/", 'A', $str);
-		$str = preg_replace("/(È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ)/", 'E', $str);
-		$str = preg_replace("/(Ì|Í|Ị|Ỉ|Ĩ)/", 'I', $str);
-		$str = preg_replace("/(Ò|Ó|Ọ|Ỏ|Õ|Ô|ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ)/", 'O', $str);
-		$str = preg_replace("/(Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ)/", 'U', $str);
-		$str = preg_replace("/(Ỳ|Ý|Ỵ|Ỷ|Ỹ)/", 'Y', $str);
-		$str = preg_replace("/(Đ)/", 'D', $str);
+	$str = preg_replace("/(À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ)/", 'A', $str);
+	$str = preg_replace("/(È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ)/", 'E', $str);
+	$str = preg_replace("/(Ì|Í|Ị|Ỉ|Ĩ)/", 'I', $str);
+	$str = preg_replace("/(Ò|Ó|Ọ|Ỏ|Õ|Ô|ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ)/", 'O', $str);
+	$str = preg_replace("/(Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ)/", 'U', $str);
+	$str = preg_replace("/(Ỳ|Ý|Ỵ|Ỷ|Ỹ)/", 'Y', $str);
+	$str = preg_replace("/(Đ)/", 'D', $str);
 	     return $str; // Trả về chuỗi đã chuyển
 	 } 
- class OrdersController extends Controller
- {
- 	public function first_day_payment($update_day,$salaryday){	
- 		$c = new \Carbon;
- 		$d_orders = $update_day->day;
- 		$y = $update_day->year;
- 		$m = $update_day->month;
- 		$d_salary = $salaryday;
- 		$c->setDate($y,$m,$d_salary);
- 		if($salaryday==null){
- 			if($update_day->day>11&&$update_day->day<25)
- 			{
- 				return $c->setDate($y,$m+1,5);
- 			}
- 			else
- 			{
- 				return $c->setDate($y,$m+1,25);
- 			}
-
- 		}
- 		if($d_salary > $update_day->day && (abs($d_salary-$update_day->day)>10)){
- 			return $c->setDate($y,$m,$d_salary);
- 		}
- 		else if($d_salary < $update_day->day && (abs(($d_salary-$update_day->day))<=10)){
- 			return $c->setDate($y,$m+1,$d_salary);
- 		}
- 		else if($d_salary < $update_day->day && (abs(($d_salary-$update_day->day))>10)){
- 			return $c->setDate($y,$m,$d_salary);
- 		}
- 		else if($d_salary > $update_day->day && (abs($d_salary-$update_day->day)<=10)){
- 			return $c->setDate($y,$m+1,$d_salary);
- 		}
- 		else{
- 			return $c->setDate($y,$m+1,$d_salary);
- 		}
-
-
- 	}
- 	public function createOrders(postOrdersRequestCreate $r){
- 		try{
- 			$user = User::find($r->user_id);
- 			$today = \Carbon::now();
- 			$search = [' đồng','.'];
- 			$buy = UserInfo::where('user_id',$r->user_id)->first()->salary*2.5; 
- 			$price =  str_replace($search,"",$r['price']);
- 			$city = "%".$r['select_city']."%";
- 			$dis= "%".$r['select_dis']."%";
- 			$market = "%".$r['market']."%";
- 			$store = "%".$r['select_store']."%";	
- 			if($r->pre_pay == null){
- 				$prepay = $price*str_replace($search,"",$r['pre_pay']);
- 			}
- 			else{
- 				$prepay = str_replace($search,"",$r['pre_pay']);
- 			}
- 			$id="";
- 			$r_id = DB::table('retailsystem')->where('retailcity','like',$city)->where('retaildistrict','like',$dis)->where('nameretail','like',$market)->where('name_center','like',$store)->get();
- 			$order=new Orders;
- 			$order->name=$r['name'];
- 			$order->buy_now=$buy;
- 			$order->product_reg=$r['product'];
- 			$order->product_code=$r['code_product'];
- 			$order->color=$r['color'];
- 			$order->price=$price;
- 			$order->prepay=$prepay;
- 			$order->select_rate=$r['select_rate'];
- 			$order->lead_time=$r['lead_month'];
- 			$order->supmarket=$r['market'];
- 			$order->city=$r['select_city'];
- 			$order->district=$r['select_dis'];
- 			$order->store =$r['select_store'];
- 			$order->salesman=$r['sales_man'];
- 			$order->phonesale=$r['phone_sale'];
- 			$order->user_id=$user->id;
- 			$order->process_id='1';
- 			$order->retailsystem_id=$r_id[0]->id;
- 			$order->created_at=$today;
- 			$order->save();
- 			$users=User::whereIn('groupuser_id',[1,3])->get();
- 			Notification::send($users, new CreateOrderNotification($r->name,$order));
- 			session()->forget('customer_id');
- 			$this->sendMail($r,$user->id,$r_id[0]->phonecontact);
- 			\Session::flash('mess_order','Insert New Record Success');
- 			return redirect()->route('success');
- 		}
- 		catch(\Expression $ex){
- 			echo $ex->getMessage()."</br>";
- 			echo "Đã xảy ra lỗi click để tạo mới lại =>> <a href='/orders/create' class='col-lg-12'>Return Create Orders</a>";
- 		}
- 	}
- 	public function getAjax(Request $r){
- 		if($r->ajax()){				
- 			if(!empty($_POST['market']) && !empty($_POST['dis']) && !empty($_POST['city'])) {
- 				$dis = "%".$_POST['dis']."%";
- 				$city= "%".$_POST['city']."%";
- 				$market = "%".$_POST['market']."%";
- 				$store = RetailSystem::where('retailcity','like',$city)->where('retaildistrict','like',$dis)->where('nameretail','like',$market)->pluck('name_center');
- 				return  $store;
- 			}
- 			if(!empty($_POST['dis']) && !empty($_POST['city'])){
- 				$dis = "%".$_POST['dis']."%";
- 				$city= "%".$_POST['city']."%";
- 				$market = RetailSystem::groupBy('nameretail')->where('retailcity','like',$city)->where('retaildistrict','like',$dis)->pluck('nameretail');	
- 				return $market;	
+	 class OrdersController extends Controller
+	 {
+	 	public function first_day_payment($update_day,$salaryday){	
+	 		// eq() equals
+	 		// ne() not equals
+	 		// gt() greater than
+	 		// gte() greater than or equals
+	 		// lt() less than
+	 		// lte() less than or equals
+	 		$c = new \Carbon;
+	 		$a = new \Carbon;
+	 		$ud = new \Carbon;
+	 		$d_orders = $update_day->day;
+	 		$y = $update_day->year;
+	 		$m = $update_day->month;
+	 		$d_salary = $salaryday;
+	 		$c->setDate($y,$m,$d_salary);
+	 		$a->setDateTime($y,$m,$d_salary,0,0,0,0);
+	 		$temp_d = $update_day->addDays(10);
+	 		$boole = ($ud->setDateTime($temp_d->year,$temp_d->month,$temp_d->day,0,0,0,0))->eq($a);
+	 		$boolt = ($ud->setDateTime($temp_d->year,$temp_d->month,$temp_d->day,0,0,0,0))->lt($a);
+	 		// dd($boole);
+	 		if($salaryday==null){
+	 			if($update_day->day>11&&$update_day->day<25)
+	 			{
+	 				return $c->setDate($y,$m+1,5);
+	 			}
+	 			else
+	 			{
+	 				return $c->setDate($y,$m+1,25);
+	 			}
+	 		}
+	 		if($d_orders > $d_salary){
+	 			return $c->setDate($y,$m+1,$d_salary);
+	 		}
+	 		else{
+	 			if($boole==true && $boolt==true){
+	 				return $c->setDate($y,$m,$d_salary);
+	 			}
+	 			else{
+	 				return $c->setDate($y,$m+1,$d_salary);
+	 			}
+	 		}
+	 			// if($d_salary > $update_day->day && (abs($d_salary-$update_day->day)>10)){
+	 			// 	return $c->setDate($y,$m,$d_salary);
+	 			// }
+	 			// else if($d_salary < $update_day->day && (abs(($d_salary-$update_day->day))<=10)){
+	 			// 	return $c->setDate($y,$m+1,$d_salary);
+	 			// }
+	 			// else if($d_salary < $update_day->day && (abs(($d_salary-$update_day->day))>10)){
+	 			// 	return $c->setDate($y,$m,$d_salary);
+	 			// }
+	 			// else if($d_salary > $update_day->day && (abs($d_salary-$update_day->day)<=10)){
+	 			// 	return $c->setDate($y,$m+1,$d_salary);
+	 			// }
+	 			// else{
+	 			// 	return $c->setDate($y,$m+1,$d_salary);
+	 			// }
+	 	}
+	 	public function createOrders(postOrdersRequestCreate $r){
+	 		try{
+	 			$user = User::find($r->user_id);
+	 			$today = \Carbon::now();
+	 			$search = [' đồng','.'];
+	 			$buy = UserInfo::where('user_id',$r->user_id)->first()->salary*2.5; 
+	 			$price =  str_replace($search,"",$r['price']);
+	 			$city = "%".$r['select_city']."%";
+	 			$dis= "%".$r['select_dis']."%";
+	 			$market = "%".$r['market']."%";
+	 			$store = "%".$r['select_store']."%";	
+	 			if($r->pre_pay == null){
+	 				$prepay = $price*str_replace($search,"",$r['pre_pay']);
+	 			}
+	 			else{
+	 				$prepay = str_replace($search,"",$r['pre_pay']);
+	 			}
+	 			$id="";
+	 			$r_id = DB::table('retailsystem')->where('retailcity','like',$city)->where('retaildistrict','like',$dis)->where('nameretail','like',$market)->where('name_center','like',$store)->get();
+	 			$order=new Orders;
+	 			$order->name=$r['name'];
+	 			$order->buy_now=$buy;
+	 			$order->product_reg=$r['product'];
+	 			$order->product_code=$r['code_product'];
+	 			$order->color=$r['color'];
+	 			$order->price=$price;
+	 			$order->prepay=$prepay;
+	 			$order->select_rate=$r['select_rate'];
+	 			$order->lead_time=$r['lead_month'];
+	 			$order->supmarket=$r['market'];
+	 			$order->city=$r['select_city'];
+	 			$order->district=$r['select_dis'];
+	 			$order->store =$r['select_store'];
+	 			$order->salesman=$r['sales_man'];
+	 			$order->phonesale=$r['phone_sale'];
+	 			$order->user_id=$user->id;
+	 			$order->process_id='1';
+	 			$order->retailsystem_id=$r_id[0]->id;
+	 			$order->created_at=$today;
+	 			$order->save();
+	 			$users=User::whereIn('groupuser_id',[1,3])->get();
+	 			Notification::send($users, new CreateOrderNotification($r->name,$order));
+	 			session()->forget('customer_id');
+	 			$this->sendMail($r,$user->id,$r_id[0]->phonecontact);
+	 			\Session::flash('mess_order','Insert New Record Success');
+	 			return redirect()->route('success');
+	 		}
+	 		catch(\Expression $ex){
+	 			echo $ex->getMessage()."</br>";
+	 			echo "Đã xảy ra lỗi click để tạo mới lại =>> <a href='/orders/create' class='col-lg-12'>Return Create Orders</a>";
+	 		}
+	 	}
+	 	public function getAjax(Request $r){
+	 		if($r->ajax()){				
+	 			if(!empty($_POST['market']) && !empty($_POST['dis']) && !empty($_POST['city'])) {
+	 				$dis = "%".$_POST['dis']."%";
+	 				$city= "%".$_POST['city']."%";
+	 				$market = "%".$_POST['market']."%";
+	 				$store = RetailSystem::where('retailcity','like',$city)->where('retaildistrict','like',$dis)->where('nameretail','like',$market)->pluck('name_center');
+	 				return  $store;
+	 			}
+	 			if(!empty($_POST['dis']) && !empty($_POST['city'])){
+	 				$dis = "%".$_POST['dis']."%";
+	 				$city= "%".$_POST['city']."%";
+	 				$market = RetailSystem::groupBy('nameretail')->where('retailcity','like',$city)->where('retaildistrict','like',$dis)->pluck('nameretail');	
+	 				return $market;	
 					// return "market";
- 			}
- 			if(!empty($_POST['city'])){
- 				$city= "%".$_POST['city']."%";
- 				$market = !empty($_POST['market'])?("%".$_POST['market']."%"):"%%";
- 				$dis = RetailSystem::groupBy('retaildistrict')->where('retailcity','like',$city)->where('nameretail','like',$market)->pluck('retaildistrict');
- 				return $dis;
+	 			}
+	 			if(!empty($_POST['city'])){
+	 				$city= "%".$_POST['city']."%";
+	 				$market = !empty($_POST['market'])?("%".$_POST['market']."%"):"%%";
+	 				$dis = RetailSystem::groupBy('retaildistrict')->where('retailcity','like',$city)->where('nameretail','like',$market)->pluck('retaildistrict');
+	 				return $dis;
 			// return $market;
- 			}
- 			if(!empty($_POST['market']) && empty($_POST['city']) && empty($_POST['dis'])){
- 				$market= "%".$_POST['market']."%";
- 				$city = RetailSystem::groupBy('retailcity')->where('nameretail','like',$market)->pluck('retailcity');
- 				return $city;
- 			}
- 		}
- 	}
- 	public function getupload($id){
+	 			}
+	 			if(!empty($_POST['market']) && empty($_POST['city']) && empty($_POST['dis'])){
+	 				$market= "%".$_POST['market']."%";
+	 				$city = RetailSystem::groupBy('retailcity')->where('nameretail','like',$market)->pluck('retailcity');
+	 				return $city;
+	 			}
+	 		}
+	 	}
+	 	public function getupload($id){
 	//edit thanh posst
- 		$user = User::find($id);
- 		return view('business.orders.upload',compact('user'));
- 	}
- 	public function postupload(OrderUploadFileRequest $request,$id){
- 		try{
- 			$today = \Carbon::now();
- 			$upload = new Uploadfile();
- 			if($request->hasFile('filename')){
- 				$path = 'uploadfile/orders/';
- 				$file = $request->file('filename');
- 				$name = str_slug($file->getClientOriginalName());
- 				do{
- 					$filename = str_random(4)."_".$name;
- 				}while(file_exists("uploadfile/orders".$filename));
- 				$file->move($path,$filename);
- 				$upload->path = $filename;
- 				$upload->type = 1;      
- 			}
- 			else {
- 				$upload->path="";
- 			}
- 			if(!empty($request->lb_market) && !empty($request->lb_dis) && !empty($request->lb_city) && !empty($request->lb_store)) {
- 				$market = '%'.$request->lb_market.'%';
- 				$dis = '%'.$request->lb_dis.'%';
- 				$city = '%'.$request->lb_city.'%';
- 				$store = '%'.$request->lb_store.'%';
- 				$r_id = DB::table('retailsystem')->where('retailcity','like',$city)->where('retaildistrict','like',$dis)->where('nameretail','like',$market)->where('name_center','like',$store)->get()->toArray();
- 				$name = DB::table('userinfo')->where('user_id','=',$id)->get();
- 				$orders=new Orders;
- 				$orders->name=$name[0]->fullname;
- 				$orders->supmarket=str_replace('%','',$market);
- 				$orders->city=str_replace('%','',$city);
- 				$orders->district=str_replace('%','',$dis);
- 				$orders->store=str_replace('%','',$store);
- 				$orders->user_id=$id;
- 				$orders->process_id=1;
- 				$orders->retailsystem_id=$r_id[0]->id;
- 				$orders->created_at=$today;
- 				$orders->save();
- 				$upload->orders_id = $orders->id;
- 				$upload->save();
- 				$users=User::whereIn('groupuser_id',[1,3])->get();
- 				Notification::send($users, new CreateOrderNotification(User::find($id)->UserInfo->fullname,$orders));
+	 		$user = User::find($id);
+	 		return view('business.orders.upload',compact('user'));
+	 	}
+	 	public function postupload(OrderUploadFileRequest $request,$id){
+	 		try{
+	 			$today = \Carbon::now();
+	 			$upload = new Uploadfile();
+	 			if($request->hasFile('filename')){
+	 				$path = 'uploadfile/orders/';
+	 				$file = $request->file('filename');
+	 				$name = str_slug($file->getClientOriginalName());
+	 				do{
+	 					$filename = str_random(4)."_".$name;
+	 				}while(file_exists("uploadfile/orders".$filename));
+	 				$file->move($path,$filename);
+	 				$upload->path = $filename;
+	 				$upload->type = 1;      
+	 			}
+	 			else {
+	 				$upload->path="";
+	 			}
+	 			if(!empty($request->lb_market) && !empty($request->lb_dis) && !empty($request->lb_city) && !empty($request->lb_store)) {
+	 				$market = '%'.$request->lb_market.'%';
+	 				$dis = '%'.$request->lb_dis.'%';
+	 				$city = '%'.$request->lb_city.'%';
+	 				$store = '%'.$request->lb_store.'%';
+	 				$r_id = DB::table('retailsystem')->where('retailcity','like',$city)->where('retaildistrict','like',$dis)->where('nameretail','like',$market)->where('name_center','like',$store)->get()->toArray();
+	 				$name = DB::table('userinfo')->where('user_id','=',$id)->get();
+	 				$orders=new Orders;
+	 				$orders->name=$name[0]->fullname;
+	 				$orders->supmarket=str_replace('%','',$market);
+	 				$orders->city=str_replace('%','',$city);
+	 				$orders->district=str_replace('%','',$dis);
+	 				$orders->store=str_replace('%','',$store);
+	 				$orders->user_id=$id;
+	 				$orders->process_id=1;
+	 				$orders->retailsystem_id=$r_id[0]->id;
+	 				$orders->created_at=$today;
+	 				$orders->save();
+	 				$upload->orders_id = $orders->id;
+	 				$upload->save();
+	 				$users=User::whereIn('groupuser_id',[1,3])->get();
+	 				Notification::send($users, new CreateOrderNotification(User::find($id)->UserInfo->fullname,$orders));
  				//$this->sendMail();
- 				return redirect()->route('success');
- 			}
- 		}
- 		catch(\Expression $ex){
- 			echo $ex->getMessage()."</br>";
- 			echo "Đã xảy ra lỗi click để tạo mới lại =>> <a href='/' class='col-lg-12'>Quay lại trang chủ</a>";
- 		}
- 	}
- 	public function indexUploadFile(){
- 		$data = DB::table('uploadfile')->join('user','user.id','=','uploadfile.user_id')->join('userinfo','userinfo.user_id','=','user.id')->select(DB::raw('uploadfile.*'),'userinfo.fullname')->get()->toArray();
- 		return view('business.uploadfile.index',compact('data'));
- 	}
- 	public function indexadmin(){
- 		$order = Orders::orderBy('created_at','desc')->get();
- 		$ProcessStatus=ProcessStatus::all();
- 		return view('business.orders.index',compact('order','ProcessStatus'));
- 	}
- 	public function getnameprocess($processstartus,$process_id){
- 		foreach ($processstartus as $key => $value) {
- 			if($value->id == $process_id){
- 				$name=$value->name;
- 			}
- 		}
- 		return $name;
- 	}
- 	public function getnameuser($user,$user_id){
- 		foreach ($user as $key => $value) {
- 			if($value->user_id == $user_id){
- 				$fullname=$value->fullname;
- 			}
- 		}
- 		return $fullname;
- 	}
+	 				return redirect()->route('success');
+	 			}
+	 		}
+	 		catch(\Expression $ex){
+	 			echo $ex->getMessage()."</br>";
+	 			echo "Đã xảy ra lỗi click để tạo mới lại =>> <a href='/' class='col-lg-12'>Quay lại trang chủ</a>";
+	 		}
+	 	}
+	 	public function indexUploadFile(){
+	 		$data = DB::table('uploadfile')->join('user','user.id','=','uploadfile.user_id')->join('userinfo','userinfo.user_id','=','user.id')->select(DB::raw('uploadfile.*'),'userinfo.fullname')->get()->toArray();
+	 		return view('business.uploadfile.index',compact('data'));
+	 	}
+	 	public function indexadmin(){
+	 		$order = Orders::orderBy('created_at','desc')->get();
+	 		$ProcessStatus=ProcessStatus::all();
+	 		return view('business.orders.index',compact('order','ProcessStatus'));
+	 	}
+	 	public function getnameprocess($processstartus,$process_id){
+	 		foreach ($processstartus as $key => $value) {
+	 			if($value->id == $process_id){
+	 				$name=$value->name;
+	 			}
+	 		}
+	 		return $name;
+	 	}
+	 	public function getnameuser($user,$user_id){
+	 		foreach ($user as $key => $value) {
+	 			if($value->user_id == $user_id){
+	 				$fullname=$value->fullname;
+	 			}
+	 		}
+	 		return $fullname;
+	 	}
 
- 	public function ajaxGetUserOders(Request $req)
- 	{
- 		$UserInfo=UserInfo::where('user_id',$req->user_id)->first()->toArray();
- 		$email=User::find($req->user_id)->email;
- 		$UserInfo=array_merge($UserInfo,array('email'=>$email));
- 		return response()->json($UserInfo);
+	 	public function ajaxGetUserOders(Request $req)
+	 	{
+	 		$UserInfo=UserInfo::where('user_id',$req->user_id)->first()->toArray();
+	 		$email=User::find($req->user_id)->email;
+	 		$UserInfo=array_merge($UserInfo,array('email'=>$email));
+	 		return response()->json($UserInfo);
 
- 	}
+	 	}
 
  	// public function ajaxEditOrder(Request $req)
  	// {
@@ -304,241 +325,241 @@ function convertname($str) {
  	// 	return response()->json($Orders);
  	// }
 
- 	public function ajaxGetUserInfor(Request $req)
- 	{
- 		$UserInfo=UserInfo::where('user_id',$req->user_id)->first()->toArray();
- 		$email=User::find($req->user_id)->email;
+	 	public function ajaxGetUserInfor(Request $req)
+	 	{
+	 		$UserInfo=UserInfo::where('user_id',$req->user_id)->first()->toArray();
+	 		$email=User::find($req->user_id)->email;
 
- 		$UserInfo=array_merge($UserInfo,array('email'=>$email));
+	 		$UserInfo=array_merge($UserInfo,array('email'=>$email));
 
- 		return view('business.orders.ajax.inforuser',compact('UserInfo'));
- 	}
+	 		return view('business.orders.ajax.inforuser',compact('UserInfo'));
+	 	}
 
- 	public function ajaxDeleteOrder(Request $req)
- 	{
- 		$Orders=Orders::find($req->order_id);
- 		$Orders->delete();
- 		return 'true';
- 	}
+	 	public function ajaxDeleteOrder(Request $req)
+	 	{
+	 		$Orders=Orders::find($req->order_id);
+	 		$Orders->delete();
+	 		return 'true';
+	 	}
 
- 	public function sendMail($req,$userid,$store_phone)
- 	{
+	 	public function sendMail($req,$userid,$store_phone)
+	 	{
 		//dd($userid);
- 		$User=User::find($userid);
- 		$Organization=Organization::find($User->organization_id);
- 		$UserInfo=UserInfo::where('user_id',$userid)->first();
- 		$data=$req->toArray();
- 		$data['email']=$User->email;
- 		$data['phone_user']=$UserInfo->phone1;
- 		$data['store_phone']=$store_phone;
- 		$data['organization_name']=$Organization->name;
- 		Mail::send('email.sendinfor',$data, function ($message) use ($data){
- 			$message->from('vanduy.glview@gmail.com', 'Sức mua việt');
+	 		$User=User::find($userid);
+	 		$Organization=Organization::find($User->organization_id);
+	 		$UserInfo=UserInfo::where('user_id',$userid)->first();
+	 		$data=$req->toArray();
+	 		$data['email']=$User->email;
+	 		$data['phone_user']=$UserInfo->phone1;
+	 		$data['store_phone']=$store_phone;
+	 		$data['organization_name']=$Organization->name;
+	 		Mail::send('email.sendinfor',$data, function ($message) use ($data){
+	 			$message->from('vanduy.glview@gmail.com', 'Sức mua việt');
 
- 			$message->to('vanduybn95@gmail.com',$data['name']);
+	 			$message->to('vanduybn95@gmail.com',$data['name']);
 
- 			$message->replyTo('vanduy.glview@gmail.com', 'Sức mua việt');
+	 			$message->replyTo('vanduy.glview@gmail.com', 'Sức mua việt');
 
- 			$message->subject('Thông tin orders');
- 		});
-
-
- 	}
-
- 	public function ajaxGetOrderInfor(Request $req)
- 	{
- 		$orders=Orders::find($req->order_id);
- 		$buy=Orders::where(['user_id'=>$orders->user_id,'process_id'=>5])->get()->sum('price');
- 		$buy=$orders->buy_now-$buy;
- 		$city = RetailSystem::groupBy('retailcity')->pluck('retailcity');
- 		return view('business.orders.ajax.orderinfor',compact('orders','city','buy'));
- 	}
- 	public function printOrders(Orders $order)
- 	{
- 		if($order->process_id==4||$order->process_id==5)
- 		{
- 			$fileName = "orders/order.docx";
- 			$doc = new \PhpOffice\PhpWord\TemplateProcessor($fileName);
- 			$doc->setValue('name',$order->user->userinfo->fullname);
- 			$doc->setValue('order_id',substr('0000000000000000000000'.$order->id,-5));
- 			$doc->setValue('created_at',\Carbon::parse($order->created_at)->format('d/m/Y'));
- 			$doc->setValue('updated_at',\Carbon::parse($order->updated_at)->format('d/m/Y'));
- 			$doc->setValue('organization_id',$order->user->organization->ma);
- 			$doc->setValue('organization_add',$order->user->organization->address);
- 			$doc->setValue('birthday',\Carbon::parse($order->user->userinfo->birthday)->format('d/m/Y'));
- 			$doc->setValue('store',$order->store);
- 			if($order->user->userinfo->sex==1)
- 			{
- 				$doc->setValue('sex','Nam');
- 				$doc->setValue('men','x');
- 				$doc->setValue('women','');
- 			}
-
- 			else if($order->user->userinfo->sex==2)
- 			{
- 				$doc->setValue('men','');
- 				$doc->setValue('women','x');
- 				$doc->setValue('sex','Nữ');
- 			}
- 			else 
- 			{
- 				$doc->setValue('sex','');
- 				$doc->setValue('men','');
- 				$doc->setValue('women','');
- 			}
-
- 			$doc->setValue('identitycard',$order->user->userinfo->identitycard);
- 			$doc->setValue('dateissue',\Carbon::parse($order->user->userinfo->dateissue)->format('d/m/Y'));
-
- 			if($order->user->userinfo->maritalstatus==1)
- 			{
- 				$doc->setValue('maritalstatus','Đã kết hôn');
- 				$doc->setValue('ismarital','x');
- 				$doc->setValue('single','');
- 			}
- 			else if($order->user->userinfo->maritalstatus==2)
- 			{
- 				$doc->setValue('maritalstatus','Độc thân');
- 				$doc->setValue('ismarital','');
- 				$doc->setValue('single','x');
- 			}
- 			else
- 			{
- 				$doc->setValue('maritalstatus','');
- 				$doc->setValue('ismarital','');
- 				$doc->setValue('single','');
- 			}
+	 			$message->subject('Thông tin orders');
+	 		});
 
 
- 			$doc->setValue('issuedby',$order->user->userinfo->issuedby);
- 			$doc->setValue('issuedby',$order->user->userinfo->issuedby);
- 			$doc->setValue('address1',$order->user->userinfo->address1);
- 			$doc->setValue('phone1',$order->user->userinfo->phone1);
- 			$doc->setValue('address2',$order->user->userinfo->address2);
- 			$doc->setValue('phone4',$order->user->userinfo->phone4);
- 			$doc->setValue('phone2',$order->user->userinfo->phone2);
- 			$doc->setValue('email',$order->user->email);
- 			$doc->setValue('phone3',$order->user->userinfo->phone3);
- 			$doc->setValue('organization',$order->user->organization->name);
- 			$doc->setValue('salary',number_format($order->user->userinfo->salary));
- 			$doc->setValue('employee_id',$order->user->userinfo->employee_id);
- 			$doc->setValue('bank',$order->user->userinfo->bank_name);
- 			$doc->setValue('product',$order->product_reg);
- 			$doc->setValue('code_product',$order->product_code);
- 			$doc->setValue('color',$order->color);
- 			$doc->setValue('position',$order->user->userinfo->position);
- 			$doc->setValue('number_account',$order->user->userinfo->number_account);
- 			$doc->setValue('time_worked',$order->user->userinfo->time_worked);
- 			$doc->setValue('department',$order->user->userinfo->department);
- 			$doc->setValue('pay_per_month',(number_format(($order->retailSystem->interest_rate*((double)$order->price-(double)$order->prepay)+((double)$order->price-(double)$order->prepay)/$order->lead_time)+11000)));
- 			$doc->setValue('pay_month',$order->user->userinfo->salary_day);
- 			$days = $this->first_day_payment($order->updated_at,$order->user->userinfo->salary_day);
- 			$doc->setValue('start',date('d-m-Y',strtotime($days)));
- 			$doc->setValue('finish',date('d-m-Y',strtotime($days->addMonths($order->lead_time-1))));
+	 	}
 
- 			if ($order->prepay) {
- 				$doc->setValue('pre_pay',number_format($order->prepay));
- 			}
- 			else
- 			{
- 				$doc->setValue('pre_pay',number_format($order->price*$order->select_rate/100));
- 			}
+	 	public function ajaxGetOrderInfor(Request $req)
+	 	{
+	 		$orders=Orders::find($req->order_id);
+	 		$buy=Orders::where(['user_id'=>$orders->user_id,'process_id'=>5])->get()->sum('price');
+	 		$buy=$orders->buy_now-$buy;
+	 		$city = RetailSystem::groupBy('retailcity')->pluck('retailcity');
+	 		return view('business.orders.ajax.orderinfor',compact('orders','city','buy'));
+	 	}
+	 	public function printOrders(Orders $order)
+	 	{
+	 		if($order->process_id==4||$order->process_id==5)
+	 		{
+	 			$fileName = "orders/order.docx";
+	 			$doc = new \PhpOffice\PhpWord\TemplateProcessor($fileName);
+	 			$doc->setValue('name',$order->user->userinfo->fullname);
+	 			$doc->setValue('order_id',substr('0000000000000000000000'.$order->id,-5));
+	 			$doc->setValue('created_at',\Carbon::parse($order->created_at)->format('d/m/Y'));
+	 			$doc->setValue('updated_at',\Carbon::parse($order->updated_at)->format('d/m/Y'));
+	 			$doc->setValue('organization_id',$order->user->organization->ma);
+	 			$doc->setValue('organization_add',$order->user->organization->address);
+	 			$doc->setValue('birthday',\Carbon::parse($order->user->userinfo->birthday)->format('d/m/Y'));
+	 			$doc->setValue('store',$order->store);
+	 			if($order->user->userinfo->sex==1)
+	 			{
+	 				$doc->setValue('sex','Nam');
+	 				$doc->setValue('men','x');
+	 				$doc->setValue('women','');
+	 			}
 
- 			$doc->setValue('time',$order->lead_time);
- 			$doc->setValue('slow',number_format($order->price-$order->prepay));
- 			$doc->setValue('price',number_format($order->price));
- 			$name=time().'.docx';
- 			$doc->saveAs($name);
- 			header('Content-Description: File Transfer');
- 			header('Content-Type: application/octet-stream');
- 			header('Content-Disposition: attachment; filename=Hợp đồng_'.$order->name.'.docx');
- 			header('Content-Transfer-Encoding: binary');
- 			header('Expires: 0');
- 			header('Content-Length: ' . filesize($name));
- 			readfile($name);
- 			unlink($name);
- 		}
- 		return redirect('admin');
+	 			else if($order->user->userinfo->sex==2)
+	 			{
+	 				$doc->setValue('men','');
+	 				$doc->setValue('women','x');
+	 				$doc->setValue('sex','Nữ');
+	 			}
+	 			else 
+	 			{
+	 				$doc->setValue('sex','');
+	 				$doc->setValue('men','');
+	 				$doc->setValue('women','');
+	 			}
+
+	 			$doc->setValue('identitycard',$order->user->userinfo->identitycard);
+	 			$doc->setValue('dateissue',\Carbon::parse($order->user->userinfo->dateissue)->format('d/m/Y'));
+
+	 			if($order->user->userinfo->maritalstatus==1)
+	 			{
+	 				$doc->setValue('maritalstatus','Đã kết hôn');
+	 				$doc->setValue('ismarital','x');
+	 				$doc->setValue('single','');
+	 			}
+	 			else if($order->user->userinfo->maritalstatus==2)
+	 			{
+	 				$doc->setValue('maritalstatus','Độc thân');
+	 				$doc->setValue('ismarital','');
+	 				$doc->setValue('single','x');
+	 			}
+	 			else
+	 			{
+	 				$doc->setValue('maritalstatus','');
+	 				$doc->setValue('ismarital','');
+	 				$doc->setValue('single','');
+	 			}
 
 
- 	}
+	 			$doc->setValue('issuedby',$order->user->userinfo->issuedby);
+	 			$doc->setValue('issuedby',$order->user->userinfo->issuedby);
+	 			$doc->setValue('address1',$order->user->userinfo->address1);
+	 			$doc->setValue('phone1',$order->user->userinfo->phone1);
+	 			$doc->setValue('address2',$order->user->userinfo->address2);
+	 			$doc->setValue('phone4',$order->user->userinfo->phone4);
+	 			$doc->setValue('phone2',$order->user->userinfo->phone2);
+	 			$doc->setValue('email',$order->user->email);
+	 			$doc->setValue('phone3',$order->user->userinfo->phone3);
+	 			$doc->setValue('organization',$order->user->organization->name);
+	 			$doc->setValue('salary',number_format($order->user->userinfo->salary));
+	 			$doc->setValue('employee_id',$order->user->userinfo->employee_id);
+	 			$doc->setValue('bank',$order->user->userinfo->bank_name);
+	 			$doc->setValue('product',$order->product_reg);
+	 			$doc->setValue('code_product',$order->product_code);
+	 			$doc->setValue('color',$order->color);
+	 			$doc->setValue('position',$order->user->userinfo->position);
+	 			$doc->setValue('number_account',$order->user->userinfo->number_account);
+	 			$doc->setValue('time_worked',$order->user->userinfo->time_worked);
+	 			$doc->setValue('department',$order->user->userinfo->department);
+	 			$doc->setValue('pay_per_month',(number_format(($order->retailSystem->interest_rate*((double)$order->price-(double)$order->prepay)+((double)$order->price-(double)$order->prepay)/$order->lead_time)+11000)));
+	 			$doc->setValue('pay_month',$order->user->userinfo->salary_day);
+	 			$days = $this->first_day_payment($order->updated_at,$order->user->userinfo->salary_day);
+	 			$doc->setValue('start',date('d-m-Y',strtotime($days)));
+	 			$doc->setValue('finish',date('d-m-Y',strtotime($days->addMonths($order->lead_time-1))));
+
+	 			if ($order->prepay) {
+	 				$doc->setValue('pre_pay',number_format($order->prepay));
+	 			}
+	 			else
+	 			{
+	 				$doc->setValue('pre_pay',number_format($order->price*$order->select_rate/100));
+	 			}
+
+	 			$doc->setValue('time',$order->lead_time);
+	 			$doc->setValue('slow',number_format($order->price-$order->prepay));
+	 			$doc->setValue('price',number_format($order->price));
+	 			$name=time().'.docx';
+	 			$doc->saveAs($name);
+	 			header('Content-Description: File Transfer');
+	 			header('Content-Type: application/octet-stream');
+	 			header('Content-Disposition: attachment; filename=Hợp đồng_'.$order->name.'.docx');
+	 			header('Content-Transfer-Encoding: binary');
+	 			header('Expires: 0');
+	 			header('Content-Length: ' . filesize($name));
+	 			readfile($name);
+	 			unlink($name);
+	 		}
+	 		return redirect('admin');
 
 
- 	public function printAutoPay(Orders $order)
- 	{
- 		if($order->process_id==4||$order->process_id==5)
- 		{
- 			$fileName = "orders/order2.docx";
- 			$doc = new \PhpOffice\PhpWord\TemplateProcessor($fileName);
- 			$doc->setValue('organization',$order->user->organization->name);
- 			$doc->setValue('name',$order->name);
- 			$doc->setValue('identitycard',$order->user->userinfo->identitycard);
- 			$doc->setValue('dateissues',\Carbon::parse($order->user->userinfo->dateissue)->format('d/m/Y'));
- 			$doc->setValue('issuedby',$order->user->userinfo->issuedby);
- 			$doc->setValue('phone',$order->user->userinfo->phone1);
- 			$doc->setValue('bank_number',$order->user->userinfo->number_account);
- 			$doc->setValue('day',Carbon::now()->day);
- 			$doc->setValue('month',Carbon::now()->month);
- 			$doc->setValue('year',Carbon::now()->year);
- 			$doc->setValue('day_pay',\Carbon::parse($order->created_at)->format('d/m/Y'));
- 			$doc->setValue('time',$order->lead_time);
- 			$name2=time().'2.docx';
- 			$doc->saveAs($name2);
- 			header('Content-Description: File Transfer');
- 			header('Content-Type: application/octet-stream');
- 			header('Content-Disposition: attachment; filename=YÊU CẦU THANH TOÁN TỰ ĐỘNG_'.$order->name.'.docx');
- 			header('Content-Transfer-Encoding: binary');
- 			header('Expires: 0');
- 			header('Content-Length: ' . filesize($name2));
+	 	}
 
- 			readfile($name2);
- 			unlink($name2);
- 		}
 
- 	}
+	 	public function printAutoPay(Orders $order)
+	 	{
+	 		if($order->process_id==4||$order->process_id==5)
+	 		{
+	 			$fileName = "orders/order2.docx";
+	 			$doc = new \PhpOffice\PhpWord\TemplateProcessor($fileName);
+	 			$doc->setValue('organization',$order->user->organization->name);
+	 			$doc->setValue('name',$order->name);
+	 			$doc->setValue('identitycard',$order->user->userinfo->identitycard);
+	 			$doc->setValue('dateissues',\Carbon::parse($order->user->userinfo->dateissue)->format('d/m/Y'));
+	 			$doc->setValue('issuedby',$order->user->userinfo->issuedby);
+	 			$doc->setValue('phone',$order->user->userinfo->phone1);
+	 			$doc->setValue('bank_number',$order->user->userinfo->number_account);
+	 			$doc->setValue('day',Carbon::now()->day);
+	 			$doc->setValue('month',Carbon::now()->month);
+	 			$doc->setValue('year',Carbon::now()->year);
+	 			$doc->setValue('day_pay',\Carbon::parse($order->created_at)->format('d/m/Y'));
+	 			$doc->setValue('time',$order->lead_time);
+	 			$name2=time().'2.docx';
+	 			$doc->saveAs($name2);
+	 			header('Content-Description: File Transfer');
+	 			header('Content-Type: application/octet-stream');
+	 			header('Content-Disposition: attachment; filename=YÊU CẦU THANH TOÁN TỰ ĐỘNG_'.$order->name.'.docx');
+	 			header('Content-Transfer-Encoding: binary');
+	 			header('Expires: 0');
+	 			header('Content-Length: ' . filesize($name2));
 
- 	public function exportOrders(Request $req)
- 	{
- 		$today=Carbon::today()->format('d-m-Y');
- 		$sys_id=DB::table('user_retailsystem')->where('user_id',Auth::user()->id)->pluck('retailsystem_id');
+	 			readfile($name2);
+	 			unlink($name2);
+	 		}
+
+	 	}
+
+	 	public function exportOrders(Request $req)
+	 	{
+	 		$today=Carbon::today()->format('d-m-Y');
+	 		$sys_id=DB::table('user_retailsystem')->where('user_id',Auth::user()->id)->pluck('retailsystem_id');
  		// $order=DB::table('orders')->select(DB::raw('name as Tên,buy_now as "Sức mua hiện tại",product_reg as "Sản phẩm đăng kí",product_code as "Mã sản phẩm",color as "Màu sắc",price as "Giá bán",prepay as "Trả trước",select_rate as "Tỉ lệ",lead_time as "Thời hạn",supmarket as "Siêu thị",city as "Thành phố",district as "Quận Huyện", store as "Cửa hàng",salesman as "Người bán hàng",phonesale as "Số điện thoại bán hàng",created_at as "Ngày Tạo"'))->get();
- 		$order = Orders::select('name','buy_now','product_reg','product_code','color','price','prepay','select_rate','lead_time','supmarket','city','district','store','salesman','phonesale','created_at')->whereIn('retailsystem_id',$sys_id)->whereBetween('created_at', array($req->date1, $req->date2))->get();
- 		Excel::create('Danh sách đơn hàng '.$today,function($excel) use ($order)
- 		{
- 			$excel->sheet('sheet 1',function ($sheet) use ($order)
- 			{
- 				$sheet->fromArray($order,null,'A1',false,false);
- 				$headings = array('Tên', 'Sức mua hiện tại', 'Sản phẩm đăng kí', 'Mã sản phẩm','Màu sắc','Giá bán','Trả trước','Tỉ lệ','Thời hạn','Siêu thị','Thành phố','Quận Huyện','Cửa hàng','Người bán hàng','Số điện thoại người bán','Ngày tạo');
- 				$sheet->prependRow(1, $headings);
- 			});
- 		})->download('xlsx');
+	 		$order = Orders::select('name','buy_now','product_reg','product_code','color','price','prepay','select_rate','lead_time','supmarket','city','district','store','salesman','phonesale','created_at')->whereIn('retailsystem_id',$sys_id)->whereBetween('created_at', array($req->date1, $req->date2))->get();
+	 		Excel::create('Danh sách đơn hàng '.$today,function($excel) use ($order)
+	 		{
+	 			$excel->sheet('sheet 1',function ($sheet) use ($order)
+	 			{
+	 				$sheet->fromArray($order,null,'A1',false,false);
+	 				$headings = array('Tên', 'Sức mua hiện tại', 'Sản phẩm đăng kí', 'Mã sản phẩm','Màu sắc','Giá bán','Trả trước','Tỉ lệ','Thời hạn','Siêu thị','Thành phố','Quận Huyện','Cửa hàng','Người bán hàng','Số điện thoại người bán','Ngày tạo');
+	 				$sheet->prependRow(1, $headings);
+	 			});
+	 		})->download('xlsx');
 
- 	}
+	 	}
 
- 	public function ajaxPostEditOrderUser(Request $req)
- 	{
- 		$UserInfo=UserInfo::where('user_id',$req->user_id)->first();
- 		$UserInfo->employee_id=$req->employee_id;
- 		$UserInfo->fullname=$req->name;
- 		$UserInfo->birthday=$req->birthday;
- 		$UserInfo->sex=$req->sex;
- 		$UserInfo->phone1=$req->phone;
- 		$UserInfo->address1=$req->address1;
- 		$UserInfo->identitycard=$req->identitycard;
- 		$UserInfo->save();
- 		$user=User::find($req->user_id);
- 		$user->email=$req->email;
- 		$user->save();
- 		$Orders=Orders::where('user_id',$req->user_id)->get();
- 		$order=array();
- 		foreach ($Orders as $key => $value) {
- 			$order[]=$value;
- 			$value->name=$req->name;
- 			$value->save();
- 		}
+	 	public function ajaxPostEditOrderUser(Request $req)
+	 	{
+	 		$UserInfo=UserInfo::where('user_id',$req->user_id)->first();
+	 		$UserInfo->employee_id=$req->employee_id;
+	 		$UserInfo->fullname=$req->name;
+	 		$UserInfo->birthday=$req->birthday;
+	 		$UserInfo->sex=$req->sex;
+	 		$UserInfo->phone1=$req->phone;
+	 		$UserInfo->address1=$req->address1;
+	 		$UserInfo->identitycard=$req->identitycard;
+	 		$UserInfo->save();
+	 		$user=User::find($req->user_id);
+	 		$user->email=$req->email;
+	 		$user->save();
+	 		$Orders=Orders::where('user_id',$req->user_id)->get();
+	 		$order=array();
+	 		foreach ($Orders as $key => $value) {
+	 			$order[]=$value;
+	 			$value->name=$req->name;
+	 			$value->save();
+	 		}
 
- 		return response()->json($order);
- 	}
+	 		return response()->json($order);
+	 	}
  	// controller show add (order)
  	// public function orderadd(OrderAddRequest $request){
  	// 	$User = new User();
@@ -586,30 +607,30 @@ function convertname($str) {
  	// 		return redirect()->route('success');
  	// 	}
  	// }
- 	
- 	public function orderInfo($id)
- 	{
+
+	 	public function orderInfo($id)
+	 	{
 		// eq() Bằng
 		// ne() Không bằng
 		// gt() lớn hơn
 		// gte() Lớn hơn hoặc bằng
 		// lt() ít hơn
 		// lte() Ít hơn hoặc bằng
- 		$orders=!empty(Orders::find($id))?Orders::find($id):"0";
- 		if($orders!="0"){
- 			$UserInfo = $orders->user->userinfo;
- 			if(((\Carbon::now()->subMonths(2))->lt($UserInfo->updated_at))==true){
- 				$comparison  = "0";
- 			}
- 			else{
- 				$comparison  = "Cảnh báo đơn hàng này đã quá 2 tháng";
- 			}
- 			if(((\Carbon::now()->subMonths(2))->lt($UserInfo->updated_at))==true){
- 				$comparison  = "";
- 			}
- 			else{
- 				$comparison  = "Cảnh báo đơn hàng này đã quá 2 tháng";
- 			}
+	 		$orders=!empty(Orders::find($id))?Orders::find($id):"0";
+	 		if($orders!="0"){
+	 			$UserInfo = $orders->user->userinfo;
+	 			if(((\Carbon::now()->subMonths(2))->lt($UserInfo->updated_at))==true){
+	 				$comparison  = "0";
+	 			}
+	 			else{
+	 				$comparison  = "Cảnh báo đơn hàng này đã quá 2 tháng";
+	 			}
+	 			if(((\Carbon::now()->subMonths(2))->lt($UserInfo->updated_at))==true){
+	 				$comparison  = "";
+	 			}
+	 			else{
+	 				$comparison  = "Cảnh báo đơn hàng này đã quá 2 tháng";
+	 			}
 
  			$buys = Orders::where(['user_id'=>$orders->user_id,'process_id'=>5])->get()->sum('price')-Orders::where(['user_id'=>$orders->user_id,'process_id'=>5])->get()->sum('prepay');//sức mua đã sử dụng
  			$total_buy=round_down($orders->User->UserInfo->salary*2.5);
@@ -729,38 +750,39 @@ function convertname($str) {
  	}
 
  	public function postAccuracyOrder(Request $r){
+ 		dd($r);
  		$orders = Orders::find($r->orders_id);
  		if(!empty($r->btn_accuracy)){
- 			if($orders->user->status!=1)
+ 			if($orders->user->status!=0)
  			{
  				$u=User::find($orders->user->id);
- 				$u->status=1;
+ 				$u->status=0;
  				$u->save();
  			}
  			if(preg_replace("/[ đồng.]/","",$r->salary_avg)!=''){
- 			$query = DB::table('userinfo')->where('user_id','=',$r->user_id)->update([
- 				'number_account'=>$r->number_account,
- 				'exchange_status'=>$r->exchange_status,
- 				'salary_avg'=>preg_replace("/[ đồng.]/","",$r->salary_avg),
- 				'salary'=>preg_replace("/[ đồng.]/","",$r->salary_avg),
- 				'phone2'=>$r->phone2,
- 				'bank_name'=>$r->bank_name,
- 				'salary_day'=>$r->salary_day,
- 				'time_worked'=>$r->time_work,
- 				]);
- 		}
- 		else
- 		{
- 			$query = DB::table('userinfo')->where('user_id','=',$r->user_id)->update([
- 				'number_account'=>$r->number_account,
- 				'exchange_status'=>$r->exchange_status,
- 				'salary_avg'=>preg_replace("/[ đồng.]/","",$r->salary_avg),
- 				'phone2'=>$r->phone2,
- 				'bank_name'=>$r->bank_name,
- 				'salary_day'=>$r->salary_day,
- 				'time_worked'=>$r->time_work,
- 				]);
- 		}
+ 				$query = DB::table('userinfo')->where('user_id','=',$r->user_id)->update([
+ 					'number_account'=>$r->number_account,
+ 					'exchange_status'=>$r->exchange_status,
+ 					'salary_avg'=>preg_replace("/[ đồng.]/","",$r->salary_avg),
+ 					'salary'=>preg_replace("/[ đồng.]/","",$r->salary_avg),
+ 					'phone2'=>$r->phone2,
+ 					'bank_name'=>$r->bank_name,
+ 					'salary_day'=>$r->salary_day,
+ 					'time_worked'=>$r->time_work,
+ 					]);
+ 			}
+ 			else
+ 			{
+ 				$query = DB::table('userinfo')->where('user_id','=',$r->user_id)->update([
+ 					'number_account'=>$r->number_account,
+ 					'exchange_status'=>$r->exchange_status,
+ 					'salary_avg'=>preg_replace("/[ đồng.]/","",$r->salary_avg),
+ 					'phone2'=>$r->phone2,
+ 					'bank_name'=>$r->bank_name,
+ 					'salary_day'=>$r->salary_day,
+ 					'time_worked'=>$r->time_work,
+ 					]);
+ 			}
  			// return $query;
  			if($query<=1){
  				$data = DB::table('orders')->where('id','=',$r->orders_id)->update([
@@ -794,7 +816,7 @@ function convertname($str) {
  		{
  			$orders=Orders::find($req->orders_id);
  			$orders->delete();
- 			if($orders->user->status!=1)
+ 			if($orders->user->status!=0)
  			{
  				$orders->user->delete();
  			}
@@ -1054,7 +1076,7 @@ function convertname($str) {
  		}
  		else if(!empty($r->approval)){
  			$u=User::find($orders->user->id);
- 			$u->status=1;
+ 			$u->status=0;
  			$u->save();
  			DB::table('orders')->where('id','=',$r->order_id)->update([
  				'process_id'=>'4'
@@ -1162,7 +1184,7 @@ function convertname($str) {
  		// $userinfo->created_at=\Carbon::now();
  		$user->save();
  		$user->userinfo()->save($userinfo);
-  		$users=User::whereIn('groupuser_id',[3])->get();
+ 		$users=User::whereIn('groupuser_id',[3])->get();
  		Notification::send($users, new UserNotification($userinfo->fullname.' đã yêu cầu đăng ký mới ',$userinfo));
  		return Response::json(['user_id'=>$user->id,'fullname'=>$userinfo->fullname]);
  	}
@@ -1220,7 +1242,7 @@ function convertname($str) {
  		$order->save();
  		$users=User::whereIn('groupuser_id',[1,3])->get();
  		$users=User::whereIn('groupuser_id',[1,3])->get();
- 			Notification::send($users, new CreateOrderNotification($r->name,$order));
+ 		Notification::send($users, new CreateOrderNotification($r->name,$order));
  		return \Response::json(['success'=>'Success']);
  	}
  	else if($r->btn_upload){
@@ -1252,4 +1274,3 @@ function convertname($str) {
  	}
  }
 }
-

@@ -70,18 +70,22 @@
   <div class="form-group">
     <label class="control-label col-sm-4" for="exchange_status">Giao dịch trả lương qua tài khoản *: </label>
     <div class="col-sm-8"> 
-      <select readonly tabindex="7" class="form-control" id="exchange_status">
-        <option  value="">chọn</option>
-       {{--  <option {{$UserInfo['exchange_status']==0?"selected":""}} value="0">Liên tục 3 tháng liền kề </option>
-        <option {{$UserInfo['exchange_status']==1?"selected":""}} value="1">Liên tục 6 tháng liền kề </option>
-        <option {{$UserInfo['exchange_status']==2?"selected":""}} value="2">Không, hoặc không liên tục</option> --}}
-      </select>
+      <input readonly tabindex="9" type="text"
+          @if($UserInfo['exchange_status']==null)
+            
+          @elseif ($UserInfo['exchange_status']==0)
+           value="Liên tục 3 tháng liền kề" 
+          @elseif($UserInfo['exchange_status']==1)
+             value="Liên tục 6 tháng liền kề"
+          @elseif($UserInfo['exchange_status']==2)
+            value="Không, hoặc không liên tục"
+          @endif" id="" class="form-control">
     </div>
   </div>
   <div class="form-group">
     <label class="control-label col-sm-4" for="salary_avg">Lương trung bình 3 tháng liền kề *: </label>
     <div class="col-sm-8"> 
-      <input readonly tabindex="9" onchange="ChangeSalary_avg()" type="text" id="" class="form-control" value="{{$UserInfo['salary_avg']}}">
+      <input readonly tabindex="9" type="text" id="" class="form-control" value="{{number_format($UserInfo['salary_avg'])}} đồng">
     </div>
   </div>
   <div class="form-group">
@@ -99,10 +103,7 @@
   <div class="form-group">
     <label class="control-label col-sm-4" for="bank_name">Ngân hàng *: </label>
     <div class="col-sm-8"> 
-      <select readonly class="form-control"  id="bank_name" tabindex="6">
-        <option value="">Chọn ngân hàng</option>
-        <option value="Techcombank" {{($UserInfo['bank_name']=="Techcombank")?'selected':''}}>Techcombank</option>
-      </select>
+      <input type="text" readonly value="{{$UserInfo['bank_name']}}" class="form-control" name="bank_name">
     </div>
   </div>
   <div class="form-group">

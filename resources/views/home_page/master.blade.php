@@ -9,6 +9,7 @@
 	{!!Html::script('theme/plugins/jQuery/jquery-3.2.1.min.js')!!}
 	{!!Html::script('theme/plugins/jQuery_Ajax/jquery-ajax.js')!!}
 	{!!Html::script('theme/bootstrap/js/bootstrap.min.js')!!}
+
 	{{-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> --}}
 	{!!Html::script('js/custom.js')!!}
 	{{-- kendojs --}}
@@ -47,6 +48,10 @@
 			document.getElementById("mySidenav").style.width = "0";
 		}
 		$(document).ready(function(){ 
+			$('form').submit(function(event) {
+				if($('form').valid())
+					$('#loading').show();
+			});
 			var url=window.location.href;
 			$('.content-menu a').each(function () {
 				if($(this).attr('href')==url)
