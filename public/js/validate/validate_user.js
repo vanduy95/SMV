@@ -31,7 +31,9 @@ $(document).ready(function() {
 			},
 			phone: {
 				required:true,
-				number: true
+				number: true,
+				minlength:10,
+				maxlength:11,
 			},
 			address:{
 				required:true,
@@ -68,7 +70,9 @@ $(document).ready(function() {
 			},
 			phone: {
 				required:"Số điện thoại không được để trống",
-				number: "Số điện thoại không hợp lệ"
+				number: "Số điện thoại không hợp lệ",
+				minlength: "Số điện thoại không hợp lệ",
+				maxlength: "Số điện thoại không hợp lệ",
 			},
 			address:{
 				required:"Địa chỉ không được để trống",
@@ -123,7 +127,9 @@ $(document).ready(function() {
 			},
 			phonedt: {
 				required:true,
-				number: true
+				number: true,
+				minlength:10,
+				maxlength:11,
 			},
 			addressdt:{
 				required:true,
@@ -160,7 +166,9 @@ $(document).ready(function() {
 			},
 			phonedt: {
 				required:"Số điện thoại không được để trống",
-				number: "Số điện thoại không hợp lệ"
+				number: "Số điện thoại không hợp lệ",
+				minlength:"Số điện thoại không hợp lệ",
+				maxlength:"Số điện thoại không hợp lệ",
 			},
 			addressdt:{
 				required:"Địa chỉ không được để trống",
