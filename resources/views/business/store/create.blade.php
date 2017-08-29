@@ -17,7 +17,7 @@
 				</div>
 				<div class="panel-body">
 					<div class="form">
-						{!!Form::open(array('class'=>'form-validate form-horizontal','id'=>'register_form','action'=>['StoreController@postcreate']))!!}
+						{!!Form::open(array('class'=>'form-validate form-horizontal','id'=>'register_form_re','action'=>['StoreController@postcreate']))!!}
 						<div class="form-group ">
 							{!!Html::decode(Form::label('fullname','Hệ thống *',['class'=>'control-label col-lg-2']))!!}
 							<div class="col-lg-8">
@@ -67,7 +67,7 @@
 						</div>
 						<div class="form-group">
 							<div class="col-lg-offset-2 col-lg-10">
-								{!!Form::submit('Lưu',['class'=>'btn btn-primary col-lg-2'])!!}
+								{!!Form::submit('Lưu',['class'=>'btn btn-primary col-lg-2 col-md-2 col-xs-4','id'=>'btn_re'])!!}
 							</div>
 						</div>
 						{!!Form::close() !!}
@@ -81,46 +81,60 @@
 @section('script')
 <script type="text/javascript">
 	$(document).ready(function() {
-		$("#register_form").validate({
+		$("#register_form_re").validate({
 			rules:{
 				store:{
 					required:true,
+					minlength:6,
 				},
 				retailcity:{
 					required:true,
+					minlength: 6,
 				},
 				retaildistrict:{
 					required:true,
+					minlength: 6,
 				},
 				name_center:{
 					required:true,
+					minlength: 6,
 				},
 				storeaddress:{
 					required:true,
+					minlength: 6,
 				},
 				phonecontact:{
 					required:true,
+					minlength: 10,
+					maxlength: 11,
 					number:true,
 				},
 			},
 			messages: {
 				store:{
 					required: "Trường này không được để trống",
+					min: "Bạn phải nhập nhiều hơn 6 ký tự!!!",
 				},
 				retailcity:{
 					required: "Trường này không được để trống",
+					min: "Bạn phải nhập nhiều hơn 6 ký tự!!!",
 				},
 				retaildistrict:{
 					required: "Trường này không được để trống",
+					min: "Bạn phải nhập nhiều hơn 6 ký tự!!!",
 				},
 				name_center:{
 					required: "Trường này không được để trống",
+					min: "Bạn phải nhập nhiều hơn 6 ký tự!!!",
 				},
 				storeaddress:{
 					required: "Trường này không được để trống",
+					min: "Bạn phải nhập nhiều hơn 6 ký tự!!!",
 				},
 				phonecontact:{
 					number: "Trường này là số",
+					min: "Số điện thoại không được ít hơn 10 số",
+					max: "Số điện thoại không được nhiều hơn 11 số",
 					required: "Trường này không được để trống",
 				},
 			}
