@@ -92,7 +92,12 @@ function convertname($str) {
 	 			}
 	 		}
 	 		if($d_orders > $d_salary){
-	 			return $c->setDate($y,$m+1,$d_salary);
+	 			if($a->addMonths(1)->subDays(10)->gte($update_day->setDateTime($y,$m,$d_orders,0,0,0,0))==true){
+	 				return $c->setDate($y,$m+1,$d_salary);
+	 			}
+	 			else{
+	 				return $c->setDate($y,$m+2,$d_salary);
+	 			}
 	 		}
 	 		else{
 	 			if($boole==true && $boolt==true){
@@ -1237,11 +1242,11 @@ function convertname($str) {
  		// $order->created_at=\Carbon::today();
  		$order->save();
  		$users=User::whereIn('groupuser_id',[1,3])->get();
- 		$users=User::whereIn('groupuser_id',[1,3])->get();
+ 		// $users=User::whereIn('groupuser_id',[1,3])->get();
  		Notification::send($users, new CreateOrderNotification($r->name,$order));
  		return \Response::json(['success'=>'Success']);
  	}
- 	else if($r->btn_upload){
+ 	else if(!empty($r->btn_upload)){
  		$user = new User();
  		$userinfo = new UserInfo();
  		$user->username = convertname($r->name_user).rand(100,999);

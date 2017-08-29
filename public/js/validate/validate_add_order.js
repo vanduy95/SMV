@@ -15,7 +15,7 @@ $(document).ready(function() {
       $("#price").val(a.replace(/,/g,'.')+" đồng");
     }
   });
-  $('#btn_register').click(function(){
+  $('#btn_register').button().click(function(e){
     if($('#userifo_form').valid()){
       $('#loading').show();
       var company = $('#company').val();
@@ -49,20 +49,21 @@ $(document).ready(function() {
         dataType: "json",
         success: function(res){
           if(res.user_id){
-             $('#loading').hide();
-            $('#fullname').val(res.fullname);
-            $('#user_id').val(res.user_id);
-            $('#register_user').remove();
-            $('#success_register').show();
-            $('body').scrollTop(0);
-          }
-        },error: function(res){
-          console.log(res);
+           $('#loading').hide();
+           $('#fullname').val(res.fullname);
+           $('#user_id').val(res.user_id);
+           $('#register_user').remove();
+           $('#success_register').show();
+           $('body').scrollTop(0);
+         }
+       },error: function(res){
+          // console.log(res);
         }
       });
     }
+    e.stopImmediatePropagation();
   });
-  $('#btn_new_orders').click(function(){
+  $('#btn_new_orders').click(function(e){
     if($('#userifo_form').valid()){
      var company = $('#company').val();
      var name = $('#name_user').val();
@@ -103,17 +104,18 @@ $(document).ready(function() {
           $('body').scrollTop(0);
         }
       },error: function(res){
-        console.log(res);
+        // console.log(res);
       }
     });
    }
+   e.stopImmediatePropagation();
  });
   $('#btn_suc_reg').click(function(){
     $('#success_register').remove();
     $('#create_order').show();
     $('body').scrollTop(0);
   });
-  $('#btn_order_apply').click(function(){
+  $('#btn_order_apply').click(function(e){
     if($('#orders_form').valid()){
       var user_id = $('#user_id').val();
       var name_product = $('#product').val();
@@ -166,51 +168,53 @@ $(document).ready(function() {
         }
       });
     }
+    e.stopImmediatePropagation();
   });
   $('#btn_success_redirect').click(function(){
     window.location.href = url;
   });
-  // $('#btn_upload').click(function(){
-  //   var company = $('#company').val();
-  //   var name = $('#name_user').val();
-  //   var salary = $('#salary_user').val();
-  //   var phone = $('#phone_user').val();
-  //   var add_u = $('#address_user').val();
-  //   var number_i = $('#number_issue').val();
-  //   var date_issue = $('#date_issue').val();
-  //   var addr_issue = $('#addr_issue').val();
-  //   $.ajaxSetup({
-  //     headers: {
-  //       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-  //     }
-  //   });
-  //   $.ajax({
-  //     type: "post",
-  //     url: url+"/postAjaxNewUserOrder",
-  //     data:{
-  //       company: company,
-  //       name: name,
-  //       salary: salary,
-  //       phone: phone,
-  //       add_u: add_u,
-  //       number_i: number_i,
-  //       date_issue: date_issue,
-  //       addr_issue: addr_issue,
-  //       btn_upload: "btn_upload"
-  //     },
-  //     dataType: "json",
-  //     success: function(res){
-  //     },error: function(res){
-  //       console.log(res);
-  //     }
-  //   });
-  // });
+  $('#btn_upload').click(function(e){
+    var company = $('#company').val();
+    var name = $('#name_user').val();
+    var salary = $('#salary_user').val();
+    var phone = $('#phone_user').val();
+    var add_u = $('#address_user').val();
+    var number_i = $('#number_issue').val();
+    var date_issue = $('#date_issue').val();
+    var addr_issue = $('#addr_issue').val();
+    $.ajaxSetup({
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      }
+    });
+    $.ajax({
+      type: "post",
+      url: url+"/postAjaxNewUserOrder",
+      data:{
+        company: company,
+        name: name,
+        salary: salary,
+        phone: phone,
+        add_u: add_u,
+        number_i: number_i,
+        date_issue: date_issue,
+        addr_issue: addr_issue,
+        btn_upload: "btn_upload"
+      },
+      dataType: "json",
+      success: function(res){
+      },error: function(res){
+        // console.log(res);
+      }
+    });
+    e.stopImmediatePropagation();
+  });
   jQuery.validator.addMethod("checkdateissue", function(value, element) {
-            var today = Date.now();
-            var dateissue = value.split("/");
-      var f = new Date(dateissue[2], dateissue[1] - 1, dateissue[0]);
-            return today > f;
-        }, "Ngày cấp phải nhỏ hơn ngày hiện tại");
+    var today = Date.now();
+    var dateissue = value.split("/");
+    var f = new Date(dateissue[2], dateissue[1] - 1, dateissue[0]);
+    return today > f;
+  }, "Ngày cấp phải nhỏ hơn ngày hiện tại");
   
   $('#date_issue_reg').change(function(){
     var now =  Date.parse(moment().format("DD-MM-YYYY"));
@@ -396,7 +400,7 @@ $(document).ready(function() {
       else
         return true
     }, 'Trả trước phải nhỏ hơn giá trị sản phẩm');
-     $.validator.addMethod("check_price_vs_buy", function (value, element) {
+    $.validator.addMethod("check_price_vs_buy", function (value, element) {
       var price=$('#price').val().replace(/[ đồng,.]/g,'');
       var prepay=$('#pre_pay').val().replace(/[ đồng,.]/g,'');
       var buytxt=$('#buytxt').val().replace(/[ đồng,.]/g,'');

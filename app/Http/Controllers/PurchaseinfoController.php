@@ -35,18 +35,32 @@ class PurchaseinfoController extends Controller
 		$id_com = $_POST['id_com'];
 		$cmt = $_POST['cmt'];
 		$code = $_POST['code'];
-		if (!empty($id_com) &&(!empty($cmt) || !empty($code))) {
+		if (!empty($id_com) && ((!empty($cmt) || !empty($code)))) {
 			try{
-				$count = DB::table('userinfo')->join('user','user.id','=','userinfo.user_id')->join('organization','organization.id','=','user.organization_id')->join('orders','orders.user_id','=','user.id')
-				->where([
-					['organization.id','=',$id_com],
-					['userinfo.employee_id','=',$code],
-					['orders.process_id','=',5],
-					['organization.ma','<>','HT'],
-					['user.syslock','=',1],
-					['user.status','=',0]
-					])
-				->select('user.organization_id','userinfo.employee_id','user.id','userinfo.salary','userinfo.identitycard','userinfo.fullname')->get()->count();
+				if(empty($cmt)){
+					$count = DB::table('userinfo')->join('user','user.id','=','userinfo.user_id')->join('organization','organization.id','=','user.organization_id')->join('orders','orders.user_id','=','user.id')
+					->where([
+						['organization.id','=',$id_com],
+						['userinfo.employee_id','=',$code],
+						['orders.process_id','=',5],
+						['organization.ma','<>','HT'],
+						['user.syslock','=',1],
+						['user.status','=',0]
+						])
+					->select('user.organization_id','userinfo.employee_id','user.id','userinfo.salary','userinfo.identitycard','userinfo.fullname')->get()->count();
+				}
+				else{
+					$count = DB::table('userinfo')->join('user','user.id','=','userinfo.user_id')->join('organization','organization.id','=','user.organization_id')->join('orders','orders.user_id','=','user.id')
+					->where([
+						['organization.id','=',$id_com],
+						['userinfo.identitycard','=',$cmt],
+						['orders.process_id','=',5],
+						['organization.ma','<>','HT'],
+						['user.syslock','=',1],
+						['user.status','=',0]
+						])
+					->select('user.organization_id','userinfo.employee_id','user.id','userinfo.salary','userinfo.identitycard','userinfo.fullname')->get()->count();
+				}
 				if(!empty($_POST['id_com'] && !empty($_POST['code']) && !empty($_POST['cmt']))){
 					if($count==0){
 						$count_d = DB::table('userinfo')->join('user','user.id','=','userinfo.user_id')->join('organization','organization.id','=','user.organization_id')
@@ -147,6 +161,7 @@ class PurchaseinfoController extends Controller
 							['user.status','=',0]
 							])
 						->select(DB::raw('user.id,SUM(orders.price) as price, SUM(orders.prepay) as prepay,userinfo.fullname,userinfo.salary,user.id'))->get()->toArray();
+						// dd($userall);
 						session()->put('customer_id', $userall[0]->id);
 						$cal = ($userall[0]->salary*2.5)-$userall[0]->price;
 						if($cal==0 || $cal < 0){
