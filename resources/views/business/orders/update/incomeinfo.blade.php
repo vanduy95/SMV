@@ -85,7 +85,11 @@
   <div class="form-group">
     <label class="control-label col-sm-4" for="salary_avg">Lương trung bình 3 tháng liền kề *: </label>
     <div class="col-sm-8"> 
-      <input readonly tabindex="9" type="text" id="" class="form-control" value="{{number_format($UserInfo['salary_avg'],0,".",".")}} đồng">
+      <input readonly tabindex="9" type="text" id="" class="form-control" 
+      @if ($UserInfo['salary_avg'])
+         value="{{number_format($UserInfo['salary_avg'],0,".",".")}} đồng">
+      @endif
+    >
     </div>
   </div>
   <div class="form-group">
