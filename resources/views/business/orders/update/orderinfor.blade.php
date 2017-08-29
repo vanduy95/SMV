@@ -29,7 +29,7 @@
                  <div class="form-group">
                   <label class="control-label col-sm-4">Giá bán *:</label>
                   <div class="col-sm-8">          
-                    <input type="text" tabindex="4" onchange="ChangePrice();" id="price" class="form-control" autocomplete="false" value="{{$orders->price}}" name="price">
+                    <input type="text" tabindex="4" onchange="ChangePrice();" id="price" class="form-control" placeholder="0 đồng" autocomplete="false" value="{{$orders->price}}" name="price">
                   </div>
                 </div>
                  <div class="form-group">

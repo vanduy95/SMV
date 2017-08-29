@@ -57,7 +57,7 @@
         <div class="form-group">
           <label class="control-label col-sm-4" for="phone2">Số điện thoại khác(nếu có): </label>
           <div class="col-sm-8"> 
-            <input type="text" name="phone2" id="phone2" value="" class="form-control"/>
+            <input type="text" name="phone4" id="phone2" value="" class="form-control"/>
           </div>
         </div>
         <div class="form-group">

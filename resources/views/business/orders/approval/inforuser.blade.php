@@ -84,9 +84,15 @@
         </div>
       </div>
       <div class="form-group">
-        <label class="control-label col-sm-4" for="phone2">Số điện thoại khác : </label>
+        <label class="control-label col-sm-4" for="phone2">Số điện thoại bổ xung : </label>
         <div class="col-sm-8"> 
           <label name="phone2" class="bg-gray-fix form-control">{{$UserInfo['phone2']}}</label>
+        </div>
+      </div>
+        <div class="form-group">
+        <label class="control-label col-sm-4" for="phone4">Số điện thoại khác : </label>
+        <div class="col-sm-8"> 
+          <label name="phone4" class="bg-gray-fix form-control">{{$UserInfo['phone4']}}</label>
         </div>
       </div>
       <div class="form-group">
@@ -121,7 +127,7 @@
           <label name="identitycard" class=" bg-gray-fix form-control">{{$UserInfo['department']}}</label>
         </div>
       </div>
-      <div class="form-group" style="margin-top: 45px;">
+      <div class="form-group">
         <label class="control-label col-sm-4" for="address2">Ghi chú 2: </label>
         <div class="col-sm-8"> 
           <label name="note2" class="bg-gray-fix form-control">{{$UserInfo['note2']}}</label>

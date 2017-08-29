@@ -747,7 +747,6 @@ function convertname($str) {
  	}
 
  	public function postAccuracyOrder(Request $r){
- 		dd($r);
  		$orders = Orders::find($r->orders_id);
  		if(!empty($r->btn_accuracy)){
  			if($orders->user->status!=0)
@@ -762,7 +761,7 @@ function convertname($str) {
  					'exchange_status'=>$r->exchange_status,
  					'salary_avg'=>preg_replace("/[ đồng.]/","",$r->salary_avg),
  					'salary'=>preg_replace("/[ đồng.]/","",$r->salary_avg),
- 					'phone2'=>$r->phone2,
+ 					'phone4'=>$r->phone4,
  					'bank_name'=>$r->bank_name,
  					'salary_day'=>$r->salary_day,
  					'time_worked'=>$r->time_work,
@@ -774,7 +773,7 @@ function convertname($str) {
  					'number_account'=>$r->number_account,
  					'exchange_status'=>$r->exchange_status,
  					'salary_avg'=>preg_replace("/[ đồng.]/","",$r->salary_avg),
- 					'phone2'=>$r->phone2,
+ 					'phone4'=>$r->phone4,
  					'bank_name'=>$r->bank_name,
  					'salary_day'=>$r->salary_day,
  					'time_worked'=>$r->time_work,

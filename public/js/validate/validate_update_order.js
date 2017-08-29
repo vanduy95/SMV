@@ -1,4 +1,20 @@
 $(document).ready(function() {
+	$('#amount_slow').bind('input propertychange', function() {
+		alert('ok');
+    	if($(this).val().replace(/[ đồng.]/g,'')>3000000)
+		{
+			$('#price-error').hide();
+		}
+	});
+	// $('#amount_slow').change(function(event) {
+	// 	alert('ok');
+	// 	if($(this).val().replace(/[ đồng.]/g,'')>3000000)
+	// 	{
+	// 		$('#price-error').hide();
+	// 	}
+	// });
+	// $('#amount_slow').trigger('change');
+	
 	// if ($('#exchange_status').val()==2) {
 	// 		$('#bank_name').removeAttr('required');
 	// 		$('#salary_avg').removeAttr('required');
