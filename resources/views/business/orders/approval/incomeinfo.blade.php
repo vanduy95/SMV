@@ -36,19 +36,19 @@
       <div class="form-group">
         <label class="control-label col-sm-4" for="birthday">Sức mua đã được cấp : </label>
         <div class="col-sm-8"> 
-         <label class="bg-gray-fix form-control">{{number_format($total_buy)}} đồng</label>
+         <label class="bg-gray-fix form-control">{{str_replace(',','.',number_format($total_buy))}} đồng</label>
         </div>
       </div>
       <div class="form-group">
       <label class="control-label col-sm-4" for="">Sức mua đã sử dụng:</label>
       <div class="col-sm-8"> 
-         <label class="bg-gray-fix form-control">{{number_format($buys)}} đồng</label>
+         <label class="bg-gray-fix form-control">{{str_replace(',','.',number_format($buys))}} đồng</label>
       </div>
     </div>
       <div class="form-group">
         <label class="control-label col-sm-4" for="birthday">Sức mua còn lại : </label>
         <div class="col-sm-8"> 
-         <label class="bg-gray-fix form-control">{{number_format($buy)}} đồng</label>
+         <label class="bg-gray-fix form-control">{{str_replace(',','.',number_format($buy))}} đồng</label>
         </div>
       </div>
       <h3 style="text-align: center;">THÔNG TIN CẦN XÁC THỰC</h3>

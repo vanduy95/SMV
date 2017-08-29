@@ -28,14 +28,14 @@
        <div class="form-group">
         <label class="control-label col-sm-4">Giá bán :</label>
         <div class="col-sm-8">
-          <label  name="price" class="bg-gray-fix form-control">{{number_format($orders->price)}} đồng</label>           
+          <label  name="price" class="bg-gray-fix form-control">{{str_replace(',','.',number_format($orders->price))}} đồng</label>           
         </div>
         <div class="clear"></div>
       </div>
       <div class="form-group">
         <label class="control-label col-sm-4">Trả trước:</label>
         <div class="col-sm-8">          
-          <label  name="prepay" class="bg-gray-fix form-control">{{number_format($orders->prepay)}} đồng</label>
+          <label  name="prepay" class="bg-gray-fix form-control">{{str_replace(',','.',number_format($orders->prepay))}} đồng</label>
         </div>
         <div class="clear"></div>
       </div>
@@ -52,7 +52,7 @@
       <div class="form-group">
         <label class="control-label col-sm-4">Số tiền trả chậm:</label>
         <div class="col-sm-8">          
-          <label class="bg-gray-fix form-control">{{number_format($orders->price-$orders->prepay)}} đồng</label>
+          <label class="bg-gray-fix form-control">{{str_replace(',','.',number_format($orders->price-$orders->prepay))}} đồng</label>
         </div>
         <div class="clear"></div>
       </div>
@@ -66,7 +66,7 @@
       <div class="form-group">
         <label class="control-label col-sm-4">Số tiền thanh toán hàng tháng:</label>
         <div class="col-sm-8">          
-          <label class="bg-gray-fix form-control">{{number_format(($orders->retailSystem->interest_rate*((double)$orders->price-(double)$orders->prepay)+((double)$orders->price-(double)$orders->prepay)/$orders->lead_time)+11000)}} đồng</label>
+          <label class="bg-gray-fix form-control">{{str_replace(',','.',number_format(($orders->retailSystem->interest_rate*((double)$orders->price-(double)$orders->prepay)+((double)$orders->price-(double)$orders->prepay)/$orders->lead_time)+11000))}} đồng</label>
         </div>
         <div class="clear"></div>
       </div>
