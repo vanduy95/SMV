@@ -46,15 +46,22 @@
 @section('script')
 <script type="text/javascript">
 	$(document).ready(function() {
+		jQuery.validator.addMethod("special_character", function(value, element) {
+			return  /[a-zA-Z0-9]+$/.test(value);
+		});
 		$("#register_form").validate({
 			rules:{
 				nameretail:{
 					required:true,
+					special_character:true,
+					maxlength:255
 				},
 			},
 			messages: {
 				nameretail:{
 					required: "Trường này không được để trống",
+					special_character:"Không được chứa ký tự đặc biệt",
+					maxlength:"Tên quá dài"
 				},
 			}
 		});

@@ -66,12 +66,16 @@ $(document).ready(function() {
 			newinterest:{
 				required:true,
 				number:true,
+				min:0,
+				max:100
 			}
 		},
 		messages: {
 			newinterest:{
 				number: "Trường này là số",
 				required: "Trường này không được để trống",
+				min:"Trường này không hợp lệ",
+				max:"Trường này không hợp lệ"
 			}
 		}
 	});

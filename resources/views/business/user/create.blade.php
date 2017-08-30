@@ -88,7 +88,7 @@
 					<div class="form-group">
 						<div class="col-lg-offset-2 col-lg-10">
 							{!!Form::submit('Save',['class'=>'btn btn-primary'])!!}
-							<a class="btn btn-default" id="cancel" href="{{url('user/create')}}">Reset</a>
+							{!!Form::reset('Nhập lại',['class'=>'btn btn-primary'])!!}
 						</div>
 					</div>
 					{!!Form::close()!!}
