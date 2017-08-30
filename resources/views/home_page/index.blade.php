@@ -21,7 +21,7 @@
 							</div>
 							<div class="pb-md-5 pb-5 col-lg-12 col-md-12 col-xs-12 div-flex">
 								<input class="col-lg-4 col-md-5 col-xs-9 btn btn-primary" id="btn_retype" type="button" value="Nhập lại thông tin" style="background: #cccccc; border: 1px solid #cccccc">
-								<input class="col-lg-3 col-md-5 col-xs-9 col-lg-offset-1 btn btn-primary" id="btn_new_reg" type="button" value="Đăng ký mới" style="background: #170e66" >
+								<input class="col-lg-3 col-md-5 col-xs-5 col-xs-offset-1 col-md-offset-1 col-lg-offset-1 btn btn-primary" id="btn_new_reg" type="button" value="Đăng ký mới" style="background: #170e66" >
 							</div>
 						</div>
 					</div>
@@ -181,8 +181,8 @@
 						<p  class="text-vw-3">đăng ký mới của bạn sẽ được xác nhận trong 10 phút.</p>
 					</div>
 					<div class="col-lg-12 col-md-12 col-xs-12 div-flex">
-						<input class="col-lg-4 col-md-5 col-xs-9 btn btn-primary" id="btn_retype_xs" type="button" value="Nhập lại thông tin" style="background: #cccccc; border: 1px solid #cccccc">
-						<input class="col-lg-3 col-md-4 col-xs-8 col-xs-offset-1 btn btn-primary" id="btn_new_reg_xs" type="button" value="Đăng ký mới" style="background: #170e66" >
+						<input class="col-lg-4 col-md-5 col-xs-6 btn btn-primary" id="btn_retype_xs" type="button" value="Nhập lại thông tin" style="background: #cccccc; border: 1px solid #cccccc; font-size: 3vw">
+						<input class="col-lg-3 col-md-4 col-xs-5 col-lg-offset-1 col-xs-offset-1 col-md-offset-1 btn btn-primary" id="btn_new_reg_xs" type="button" value="Đăng ký mới" style="background: #170e66; font-size: 4vw" >
 					</div>
 				</div>
 			</div>
@@ -204,9 +204,9 @@
 							<div class="col-md-12 col-xs-12">
 								<div class="col-xs-12 div-flex" style="padding:0">
 									<select id="selectpicker_xs" name="selectpicker_xs" class="col-xs-12 col-md-12 form-control selectpicker"  data-show-subtext="true" data-live-search="true">
-										<option value="">Chọn công ty</option>
+										<option style="font-size: 3.2vw;color: black" value="">Chọn công ty</option>
 										@foreach ($company as $c)
-										<option value="{{$c->id}}">{{$c->name}}</option>
+										<option style="font-size: 3.2vw;color: black" value="{{$c->id}}">{{$c->name}}</option>
 										@endforeach
 									</select>
 								</div>

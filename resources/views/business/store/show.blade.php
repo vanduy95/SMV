@@ -61,7 +61,7 @@
 						<div class="form-group ">
 							{!!Html::decode(Form::label('fullname','Số điện thoại',['class'=>'control-label col-lg-2']))!!}
 							<div class="col-lg-8">
-								{!!Form::text('phonecontact',$store->phonecontact,['class'=>'form-control'])!!}
+								{!!Form::text('phonecontact',str_replace(' ','',$store->phonecontact),['class'=>'form-control'])!!}
 								@if($errors->has('nameretail'))<p style="color: red;">{!!$errors->first('nameretail')!!}</p>@endif
 							</div>
 						</div>

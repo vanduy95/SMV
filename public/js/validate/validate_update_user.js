@@ -58,6 +58,7 @@ $(document).ready(function() {
 				minlength:3
 			},
 			employee_id:{
+				required:true,
 				maxlength:255,
 				remote: {
 					url: "http://"+window.location.host+"/checkEmployee_id",
@@ -105,6 +106,7 @@ $(document).ready(function() {
 			},
 			salary:{
 				required:true,
+				max:100000000
 			},
 			department:{
 				required:true,
@@ -119,6 +121,8 @@ $(document).ready(function() {
 				maxlength: 50
 			},
 			identitycard:{
+				maxlength:12,
+				minlength:9,
 				required:true,
 				number:true,
 				remote: {
@@ -141,9 +145,11 @@ $(document).ready(function() {
 			},
 			issuedby:{
 				required:true,
+				maxlength:255,
 			},
 			number_account:{
 				required:true,
+				maxlength:255,
 			},
 			exchange_status:{
 				required:true,
@@ -203,12 +209,15 @@ $(document).ready(function() {
 			},
 			salary:{
 				required:"Lương không được để trống",
+				max:"Vui lòng nhập dưới 100 triệu"
 			},
 			department:{
 				required:"Phòng ban không được để trống",
 				maxlength:"Phòng ban phải từ 1->255 ký tự",
 			},
 			identitycard:{
+				minlength:"Số chứng minh nhân dân không hợp lệ",
+				maxlength:"Số chứng minh nhân dân không hợp lệ",
 				required:"Số CMT không được để trống",
 				number:"Phải nhập số",
 				remote:"Đã tồn tại số chứng minh nhân dân này",
@@ -219,6 +228,8 @@ $(document).ready(function() {
 			},
 			issuedby:{
 				required:'Nơi cấp không được để trống',
+				minlength:"Ngày cấp không hợp lệ",
+				maxlength:"Ngày cấp không hợp lệ",
 			},
 		},
 	});

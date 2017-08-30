@@ -59,8 +59,8 @@
 						</div>
 						<div class="form-group">
 							<div class="col-lg-offset-2 col-lg-10">
-								{!!Form::submit('Save',['id'=>'save','class'=>'btn btn-primary'])!!}
-								{!!Form::reset('Reset',['id'=>'reset','class'=>'btn btn-default'])!!}
+								{!!Form::submit('Lưu',['id'=>'save','class'=>'btn btn-primary'])!!}
+								{!!Form::reset('Nhập Lại',['id'=>'reset','class'=>'btn btn-default'])!!}
 							</div>
 						</div>
 						{!!Form::close() !!}

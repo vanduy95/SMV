@@ -9,6 +9,25 @@
 		<li class="active">User</li>
 	</ol>
 </section>
+<div class="modal fade" id=change_password_modal>
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">×</span></button>
+					<h4 class="modal-title">Đổi mật khẩu Người dùng</h4>
+				</div>
+				<div class="modal-body" id="change_password_body">
+
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary"  id="btn_change_password" >Save changes</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
 <section class="content">
 	<div class="row">
 		<div class="col-xs-12">
@@ -340,6 +359,116 @@ $('#save_change3').click(function(event) {
 			$("#myModal3").modal('hide');
 		}      
 });
+
+$('table').on('click', '#delete_user', function(event) {
+	var table = $('table').DataTable();
+	var r = $(this).parents('tr');
+	var user_id=$(this).data('id');
+	swal({
+		title: "Bạn có chắc muốn xóa",
+		text: "",
+		type: "warning",
+		showCancelButton: true,
+		closeOnConfirm: false,
+		showLoaderOnConfirm: true,
+	},
+	function(){
+		$.ajax({
+			url: "{{ url('admin/ajax/postDeleteUser') }} ",
+			data:{user_id:user_id},
+			type:'POST',
+			success: function(data){
+				if(data.toString().indexOf("Permission Denied")==-1){
+            //$(".order_"+order_id).parent().remove();
+            table.row( r ).remove().draw();
+            swal("Xóa thành công!", "", "success");
+        }
+        else
+        {
+        	swal("Bạn Không có quyền!","", "error")
+        }
+    },
+    error: function() {
+    	swal("Xóa thất bại!", "", "error")
+    }
+});
+	});
+});
+$('table').on('click', '#change_password', function() {
+	$('.loading').fadeIn('400');
+	var user_id=$(this).data('id');
+	$.ajax({
+		url: "{{ url('admin/user/ajaxGetChangePassword') }}",
+		data:{user_id:user_id},
+		type:'GET',
+		success: function(data){
+			if(data.toString().indexOf("Permission Denied")==-1){
+				$('.loading').hide();
+				$('#change_password_body').html(data);
+				$("#change_password_modal").modal();
+			}
+			else
+			{
+				$('.loading').hide();
+				swal("Bạn Không có quyền!","", "error");
+			}
+		}
+	});
+})	
+
+$('#btn_change_password').click(function () {
+	$("#form_change_password").validate({
+		rules: {
+			password: {
+				required: true,
+				minlength:6,
+				maxlength:30,
+			},
+			re_password:{
+				required: true,
+				equalTo: "#password"
+
+			}
+
+		},
+		messages: {
+			password: {
+				required: "Password không được để trống",
+				minlength:"Password phải từ 6->30 ký tự",
+				maxlength:"Password phải từ 6->30 ký tự"
+			},
+			re_password:{
+				required: "Nhập lại password không được để trống",
+				equalTo: "Password không khớp"
+
+			}
+		}
+	});
+
+	if($("#form_change_password").valid()){
+		$.ajax({
+			url: "{{ url('admin/user/ajaxPostChangePassword') }}",
+			data:$('#form_change_password').serialize(),
+			type:'POST',
+			success: function(data){
+				if(data.toString().indexOf("Permission Denied")==-1){
+					swal({
+						title: "Sửa thành công!",
+						text: "",
+						type:'success',
+						timer: 1000,
+						showConfirmButton: false
+					});
+					$("#change_password_modal").modal('hide');
+				}
+				else
+				{
+					swal("Bạn Không có quyền!","", "error");
+				}
+			}
+		});
+	}
+})
 
 </script>
 @stop

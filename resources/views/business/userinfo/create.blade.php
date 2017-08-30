@@ -85,125 +85,126 @@
 							@if($errors->has('status'))<p style="color: red;">{!!$errors->first('status')!!}</p>@endif
 						</div>
 					</div>
-						<div class="form-group ">
-							{!!Html::decode(Form::label('fullname','Full Name *',['class'=>'control-label col-lg-2']))!!}
-							<div class="col-lg-8">
-								{!!Form::text('fullname',old('fullname'),['class'=>'form-control','placeholder'=>'Họ tên khách hàng '])!!}
-								@if($errors->has('fullname'))<p style="color: red;">{!!$errors->first('fullname')!!}</p>@endif
-							</div>
+					<div class="form-group ">
+						{!!Html::decode(Form::label('fullname','Full Name *',['class'=>'control-label col-lg-2']))!!}
+						<div class="col-lg-8">
+							{!!Form::text('fullname',old('fullname'),['class'=>'form-control','placeholder'=>'Họ tên khách hàng '])!!}
+							@if($errors->has('fullname'))<p style="color: red;">{!!$errors->first('fullname')!!}</p>@endif
 						</div>
-						<div class="form-group ">
-							{!!Html::decode(Form::label('fullname','Employee ID *',['class'=>'control-label col-lg-2']))!!}
-							<div class="col-lg-8">
-								{!!Form::text('employee_id',old('employee_id'),['class'=>'form-control','placeholder'=>'Mã nhân viên'])!!}
-								@if($errors->has('employee_id'))<p style="color: red;">{!!$errors->first('employee_id')!!}</p>@endif
-							</div>
+					</div>
+					<div class="form-group ">
+						{!!Html::decode(Form::label('fullname','Employee ID *',['class'=>'control-label col-lg-2']))!!}
+						<div class="col-lg-8">
+							{!!Form::text('employee_id',old('employee_id'),['class'=>'form-control','placeholder'=>'Mã nhân viên'])!!}
+							@if($errors->has('employee_id'))<p style="color: red;">{!!$errors->first('employee_id')!!}</p>@endif
 						</div>
-						<div class="form-group ">
-							{!!Html::decode(Form::label('fullname','Salary *',['class'=>'control-label col-lg-2']))!!}
-							<div class="col-lg-8">
-								{!!Form::text('salary',old('salary'),['class'=>'form-control','placeholder'=>'Lương ','id'=>'salary'])!!}
-								@if($errors->has('salary'))<p style="color: red;">{!!$errors->first('salary')!!}</p>@endif
-							</div>
+					</div>
+					<div class="form-group ">
+						{!!Html::decode(Form::label('fullname','Salary *',['class'=>'control-label col-lg-2']))!!}
+						<div class="col-lg-8">
+							{!!Form::text('salary',old('salary'),['class'=>'form-control','placeholder'=>'Lương ','id'=>'salary'])!!}
+							@if($errors->has('salary'))<p style="color: red;">{!!$errors->first('salary')!!}</p>@endif
 						</div>
-						<div class="form-group">
-							{!!Html::decode(Form::label('fullname','Identity Card *',['class'=>'control-label col-lg-2']))!!}
-							<div class="col-lg-3">
-								{!!Form::number('identitycard',old('identitycard'),['class'=>'form-control','placeholder'=>'Số chứng minh nhân dân', 'maxlength'=>'12','min'=>'0'])!!}
-								@if($errors->has('identitycard'))<p style="color: red;">{!!$errors->first('identitycard')!!}</p>@endif
-							</div>
-							<div class="col-lg-3">
-								{!!Form::text('issuedby',old('issuedby'),['class'=>'form-control','placeholder'=>'Nơi cấp'])!!}
-								@if($errors->has('issuedby'))<p style="color: red;">{!!$errors->first('issuedby')!!}</p>@endif
-							</div>
-							<div class="col-lg-2">
-								<input type="text" name="dateissue" class="form-control pull-right" id="datepicker" placeholder="Ngày cấp" >
-								@if($errors->has('dateissue'))<p style="color: red;">{!!$errors->first('dateissue')!!}</p>@endif
-							</div>
+					</div>
+					<div class="form-group">
+						{!!Html::decode(Form::label('fullname','Identity Card *',['class'=>'control-label col-lg-2']))!!}
+						<div class="col-lg-3">
+							{!!Form::text('identitycard',old('identitycard'),['class'=>'form-control','placeholder'=>'Số chứng minh nhân dân', 'maxlength'=>'12','min'=>'9'])!!}
+							@if($errors->has('identitycard'))<p style="color: red;">{!!$errors->first('identitycard')!!}</p>@endif
 						</div>
-						<div class="form-group ">
-							{!!Html::decode(Form::label('assess','Reviews *',['class'=>'control-label col-lg-2']))!!}
-							<div class="col-lg-4">
-								{!!Form::text('assess',old('assess'),['class'=>'form-control','placeholder'=>'Điểm khách hàng thang điểm 100'])!!}
-								@if($errors->has('assess'))<p style="color: red;">{!!$errors->first('assess')!!}</p>@endif
-							</div>
-							<div class="col-lg-4">
-								<select class="form-control" name="marital">
-									<option value="">Tình trạng hôn nhân</option>
-									<option value="1" @if(old('marital')=='1') selected="selected" @endif>Đã kết hôn</option>
-									<option value="2" @if(old('marital')=='2') selected="selected" @endif>Chưa kết hôn</option>
-								</select>
-								@if($errors->has('marital'))<p style="color: red;">{!!$errors->first('marital')!!}</p>@endif
-							</div>
+						<div class="col-lg-3">
+							{!!Form::text('issuedby',old('issuedby'),['class'=>'form-control','placeholder'=>'Nơi cấp'])!!}
+							@if($errors->has('issuedby'))<p style="color: red;">{!!$errors->first('issuedby')!!}</p>@endif
 						</div>
-						<div class="form-group">
-							{!!Html::decode(Form::label('fullname','Birth Day *',['class'=>'control-label col-lg-2']))!!}
-							<div class="col-lg-4 date">
-								<input type="text" name="birthday" class="form-control pull-right" id="datepicker1" placeholder="Ngày sinh" >
-								@if($errors->has('birthday'))<p style="color: red;">{!!$errors->first('birthday')!!}</p>@endif
-							</div>
-							<div class="col-lg-4">
-								<select class="form-control" name="sex">
-									<option value="">Giới tính</option>
-									<option value="1" @if(old('sex')=='1') selected="selected" @endif>Nam</option>
-									<option value="2" @if(old('sex')=='2') selected="selected" @endif>Nữ</option>
-									<option value="0" @if(old('sex')=='0') selected="selected" @endif>KXD</option>
-								</select>
-								@if($errors->has('sex'))<p style="color: red;">{!!$errors->first('sex')!!}</p>@endif
-							</div>
+						<div class="col-lg-2">
+							<input type="text" name="dateissue" class="form-control pull-right" id="datepicker" placeholder="Ngày cấp" >
+							@if($errors->has('dateissue'))<p style="color: red;">{!!$errors->first('dateissue')!!}</p>@endif
 						</div>
-						<div class="form-group ">
-							{!!Html::decode(Form::label('assess','Phone *',['class'=>'control-label col-lg-2']))!!}
-							<div class="col-lg-4">
-								<input type="text" class="form-control" name="phone1"  placeholder="Điện thoại di động" data-inputmask='"mask": "(999) 999-9999"' data-mask>
-								@if($errors->has('phone1'))<p style="color: red;">{!!$errors->first('phone1')!!}</p>@endif
-							</div>
-							<div class="col-lg-4">
-								<input type="text" class="form-control" name="phone2"  placeholder="Điện thoại di động" data-inputmask='"mask": "(999) 999-9999"' data-mask>
-								@if($errors->has('phone2'))<p style="color: red;">{!!$errors->first('phone2')!!}</p>@endif
-							</div>
+					</div>
+					<div class="form-group ">
+						{!!Html::decode(Form::label('assess','Reviews *',['class'=>'control-label col-lg-2']))!!}
+						<div class="col-lg-4">
+							{!!Form::text('assess',old('assess'),['class'=>'form-control','placeholder'=>'Điểm khách hàng thang điểm 100'])!!}
+							@if($errors->has('assess'))<p style="color: red;">{!!$errors->first('assess')!!}</p>@endif
 						</div>
+						<div class="col-lg-4">
+							<select class="form-control" name="marital">
+								<option value="">Tình trạng hôn nhân</option>
+								<option value="1" @if(old('marital')=='1') selected="selected" @endif>Đã kết hôn</option>
+								<option value="2" @if(old('marital')=='2') selected="selected" @endif>Chưa kết hôn</option>
+							</select>
+							@if($errors->has('marital'))<p style="color: red;">{!!$errors->first('marital')!!}</p>@endif
+						</div>
+					</div>
+					<div class="form-group">
+						{!!Html::decode(Form::label('fullname','Birth Day *',['class'=>'control-label col-lg-2']))!!}
+						<div class="col-lg-4 date">
+							<input type="text" name="birthday" class="form-control pull-right" id="datepicker1" placeholder="Ngày sinh" >
+							@if($errors->has('birthday'))<p style="color: red;">{!!$errors->first('birthday')!!}</p>@endif
+						</div>
+						<div class="col-lg-4">
+							<select class="form-control" name="sex">
+								<option value="">Giới tính</option>
+								<option value="1" @if(old('sex')=='1') selected="selected" @endif>Nam</option>
+								<option value="2" @if(old('sex')=='2') selected="selected" @endif>Nữ</option>
+								<option value="0" @if(old('sex')=='0') selected="selected" @endif>KXD</option>
+							</select>
+							@if($errors->has('sex'))<p style="color: red;">{!!$errors->first('sex')!!}</p>@endif
+						</div>
+					</div>
+					<div class="form-group ">
+						{!!Html::decode(Form::label('assess','Phone *',['class'=>'control-label col-lg-2']))!!}
+						<div class="col-lg-4">
+							<input type="text" class="form-control phone_with_ddd" id="phone_with_ddd" name="phone1"  placeholder="Điện thoại di động" maxlength="11">
+							@if($errors->has('phone1'))<p style="color: red;">{!!$errors->first('phone1')!!}</p>@endif
+						</div>
+						<div class="col-lg-4">
+							<input type="text" class="form-control" name="phone2"  placeholder="Điện thoại di động" data-inputmask='"mask": "(999) 999-9999"' data-mask>
+							@if($errors->has('phone2'))<p style="color: red;">{!!$errors->first('phone2')!!}</p>@endif
+						</div>
+					</div>
 
-						<div class="form-group ">
-							{!!Html::decode(Form::label('fullname','Permanent address ',['class'=>'control-label col-lg-2']))!!}
-							<div class="col-lg-4">
-								{!!Form::text('address1',old('address1'),['class'=>'form-control','placeholder'=>'Địa chỉ thường trú'])!!}
-								@if($errors->has('address'))<p style="color: red;">{!!$errors->first('address')!!}</p>@endif
-							</div>
-							<div class="col-lg-4">
-								<input type="text" class="form-control" name="phone3"  placeholder="Điện thoại cố định" data-inputmask='"mask": "(999) 999-9999"' data-mask>
-								@if($errors->has('phone3'))<p style="color: red;">{!!$errors->first('phone3')!!}</p>@endif
-							</div>
+					<div class="form-group ">
+						{!!Html::decode(Form::label('fullname','Permanent address ',['class'=>'control-label col-lg-2']))!!}
+						<div class="col-lg-4">
+							{!!Form::text('address1',old('address1'),['class'=>'form-control','placeholder'=>'Địa chỉ thường trú'])!!}
+							@if($errors->has('address'))<p style="color: red;">{!!$errors->first('address')!!}</p>@endif
 						</div>
-						<div class="form-group ">
-							{!!Html::decode(Form::label('fullname','Temporary address ',['class'=>'control-label col-lg-2']))!!}
-							<div class="col-lg-4">
-								{!!Form::text('address2',old('address2'),['class'=>'form-control','placeholder'=>'Địa chỉ tạm trú'])!!}
-								@if($errors->has('address'))<p style="color: red;">{!!$errors->first('address')!!}</p>@endif
-							</div>
-							<div class="col-lg-4">
-								<input type="text" class="form-control" name="phone4"  placeholder="Điện thoại cố định" data-inputmask='"mask": "(999) 999-9999"' data-mask>
-								@if($errors->has('phone4'))<p style="color: red;">{!!$errors->first('phone4')!!}</p>@endif
-							</div>
+						<div class="col-lg-4">
+							<input type="text" class="form-control" name="phone3"  placeholder="Điện thoại cố định" data-inputmask='"mask": "(999) 999-9999"' data-mask>
+							@if($errors->has('phone3'))<p style="color: red;">{!!$errors->first('phone3')!!}</p>@endif
 						</div>
-						<div class="form-group ">
-							{!!Form::label('fullname','Chữ ký khách hàng ',['class'=>'control-label col-lg-2'])!!}
-							<div class="col-lg-8">
+					</div>
+					<div class="form-group ">
+						{!!Html::decode(Form::label('fullname','Temporary address ',['class'=>'control-label col-lg-2']))!!}
+						<div class="col-lg-4">
+							{!!Form::text('address2',old('address2'),['class'=>'form-control','placeholder'=>'Địa chỉ tạm trú'])!!}
+							@if($errors->has('address'))<p style="color: red;">{!!$errors->first('address')!!}</p>@endif
+						</div>
+						<div class="col-lg-4">
+							<input type="text" class="form-control" name="phone4"  placeholder="Điện thoại cố định" data-inputmask='"mask": "(999) 999-9999"' data-mask>
+							@if($errors->has('phone4'))<p style="color: red;">{!!$errors->first('phone4')!!}</p>@endif
+						</div>
+					</div>
+					<div class="form-group ">
+						{!!Form::label('fullname','Chữ ký khách hàng ',['class'=>'control-label col-lg-2'])!!}
+						<div class="col-lg-8">
 							{!!Form::file('filename1',['class'=>'form-control',])!!}
-								@if($errors->has('filename1'))<p style="color: red;">{{$errors->first('filename1')}}</p>@endif
-							</div>
+							@if($errors->has('filename1'))<p style="color: red;">{{$errors->first('filename1')}}</p>@endif
 						</div>
-						<div class="form-group ">
-							{!!Form::label('fullname','Ảnh chụp khách hàng ',['class'=>'control-label col-lg-2'])!!}
-							<div class="col-lg-8">
-								{!!Form::file('filename2',['class'=>'form-control'])!!}
-								@if($errors->has('filename2'))<p style="color: red;">{{$errors->first('filename2')}}</p>@endif
-							</div>
+					</div>
+					<div class="form-group ">
+						{!!Form::label('fullname','Ảnh chụp khách hàng ',['class'=>'control-label col-lg-2'])!!}
+						<div class="col-lg-8">
+							{!!Form::file('filename2',['class'=>'form-control'])!!}
+							@if($errors->has('filename2'))<p style="color: red;">{{$errors->first('filename2')}}</p>@endif
 						</div>
+					</div>
 					<div class="form-group">
 						<div class="col-lg-offset-2 col-lg-10">
-							{!!Form::submit('Save',['class'=>'btn btn-primary'])!!}
-							<a class="btn btn-default" id="cancel" href="{{url('user/create')}}">Reset</a>
+							{!!Form::submit('Lưu',['class'=>'btn btn-primary'])!!}
+							{!!Form::reset('Nhập lại',['class'=>'btn btn-primary'])!!}
+							{{-- <a class="btn btn-default" id="cancel" href="{{url('user/create')}}">Reset</a> --}}
 						</div>
 					</div>
 					{!!Form::close()!!}
@@ -228,17 +229,13 @@
 		}
 		$('#datepicker').datepicker({ dateFormat: 'dd-mm-yy' }).val();
 		$('#datepicker1').datepicker({ dateFormat: 'dd-mm-yy' }).val();
-
 	});
-	$('#salary').keyup(function() {
-		var val = this.value.replace(/\D/g, '');
-		var newVal = '';
-		while (val.length > 3) {
-			newVal += val.substr(0, 3) + ' ';
-			val = val.substr(3);
+	$('#salary').change(function(){
+		var salary = $('#salary').val().replace(/[đồng,.]/g,'');
+		if(salary){
+			var a = numeral(salary).format('0,0').replace(/[,]/g,'.');
+			$('#salary').val(a+" đồng");
 		}
-		newVal += val;
-		this.value = newVal;
 	});
 </script>
 @stop

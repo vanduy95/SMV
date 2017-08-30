@@ -121,9 +121,9 @@ $(document).ready(function() {
       var name_product = $('#product').val();
       var code_product = $('#code_product').val();
       var color = $('#color').val();
-      var price = $('#price').val().replace(/[ đồng,.]/,'');
+      var price = $('#price').val().replace(/[ đồng,.]/g,'');
       var select_rate = $('#select_rate').val();
-      var pre_pay = $('#pre_pay').val().replace(/[ đồng,.]/,'');
+      var pre_pay = $('#pre_pay').val().replace(/[ đồng,.]/g,'');
       var lead_month = $('#lead_month').val();
       var select_market = $('#select_market').val();
       var select_city = $('#select_city').val();
