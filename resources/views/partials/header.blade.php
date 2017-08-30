@@ -99,7 +99,7 @@
               <i class="fa fa-user-plus"></i>
                 <span class="label label-warning" ng-show="unreadnotify_user.length!=0">{{unreadnotify_user.length}}</span>
             </a>
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu" style="max-width: 500px">
               <li class="header">Bạn có {{unreadnotify_user.length}} thông báo chưa đọc</li>
               <li>
                 <!-- inner menu: contains the actual data -->
@@ -125,8 +125,8 @@
               <i class="fa fa-bell-o"></i>
                 <span class="label label-warning" ng-show="unreadnotify.length!=0">{{unreadnotify.length}}</span>
             </a>
-            <ul class="dropdown-menu">
-              <li class="header">Bạn có {{unreadnotify.length}} thông báo chưa đọc</li>
+            <ul class="dropdown-menu" style="width: 40vw">
+              <li class="header alert-success">Bạn có {{unreadnotify.length}} thông báo chưa đọc</li>
               <li>
                 <!-- inner menu: contains the actual data -->
                 <ul class="menu">

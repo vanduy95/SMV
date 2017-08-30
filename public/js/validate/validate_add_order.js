@@ -291,7 +291,10 @@ $(document).ready(function() {
         },
         name_user: {
           required: true,
-          maxlength: 50
+          maxlength: 50,
+          normalizer: function( value ) {
+              return $.trim( value );
+          }
         },
         salary_user: {
           required: true,
@@ -333,6 +336,9 @@ $(document).ready(function() {
           required: true,
           minlength: 6,
           maxlength: 50,
+           normalizer: function( value ) {
+              return $.trim( value );
+          }
         } 
       },
       messages: {
