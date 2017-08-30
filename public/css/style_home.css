@@ -1263,6 +1263,9 @@ div.member div.line{
 
 }
 @media screen and (max-width: 320px){
+	.btn_font_xs{
+		font-size: 2.8vw !important;
+	}
 	.step-click-bg > p{
 		color: white;
 		font-size: 2vw;
