@@ -127,13 +127,13 @@
     <div class="form-group">
       <label class="control-label col-sm-4" for="note1">Ghi chú 1: </label>
       <div class="col-sm-8"> 
-        <input type="text" name="note1" tabindex="17" class="form-control" value="{{$UserInfo['note1']}}">
+        <textarea name="note1" tabindex="17" class="form-control">{{$UserInfo['note1']}}</textarea>
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-4" for="note2">Ghi chú 2: </label>
       <div class="col-sm-8"> 
-        <input type="text" name="note2" tabindex="18" class="form-control" value="{{$UserInfo['note2']}}">
+       <textarea name="note2" tabindex="18" class="form-control">{{$UserInfo['note2']}}</textarea>
       </div>
     </div>
   </div> 

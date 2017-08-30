@@ -79,7 +79,7 @@ $(document).ready(function() {
 			return false
 		else
 			return true
-	}, 'phải chọn trả trước hoặc chọn tỷ lệ');
+	}, 'Phải nhập số tiền trả trước hoặc chọn tỷ lệ trả trước');
 
 	$.validator.addMethod("check_pre_pay_percent", function (value, element) {
 		var price=$('#price').val().replace('.','').replace('.','').replace('.','').replace('.','').replace('.','').replace('đồng','').replace(' ','');

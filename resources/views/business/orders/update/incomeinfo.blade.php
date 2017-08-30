@@ -87,7 +87,7 @@
     <div class="col-sm-8"> 
       <input readonly tabindex="9" type="text" id="" class="form-control" 
       @if ($UserInfo['salary_avg'])
-         value="{{number_format($UserInfo['salary_avg'],0,".",".")}} đồng">
+         value="{{number_format($UserInfo['salary_avg'],0,".",".")}} đồng"
       @endif
     >
     </div>

@@ -186,7 +186,12 @@ z-index: 9999
     </aside>
   </div>
 </div>
-
+<script type="text/javascript">
+  $(document).ready(function() {
+    var table = $('#example1').DataTable();
+      table.order( [ 0, 'desc' ] ).draw();
+  });
+</script>
 
 </body>
 </html>
