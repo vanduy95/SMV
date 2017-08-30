@@ -425,7 +425,7 @@
 						</div>
 						<div id="b2">
 						</style>
-						<div class="col-lg-12 arrow_box col-md-12 col-xs-12">
+						<div class="col-lg-12 arrow_box col-md-12 col-xs-12 div-flex">
 							<span class="col-lg-5 col-md-5 col-xs-5 font-next-step">
 								Cách 1: Đến hệ thống siêu thị liên kết, lựa chọn sản phẩm. Nhân viên siêu thị sẽ cập nhật đơn hàng của bạn.
 							</span>

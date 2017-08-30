@@ -75,9 +75,7 @@
                     <input type="text" tabindex="9" readonly autocomplete="off" id="slow_month" class="form-control" 
                     @if ($orders->lead_time)
                       value="{{number_format(($orders->retailSystem->interest_rate*((double)$orders->price-(double)$orders->prepay)+((double)$orders->price-(double)$orders->prepay)/$orders->lead_time)+11000)}}"
-                    @endif
-
-                    >
+                    @endif>
                   </div>
                 </div>
                 

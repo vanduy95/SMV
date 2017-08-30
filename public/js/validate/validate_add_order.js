@@ -253,6 +253,13 @@ $(document).ready(function() {
     return false
 
 }, 'Lương của bạn phải lớn hơn 0');
+  $.validator.addMethod("max_salary_user", function (value, element) {
+   if($('#salary_user').val().replace(/[ đồng,.]/g,'')<100000000)
+    return true
+  else
+    return false
+
+}, 'Lương của bạn phải nhỏ hơn 100 triệu');
   $.validator.addMethod("check_pre_pay", function (value, element) {
    if($('#pre_pay').val()==''&&$('#select_rate').val()=='')
     return false
@@ -289,6 +296,7 @@ $(document).ready(function() {
         salary_user: {
           required: true,
           min_salary_user:true,
+          max_salary_user:true,
           // check_price_vs_buy:true,
         },
         phone_user:{
