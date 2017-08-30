@@ -51,11 +51,9 @@
                @endif
              </label>
            </div>
-           <div class="form-group">
             <label class="control-label col-sm-4">Công ty hiện tại: </label>
             <div class="col-sm-8"> 
-              <label type="text" tabindex="6" class="form-control" id="compnay" name="compnay" >{{$UserInfo->user->organization->name}}</label>
-            </div>
+             <label class=" bg-gray-fix form-control">{{$UserInfo->user->organization->name}}</label>
           </div>
         </div>
       </div> 

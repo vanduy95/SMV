@@ -91,9 +91,12 @@
 					<div class="col-md-2">
 						<input type="submit" class="btn btn-primary col-md-12" name="print_contract" value="In hợp đồng"/>
 					</div>
+					@if ($orders->user->userinfo->exchange_status!=2)
 					<div class="col-md-3">
 						<input type="submit" class="btn btn-primary col-md-12" name="print_auto_pay" value="In yêu cầu thanh toán tự động"/>
 					</div>	
+					@endif
+					
 				@if ($orders->process_id==4)
 					<div class="col-md-2">
 						<input type="submit" class="btn btn-primary col-md-12" name="ship" value="Giao hàng"/>

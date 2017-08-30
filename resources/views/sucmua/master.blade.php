@@ -41,7 +41,12 @@
 	{!!Html::script('theme/bootstrap/js/bootstrap.min.js')!!}
 	{!!Html::script('js/validate/jquery.validate.js')!!}
 	@yield('script')
-
+	<script type="text/javascript">
+		var table = $('#example').DataTable();
+		table
+		.order( [ 0, 'desc' ] )
+		.draw();
+	</script>
 	<style>
 		html{
 			height: 100%;

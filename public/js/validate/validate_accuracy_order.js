@@ -1,14 +1,14 @@
 $(document).ready(function() {
   if ($('#exchange_status').val()==2) {
-      $('#bank_name').attr('readonly','true');
-      $('#salary_avg').attr('readonly','true');
-      $('#salary_day').attr('readonly','true');
-      $('#identitycard').attr('readonly','true');
-      $('#phone1').attr('readonly','true');
-      $('#number_account').attr('readonly','true');
-      $('#issuedby').attr('readonly','true');
-      $('#phone4').attr('readonly','true');
-      $('#dateissue1').attr('readonly','true');
+      $('#bank_name').prop('disabled','true');
+      $('#salary_avg').prop('disabled','true');
+      $('#salary_day').prop('disabled','true');
+      $('#identitycard').prop('disabled','true');
+      $('#phone1').prop('disabled','true');
+      $('#number_account').prop('disabled','true');
+      $('#issuedby').prop('disabled','true');
+      $('#phone4').prop('disabled','true');
+      $('#dateissue1').prop('disabled','true');
       $("#btn_accuracy").attr('formnovalidate', 'formnovalidate');
     }
   else
@@ -20,30 +20,30 @@ $(document).ready(function() {
     if($(this).val()==2)
     {
 
-      $('#bank_name').attr('readonly','true');
-      $('#salary_avg').attr('readonly','true');
-      $('#salary_day').attr('readonly','true');
-      $('#identitycard').attr('readonly','true');
-      $('#phone1').attr('readonly','true');
-      $('#number_account').attr('readonly','true');
-      $('#issuedby').attr('readonly','true');
-      $('#phone4').attr('readonly','true');
-      $('#dateissue1').attr('readonly','true');
+      $('#bank_name').prop('disabled','true');
+      $('#salary_avg').prop('disabled','true');
+      $('#salary_day').prop('disabled','true');
+      $('#identitycard').prop('disabled','true');
+      $('#phone1').prop('disabled','true');
+      $('#number_account').prop('disabled','true');
+      $('#issuedby').prop('disabled','true');
+      $('#phone4').prop('disabled','true');
+      $('#dateissue1').prop('disabled','true');
       $("#btn_accuracy").attr('formnovalidate', 'formnovalidate'); 
       $('label.error').hide();
       $('.form-control').removeClass('error');
     }
     else
     {
-      $('#bank_name').removeAttr('readonly');
-      $('#salary_avg').removeAttr('readonly');
-      $('#salary_day').removeAttr('readonly');
-      $('#identitycard').removeAttr('readonly');
-      $('#phone1').removeAttr('readonly');
-      $('#number_account').removeAttr('readonly');
-      $('#issuedby').removeAttr('readonly');
-      $('#phone4').removeAttr('readonly');
-      $('#dateissue1').removeAttr('readonly') ;
+      $('#bank_name').removeAttr('disable');
+      $('#salary_avg').removeAttr('disable');
+      $('#salary_day').removeAttr('disable');
+      $('#identitycard').removeAttr('disable');
+      $('#phone1').removeAttr('disable');
+      $('#number_account').removeAttr('disable');
+      $('#issuedby').removeAttr('disable');
+      $('#phone4').removeAttr('disable');
+      $('#dateissue1').removeAttr('disable') ;
       $("#btn_accuracy").removeAttr('formnovalidate')
     }
   });

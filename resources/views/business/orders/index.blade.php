@@ -43,6 +43,7 @@
             <thead>
               <tr></tr>
               <tr role="row">
+                <th>id</th>
                 <th>Siêu thị</th>
                 <th>Khách hàng</th>
                 <th>Sản phẩm</th>
@@ -56,7 +57,8 @@
             </thead>
             <tbody>
               @foreach($order as $value) 
-              <tr class="tr" id="{{$value->id}}">
+                <tr class="tr" id="{{$value->id}}">
+                <td>{{$value->id}}</td>
                 <td id="storeInfor"><a href="#">{{$value->supmarket}}<a></td>
                 <td id="UserInfor"><a href="#">{{$value->user->userinfo->fullname}}</a></td>
                 <td>{{$value->product_reg}}</td>
