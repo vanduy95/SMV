@@ -190,6 +190,9 @@ class PurchaseinfoController extends Controller
 					}
 				}
 				if(!empty($_POST['id_com']) && !empty($_POST['code'])){
+					if(!preg_match('/[^!@#$%^&&&&*()_+~`<>?\/]/',($_POST['code']))){
+						return Response::json(["code_t"=>"Mã nhân viên không được chứa ký tự đặc biệt"]);
+					}
 					if($count==0){
 						$count_d = DB::table('userinfo')->join('user','user.id','=','userinfo.user_id')->join('organization','organization.id','=','user.organization_id')
 						->where([

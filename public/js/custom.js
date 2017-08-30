@@ -219,7 +219,7 @@ $(document).ready(function(){
 					$('#error_code').html("Nhập mã nhân viên hoặc số chứng minh nhân dân");
 				}
 				if(!res.error_all && !res.error_code && !res.error_cmt){
-					if(!res.cmt){
+					if(!res.cmt && !res.code_t){
 						if(!res.data){
 							if(res.nonotify=="nonotify"){
 								$('#register_form').hide();
@@ -292,7 +292,12 @@ $(document).ready(function(){
 						}
 					}
 					else{
-						$('#error_cmt').html(res.cmt)
+						if(res.cmt){
+							$('#error_cmt').html(res.cmt)
+						}
+						else{
+							$('#error_code').html(res.code_t)
+						}
 					}
 				}
 			},
@@ -401,7 +406,12 @@ $('#btn_search_xs').click(function(){
 					}
 				}
 				else{
-					$('#error_cmt').html(res.cmt)
+					if(res.cmt){
+						$('#error_cmt_xs').html(res.cmt)
+					}
+					if(res.code_t){
+						$('#error_code_xs').html(res.code_t)
+					}
 				}
 			}
 			// if(res.error_all){
