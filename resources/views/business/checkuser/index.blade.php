@@ -38,6 +38,7 @@
 							<thead>
 								<tr></tr>
 								<tr role="row">
+									<th>id</th>
 									<th>Họ Tên</th>
 									<th>Mức lương</th>
 									<th>Số điện Thoại</th>
@@ -50,6 +51,7 @@
 							<tbody>
 								@foreach($user as $u)
 								<tr>
+								<td align="center">{{$u->id}}</td>
 									<td align="center">{{$u->userinfo->fullname}}</td>
 									<td align="center">{{number_format($u->userinfo->salary)}} Đồng</td>
 									<td align="center">{{$u->userinfo->phone1}}</td>
