@@ -43,6 +43,13 @@ $(document).ready(function() {
 	// 		$('#salary_day').attr('required','true');
 	// 	}
 	// });
+	$.validator.addMethod("max_salary", function (value, element) {
+		if(value.replace(/[ đồng,.]/g,'')<100000000)
+			return true
+		else
+			return false
+
+	}, 'Lương của bạn phải nhỏ hơn 100 triệu');
 	$('#phone1').change(function () {
 		$('#phone').val($('#phone1').val());
 	});
@@ -187,6 +194,7 @@ $(document).ready(function() {
 			},
 			salary:{
 				required:true,
+				max_salary:true,
 			},
 			department:{
 				required:true,

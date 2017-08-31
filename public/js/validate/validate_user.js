@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	jQuery.validator.addMethod("noSpace", function(value, element) { 
 		return value.indexOf(" ") < 0 && value != ""; 
-	}, "Trông được chứa khoảng trắng");
+	}, "Không được chứa khoảng trắng");
 
 	$("#register_form").validate({
 		rules: {
