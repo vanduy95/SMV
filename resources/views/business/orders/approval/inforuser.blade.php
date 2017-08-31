@@ -83,14 +83,14 @@
           <label  name="phone" id="phone" class="bg-gray-fix form-control">{{$UserInfo['phone1']}}</label>
         </div>
       </div>
-      <div class="form-group">
-        <label class="control-label col-sm-4" for="phone2">Số điện thoại bổ xung : </label>
+        <div class="form-group">
+        <label class="control-label col-sm-4" for="phone2">Số điện thoại khác : </label>
         <div class="col-sm-8"> 
           <label name="phone2" class="bg-gray-fix form-control">{{$UserInfo['phone2']}}</label>
         </div>
       </div>
         <div class="form-group">
-        <label class="control-label col-sm-4" for="phone4">Số điện thoại khác : </label>
+        <label class="control-label col-sm-4" for="phone4">Số điện thoại bổ xung : </label>
         <div class="col-sm-8"> 
           <label name="phone4" class="bg-gray-fix form-control">{{$UserInfo['phone4']}}</label>
         </div>

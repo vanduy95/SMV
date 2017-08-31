@@ -90,7 +90,7 @@
         </div>
       </div>
       <div class="form-group">
-        <label class="control-label col-sm-4" for="phone2">Số điện thoại bổ sung : </label>
+        <label class="control-label col-sm-4" for="phone2">Số điện thoại khác : </label>
         <div class="col-sm-8"> 
           <label name="phone2" class="bg-gray-fix form-control">{{$UserInfo['phone2']}}</label>
         </div>

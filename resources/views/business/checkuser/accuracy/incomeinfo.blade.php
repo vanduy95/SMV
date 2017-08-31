@@ -41,7 +41,7 @@
         </div>
         <h3 style="text-align: center;">THÔNG TIN CẦN XÁC THỰC</h3>
         <div class="form-group">
-          <label class="control-label col-sm-4" for="phone2">Số điện thoại khác(nếu có): </label>
+          <label class="control-label col-sm-4" for="phone2">Số điện thoại bổ sung (nếu có): </label>
           <div class="col-sm-8"> 
             <input type="text" name="phone2" id="phone2" value="" class="form-control"/>
           </div>

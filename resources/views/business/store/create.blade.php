@@ -59,7 +59,7 @@
 							</div>
 						</div>
 						<div class="form-group ">
-							{!!Html::decode(Form::label('fullname','Số điện thoại',['class'=>'control-label col-lg-2']))!!}
+							{!!Html::decode(Form::label('fullname','Số điện thoại *',['class'=>'control-label col-lg-2']))!!}
 							<div class="col-lg-8">
 								{!!Form::text('phonecontact','',['class'=>'form-control'])!!}
 								@if($errors->has('nameretail'))<p style="color: red;">{!!$errors->first('nameretail')!!}</p>@endif
@@ -85,7 +85,6 @@
 			rules:{
 				store:{
 					required:true,
-					minlength:6,
 				},
 				retailcity:{
 					required:true,
@@ -113,28 +112,27 @@
 			messages: {
 				store:{
 					required: "Trường này không được để trống",
-					min: "Bạn phải nhập nhiều hơn 6 ký tự!!!",
 				},
 				retailcity:{
 					required: "Trường này không được để trống",
-					min: "Bạn phải nhập nhiều hơn 6 ký tự!!!",
+					minlength: "Bạn phải nhập nhiều hơn 6 ký tự!!!",
 				},
 				retaildistrict:{
 					required: "Trường này không được để trống",
-					min: "Bạn phải nhập nhiều hơn 6 ký tự!!!",
+					minlength: "Bạn phải nhập nhiều hơn 6 ký tự!!!",
 				},
 				name_center:{
 					required: "Trường này không được để trống",
-					min: "Bạn phải nhập nhiều hơn 6 ký tự!!!",
+					minlength: "Bạn phải nhập nhiều hơn 6 ký tự!!!",
 				},
 				storeaddress:{
 					required: "Trường này không được để trống",
-					min: "Bạn phải nhập nhiều hơn 6 ký tự!!!",
+					minlength: "Bạn phải nhập nhiều hơn 6 ký tự!!!",
 				},
 				phonecontact:{
 					number: "Trường này là số",
-					min: "Số điện thoại không được ít hơn 10 số",
-					max: "Số điện thoại không được nhiều hơn 11 số",
+					minlength: "Số điện thoại không được ít hơn 10 số",
+					maxlength: "Số điện thoại không được nhiều hơn 11 số",
 					required: "Trường này không được để trống",
 				},
 			}
