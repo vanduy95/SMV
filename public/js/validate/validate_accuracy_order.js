@@ -4,10 +4,10 @@ $(document).ready(function() {
       $('#salary_avg').prop('disabled','true');
       $('#salary_day').prop('disabled','true');
       $('#identitycard').prop('disabled','true');
-      $('#phone1').prop('disabled','true');
+      //$('#phone1').prop('disabled','true');
       $('#number_account').prop('disabled','true');
       $('#issuedby').prop('disabled','true');
-      $('#phone4').prop('disabled','true');
+      //$('#phone4').prop('disabled','true');
       $('#dateissue1').prop('disabled','true');
       $("#btn_accuracy").attr('formnovalidate', 'formnovalidate');
     }
@@ -24,10 +24,10 @@ $(document).ready(function() {
       $('#salary_avg').prop('disabled','true');
       $('#salary_day').prop('disabled','true');
       $('#identitycard').prop('disabled','true');
-      $('#phone1').prop('disabled','true');
+      //$('#phone1').prop('disabled','true');
       $('#number_account').prop('disabled','true');
       $('#issuedby').prop('disabled','true');
-      $('#phone4').prop('disabled','true');
+      //$('#phone4').prop('disabled','true');
       $('#dateissue1').prop('disabled','true');
       $("#btn_accuracy").attr('formnovalidate', 'formnovalidate'); 
       $('label.error').hide();

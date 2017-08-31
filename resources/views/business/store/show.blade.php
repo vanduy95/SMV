@@ -59,7 +59,7 @@
 							</div>
 						</div>
 						<div class="form-group ">
-							{!!Html::decode(Form::label('fullname','Số điện thoại',['class'=>'control-label col-lg-2']))!!}
+							{!!Html::decode(Form::label('fullname','Số điện thoại *',['class'=>'control-label col-lg-2']))!!}
 							<div class="col-lg-8">
 								{!!Form::text('phonecontact',str_replace(' ','',$store->phonecontact),['class'=>'form-control'])!!}
 								@if($errors->has('nameretail'))<p style="color: red;">{!!$errors->first('nameretail')!!}</p>@endif
@@ -101,6 +101,8 @@
 				phonecontact:{
 					required:true,
 					number:true,
+					min:10,
+					max:11
 				},
 			},
 			messages: {
@@ -122,6 +124,8 @@
 				phonecontact:{
 					number: "Trường này là số",
 					required: "Trường này không được để trống",
+					min:"Không đúng định dạng số điện thoại",
+					max:"Không đúng định dạng số điện thoại"
 				},
 			}
 		});

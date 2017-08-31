@@ -48,7 +48,13 @@ $(document).ready(function() {
 	jQuery.validator.addMethod("validDate", function(value, element) {
         return this.optional(element) || moment(value,"DD/MM/YYYY").isValid();
     }, "Không đúng định dạng ngày tháng");
+	$.validator.addMethod("max_salary", function (value, element) {
+		if($('#salary_info').val().replace(/[ đồng,.]/g,'')<100000000)
+			return true
+		else
+			return false
 
+	}, 'Lương của bạn phải nhỏ hơn 100 triệu');
 	$("#form_update_order").validate({
 		ignore: "",
 		rules:{
@@ -106,7 +112,7 @@ $(document).ready(function() {
 			},
 			salary:{
 				required:true,
-				max:100000000
+				max_salary:true,
 			},
 			department:{
 				required:true,
@@ -209,7 +215,7 @@ $(document).ready(function() {
 			},
 			salary:{
 				required:"Lương không được để trống",
-				max:"Vui lòng nhập dưới 100 triệu"
+				max_salary:"Vui lòng nhập dưới 100 triệu"
 			},
 			department:{
 				required:"Phòng ban không được để trống",

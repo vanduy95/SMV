@@ -1,9 +1,14 @@
 $(document).ready(function() {
+	jQuery.validator.addMethod("noSpace", function(value, element) { 
+		return value.indexOf(" ") < 0 && value != ""; 
+	}, "Không được chứa khoảng trắng");
+
 	$("#register_form").validate({
 		rules: {
 			passwordconfirm:{
 				required: true,
 				equalTo: "#password",
+				noSpace:true
 			},
 			fullname:{
 				required: true,
@@ -20,6 +25,7 @@ $(document).ready(function() {
 				},
 				required: true,
 				minlength: 3,
+				noSpace:true,
 			},
 			email: {
 				required: true,
@@ -28,6 +34,7 @@ $(document).ready(function() {
 			password: {
 				required: true,
 				minlength: 6,
+				noSpace:true
 			},
 			phone: {
 				required:true,
@@ -86,6 +93,7 @@ $(document).ready(function() {
 	$("#dt_form").validate({
 		rules: {
 			passwordconfirmdt:{
+				noSpace:true,
 				required: true,
 				equalTo: "#passworddt",
 			},
@@ -93,6 +101,7 @@ $(document).ready(function() {
 				required: true,
 			},
 			usernamedt: {
+				noSpace:true,
 				required: true,
 				minlength: 3,
 				remote: {
@@ -109,6 +118,7 @@ $(document).ready(function() {
 				required: true,
 				email: true
 			},
+			noSpace:true,
 			passworddt: {
 				required: true,
 				minlength: 6,

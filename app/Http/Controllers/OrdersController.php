@@ -386,7 +386,7 @@ function convertname($str) {
 	 			$fileName = "orders/order.docx";
 	 			$doc = new \PhpOffice\PhpWord\TemplateProcessor($fileName);
 	 			$doc->setValue('name',$order->user->userinfo->fullname);
-	 			$doc->setValue('order_id',substr('0000000000000000000000'.$order->id,-5));
+	 			$doc->setValue('order_id',orderId($order->retailsystem_id,$order->id));
 	 			$doc->setValue('created_at',\Carbon::parse($order->created_at)->format('d/m/Y'));
 	 			$doc->setValue('updated_at',\Carbon::parse($order->updated_at)->format('d/m/Y'));
 	 			$doc->setValue('organization_id',$order->user->organization->ma);

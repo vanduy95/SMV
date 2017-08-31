@@ -55,7 +55,7 @@
 				});
 			});
 			$('form').submit(function(event) {
-				if($('form').valid())
+				if($(this).valid())
 					$('#loading').show();
 			});
 			var url=window.location.href;

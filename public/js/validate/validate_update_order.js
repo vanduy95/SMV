@@ -1,6 +1,5 @@
 $(document).ready(function() {
 	$('#amount_slow').bind('input propertychange', function() {
-		alert('ok');
     	if($(this).val().replace(/[ đồng.]/g,'')>3000000)
 		{
 			$('#price-error').hide();
@@ -44,6 +43,13 @@ $(document).ready(function() {
 	// 		$('#salary_day').attr('required','true');
 	// 	}
 	// });
+	$.validator.addMethod("max_salary", function (value, element) {
+		if(value.replace(/[ đồng,.]/g,'')<100000000)
+			return true
+		else
+			return false
+
+	}, 'Lương của bạn phải nhỏ hơn 100 triệu');
 	$('#phone1').change(function () {
 		$('#phone').val($('#phone1').val());
 	});
@@ -127,7 +133,10 @@ $(document).ready(function() {
 			name:{
 				required:true,
 				maxlength:255,
-				minlength:3
+				minlength:3,
+				normalizer: function( value ) {
+					return $.trim( value );
+				}
 			},
 			employee_id:{
 				required:true,
@@ -160,34 +169,53 @@ $(document).ready(function() {
 			address1:{
 				required:true,
 				minlength:3,
-				maxlength:255
+				maxlength:255,
+				normalizer: function( value ) {
+					return $.trim( value );
+				}
 			},
 			address2:{
 				required:true,
 				minlength:3,
-				maxlength:255
+				maxlength:255,
+				normalizer: function( value ) {
+					return $.trim( value );
+				}
 			},
 			position:{
 				required:true,
-				maxlength:255
+				maxlength:255,
+				normalizer: function( value ) {
+					return $.trim( value );
+				}
 			},
 			sex:{
 				required:true,
 			},
 			salary:{
 				required:true,
+				max_salary:true,
 			},
 			department:{
 				required:true,
-				maxlength:255
+				maxlength:255,
+				normalizer: function( value ) {
+					return $.trim( value );
+				}
 			},
 			product: {
 				required: true,
 				maxlength:225,
+				normalizer: function( value ) {
+					return $.trim( value );
+				}
 			},
 			code_product: {
 				required: true,
-				maxlength: 50
+				maxlength: 50,
+				normalizer: function( value ) {
+					return $.trim( value );
+				}
 			},
 			price: {
 				required: true,
@@ -250,6 +278,9 @@ $(document).ready(function() {
 			},
 			bank_name:{
 				maxlength:255,
+				normalizer: function( value ) {
+					return $.trim( value );
+				}
 			},
 			salary_day:{
 				number:true,

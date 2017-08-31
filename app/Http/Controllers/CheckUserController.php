@@ -146,14 +146,7 @@ public function postAccuracy(Request $r)
 {
    $user=User::find($r->user_id);
    $userinfo=UserInfo::find($r->userinfo_id);
-   if($r->salary_day==null)
-   {
-     $userinfo->salary_day=1;
- }
- else
- {
     $userinfo->salary_day=$r->salary_day;
-}
 if(!$r->salary_avg==null)
 {
     $userinfo->salary_avg=preg_replace("/[ đồng.]/","",$r->salary_avg);
