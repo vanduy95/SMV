@@ -12,3 +12,16 @@
 .content-header>h1 {
 	margin-bottom: 20px!important;
 }
+@media screen and(max-width: 769px) {
+	.btn-full-width{
+		width: 100%;
+	}
+	.btn_full_size input{
+		width: 100%;
+	}
+	.btn_full_size{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+}

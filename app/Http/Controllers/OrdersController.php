@@ -648,22 +648,21 @@ function convertname($str) {
  		switch (Auth::user()->groupuser_id) {
  			case 1:
  			if($orders->process_id==1){
- 				return view('business.orders.update.order_info',compact('UserInfo','orders','city','buy','buys','retailsystem','organization','total_buy'));
+ 				return view('business.orders.update.order_info',compact('UserInfo','orders','city','buy','buys','retailsystem','organization','total_buy','warning_order'));
  			}
  			if($orders->process_id==2){
- 				return view('business.orders.accuracy.index',compact('UserInfo','orders','city','buy','buys','retailsystem','comparison','total_buy'));
+ 				return view('business.orders.accuracy.index',compact('UserInfo','orders','city','buy','buys','retailsystem','comparison','total_buy','warning_order'));
  			}
  			if($orders->process_id==3){
- 				dd($warning_order);
  				$days = $this->first_day_payment($orders->updated_at,$UserInfo->salary_day);
  				if($days!=null)
  					$day=$days;
  				else
  					$day=\Carbon::setDate(0,0,0);
- 				return view('business.orders.approval.index',compact('UserInfo','orders','city','buy','buys','retailsystem','day','total_buy'));
+ 				return view('business.orders.approval.index',compact('UserInfo','orders','city','buy','buys','retailsystem','day','total_buy','warning_order'));
  			}
  			if($orders->process_id==4 || $orders->process_id==6|| $orders->process_id==5){
- 				return view('business.orders.sale.index',compact('UserInfo','orders','city','buy','buys','retailsystem','total_buy'));
+ 				return view('business.orders.sale.index',compact('UserInfo','orders','city','buy','buys','retailsystem','total_buy','warning_order'));
  			}
  			break;
  			case 3:

@@ -17,16 +17,28 @@
 	.error{
 		color: red
 	}
+	.div-center{
+		display: inline-flex;
+		justify-content: center; 
+		align-items: center;
+	}
 	.form-group{
 		margin: 0px;
 	}
 	label.control-label.col-sm-4 {
 		text-align: left;
 	}
+	.clear{
+		clear: both;
+	}
+	.btn_full_size{
+		width: 100%;
+		justify-content: flex-end;
+	}
 </style>
 {!!Html::script('js/validate/validate_update_order.js')!!}
-<section class="content">
-<div class="row" style="">
+<section class=" ">
+	<div class=" " style="">
 		<h2 class="col-lg-10" style="margin-top: 0px">Xét duyệt thông tin</h2>
 		<h2 class="col-lg-2" style="margin-top: 0px"><a href="/admin/orderinfor/userinfo/{{$orders->user->userinfo->id}}" class="btn btn-success">In thông tin khách hàng</a></h2>
 	</div>
@@ -35,7 +47,7 @@
 		<li><a data-toggle="pill" href="#menu1">Thông tin mua hàng</a></li>
 		<li><a data-toggle="pill" href="#menu2">Thông tin thu nhập</a></li>
 	</ul>
-	<form class="form-group" method="post" id="form_update_order" action="{{url('admin/postApprovalOrder')}}">
+	<form class="" class="form-group" method="post" id="form_update_order" action="{{url('admin/postApprovalOrder')}}">
 		{{csrf_field()}}
 		<input type="hidden" name="order_id" value='{{$orders->id}}'>
 		<input type="hidden" name="userinfo_id" value='{{$orders->user->userinfo->id}}'>
@@ -50,10 +62,10 @@
 			<div id="menu2" class="tab-pane fade">
 				@include('business.orders.approval.incomeinfo')
 			</div>
-			<div class="row">
+			<div class="row ">
 				<div class="col-md-12" align="center"><b>Ngày xác thực gần nhất : {{date('d-m-Y',strtotime($UserInfo->updated_at))}}</b></div>
 			</div>
-			<div class="row">
+			<div class="row ">
 				<div class="col-md-12 pull-right" style="margin-bottom: 20px">
 					<script src="https://rawgit.com/enyo/dropzone/master/dist/dropzone.js"></script>
 					<link rel="stylesheet" href="https://rawgit.com/enyo/dropzone/master/dist/dropzone.css">
@@ -63,9 +75,8 @@
 					</form>
 				</div>
 			</div>
-			<div class="" style="padding: 0 15px 15px 0">
-				
-				<input type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#myModal" value="Yêu cầu cập nhật lại thông tin"/>
+			<div class="row btn_full_size div-center" style="padding: 0 15px 15px 0;">
+				<input type="button" class="btn-full-width btn btn-primary pull-right" data-toggle="modal" data-target="#myModal" value="Yêu cầu cập nhật lại thông tin"/>
 				<div class="modal fade" id="myModal" role="dialog">
 					<div class="modal-dialog modal-lg">
 						<div class="modal-content">
@@ -74,20 +85,18 @@
 								<h4 class="modal-title">Lý do yêu cầu cập nhập :</h4>
 							</div>
 							<div class="modal-body">
-								<textarea rows="12" name="note_update" class="form-control"></textarea>
+								<textarea row col-lg-12 col-xs-12 col-md-12s="12" name="note_update" class="form-control"></textarea>
 								<script type="text/javascript">
 									CKEDITOR.replace('note_update');
 								</script>
 							</div>
 							<div class="modal-footer">
-								<input type="submit" style="margin: 0 5px 0 5px" class=" btn btn-primary pull-right" name="update" value="Yêu cầu cập nhật lại thông tin"/>
+								<input type="submit" style="margin: 0 5px 0 5px" class="btn-full-width btn btn-primary pull-right" name="update" value="Yêu cầu cập nhật lại thông tin"/>
 							</div>
 						</div>
 					</div>
 				</div>
-
-
-				<input type="button" style="margin: 0 5px 0 5px" class=" btn btn-primary pull-right" name="accuracy" value="Yêu cầu xác thực" data-toggle="modal" data-target="#accuracy_modal"/>
+				<input type="button" style="margin: 0 5px 0 5px" class="btn-full-width btn btn-primary pull-right" name="accuracy" value="Yêu cầu xác thực" data-toggle="modal" data-target="#accuracy_modal"/>
 				<div class="modal fade" id="accuracy_modal" role="dialog">
 					<div class="modal-dialog modal-lg">
 						<div class="modal-content">
@@ -96,7 +105,7 @@
 								<h4 class="modal-title">Lý do yêu cầu xác thực :</h4>
 							</div>
 							<div class="modal-body">
-								<textarea name="note_accuracy" rows="12" class="form-control"></textarea>
+								<textarea name="note_accuracy" class="form-control"></textarea>
 								<script type="text/javascript">
 									CKEDITOR.replace('note_accuracy');
 								</script>
@@ -107,12 +116,14 @@
 						</div>
 					</div>
 				</div>
-				<input type="submit" style="margin: 0 5px 0 5px" class="  btn btn-primary pull-right" name="deactive" value="Từ chối"/>
-				<input type="submit" style="margin: 0 5px 0 5px" class="btn btn-primary pull-right" name="approval" value="Phê duyệt"/>
+				<input type="submit" style="margin: 0 5px 0 5px" class="btn-full-width   btn btn-primary pull-right" name="deactive" value="Từ chối"/>
+				<input type="submit" style="margin: 0 5px 0 5px" class="btn-full-width btn btn-primary pull-right" name="approval" value="Phê duyệt"/>
 				<div class="clear"></div>
 			</div>
 		</div>
-	</form>
+		<div class="clear"></div>
+	</form>  
+	<div class="clear"></div>
 	<script type="text/javascript">
 		Dropzone.options.myAwesomeDropzone = {
  	    paramName: "file", // The name that will be used to transfer the file

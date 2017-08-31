@@ -47,7 +47,13 @@
 		function closeNav() {
 			document.getElementById("mySidenav").style.width = "0";
 		}
-		$(document).ready(function(){ 
+		$(document).ready(function(){
+			$('input[type=text]').click(function(){
+				$(this).select();
+				$(this).click(function(){
+					$(this).select().off();
+				});
+			});
 			$('form').submit(function(event) {
 				if($('form').valid())
 					$('#loading').show();

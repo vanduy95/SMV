@@ -11,41 +11,45 @@
 			<div class=" aboutus content ">
 				<h2>Công ty TNHH Phát triển Sức Mua Việt được thành lập với mục tiêu mang đến cho khách hàng trải nghiệm "Mua trước trả sau" hoàn toàn mới.</h2>
 			</div>
-			<div class=" aboutus content col-first col-last">
-				<div class="col-lg-12 col-xs-12 col-first col-last">
-					<div class="text-aboutus col-lg-3  col-xs-3 col-first">
+			<div class=" aboutus col-lg-12 col-xs-12 col-md-12 content reset-padding">
+				<div class="col-lg-12 col-xs-12 col-md-12  reset-padding">
+					<div class="text-aboutus col-lg-3  col-xs-6 reset-padding">
 						<span class="title-bold">Tiết kiệm: </span>
 						<span class="definition">
 							Không phải ngân hàng hay công ty tài chính, hoạt động của chúng tôi là bán hàng trả chậm với mức chi phí thấp nhất và hoàn toàn
 						</span>
 						<span class="title-bold">KHÔNG LÃI SUẤT</span>
-
+						<div class="clear"></div>
 					</div>
-					<div class="text-aboutus col-lg-3 col-xs-3">
+					<div class="text-aboutus col-lg-3 col-xs-6 reset-padding">
 						<span class="title-bold">Dễ dàng trong thanh toán: </span>
 						<span class="definition">
 							Hình thức thanh toán tự động qua tài khoản ngân hàng, khách hàng không phải đến ngân hàng nộp tiền trả gớp hàng tháng.
 						</span>
-
+						<div class="clear"></div>
 					</div>
-					<div class="text-aboutus col-lg-3 col-xs-3">
+					<div class="text-aboutus col-lg-3 col-xs-6 reset-padding">
 						<span class="title-bold">Đa dạng lựa chọn: </span>
 						<span class="definition">
 							Chúng tôi không ngừng xây dựng hệ thống đối tác lớn mạnh và đa dạng mang đến nhiều lựa chọn cho khách hàng.
 						</span>
+						<div class="clear"></div>
 					</div>
-					<div class="text-aboutus col-lg-3 col-xs-3" style="padding-right: 0">
+					<div class="text-aboutus col-lg-3 col-xs-6" style="padding-right: 0">
 						<span class="title-bold">Tiện lợi trong mua sắm: </span>
 						<span class="definition">
 							Khách hàng có thể xác định được "Sức mua" trước khi mua sắm.
 						</span>
+						<div class="clear"></div>
 					</div>
+					<div class="clear"></div>
 				</div>
+				<div class="clear"></div>
 			</div>
 		</div>
 	</section>
 	<section class="container-fluid interest-background">
-		<div class="row col-lg-12 col-md-12 col-xs-12">
+		<div class=" row col-lg-12 col-md-12 col-xs-12">
 			<div class="interest-client col-lg-3 col-md-3 col-xs-3">
 				<div class="div-items col-lg-12 col-md-12 col-xs-12">
 					<div class="div-item col-lg-6 col-md-6 col-xs-6">
@@ -58,7 +62,7 @@
 					<div class="clear"></div>
 				</div>
 			</div>
-			<div class="col-lg-offfset-1 col-md-offset-1 col-xs-offset-1 col-lg-7 col-md-7 col-xs-7">
+			<div class="col-lg-offfset-1 col-md-offset-1 col-lg-7 col-md-7 col-xs-12">
 				<p class="interest-title">
 					ĐỂ MANG LẠI LỢI ÍCH TỐT NHẤT CHO KHÁCH HÀNG, CHÚNG TÔI ĐÃ NỖ LỰC:
 				</p> 
@@ -80,11 +84,11 @@
 						<span>Chương trình "ĐẶC QUYỀN MUA SẮM DÀNH CHO HỘI VIÊN". Sức Mua Việt mang đến những ưu đãi thiết thực cho khách hàng.</span>
 					</div>
 					<div class="img-content">
-						<div class="content-sm col-lg-9">
+						<div class="content-sm col-lg-9 col-md-12 col-xs-12">
 							<span><i class="fa fa-circle" aria-hidden="true"></i>Cấp trước Sức Mua để mua sắm hàng hóa tương đương 200% - 300% lương hàng tháng.<br/></span>
 							<span><i class="fa fa-circle" aria-hidden="true"></i>Hội viên được thỏa mái mua sắm toàn bộ các mặt hàng tại hệ thống của hàng, siêu thị của đối tác với:<span class="interest-0"> Ưu đãi trả góp 6 tháng, lãi suất 0%</span>. Đây thực sự là cơ hội mua sắm tốt nhất và tiết kiệm nhất so với các hình thức mua sắm khác.</span>
 						</div>
-						<div class="img-logo col-lg-2 col-md-2 col-xs-3" style="padding: 0">
+						<div class="img-logo col-lg-2" style="padding: 0">
 							<img src="img/home_page/logo-.png">
 						</div>
 					</div>

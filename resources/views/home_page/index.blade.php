@@ -199,7 +199,7 @@
 						<p class="text-vw-5 py-xs-0 py-md-3" style="color: white; font-weight: 600;padding: 5px;">Kiểm tra sức mua của bạn</p>	
 					</div>
 					<div class="col-md-12 col-xs-12" style="padding:0">
-						<div class="col-md-12 col-xs-12 form-group">
+						<div class="text-center col-md-12 col-xs-12 form-group">
 							<label for="">Tên công ty</label>
 							<div class="col-md-12 col-xs-12">
 								<div class="col-xs-12 div-flex" style="padding:0">
@@ -213,7 +213,7 @@
 								<p  class="error" id="error_com_xs"></p>
 							</div>
 						</div>
-						<div class="col-md-12 col-xs-12">
+						<div class="text-center col-md-12 col-xs-12">
 							<label for="">Chứng minh nhân dân</label>
 							<div class="col-md-12 col-xs-12">
 								<div class="col-xs-12 div-flex" style="padding:0">
@@ -222,7 +222,7 @@
 								<p class="error"  id="error_cmt_xs"></p>
 							</div>
 						</div>
-						<div class="col-md-12 col-xs-12">
+						<div class="text-center col-md-12 col-xs-12">
 							<label for="">Mã số nhân viên</label>
 							<div class="col-md-12 col-xs-12">
 								<div class="col-xs-12 div-flex" style="padding:0">
@@ -248,10 +248,10 @@
 				<form id="data_form_xs" class="form-banner-xs col-md-12 col-xs-12" style="padding: 0; display: none" action="/orders/show" method="post">
 					{{csrf_field()}}
 					<div class="col-md-12 col-xs-12" style="background: rgb(0,83,167);">
-						<p class="py-xs-0 py-md-3" style="color: white;font-size: 1.5vw; font-weight: 600;padding: 5px;">Thông tin khách hàng</p>	
+						<p class="" style="color: white;font-size: 6vw; font-weight: 600;padding: 0px;margin:0">Thông tin khách hàng</p>	
 					</div>
 					<div class="col-md-12 col-xs-12">
-						<div class="col-md-12 col-xs-12">
+						<div class="text-center col-md-12 col-xs-12">
 							<label for="">Họ tên</label>
 							<div class="col-md-12 col-xs-12">
 								<div class="col-xs-12 div-flex">
@@ -261,7 +261,7 @@
 								<p></p>
 							</div>
 						</div>
-						<div class="col-md-12 col-xs-12">
+						<div class="text-center col-md-12 col-xs-12">
 							<label for="">Tổng sức mua</label>
 							<div class="col-md-12 col-xs-12">
 								<div class="col-xs-12 div-flex">
@@ -270,7 +270,7 @@
 								<p></p>
 							</div>
 						</div>
-						<div class="col-md-12 col-xs-12">
+						<div class="text-center col-md-12 col-xs-12">
 							<label for="">Sức mua đã sử dụng</label>
 							<div class="col-md-12 col-xs-12">
 								<div class="col-xs-12 div-flex">
@@ -278,7 +278,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-md-12 col-xs-12">
+						<div class="text-center col-md-12 col-xs-12">
 							<label for="">Sức mua còn lại</label>
 							<div class="col-md-12 col-xs-12">
 								<div class="col-xs-12 div-flex">
@@ -286,13 +286,23 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-md-12 col-xs-12 py-2" style="padding: 0">
+						<div id="next_register_xs" class="col-md-12 col-xs-12 py-2" style="padding: 0">
 							<div class="col-md-12 col-xs-12 py-2" style="padding: 0">
 								<div class="col-xs-12 div-flex py-2" style="padding: 0">
 									<input id="btn_orders_xs" name="btn_orders_xs" class="col-md-5 col-xs-5 col-xs  btn btn-primary" type="submit" style="background: #170e66; border-radius: 10px;font-size: 10px;" value="Đăng ký mua hàng">
 									<input id="btn_upload_xs" name="btn_upload_xs" class="col-xs-offset-1 col-md-5 col-xs-5 col-xs  btn btn-primary" type="submit" style="background: #170e66; border-radius: 10px;font-size: 10px;" value="Tải phiếu đăng ký">
 								</div>
 							</div>
+						</div>
+						<div class="col-lg-12" id="dont_next_xs" style="display: none">
+							<div class="col-lg-12">
+								<p id="notify_xs" class="text-center" style="color: red; margin: 0">Sức mua hiện tại của bạn không đủ thực hiện giao dịch. Liên hệ với chúng tôi để được hỗ trợ.</p>
+								<p id="hotline"><span class="text-center" style="color: red" id="phone"></span></p>
+							</div>
+							<div class="mb-2 col-lg-12 div-flex">
+								<a href="#" id="return_local_xs" style="max-width: 100%;" class="btn btn-primary col-lg-6">Quay về trang chủ</a>
+							</div>
+							<div class="clear"></div>
 						</div>
 						<div class="clear"></div>
 					</form>

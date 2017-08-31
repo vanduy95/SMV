@@ -7,7 +7,11 @@
   <link href="{{url('img/demo/shortcut-icon.png')}}" rel="shortcut icon" type="image/x-icon" />  
   <title>SMV</title>
   <!-- Tell the browser to be responsive to screen width -->
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  {{-- <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"> --}}
+{{--   <meta name="viewport" content="width=device-width,initial-scale=1"> --}}
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  {{-- <meta name="viewport" content="width=device-width, initial-scale=1"> --}}
+  {!!Html::style('css/style.css')!!}
   <!-- Bootstrap 3.3.6 -->
   {!!Html::style('theme/bootstrap/css/bootstrap.min.css')!!}
   <!-- Font Awesome -->
@@ -30,7 +34,6 @@
   {!!Html::style('theme/plugins/daterangepicker/daterangepicker.css')!!}
   <!-- bootstrap wysihtml5 - text editor -->
   {!!Html::style('/theme/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')!!}
-  {!!Html::style('css/style.css')!!}
   {!!Html::style('theme/plugins/datatables/dataTables.bootstrap.css')!!}
   {!!Html::style('theme/dist/css/AdminLTE.min.css')!!}
   {!!Html::style('theme/dist/css/alt/AdminLTE-without-plugins.css')!!}
@@ -69,12 +72,11 @@
     .table-responsive{
       overflow-x: scroll;
     }
-    @media screen and (min-width: 1000px){
+    @media only screen and (min-width: 1000px){
       .table-responsive{
         overflow-x: hidden;
       }
     }
-
   </style>
   <!-- jQuery UI 1.11.4 -->
   <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
@@ -157,41 +159,44 @@
     <style type="text/css">
       #loading{
         background: url({{ asset('img/loading.gif') }}) center no-repeat ;
-position: fixed;
-left: 0px;
-top: 0px,;
-width: 100%;
-height: 100%;
-z-index: 9999
-}
-</style>
+        position: fixed;
+        left: 0px;
+        top: 0px,;
+        width: 100%;
+        height: 100%;
+        z-index: 9999
+      }
+      .content-wrapper{
+        min-height: auto !important;
+      }
+    </style>
 
-@yield('script')
+    @yield('script')
 
-</head>
-<body class="skin-blue sidebar-mini">
- <div class="loading" id="loading" style="display: none"></div>
- <div class="wrapper">
-  @include('partials.header')
-  @include('partials.sidebars')
-  <div class="content-wrapper" ng-app="my-app">
-    @yield('content')
+  </head>
+  <body class="skin-blue sidebar-mini">
+   <div class="loading" id="loading" style="display: none"></div>
+   <div class="wrapper">
+    @include('partials.header')
+    @include('partials.sidebars')
+    <div class="content-wrapper" ng-app="my-app">
+      @yield('content')
+    </div>
+    <aside class="control-sidebar control-sidebar-dark">
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <!-- Home tab content -->
+        <div class="tab-pane" id="control-sidebar-home-tab">
+        </div>
+      </aside>
+    </div>
   </div>
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Tab panes -->
-    <div class="tab-content">
-      <!-- Home tab content -->
-      <div class="tab-pane" id="control-sidebar-home-tab">
-      </div>
-    </aside>
-  </div>
-</div>
-<script type="text/javascript">
-  $(document).ready(function() {
-    var table = $('#example1').DataTable();
+  <script type="text/javascript">
+    $(document).ready(function() {
+      var table = $('#example1').DataTable();
       table.order( [ 0, 'desc' ] ).draw();
-  });
-</script>
+    });
+  </script>
 
 </body>
 </html>

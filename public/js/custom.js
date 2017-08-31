@@ -371,17 +371,17 @@ $('#btn_search_xs').click(function(){
 							$('#btn_upload_xs').attr('href',url+'/orders/upload/'+res[0].id);
 						}
 						if(res[0].notify=="notify"){
-							$('#register_form').hide();
-							$('#next_register').hide();
-							$('#data_form').show();
-							$('#dont_next').show();
-							$('#u_name').val(res[0].fullname);
-							$('#sum_buy').val((numeral(round_d(res[0].salary*2.5)).format('0,0').replace(/,/g,'.')+" đồng"));
-							$('#buy_use').val(numeral(round_d(res[0].price-res[0].prepay)).format('0,0').replace(/,/g,'.')+" đồng");
-							$('#rest').val((numeral(round_d((res[0].salary*2.5)-(res[0].price-res[0].prepay))).format('0,0').replace(/,/g,'.'))+" đồng");
-							$('#notify').text('Sức mua hiện tại của bạn không đủ thực hiện giao dịch. Liên hệ với chúng tôi để được hỗ trợ.');
+							$('#register_form_xs').hide();
+							$('#next_register_xs').hide();
+							$('#data_form_xs').show();
+							$('#dont_next_xs').show();
+							$('#u_name_xs').val(res[0].fullname);
+							$('#sum_buy_xs').val((numeral(round_d(res[0].salary*2.5)).format('0,0').replace(/,/g,'.')+" đồng"));
+							$('#buy_use_xs').val(numeral(round_d(res[0].price-res[0].prepay)).format('0,0').replace(/,/g,'.')+" đồng");
+							$('#rest_xs').val((numeral(round_d((res[0].salary*2.5)-(res[0].price-res[0].prepay))).format('0,0').replace(/,/g,'.'))+" đồng");
+							$('#notify_xs').text('Sức mua hiện tại của bạn không đủ thực hiện giao dịch. Liên hệ với chúng tôi để được hỗ trợ.');
 							$('#hotline').text('Hotline: ');
-							$('#return_local').attr('href',url);
+							$('#return_local_xs').attr('href',url);
 						}
 						else{
 							$('#register_form_xs').hide();

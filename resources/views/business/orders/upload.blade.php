@@ -241,9 +241,9 @@
       <div class="clear"></div>
     </div>
     <div class="col-lg-12">
-     <div class="col-lg-12 div-center">
-      {!! Form::submit('Gửi phiếu đăng ký', ['class'=>' btn btn-primary col-lg-5 col-xs-7 col-md-6','id'=>'send_data','style'=>'background: #170e66;font-size: 20px;']) !!}
-      <input type="button" id="btn_show"  style="background: #cccccc; border: 1px solid #cccccc;color: #373737;font-size: 20px;" class="col-lg-offset-1 col-xs-offset-1 col-md-offset-1 col-lg-3 col-xs-4 col-md-4 btn btn-primary" value="Chọn lại ">
+     <div class="col-lg-12 col-xs-12 col-md-12 div-center">
+      {!! Form::submit('Gửi phiếu đăng ký', ['class'=>'div-center  btn btn-primary col-lg-5 col-xs-12 col-md-6','id'=>'send_data','style'=>'background: #170e66;font-size: 20px;']) !!}
+      <input type="button" id="btn_show"  style="background: #cccccc; border: 1px solid #cccccc;color: #373737;font-size: 20px;" class="div-center col-lg-offset-1 col-xs-offset-1 col-md-offset-1 col-lg-3 col-xs-11 col-md-4 btn btn-primary" value="Chọn lại ">
     </div>
     <div class="clear"></div>
   </div>
