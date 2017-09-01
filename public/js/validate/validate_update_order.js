@@ -46,6 +46,7 @@ $(document).ready(function() {
 			return false
 
 	}, 'Lương của bạn phải nhỏ hơn 100 triệu');
+	
 	$('#phone1').change(function () {
 		$('#phone').val($('#phone1').val());
 	});

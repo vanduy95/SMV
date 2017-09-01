@@ -120,7 +120,7 @@ class UserInfoController extends Controller
        $userinfo = UserInfo::find($id);
        $user = User::find($userinfo->user_id);
        $groupuser = GroupUser::all();
-       $organization = Organization::all();
+       $organization = Organization::where('system','<>','1')->get();
        $assess = Assess::all();
          // return $userinfo;
        return view('business.userinfo.show',compact('userinfo','user','groupuser','organization','assess'));
