@@ -2,6 +2,9 @@ $(document).ready(function() {
 	jQuery.validator.addMethod("noSpace", function(value, element) { 
 		return value.indexOf(" ") < 0 && value != ""; 
 	}, "Không được chứa khoảng trắng");
+	jQuery.validator.addMethod("email_valid", function(value, element) { 
+		return /[A-Z0-9._-]+@[A-Z0-9-]+[.]+[A-Z]{2,4}/gim.test(value); 
+	}, "Địa chỉ Email không đúng định dạng");
 
 	$("#register_form").validate({
 		rules: {
@@ -29,7 +32,7 @@ $(document).ready(function() {
 			},
 			email: {
 				required: true,
-				email: true
+				email_valid: true
 			},
 			password: {
 				required: true,
@@ -57,7 +60,7 @@ $(document).ready(function() {
 			},
 			email: {
 				required: "Email không được để trống",
-				email: "Định dạng email không chính xác"
+				// email: "Định dạng email không chính xác"
 			},
 			password: {
 				required: "Mật khẩu không được để trống",
@@ -116,7 +119,7 @@ $(document).ready(function() {
 			},
 			emaildt: {
 				required: true,
-				email: true
+				email_valid: true
 			},
 			noSpace:true,
 			passworddt: {
@@ -156,7 +159,7 @@ $(document).ready(function() {
 			},
 			emaildt: {
 				required: "Email không được để trống",
-				email: "Định dạng email không chính xác"
+				// email: "Định dạng email không chính xác"
 			},
 			passworddt: {
 				required: "Mật khẩu không được để trống",

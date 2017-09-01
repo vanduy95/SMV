@@ -278,7 +278,7 @@ $(document).ready(function() {
   }, 'Trả trước phải lớn lơn 30% giá trị sản phẩm');
   $.validator.addMethod("check_text_special", function (value, element) {
     // var regex = '/[~!@#$%^&*()_+=`,.]/g';
-    return  /[^~!@#$%^&*()_+=`,.]/g.test(value);
+    return  /^[^(~!@#$%^&*()_+=`,.)]+$/gm.test(value);
   }, 'Tên không được có ký tự đặc biệt');
     // $.validator.addMethod("check_price_vs_buy", function (value, element) {
     //   var price=$('#price').val().replace('.','').replace('.','').replace('.','').replace('.','').replace('.','').replace(' đồng','');

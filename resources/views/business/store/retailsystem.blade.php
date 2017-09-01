@@ -47,21 +47,23 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		jQuery.validator.addMethod("special_character", function(value, element) {
-			return  /[a-zA-Z0-9]+$/.test(value);
+			return  /^[^(~!@#$%^&*()_+=`,.)]+$/gm.test(value);
 		});
 		$("#register_form").validate({
 			rules:{
 				nameretail:{
 					required:true,
-					//special_character:true,
-					maxlength:255
+					minlength:6,
+					special_character:true,
+					maxlength:255,
 				},
 			},
 			messages: {
 				nameretail:{
 					required: "Trường này không được để trống",
-					//special_character:"Không được chứa ký tự đặc biệt",
-					maxlength:"Tên quá dài"
+					special_character:"Không được chứa ký tự đặc biệt",
+					minlength:"Tên hệ thống không nhở hơn 6 ký tự",
+					maxlength:"Tên quá dài",
 				},
 			}
 		});

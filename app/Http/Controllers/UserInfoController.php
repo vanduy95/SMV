@@ -50,7 +50,7 @@ class UserInfoController extends Controller
         return view('business.userinfo.create',compact('groupuser','organization'));
     }
     public function postcreate(UserinfoRequest $request ,User $user,UserInfo $userinfo){
-        dd($request);
+        // dd($request);
         $user = new User();
         $user->username = $request->username;
         $user->groupuser_id = $request->groupuser_id;
