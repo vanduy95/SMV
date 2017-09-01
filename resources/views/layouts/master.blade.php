@@ -166,9 +166,6 @@
         height: 100%;
         z-index: 9999
       }
-      .content-wrapper{
-        min-height: 100%;
-      }
     </style>
 
     @yield('script')
