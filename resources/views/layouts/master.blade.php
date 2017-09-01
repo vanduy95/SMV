@@ -167,7 +167,7 @@
         z-index: 9999
       }
       .content-wrapper{
-        min-height: auto !important;
+        min-height: 100%;
       }
     </style>
 
