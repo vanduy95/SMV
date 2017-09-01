@@ -1,3 +1,4 @@
+
 $(document).ready(function() {
   if ($('#exchange_status').val()==2) {
       $('#bank_name').prop('disabled','true');

@@ -5,14 +5,7 @@ $(document).ready(function() {
 			$('#price-error').hide();
 		}
 	});
-	// $('#amount_slow').change(function(event) {
-	// 	alert('ok');
-	// 	if($(this).val().replace(/[ đồng.]/g,'')>3000000)
-	// 	{
-	// 		$('#price-error').hide();
-	// 	}
-	// });
-	// $('#amount_slow').trigger('change');
+	
 	
 	// if ($('#exchange_status').val()==2) {
 	// 		$('#bank_name').removeAttr('required');
@@ -139,6 +132,9 @@ $(document).ready(function() {
 				}
 			},
 			employee_id:{
+				normalizer: function( value ) {
+					return $.trim( value );
+				},
 				required:true,
 				maxlength:255,
 				remote: {
@@ -247,6 +243,7 @@ $(document).ready(function() {
 				required:true
 			},
 			identitycard:{
+				maxlength:20,
 				required:true,
 				number:true,
 				remote: {
@@ -260,6 +257,9 @@ $(document).ready(function() {
 							return $( "#userinfo_id").val();
 						},
 					}
+				},
+				normalizer: function( value ) {
+					return $.trim( value );
 				}
 			},
 			dateissue:{
@@ -269,9 +269,15 @@ $(document).ready(function() {
 			},
 			issuedby:{
 				required:true,
+				normalizer: function( value ) {
+					return $.trim( value );
+				},
 			},
 			number_account:{
 				required:true,
+				normalizer: function( value ) {
+					return $.trim( value );
+				},
 			},
 			exchange_status:{
 				required:true,
@@ -375,7 +381,8 @@ $(document).ready(function() {
 				required: "Cửa hàng không được để trống",
 			},
 			identitycard:{
-				required:"Số CMT không được để trống",
+				maxlength:"Số CMND quá dài",
+				required:"Số CMND không được để trống",
 				number:"Phải nhập số",
 				remote:"Số chứng minh thư này đã tồn tại",
 			},
