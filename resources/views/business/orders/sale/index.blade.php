@@ -51,6 +51,18 @@
 	.form-control{
 		margin-bottom: 1px;
 	}
+	@media (max-width: 991px){
+		.btn-full-width{
+			width: 100%;
+			margin: 1vw 0;
+		}
+	}
+	@media (max-width: 786px){
+		.btn-full-width{
+			width: 100%;
+			margin: 1vw 0;
+		}
+	}
 </style>
 {!!Html::script('js/validate/validate_update_order.js')!!}
 <section class="content">
@@ -59,9 +71,9 @@
 			@if ($orders->process_id==4)
 			Thông tin đơn hàng đã được duyệt
 			@elseif($orders->process_id==6)
-				Thông tin đơn hàng không được duyệt
+			Thông tin đơn hàng không được duyệt
 			@else
-			  	Đã giao hàng
+			Đã giao hàng
 			@endif
 		</a></li>
 	</ul>
@@ -73,50 +85,50 @@
 		<div class="tab-content" style="background: #fff">
 			<div id="home" class="tab-pane fade in active" >
 				@include('business.orders.sale.user_info')
-			<div class="row">
-				<div class="col-md-12" align="center"><b>Ngày phê duyệt : {{date('d-m-Y',strtotime($UserInfo['updated_at']))}}</b></div>
-			</div>
+				<div class="row">
+					<div class="col-md-12" align="center"><b>Ngày phê duyệt : {{date('d-m-Y',strtotime($UserInfo['updated_at']))}}</b></div>
+				</div>
 				@include('business.orders.sale.require')
 			</div>
 			<div class="row" style="padding-bottom: 10px">
 				<div class="col-md-2"></div>
-				<div class="col-md-10">
-				@if($orders->process_id==4||$orders->process_id==5)
-					<div class="col-md-3">
-						<input type="submit" class="btn btn-primary col-md-12" name="print_pay" value="In chứng từ thanh toán"/>
+				<div class="col-md-10 col-xs-12">
+					@if($orders->process_id==4||$orders->process_id==5)
+					<div class="col-md-3 col-xs-12">
+						<input type="submit" class="btn-full-width btn btn-primary col-md-12" name="print_pay" value="In chứng từ thanh toán"/>
 					</div>
-					<div class="col-md-2">
-						<input type="submit" class="btn btn-primary col-md-12" name="print_notification" value="In thông báo"/>
+					<div class="col-md-2 col-xs-12">
+						<input type="submit" class="btn-full-width btn btn-primary col-md-12" name="print_notification" value="In thông báo"/>
 					</div>
-					<div class="col-md-2">
-						<input type="submit" class="btn btn-primary col-md-12" name="print_contract" value="In hợp đồng"/>
+					<div class="col-md-2 col-xs-12">
+						<input type="submit" class="btn-full-width btn btn-primary col-md-12" name="print_contract" value="In hợp đồng"/>
 					</div>
 					@if ($orders->user->userinfo->exchange_status!=2)
-					<div class="col-md-3">
-						<input type="submit" class="btn btn-primary col-md-12" name="print_auto_pay" value="In yêu cầu thanh toán tự động"/>
+					<div class="col-md-3 col-xs-12">
+						<input type="submit" class="btn-full-width btn btn-primary col-md-12" name="print_auto_pay" value="In yêu cầu thanh toán tự động"/>
 					</div>	
 					@endif
 					
-				@if ($orders->process_id==4)
-					<div class="col-md-2">
-						<input type="submit" class="btn btn-primary col-md-12" name="ship" value="Giao hàng"/>
+					@if ($orders->process_id==4)
+					<div class="col-md-2 col-xs-12">
+						<input type="submit" class="btn-full-width btn btn-primary col-md-12" name="ship" value="Giao hàng"/>
 					</div>
-				@else
-					<div class="col-md-2">
-						<input type="submit" class="btn btn-primary col-md-12 pull-right" name="back" value="Quay lại"/>
+					@else
+					<div class="col-md-2 col-xs-12">
+						<input type="submit" class="btn-full-width btn btn-primary col-md-12 pull-right" name="back" value="Quay lại"/>
 					</div>
-				@endif
+					@endif
 					
-				@else
-					<div class="col-md-2">
-						<input type="submit" class="btn btn-primary col-md-12" name="back" value="Quay lại"/>
+					@else
+					<div class="col-md-2 col-xs-12">
+						<input type="submit" class="btn-full-width btn btn-primary col-md-12" name="back" value="Quay lại"/>
 					</div>
 					
 					@endif 
 				</div>	
 			</div>
-			</div>
-		</form>
+		</div>
+	</form>
 
-	</section>
-	@stop
+</section>
+@stop

@@ -50,9 +50,6 @@
 		$(document).ready(function(){
 			$('input[type=text]').click(function(){
 				$(this).select();
-				$(this).click(function(){
-					$(this).select().off();
-				});
 			});
 			$('form').submit(function(event) {
 				if($(this).valid())

@@ -65,6 +65,23 @@
 	label.control-label.col-sm-4 {
 		text-align: left;
 	}
+	.div-center{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	@media (max-width: 991px){
+		.btn-full-width{
+			width: 100%;
+			margin: 1vw 0;
+		}
+	}
+	@media (max-width: 786px){
+		.btn-full-width{
+			width: 100%;
+			margin: 1vw 0;
+		}
+	}
 </style>
 {!!Html::script('js/validate/validate_update_order.js')!!}
 <section class="content">
@@ -100,7 +117,6 @@
 			@if($warning_order<1)
 			<p class="alert alert-danger text-center">Đơn hàng này đã vượt quá sức mua</p> 
 			@endif()
-			
 			@if(count($orders->uploadfile))
 			<div class="row">
 				<label class="col-md-6 offset-md-3">Ảnh Phiếu đăng ký mua hàng:</label>
@@ -131,15 +147,15 @@
 				</div>
 			</div>
 			<div class="row" style="padding-bottom: 10px">
-				<div class="col-md-6 pull-right">
-					<div class="col-md-4">
-						<input type="button" id="approval" class="btn btn-primary" name="approval" value="Chuyển phê duyệt"/>
+				<div class="col-md-6 col-xs-12 pull-right">
+					<div class="col-md-4 col-xs-12 div-center">
+						<input type="button" id="approval" class=" btn-full-width btn btn-primary" name="approval" value="Chuyển phê duyệt"/>
 					</div>
-					<div class="col-md-4">
-						<input type="button" id="accuracy" class="btn btn-success" name="accuracy" value="Yêu cầu xác thực"/>
+					<div class="col-md-4 col-xs-12 div-center">
+						<input type="button" id="accuracy" class=" btn-full-width btn btn-success" name="accuracy" value="Yêu cầu xác thực"/>
 					</div>
-					<div class="col-md-4">
-						<input data-toggle="modal" data-target="#myModal" type="button" class="btn btn-warning" value="Hủy đơn hàng"/>
+					<div class="col-md-4 col-xs-12 div-center">
+						<input data-toggle="modal" data-target="#myModal" type="button" class=" btn-full-width btn btn-warning" value="Hủy đơn hàng"/>
 					</div>
 				</div>
 			</div>

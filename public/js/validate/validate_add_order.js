@@ -276,6 +276,10 @@ $(document).ready(function() {
     else
       return true
   }, 'Trả trước phải lớn lơn 30% giá trị sản phẩm');
+  $.validator.addMethod("check_text_special", function (value, element) {
+    // var regex = '/[~!@#$%^&*()_+=`,.]/g';
+    return  /[^~!@#$%^&*()_+=`,.]/g.test(value);
+  }, 'Tên không được có ký tự đặc biệt');
     // $.validator.addMethod("check_price_vs_buy", function (value, element) {
     //   var price=$('#price').val().replace('.','').replace('.','').replace('.','').replace('.','').replace('.','').replace(' đồng','');
     //   var buytxt=$('#buytxt').val().replace('.','').replace('.','').replace('.','').replace('.','').replace('.','').replace(' đồng','');
@@ -291,9 +295,10 @@ $(document).ready(function() {
         },
         name_user: {
           required: true,
+          check_text_special:true,
           maxlength: 50,
           normalizer: function( value ) {
-              return $.trim( value );
+            return $.trim( value );
           }
         },
         salary_user: {
@@ -336,8 +341,8 @@ $(document).ready(function() {
           required: true,
           minlength: 6,
           maxlength: 50,
-           normalizer: function( value ) {
-              return $.trim( value );
+          normalizer: function( value ) {
+            return $.trim( value );
           }
         } 
       },

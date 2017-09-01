@@ -618,7 +618,7 @@ function convertname($str) {
 
 	 		$orders=!empty(Orders::find($id))?Orders::find($id):"0";
 	 		$UserInfo = $orders->user->userinfo;
-	 		$warning_order = ($UserInfo->salary*2.5 - ($orders->price-$orders->prepay));
+	 		$warning_order = ((round_down($UserInfo->salary*2.5)) - ($orders->price-$orders->prepay));
 	 		if($orders!="0"){
 	 			if(((\Carbon::now()->subMonths(2))->lt($UserInfo->updated_at))==true){
 	 				$comparison  = "0";
