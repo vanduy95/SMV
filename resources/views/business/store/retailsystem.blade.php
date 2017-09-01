@@ -53,14 +53,14 @@
 			rules:{
 				nameretail:{
 					required:true,
-					special_character:true,
+					//special_character:true,
 					maxlength:255
 				},
 			},
 			messages: {
 				nameretail:{
 					required: "Trường này không được để trống",
-					special_character:"Không được chứa ký tự đặc biệt",
+					//special_character:"Không được chứa ký tự đặc biệt",
 					maxlength:"Tên quá dài"
 				},
 			}

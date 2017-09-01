@@ -96,6 +96,11 @@
 			<div id="menu2" class="tab-pane fade">
 				@include('business.orders.update.incomeinfo')
 			</div>
+			
+			@if($warning_order<1)
+			<p class="alert alert-danger text-center">Đơn hàng này đã vượt quá sức mua</p> 
+			@endif()
+			
 			@if(count($orders->uploadfile))
 			<div class="row">
 				<label class="col-md-6 offset-md-3">Ảnh Phiếu đăng ký mua hàng:</label>
@@ -126,12 +131,7 @@
 				</div>
 			</div>
 			<div class="row" style="padding-bottom: 10px">
-				<div class="col-md-6">
-					@if($warning_order<1)
-						<p class="alert alert-danger text-center">Đơn hàng này đã vượt quá sức mua</p> 
-					@endif()
-				</div>
-				<div class="col-md-6">
+				<div class="col-md-6 pull-right">
 					<div class="col-md-4">
 						<input type="button" id="approval" class="btn btn-primary" name="approval" value="Chuyển phê duyệt"/>
 					</div>

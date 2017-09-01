@@ -36,6 +36,9 @@ $(document).ready(function() {
 	// 		$('#salary_day').attr('required','true');
 	// 	}
 	// });
+
+
+
 	$.validator.addMethod("max_salary", function (value, element) {
 		if(value.replace(/[ đồng,.]/g,'')<100000000)
 			return true
@@ -99,7 +102,6 @@ $(document).ready(function() {
 			return true
 
 	}, 'Trả trước phải nhỏ hơn 70% giá trị sản phẩm');
-
 
 	$.validator.addMethod("check_pre_pay_vs_price", function (value, element) {
 		var price=$('#price').val().replace('.','').replace('.','').replace('.','').replace('.','').replace('.','').replace(' đồng','');
