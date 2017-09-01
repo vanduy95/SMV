@@ -82,11 +82,11 @@
 									<p class="text-center error" id="error_com"></p>
 								</div>
 								<div class=" col-lg-12 col-md-12 col-xs-12 form-group">
-									<input  id="txt_cmt" name="txt_cmt" class="form-control text-padding-input" style="border-radius: 0; height: 4.5rem" type="text" placeholder="Nhập số chứng minh nhân dân">
+									<input  autocomplete="off" id="txt_cmt" name="txt_cmt" class="form-control text-padding-input" style="border-radius: 0; height: 4.5rem" type="text" placeholder="Nhập số chứng minh nhân dân">
 									<p class="text-center error" id="error_cmt"></p>
 								</div>
 								<div class=" col-lg-12 col-md-12 col-xs-12 form-group">
-									<input id="txt_code" name="txt_code" class="form-control text-padding-input" style="border-radius: 0; height: 4.5rem" type="text" placeholder="Nhập mã nhân viên">
+									<input autocomplete="off" id="txt_code" name="txt_code" class="form-control text-padding-input" style="border-radius: 0; height: 4.5rem" type="text" placeholder="Nhập mã nhân viên">
 									<p class="text-center error" id="error_code"></p>
 								</div>
 								<div class=" col-lg-12 col-md-12 col-xs-12 div-flex  form-group">

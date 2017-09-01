@@ -54,13 +54,13 @@
     </div>
     <h3 style="text-align: center;">THÔNG TIN CẦN XÁC THỰC</h3>
     <div class="form-group">
-      <label class="control-label col-sm-4" for="phone2">Số điện thoại khác(nếu có)*: </label>
+      <label class="control-label col-sm-4" for="phone2">Số điện thoại khác: </label>
       <div class="col-sm-8"> 
         <input readonly type="text" tabindex="5" class="form-control" value="{{$UserInfo['phone2']}}">
       </div>
     </div>
     <div class="form-group">
-      <label class="control-label col-sm-4" for="time_work">Thời gian làm việc ở cty hiện tại *: </label>
+      <label class="control-label col-sm-4" for="time_work">Thời gian làm việc ở cty hiện tại : </label>
       <div class="col-sm-8"> 
         <input readonly type="text" tabindex="5"  class="form-control" value="{{$UserInfo['time_worked']}}">
       </select>
@@ -68,7 +68,7 @@
   </div>
   
   <div class="form-group">
-    <label class="control-label col-sm-4" for="exchange_status">Giao dịch trả lương qua tài khoản *: </label>
+    <label class="control-label col-sm-4" for="exchange_status">Giao dịch trả lương qua tài khoản : </label>
     <div class="col-sm-8"> 
       <input readonly tabindex="9" type="text"
           @if($UserInfo['exchange_status']==null)
@@ -83,7 +83,7 @@
     </div>
   </div>
   <div class="form-group">
-    <label class="control-label col-sm-4" for="salary_avg">Lương trung bình 3 tháng liền kề *: </label>
+    <label class="control-label col-sm-4" for="salary_avg">Lương trung bình 3 tháng liền kề : </label>
     <div class="col-sm-8"> 
       <input readonly tabindex="9" type="text" id="" class="form-control" 
       @if ($UserInfo['salary_avg'])
@@ -93,19 +93,19 @@
     </div>
   </div>
   <div class="form-group">
-    <label class="control-label col-sm-4" for="salary_day">Ngày trả lương hàng tháng *: </label>
+    <label class="control-label col-sm-4" for="salary_day">Ngày trả lương hàng tháng : </label>
     <div class="col-sm-8"> 
       <input readonly type="text"  id="salary_day"  value="{{$UserInfo['salary_day']}}" class="form-control">
     </div>
   </div>
   <div class="form-group">
-    <label class="control-label col-sm-4" for="number_account">Số tài khoản *: </label>
+    <label class="control-label col-sm-4" for="number_account">Số tài khoản : </label>
     <div class="col-sm-8"> 
       <input readonly type="text" tabindex="5"  class="form-control" value="{{$UserInfo['number_account']}}">
     </div>
   </div>
   <div class="form-group">
-    <label class="control-label col-sm-4" for="bank_name">Ngân hàng *: </label>
+    <label class="control-label col-sm-4" for="bank_name">Ngân hàng : </label>
     <div class="col-sm-8"> 
       <input type="text" readonly value="{{$UserInfo['bank_name']}}" class="form-control" name="bank_name">
     </div>
