@@ -31,6 +31,13 @@ $(document).ready(function() {
 	$('#phone1').change(function () {
 		$('#phone').val($('#phone1').val());
 	});
+	$.validator.addMethod("min_salary_user", function (value, element) {
+		if(value.replace(/[ đồng,.]/g,'')>=3000000)
+			return true
+		else
+			return false
+
+	}, 'Lương phải lớn hơn hoặc bằng 3 triệu');
 	jQuery.validator.addMethod("checkDate", function(value, element) {
             var today = Date.now();
             var birthday = value.split("/");
@@ -113,6 +120,7 @@ $(document).ready(function() {
 			salary:{
 				required:true,
 				max_salary:true,
+				min_salary_user:true
 			},
 			department:{
 				required:true,

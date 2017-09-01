@@ -247,12 +247,12 @@ $(document).ready(function() {
 
 }, 'Giá phải lớn hơn 0');
   $.validator.addMethod("min_salary_user", function (value, element) {
-   if($('#salary_user').val().replace(/[ đồng,.]/g,'')>3000000)
+   if($('#salary_user').val().replace(/[ đồng,.]/g,'')>=3000000)
     return true
   else
     return false
 
-}, 'Lương của bạn phải lớn hơn 3 triệu');
+}, 'Lương phải lớn hơn hoặc bằng 3 triệu');
   $.validator.addMethod("max_salary_user", function (value, element) {
    if($('#salary_user').val().replace(/[ đồng,.]/g,'')<100000000)
     return true
