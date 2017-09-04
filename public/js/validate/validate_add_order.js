@@ -297,6 +297,7 @@ $(document).ready(function() {
           required: true,
           check_text_special:true,
           maxlength: 50,
+          minlength: 6,
           normalizer: function( value ) {
             return $.trim( value );
           }
@@ -312,11 +313,17 @@ $(document).ready(function() {
           number: true,
           minlength: 10,
           maxlength: 11,
+          normalizer: function( value ) {
+            return $.trim( value );
+          }
         },
         address_user: {
           required: true,
           minlength: 6,
           maxlength: 225,
+          normalizer: function( value ) {
+            return $.trim( value );
+          }
         },
         number_issue: {
           required:true,
@@ -353,6 +360,7 @@ $(document).ready(function() {
         name_user:{
           required:"Bạn chưa nhập tên",
           maxlength:"Tên không được nhập quá 50 ký tự",
+          minlength: "Bạn nhập tên quá ngắn, nhập tên nhiều hơn 6 ký tự",
         },
         salary_user:{
           required:"Trường này không được để trống",
@@ -432,14 +440,27 @@ $(document).ready(function() {
       rules: {
         product: {
           required: true,
+          minlength: 6,
+          maxlength: 50,
+          normalizer: function( value ) {
+            return $.trim( value );
+          }
         },
         code_product: {
           required: true,
           maxlength: 50,
-          minlength: 3
+          minlength: 3,
+          normalizer: function( value ) {
+            return $.trim( value );
+          }
         },
         color: {
           required: true,
+          minlength: 2,
+          maxlength:20,
+          normalizer: function( value ) {
+            return $.trim( value );
+          }
         },
         price: {
           required: true,
@@ -472,14 +493,18 @@ $(document).ready(function() {
       messages: {
         product:{
           required:"Bạn chưa nhập tên sản phẩm",
+          maxlength:"Tên không được nhập quá 50 ký tự",
+          minlength: "Tên sản phẩm phải nhiều hơn 6 ký tự",
         },
         code_product:{
           required:"Bạn chưa nhập tên",
-          maxlength:"Tên không được nhập quá 50 ký tự",
-          minlength: "Tên sản phẩm phải nhiều hơn 3 ký tự",
+          maxlength:"Mã không được nhập quá 50 ký tự",
+          minlength: "Mã sản phẩm phải nhiều hơn 3 ký tự",
         },
         color:{
           required:"Bạn chưa nhập màu sản phẩm",
+          maxlength:"Màu sản phẩm không được nhập quá 50 ký tự",
+          minlength: "Màu sản phẩm phải nhiều hơn 1 ký tự",
         },
         price:{
           required: "Bạn chưa nhập số tiền của mặt hàng",

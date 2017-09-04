@@ -93,9 +93,7 @@ class StoreController extends Controller
 		$store->save();
 		\Session::flash('notify','Sửa thành công');
 		return redirect()->route('indexStore');
-
 	}
-
 	public function ajaxDeleteStore(Request $req)
 	{
 		RetailSystem::find($req->store_id)->delete();

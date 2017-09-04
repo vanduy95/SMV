@@ -88,44 +88,72 @@
 				},
 				retailcity:{
 					required:true,
+					normalizer: function( value ) {
+						return $.trim( value );
+					},
+					minlength:6,
+					maxlength:255,
 				},
 				retaildistrict:{
 					required:true,
+					normalizer: function( value ) {
+						return $.trim( value );
+					},
+					minlength:6,
+					maxlength:255,
 				},
 				name_center:{
 					required:true,
+					normalizer: function( value ) {
+						return $.trim( value );
+					},
+					minlength:6,
+					maxlength:255,
 				},
 				storeaddress:{
 					required:true,
+					normalizer: function( value ) {
+						return $.trim( value );
+					},
+					minlength:6,
+					maxlength:255,
 				},
 				phonecontact:{
 					required:true,
 					number:true,
-					min:10,
-					max:11
+					minlength:10,
+					maxlength:11,
 				},
 			},
 			messages: {
 				store:{
-					required: "Trường này không được để trống",
+					required: "Bạn chưa chọn hệ thống",
 				},
 				retailcity:{
-					required: "Trường này không được để trống",
+					required: "Bạn chưa nhập thành phố, không có khoảng trống ở đầu",
+					minlength:"Tên thành phố phải nhiều hơn 6 ký tự",
+					maxlength:"Bạn phải nhập ít hơn 225 ký tự",
 				},
 				retaildistrict:{
-					required: "Trường này không được để trống",
+					required: "Bạn chưa nhập quận huyện, không có khoảng trống ở đầu",
+					minlength:"Yêu cầu phải nhập nhiều hơn 6 ký tự",
+					maxlength:"Bạn phải nhập ít hơn 225 ký tự",
 				},
 				name_center:{
-					required: "Trường này không được để trống",
+					required: "bạn chưa nhập tên chi nhánh, không có khoảng trống ở đầu",
+					minlength:"Tên chi nhánh phải nhiều hơn 6 ký tự",
+					maxlength:"Bạn phải nhập ít hơn 225 ký tự",
 				},
 				storeaddress:{
-					required: "Trường này không được để trống",
+					required: "Bạn chưa nhập địa chỉ chi nhánh, không có khoảng trống ở đầu",
+					minlength:"Địa chỉ phải nhiều hơn 6 ký tự",
+					maxlength:"Bạn phải nhập ít hơn 225 ký tự",
 				},
 				phonecontact:{
 					number: "Trường này là số",
-					required: "Trường này không được để trống",
-					min:"Không đúng định dạng số điện thoại",
-					max:"Không đúng định dạng số điện thoại"
+					required: "Trường này không được để trống, không có khoảng trống ở đầu",
+					minlength:"Không đúng định dạng số điện thoại",
+					maxlength:"Không đúng định dạng số điện thoại"
 				},
 			}
 		});

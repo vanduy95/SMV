@@ -71,7 +71,7 @@ label.control-label.col-lg-4 {
         <div class="pb-5 col-lg-12 col-xs-12 col-md-12 " style="padding: 0;background: rgba(255,255,255,0.8); ">
           <div class="py-3 col-lg-12 col-md-12 col-xs-12 div-center" style="padding: 0">
             <div class="col-lg-4 col-md-4 col-xs-4" style="border: 1px solid black;margin: 0;padding:0;"></div>
-            <div class="col-lg-4 col-md-4 col-xs-4 text-center"><span style="font-size: 1vw;" class="text-infoo">Thông tin cá nhân</span></div>
+            <div class="col-lg-4 col-md-4 col-xs-4 text-center"><span style="font-size: 2vw;" class="text-infoo">Thông tin cá nhân</span></div>
             <div class="col-lg-4 col-md-4 col-xs-4" style="border: 1px solid black;margin: 0;padding:0;"></div>
           </div>
           <div class="col-lg-12 form-group">

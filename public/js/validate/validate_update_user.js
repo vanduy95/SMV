@@ -39,22 +39,22 @@ $(document).ready(function() {
 
 	}, 'Lương phải lớn hơn hoặc bằng 3 triệu');
 	jQuery.validator.addMethod("checkDate", function(value, element) {
-            var today = Date.now();
-            var birthday = value.split("/");
-			var f = new Date(birthday[2], birthday[1] - 1, birthday[0]);
-            return today > f;
-        }, "Ngày sinh phải nhỏ hơn ngày hiện tại");
+		var today = Date.now();
+		var birthday = value.split("/");
+		var f = new Date(birthday[2], birthday[1] - 1, birthday[0]);
+		return today > f;
+	}, "Ngày sinh phải nhỏ hơn ngày hiện tại");
 
 	jQuery.validator.addMethod("checkdateissue", function(value, element) {
-            var today = Date.now();
-            var dateissue = value.split("/");
-			var f = new Date(dateissue[2], dateissue[1] - 1, dateissue[0]);
-            return today > f;
-        }, "Ngày cấp phải nhỏ hơn ngày hiện tại");
+		var today = Date.now();
+		var dateissue = value.split("/");
+		var f = new Date(dateissue[2], dateissue[1] - 1, dateissue[0]);
+		return today > f;
+	}, "Ngày cấp phải nhỏ hơn ngày hiện tại");
 
 	jQuery.validator.addMethod("validDate", function(value, element) {
-        return this.optional(element) || moment(value,"DD/MM/YYYY").isValid();
-    }, "Không đúng định dạng ngày tháng");
+		return this.optional(element) || moment(value,"DD/MM/YYYY").isValid();
+	}, "Không đúng định dạng ngày tháng");
 	$.validator.addMethod("max_salary", function (value, element) {
 		if($('#salary_info').val().replace(/[ đồng,.]/g,'')<100000000)
 			return true
@@ -73,6 +73,10 @@ $(document).ready(function() {
 			employee_id:{
 				required:true,
 				maxlength:255,
+				minlength:6,
+				normalizer: function( value ) {
+					return $.trim( value );
+				},
 				remote: {
 					url: "http://"+window.location.host+"/checkEmployee_id",
 					type: "post",
@@ -190,8 +194,9 @@ $(document).ready(function() {
 				minlength:"Tên khách hàng phải từ 3->255 ký tự"
 			},
 			employee_id:{
-				required:"Mã nhân viên không được để trống",
+				required:"Mã nhân viên không được để trống, không có khoảng trống ở đầu",
 				maxlength:"Mã nhân viên quá dài",
+				minlength:"Mã nhân viên quá ngắn",
 				remote:'Mã nhân viên này đã tồn tại'
 			},
 			birthday:{

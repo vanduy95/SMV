@@ -1,7 +1,7 @@
-@extends('sucmua.master')
+@extends('home_page.master')
 @section('style')
 <style rel="stylesheet">
-	header{
+	header,footer{
 		display: none !important;
 	}
 	p,span,a{
@@ -14,7 +14,7 @@
 	}
 	a:hover,a:focus{
 		color: #170e66 !important;
-		font-size: 30px !important;
+		font-size: 3vw !important;
 		transition: all 1s;
 		text-decoration: none !important;
 		cursor: pointer;
@@ -25,6 +25,7 @@
 	.margin-div{
 		padding: 2% !important;
 	}
+	.di
 </style>
 @stop
 @section('content')
@@ -40,6 +41,6 @@
 	</div>
 	<div class="clear"></div>
 </div>
-<div class="col-lg-12 div-flex" style="padding: 0;margin: 0;background: url('{{ url('img/404.jpg') }}');min-height: 100%;position: fixed; background-size:  100% 100%;">
+<div class="col-lg-12 div-flex" style="min-width: 100%;padding: 0;margin: 0;background: url('{{ url('img/404.jpg') }}');min-height: 100%;position: fixed; background-size:  100% 100%;">
 </div>
 @stop
