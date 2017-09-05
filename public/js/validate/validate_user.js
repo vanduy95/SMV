@@ -99,15 +99,22 @@ $(document).ready(function() {
 				noSpace:true,
 				required: true,
 				equalTo: "#passworddt",
+				normalizer: function( value ) {
+					return $.trim( value );
+				}
 			},
 			fullnamedt:{
 				required: true,
+				normalizer: function( value ) {
+					return $.trim( value );
+				}
 			},
 			usernamedt: {
 				noSpace:true,
 				required: true,
 				minlength: 3,
 				remote: {
+					async:false,
 					url: "/checkUsername",
 					type: "get",
 					data: {
@@ -116,36 +123,63 @@ $(document).ready(function() {
 						}
 					}
 				},
+				normalizer: function( value ) {
+					return $.trim( value );
+				}
 			},
 			emaildt: {
 				required: true,
-				email_valid: true
+				email_valid: true,
+				normalizer: function( value ) {
+					return $.trim( value );
+				}
 			},
 			noSpace:true,
 			passworddt: {
 				required: true,
 				minlength: 6,
+				normalizer: function( value ) {
+					return $.trim( value );
+				}
 			},
 			select_market: {
 				required:true,
+				normalizer: function( value ) {
+					return $.trim( value );
+				}
 			},
 			select_city: {
 				required:true,
+				normalizer: function( value ) {
+					return $.trim( value );
+				}
 			},
 			select_dis: {
 				required:true,
+				normalizer: function( value ) {
+					return $.trim( value );
+				}
 			},
 			select_store: {
 				required:true,
+				normalizer: function( value ) {
+					return $.trim( value );
+				}
 			},
 			phonedt: {
 				required:true,
 				number: true,
 				minlength:10,
 				maxlength:11,
+				normalizer: function( value ) {
+					return $.trim( value );
+				}
 			},
 			addressdt:{
 				required:true,
+				normalizer: function( value ) {
+					return $.trim( value );
+				}
 			}
 		},
 		messages: {

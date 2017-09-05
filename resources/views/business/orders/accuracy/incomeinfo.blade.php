@@ -84,26 +84,26 @@
           </div>
         </div>
         <div class="form-group">
-          <label class="control-label col-sm-4" for="">Lương trung bình 3 tháng liền kề: </label>
+          <label class="control-label col-sm-4" for="">Lương trung bình 3 tháng liền kề *: </label>
           <div class="col-sm-8"> 
             <input type="text" name="salary_avg" onchange="ChangeSalary_avg()" required id="salary_avg" value="" class="form-control" >
           </div>
         </div>
         <div class="form-group">
-          <label class="control-label col-sm-4" for="">Ngày trả lương hàng tháng: </label>
+          <label class="control-label col-sm-4" for="">Ngày trả lương hàng tháng *: </label>
           <div class="col-sm-8"> 
             <input type="text" name="salary_day" id="salary_day" required value="" class="form-control">
           </div>
         </div>
         <label class="control-label col-sm-12" for="" style="color:red">{{$comparison}}</label>
         <div class="form-group" >
-          <label class="control-label col-sm-4" for="number_acc">Số tài khoản : </label>
+          <label class="control-label col-sm-4" for="number_acc">Số tài khoản *: </label>
           <div class="col-sm-8"> 
             <input type="text" id="number_account" name="number_account" value="" class="form-control" >
           </div>
         </div>
         <div class="form-group" >
-          <label class="control-label col-sm-4" for="bank">Ngân hàng: </label>
+          <label class="control-label col-sm-4" for="bank">Ngân hàng *: </label>
           <div class="col-sm-8"> 
             <select class="form-control" id="bank_name" required name="bank_name" tabindex="6">
               <option value="">Chọn ngân hàng</option>
