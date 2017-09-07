@@ -51,17 +51,23 @@ $(document).ready(function() {
 		$('#phone').val($('#phone1').val());
 	});
 	jQuery.validator.addMethod("checkDate", function(value, element) {
-            var today = Date.now();
+            var today = new Date();
             var birthday = value.split("/");
-			var f = new Date(birthday[2], birthday[1] - 1, birthday[0]);
-            return today > f;
+			var f = new Date(birthday[2], birthday[1] - 1, birthday[0],23,59,59);
+            if(today >= f.getTime()){
+            	return true;
+            }
         }, "Ngày sinh phải nhỏ hơn ngày hiện tại");
 
 	jQuery.validator.addMethod("checkdateissue", function(value, element) {
-            var today = Date.now();
+            var today = new Date();
             var dateissue = value.split("/");
-			var f = new Date(dateissue[2], dateissue[1] - 1, dateissue[0]);
-            return today > f;
+			var f = new Date(dateissue[2], dateissue[1] - 1, dateissue[0],23,59,59);
+   //          return today > f;
+            console.log(f);
+            if(today >= f.getTime()){
+            	return true;
+            }
         }, "Ngày cấp phải nhỏ hơn ngày hiện tại");
 
 	jQuery.validator.addMethod("validDate", function(value, element) {
