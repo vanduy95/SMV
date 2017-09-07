@@ -121,14 +121,14 @@
 									@if($errors->has('password'))<p style="color: red;">{{$errors->first('password')}}</p>@endif
 								</div>
 							</div>
-							<div class="form-group ">
+							<div class="form-group">
 								{!!Html::decode(Form::label('fullname','Xác nhận mật khẩu ',['class'=>'control-label col-lg-4']))!!}
 								<div class="col-lg-6">
 									<input type="password" name="passwordconfirm" id="passwordconfirm" class="form-control" autocomplete="off">
 									@if($errors->has('passwordconfirm'))<p style="color: red;">{{$errors->first('passwordconfirm')}}</p>@endif
 								</div>
 							</div>
-							<div class=" col-lg-12 col-xs-18 col-md-12 form-group div-center">
+							<div class="form-top col-lg-12 col-xs-18 col-md-12 form-group div-center">
 								<input class="btn btn-primary col-lg-2 col-md-4 col-xs-9" style="background: #160d65" type="submit" value="Đăng ký">
 							</div>
 						</div>
@@ -230,7 +230,7 @@
 								</div>
 							</div>
 
-							<div class=" col-lg-12 col-xs-18 col-md-12 form-group div-center">
+							<div class="form-top col-lg-12 col-xs-18 col-md-12 form-group div-center">
 								<input class="btn btn-primary col-lg-2 col-md-4 col-xs-9" style="background: #160d65" type="submit" value="Đăng ký">
 							</div>
 						</div>
