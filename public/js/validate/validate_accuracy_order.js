@@ -80,6 +80,8 @@ $(document).ready(function() {
      number_account:{
        required:true,
        number:true,
+       maxlength:20,
+       minlength:10,
      },
      exchange_status:{
        required:true,
@@ -124,6 +126,8 @@ $(document).ready(function() {
      number_account:{
        required:"Số tài khoản không được để trống",
        number:"Phải nhập kiểu số",
+       maxlength:"Số tài khoản quá dài",
+       minlength:"Số tài khoản quá ngắn"
      },
      exchange_status:{
        required:"Không được để trống trường này",

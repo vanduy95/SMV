@@ -14,8 +14,7 @@
 <!-- List all Product -->
 <section class="content-header">
 	<h1>
-		User  
-		<small>Control panel</small>
+		Quản lý khách hàng
 	</h1>
 	<ol class="breadcrumb">
 		<li><a href="{{url('/')}}"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -65,9 +64,6 @@
 		<div class="col-sm-12">
 			<div class="box">
 				<div class="box-header">
-					<h3 class="box-title">List User Client</h3>
-				</div>
-				<div class="box-header">
 					<div class="col-lg-2 pull-right"> 
 						<button class="btn btn-primary" data-toggle="modal" data-target="#upload"><i class="fa fa-upload" aria-hidden="true"></i> Tải lên danh sách</button>
 					</div>
@@ -85,17 +81,15 @@
 							<thead>
 								<tr></tr>
 								<tr role="row">
-									<th>User Name</th>
-									<th>Name</th>
-									<th>Reviews</th>
-									<th>Phone</th>
-									<th>Address</th>
-									<th>SALARY</th>
-									<th>MARITAL</th>
-									<th>BIRTH DAY</th>
-									<th>SEX</th>
-									<th>IDENTITY CARD</th>
-									<th></th>
+									<th>Tên Đăng nhập</th>
+									<th>Tên</th>
+									<th>Số điện thoại</th>
+									<th>Địa chỉ</th>
+									<th>Lương</th>
+									<th>Ngày sinh</th>
+									<th>Giới tính</th>
+									<th>Số CMND</th>
+									<th>Hành động</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -103,13 +97,20 @@
 								<tr>
 									<td><a href="{{url('admin/user/show',$usf->user_id)}}">{{$usf->user->username}}</a></td>
 									<td>{{$usf->fullname}}</td>
-									<td>{{$usf->assess->reviews}}</td>
 									<td>{{$usf->phone1}}</td>
 									<td>{{$usf->address1}}</td>
 									<td>{{$usf->salary}}</td>
-									<td>{{$usf->maritalstatus}}</td>
 									<td>{{$usf->birthday}}</td>
-									<td>{{$usf->sex}}</td>
+									<td>
+										@if ($usf->sex==1)
+											Nữ
+										@elseif($usf->sex==2)
+											Nam
+										@else
+											Chưa có
+										@endif
+										
+									</td>
 									<td>{{$usf->identitycard}}</td>
 									<td>
 										<div class="btn-group">

@@ -2,8 +2,7 @@
 @section('content')
 <section class="content-header">
 	<h1>
-		User  
-		<small>Control panel</small>
+		Quản lý người dùng
 	</h1>
 	<ol class="breadcrumb">
 		<li><a href="{{url('/')}}"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -16,7 +15,7 @@
 		<div class="col-sm-12">
 			<div class="box">
 				<div class="box-header with-border">
-					<h3 class="box-title">Add User</h3>
+					<h3 class="box-title">Thêm người dùng</h3>
 				</div>
 				<div class="panel-body">
 					{!!Form::open(array('class'=>'form-validate form-horizontal','id'=>'register_form','enctype'=>"multipart/form-data"))!!}
@@ -26,17 +25,17 @@
 					</div>
 					@endif
 					<div class="form-group ">
-						{!!Html::decode(Form::label('fullname','User name *',['class'=>'control-label col-lg-2']))!!}
+						{!!Html::decode(Form::label('fullname','Tên người dùng *',['class'=>'control-label col-lg-2']))!!}
 						<div class="col-lg-8">
 							{!!Form::text('username',old('username'),['class'=>'form-control','placeholder'=>'Tên người dùng '])!!}
 							@if($errors->has('username'))<p style="color: red;">{!!$errors->first('username')!!}</p>@endif
 						</div>
 					</div>
 					<div class="form-group ">
-						{!!Html::decode(Form::label('fullname','Group User *',['class'=>'control-label col-lg-2']))!!}
+						{!!Html::decode(Form::label('fullname','Nhóm Người dùng *',['class'=>'control-label col-lg-2']))!!}
 						<div class="col-lg-8">
 							<select class="form-control" name="groupuser_id">
-								<option value="">Nhóm user</option>
+								<option value="">Nhóm Người dùng</option>
 								@foreach($groupuser as $gu)
 								<option value="{{$gu->id}}" @if(old('groupuser_id')==$gu->id) selected="selected" @endif >{{$gu->name}}</option>
 								@endforeach
@@ -52,31 +51,22 @@
 						</div>
 					</div>
 					<div class="form-group ">
-						{!!Html::decode(Form::label('fullname','Password *',['class'=>'control-label col-lg-2']))!!}
+						{!!Html::decode(Form::label('fullname','Mật khẩu *',['class'=>'control-label col-lg-2']))!!}
 						<div class="col-lg-8">
 							{!!Form::password('password',['class'=>'form-control','placeholder'=>'Mật khẩu'])!!}
 							@if($errors->has('password'))<p style="color: red;">{!!$errors->first('password')!!}</p>@endif
 						</div>
 					</div>
 					<div class="form-group ">
-						{!!Html::decode(Form::label('fullname','Password Confirm *',['class'=>'control-label col-lg-2']))!!}
+						{!!Html::decode(Form::label('fullname','Nhập lại mật khẩu*',['class'=>'control-label col-lg-2']))!!}
 						<div class="col-lg-8">
 							{!!Form::password('password_confirmation',['class'=>'form-control','placeholder'=>'Mật khẩu xác minh '])!!}
 							@if($errors->has('password_confirmation'))<p style="color: red;">{!!$errors->first('password_confirmation')!!}</p>@endif
 						</div>
 					</div>
 					<div class="form-group ">
-						{!!Html::decode(Form::label('fullname','Công ty/Chi nhánh *',['class'=>'control-label col-lg-2']))!!}
-						<div class="col-lg-4">
-							<select class="form-control" name="organization">
-								<option value="">Tổ chức</option>
-								@foreach($organization as $organ)
-								<option value="{{$organ->id}}" @if(old('organization')==$organ->id) selected="selected" @endif >{{$organ->name}}</option>
-								@endforeach
-							</select>
-							@if($errors->has('organization'))<p style="color: red;">{!!$errors->first('organization')!!}</p>@endif
-						</div>
-						<div class="col-lg-4">
+						{!!Html::decode(Form::label('fullname','Trạng thái tài khoản *',['class'=>'control-label col-lg-2']))!!}
+						<div class="col-lg-8">
 							<select class="form-control" name="status">
 								<option value="">Trạng thái tài khoản</option>
 								<option value="1" @if(old('status')=='1') selected="selected" @endif >Kích hoạt</option>
@@ -87,7 +77,7 @@
 					</div>
 					<div class="form-group">
 						<div class="col-lg-offset-2 col-lg-10">
-							{!!Form::submit('Save',['class'=>'btn btn-primary'])!!}
+							{!!Form::submit('Thêm',['class'=>'btn btn-primary'])!!}
 							{!!Form::reset('Nhập lại',['class'=>'btn btn-primary'])!!}
 						</div>
 					</div>
