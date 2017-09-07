@@ -1094,12 +1094,12 @@ function convertname($str) {
  		}
  	}
  	public function exportExcelUserinfoApproval(Request $r,$id){
- 		$data = UserInfo::select('employee_id','fullname','address1','identitycard','dateissue','issuedby','salary','phone1','birthday','note1','time_worked','department','position','bank_name','number_account')->where('id','=',$id)->get();
+ 		$data = UserInfo::select('employee_id','fullname','address1','identitycard','dateissue','issuedby','salary','phone1','birthday','time_worked','department','position','bank_name','number_account','note1','note2')->where('id','=',$id)->get();
  		Excel::create('Thông tin khách hàng '.$data[0]->fullname, function($excel) use ($data) {
  			$excel->sheet('Sheet1', function($sheet) use ($data)
  			{
  				$sheet->fromArray($data,null,'A1',false,false);
- 				$headings=array('Mã nhân viên','Họ tên','Địa chỉ','Số CMND','Ngày Cấp','Nơi Cấp','Lương','Số điệ thoại','Ngày Sinh','Ghi Chú','Kinh nghiệm làm việc','Chức vụ','Vị trí','Ngân Hàng','Số tài khoản');
+ 				$headings=array('Mã nhân viên','Họ tên','Địa chỉ','Số CMND','Ngày Cấp','Nơi Cấp','Lương','Số điệ thoại','Ngày Sinh','Kinh nghiệm làm việc','Phòng ban','Chức vụ','Ngân Hàng','Số tài khoản','Ghi Chú 1','Ghi chú 2');
  				$sheet->prependRow(1, $headings);
  			});
  		})->download('xls');
