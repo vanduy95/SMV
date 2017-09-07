@@ -2,8 +2,7 @@
 @section('content')
 <section class="content-header">
 	<h1>
-		Menu  
-		<small>Control panel</small>
+		Quản lý chức năng
 	</h1>
 	<ol class="breadcrumb">
 		<li><a href="{{url('/')}}"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -15,7 +14,7 @@
 		<div class="col-sm-12">
 			<div class="box">
 				<div class="box-header with-border">
-					<h3 class="box-title">Edit Menu</h3>
+					<h3 class="box-title">Sửa chức năng</h3>
 				</div>
 				<div class="panel-body">
 					<div class="form">
@@ -26,17 +25,17 @@
 						</div>
 						@endif
 						<div class="form-group ">
-							{!!Html::decode(Form::label('fullname','Name <span class="required">*</span>',['class'=>'control-label col-lg-2']))!!}
+							{!!Html::decode(Form::label('fullname','Tên <span class="required">*</span>',['class'=>'control-label col-lg-2']))!!}
 							<div class="col-lg-8">
 								{!! Form::text('name',$menu->name,['class'=>'form-control','placeholder'=>'Tên ']) !!}
 								@if($errors->has('name'))<p style="color: red;">{{$errors->first('name')}}</p>@endif
 							</div>
 						</div>
 						<div class="form-group ">
-							{!!Html::decode(Form::label('fullname','Parent ID <span class="required">*</span>',['class'=>'control-label col-lg-2']))!!}
+							{!!Html::decode(Form::label('fullname','Thuộc menu <span class="required">*</span>',['class'=>'control-label col-lg-2']))!!}
 							<div class="col-lg-8">
 								<select class=" form-control" name="parent_id">
-									<option value="0">Parent ID </option>
+									<option value="0">Thuộc menu </option>
 									@foreach($allmenu as $m)
 									<option @if($menu->parent_id == $m->id){{"selected"}} @endif value="{{$m->id}}">{{$m->name}}</option>
 									@endforeach
@@ -45,19 +44,19 @@
 							</div>
 						</div>
 						<div class="form-group ">
-							{!!Html::decode(Form::label('fullname','Name Route <span class="required">*</span>',['class'=>'control-label col-lg-2']))!!}
+							{!!Html::decode(Form::label('fullname','Tên đường dẫn <span class="required">*</span>',['class'=>'control-label col-lg-2']))!!}
 							<div class="col-lg-8">
 								{!! Form::text('nameroute',$menu->nameroute,['class'=>'form-control','placeholder'=>'Name route']) !!}
 								@if($errors->has('nameroute'))<p style="color: red;">{{$errors->first('nameroute')}}</p>@endif
 							</div>
 						</div>
 						<div class="form-group">
-							{!!Html::decode(Form::label('fullname','Order <span class="required">*</span>',['class'=>'control-label col-lg-2']))!!}
+							{!!Html::decode(Form::label('fullname','Thứ tự <span class="required">*</span>',['class'=>'control-label col-lg-2']))!!}
 							<div class="col-lg-4">
 								{!! Form::text('order',$menu->order,['class'=>'form-control','placeholder'=>'Thứ tự']) !!}
 								@if($errors->has('order'))<p style="color: red;">{{$errors->first('order')}}</p>@endif
 							</div>
-							{!!Html::decode(Form::label('fullname','Display',['class'=>'control-label col-lg-1']))!!}
+							{!!Html::decode(Form::label('fullname','Hiện thị',['class'=>'control-label col-lg-1']))!!}
 							<div class="col-lg-4">
 								<input type="checkbox" name="display" @if($menugroup->display==1) checked @endif value="1">
 							</div>

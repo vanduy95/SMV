@@ -2,8 +2,7 @@
 @section('content')
 <section class="content-header">
 	<h1>
-		Menu  
-		<small>Control panel</small>
+		Quản lý chức năng
 	</h1>
 	<ol class="breadcrumb">
 		<li><a href="{{url('/')}}"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -15,7 +14,7 @@
 		<div class="col-sm-12">
 			<div class="box">
 				<div class="box-header">
-					<h3 class="box-title">List Menu</h3>
+					<h3 class="box-title">Danh sách chức năng</h3>
 				</div>
 				@if(session('notify'))
 				<div class="alert bg-teal disabled color-palette">
