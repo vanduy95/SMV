@@ -538,11 +538,11 @@
 	<div class="col-lg-12 col-md-12 col-xs-12 div-flex" style="padding: 0">
 		<div class="col-lg-4 col-md-4 col-xs-5  conddtion-member" style="padding: 0">
 			<p class="">1. Doanh nghiệp bạn đang công tác đã có trong danh sách lựa chọn của Sức Mua Việt</p>
-			<img  src="../img/home_page/tick.png"/>
+			<img  src="{{url('img/home_page/tick.png')}}"/>
 		</div>
 		<div class="col-lg-offset-1 col-xs-offset-1 col-md-offset-1 col-lg-4 col-md-4 col-xs-5 conddtion-member">
 			<p class="" >2. Bạn đã ký hợp đồng chính thức với doanh nghiệp </p>
-			<img  src="../img/home_page/tick.png"/>
+			<img  src="{{url('img/home_page/tick.png')}}"/>
 		</div>
 	</div>
 	<div class="clear"></div>

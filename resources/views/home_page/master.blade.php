@@ -7,8 +7,8 @@
 	<meta property="og:site_name" content="Sức mua việt"/>
 	<meta property="og:title" content="An tâm mua sắm, thoải mái lựa chọn"/>
 	<meta property="og:description" content="An tâm mua sắm, thoải mái lựa chọn"/>
-	<meta property="og:image" content={{'../img/demo/shortcut-icon.png'}}>
-	<meta property="og:url" content="http://sucmuaviet.com"
+	<meta property="og:image" content="{{url('/img/home_page/logo-review.png')}}"/>
+	<meta property="og:url" content="http://sucmuaviet.com"/>
 	<link href="{{'../img/demo/shortcut-icon.png'}}" title="Sức mua việt" rel="shortcut icon" type="image/x-icon" />  
 	<title>SỨC MUA VIỆT</title>
 	{!!Html::script('theme/plugins/jQuery/jquery-3.2.1.min.js')!!}
