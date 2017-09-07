@@ -143,7 +143,7 @@
 								<label for="" class="control-label col-lg-4">Hệ thống siêu thị:</label>
 								<div class="col-lg-6">
 									<select name="select_market" id="select_market" class="form-control" >
-										<option>Hệ thống siêu thị</option>
+										<option value="">Hệ thống siêu thị</option>
 										@foreach ($name as $n)
 										<option value="{{$n}}">{{$n}}</option>
 										@endforeach

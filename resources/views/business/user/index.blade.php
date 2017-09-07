@@ -22,8 +22,7 @@
 
 <section class="content-header">
 	<h1>
-		User  
-		<small>Control panel</small>
+		Quản lý người dùng
 	</h1>
 	<ol class="breadcrumb">
 		<li><a href="{{url('/')}}"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -35,23 +34,22 @@
 		<div class="col-sm-12">
 			<div class="box">
 				<div class="box-header">
-					<h3 class="box-title">List User</h3>
+					<h3 class="box-title">Danh sách người dùng</h3>
 				</div>
 				<div class="box-body">
 					<div class="table-responsive">
-
 						<table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
 							<thead>
 								<tr></tr>
 								<tr role="row">
 									<th>ID</th>
-									<th>Group</th>
-									<th>User Name</th>
+									<th>Nhóm</th>
+									<th>Tên đăng nhập</th>
 									<th>Email</th>
-									<th>Status</th>
-									<th>Create date</th>
-									<th>Update date</th>
-									<th>Action</th>
+									<th>Trạng thái</th>
+									<th>Ngày tạo</th>
+									<th>Ngày sửa</th>
+									<th>Hành động</th>
 								</tr>
 							</thead>
 							<tbody>

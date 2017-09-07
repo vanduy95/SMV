@@ -170,7 +170,7 @@
 										<div class="col-md-9">
 											<select class="form-control" id="status6">
 												<option value="0" >Chưa kích hoạt</option>
-												<option value="1" >Đã kích hoạt</option>
+												<option value="1" >kích hoạt</option>
 											</select>
 										</div>
 									</div>
@@ -210,7 +210,7 @@
 											<div class="col-md-9">
 												<select class="form-control" id="status3">
 													<option value="0" >Chưa kích hoạt</option>
-													<option value="1" >Đã kích hoạt</option>
+													<option value="1" >kích hoạt</option>
 												</select>
 											</div>
 										</div>
@@ -263,7 +263,7 @@
 				});
 			});
 			$('#save_change6').click(function(event) {
-				if($("#status3").val()==1)
+				if($("#status6").val()==1)
 				{
 				$('.loading').fadeIn('400');
 				var table = $('table').DataTable();
@@ -292,7 +292,7 @@
 				})
 				}
 				else{
-					$("#myModal3").modal('hide');
+					$("#myModal6").modal('hide');
 				}       
 			});
 

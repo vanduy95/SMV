@@ -15,14 +15,14 @@
 						</div>
 						@endif
 						<div class="form-group ">
-							{!!Html::decode(Form::label('fullname','User name <span class="required">*</span>',['class'=>'control-label col-lg-2']))!!}
+							{!!Html::decode(Form::label('fullname','Tên đăng nhập <span class="required">*</span>',['class'=>'control-label col-lg-2']))!!}
 							<div class="col-lg-8">
 								{!!Form::text('username',$user->username,['class'=>'form-control','placeholder'=>'Tên người dùng ','id'=>'username'])!!}
 								@if($errors->has('username'))<p style="color: red;">{!!$errors->first('username')!!}</p>@endif
 							</div>
 						</div>
 						<div class="form-group ">
-							{!!Html::decode(Form::label('fullname','Group User <span class="required">*</span>',['class'=>'control-label col-lg-2']))!!}
+							{!!Html::decode(Form::label('fullname','Nhóm <span class="required">*</span>',['class'=>'control-label col-lg-2']))!!}
 							<div class="col-lg-8">
 								<select class="form-control" name="groupuser_id">
 									<option value="">Nhóm user</option>

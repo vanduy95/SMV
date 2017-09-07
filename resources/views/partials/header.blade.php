@@ -238,10 +238,10 @@
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="{{url('admin/profile')}}" class="btn btn-default btn-flat">Profile</a>
+                  <a href="{{url('admin/profile')}}" class="btn btn-default btn-flat">Trang cá nhân</a>
                 </div>
                 <div class="pull-right">
-                  <a href="{{route('signout')}}" class="btn btn-default btn-flat">Log Out</a>
+                  <a href="{{route('signout')}}" class="btn btn-default btn-flat">Đăng Xuất</a>
                 </div>
               </li>
             </ul>

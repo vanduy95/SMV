@@ -26,13 +26,12 @@ use App\Http\Requests\UserChangePasswordEmployee;
 class UserController extends Controller
 {
 	public function index(){
-		$user = User::where([['organization_id','=','1'],['groupuser_id','<>',1]])->get();
+		$user = User::where([['organization_id','=','1'],['groupuser_id','<>',1],['groupuser_id','<>',2]])->get();
 		return view('business.user.index',compact('user'));
 	}
 	public function getcreate(){
-		$organization = Organization::where('system','=','1')->get();
 		$user = User::all();
-		$groupuser = GroupUser::where('name','<>','Admin')->get();;
+		$groupuser = GroupUser::where('name','<>','Admin')->where('name','<>','Khách hàng')->get();;
 		return view('business.user.create',compact('user','groupuser','organization'));
 	}
 	public function postcreate(UserRequest $request,User $user,UserInfo $userinfo){

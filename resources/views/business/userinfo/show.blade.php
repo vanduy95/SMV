@@ -2,8 +2,7 @@
 @section('content')
 <section class="content-header">
 	<h1>
-		User  
-		<small>Control panel</small>
+		Quản lý khách hàng
 	</h1>
 	<ol class="breadcrumb">
 		<li><a href="{{url('/')}}"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -16,7 +15,7 @@
 		<div class="col-sm-12">
 			<div class="box">
 				<div class="box-header with-border">
-					<h3 class="box-title">Edit User</h3>
+					<h3 class="box-title">Sửa khách hàng</h3>
 				</div>
 				<div class="panel-body">
 					{!!Form::open(array('class'=>'form-validate form-horizontal','id'=>'register_form','enctype'=>"multipart/form-data",'action'=>['UserInfoController@show',$userinfo->id]))!!}
@@ -26,14 +25,14 @@
 					</div>
 					@endif
 					<div class="form-group ">
-						{!!Html::decode(Form::label('fullname','User name <span class="required">*</span>',['class'=>'control-label col-lg-2']))!!}
+						{!!Html::decode(Form::label('fullname','Tên đăng nhập <span class="required">*</span>',['class'=>'control-label col-lg-2']))!!}
 						<div class="col-lg-8">
 							{!!Form::text('username',$user->username,['class'=>'form-control','placeholder'=>'Tên người dùng '])!!}
 							@if($errors->has('username'))<p style="color: red;">{!!$errors->first('username')!!}</p>@endif
 						</div>
 					</div>
 					<div class="form-group ">
-						{!!Html::decode(Form::label('fullname','Group User <span class="required">*</span>',['class'=>'control-label col-lg-2']))!!}
+						{!!Html::decode(Form::label('fullname','Nhóm <span class="required">*</span>',['class'=>'control-label col-lg-2']))!!}
 						<div class="col-lg-8">
 							<select class="form-control" name="groupuser_id">
 								<option value="">Nhóm user</option>
@@ -55,7 +54,7 @@
 							</div>
 						</div>
 						<div class="form-group ">
-							{!!Html::decode(Form::label('fullname','Password <span class="required">*</span>',['class'=>'control-label col-lg-2']))!!}
+							{!!Html::decode(Form::label('fullname','Mật khẩu <span class="required">*</span>',['class'=>'control-label col-lg-2']))!!}
 							<div class="col-lg-8">
 								<input type="password" name="password" value="{{$user->password}}" class="form-control" readonly="">
 								<span><a href="{{url('changepassword',$user->id) }}">Change password</a></span>
@@ -83,28 +82,28 @@
 							</div>
 						</div>
 						<div class="form-group ">
-							{!!Html::decode(Form::label('fullname','Full Name *',['class'=>'control-label col-lg-2']))!!}
+							{!!Html::decode(Form::label('fullname','Họ tên *',['class'=>'control-label col-lg-2']))!!}
 							<div class="col-lg-8">
 								{!!Form::text('fullname',$userinfo->fullname,['class'=>'form-control','placeholder'=>'Họ tên khách hàng '])!!}
 								@if($errors->has('fullname'))<p style="color: red;">{!!$errors->first('fullname')!!}</p>@endif
 							</div>
 						</div>
 						<div class="form-group ">
-							{!!Html::decode(Form::label('fullname','Employee ID *',['class'=>'control-label col-lg-2']))!!}
+							{!!Html::decode(Form::label('fullname','Mã nhân viên *',['class'=>'control-label col-lg-2']))!!}
 							<div class="col-lg-8">
 								{!!Form::text('employee_id',$userinfo->employee_id,['class'=>'form-control','placeholder'=>'Mã nhân viên'])!!}
 								@if($errors->has('employee_id'))<p style="color: red;">{!!$errors->first('employee_id')!!}</p>@endif
 							</div>
 						</div>
 						<div class="form-group ">
-							{!!Html::decode(Form::label('fullname','Salary *',['class'=>'control-label col-lg-2']))!!}
+							{!!Html::decode(Form::label('fullname','Lương *',['class'=>'control-label col-lg-2']))!!}
 							<div class="col-lg-8">
 								{!!Form::text('salary',$userinfo->salary,['class'=>'form-control','placeholder'=>'Lương ','id'=>'salary'])!!}
 								@if($errors->has('salary'))<p style="color: red;">{!!$errors->first('salary')!!}</p>@endif
 							</div>
 						</div>
 						<div class="form-group">
-							{!!Html::decode(Form::label('fullname','Identity Card *',['class'=>'control-label col-lg-2']))!!}
+							{!!Html::decode(Form::label('fullname','Số chứng minh nhân dân *',['class'=>'control-label col-lg-2']))!!}
 							<div class="col-lg-3">
 								{!!Form::number('identitycard',$userinfo->identitycard,['class'=>'form-control','placeholder'=>'Số chứng minh nhân dân', 'maxlength'=>'12','min'=>'0'])!!}
 								@if($errors->has('identitycard'))<p style="color: red;">{!!$errors->first('identitycard')!!}</p>@endif
@@ -119,7 +118,7 @@
 							</div>
 						</div>
 						<div class="form-group ">
-							{!!Html::decode(Form::label('assess','Reviews *',['class'=>'control-label col-lg-2']))!!}
+							{!!Html::decode(Form::label('assess','Điểm khách hàng *',['class'=>'control-label col-lg-2']))!!}
 							<div class="col-lg-4">
 								<select class="form-control" name="assess">
 									<option value="">Điểm khách hàng</option>
@@ -142,7 +141,7 @@
 								</div>
 							</div>
 							<div class="form-group">
-								{!!Html::decode(Form::label('fullname','Birth Day *',['class'=>'control-label col-lg-2']))!!}
+								{!!Html::decode(Form::label('fullname','Ngày sinh *',['class'=>'control-label col-lg-2']))!!}
 								<div class="col-lg-4 date">
 									<input type="text" name="birthday" class="form-control pull-right" id="datepicker1" placeholder="Ngày sinh" value="{{$userinfo->birthday}}" >
 									@if($errors->has('birthday'))<p style="color: red;">{!!$errors->first('birthday')!!}</p>@endif
@@ -158,7 +157,7 @@
 								</div>
 							</div>
 							<div class="form-group ">
-								{!!Html::decode(Form::label('assess','Phone *',['class'=>'control-label col-lg-2']))!!}
+								{!!Html::decode(Form::label('assess','Số điện thoại *',['class'=>'control-label col-lg-2']))!!}
 								<div class="col-lg-4">
 									<input type="text" class="form-control" name="phone1"  placeholder="Điện thoại di động" data-inputmask='"mask": "(999) 999-9999"' data-mask value="{{$userinfo->phone1}}">
 									@if($errors->has('phone1'))<p style="color: red;">{!!$errors->first('phone1')!!}</p>@endif
@@ -170,7 +169,7 @@
 							</div>
 
 							<div class="form-group ">
-								{!!Html::decode(Form::label('fullname','Permanent address ',['class'=>'control-label col-lg-2']))!!}
+								{!!Html::decode(Form::label('fullname','Địa chỉ thường trú ',['class'=>'control-label col-lg-2']))!!}
 								<div class="col-lg-4">
 									{!!Form::text('address1',$userinfo->address1,['class'=>'form-control','placeholder'=>'Địa chỉ thường trú'])!!}
 									@if($errors->has('address'))<p style="color: red;">{!!$errors->first('address')!!}</p>@endif
@@ -181,7 +180,7 @@
 								</div>
 							</div>
 							<div class="form-group ">
-								{!!Html::decode(Form::label('fullname','Temporary address ',['class'=>'control-label col-lg-2']))!!}
+								{!!Html::decode(Form::label('fullname','Địa chỉ tạm trú ',['class'=>'control-label col-lg-2']))!!}
 								<div class="col-lg-4">
 									{!!Form::text('address2',$userinfo->address2,['class'=>'form-control','placeholder'=>'Địa chỉ tạm trú'])!!}
 									@if($errors->has('address'))<p style="color: red;">{!!$errors->first('address')!!}</p>@endif
