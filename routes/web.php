@@ -53,7 +53,9 @@ Route::post('orders/show', array('as'=>'postOrdersCreate','uses'=>'PurchaseinfoC
 Route::get('orders/add', array('as'=>'ordershowadd','uses'=>'PurchaseinfoController@ordershowadd'));
 // Route::post('orders/add', array('as'=>'orderadd','uses'=>'OrdersController@orderadd'));
 Route::post('orders/postAjaxNewUserOrder',array('as'=>'postAjaxNewUserOrder','uses'=>'OrdersController@postAjaxNewUserOrder'));
-
+Route::get('orders/postAjaxNewUserOrder',function(){
+	return redirect('/');
+});
 Route::get('success',array('as'=>'success',function(){return view('business.orders.success');}));
 Route::group(['middleware'=>['authen']],function(){
 	Route::group(['prefix'=>'admin'],function(){

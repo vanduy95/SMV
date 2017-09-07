@@ -1560,7 +1560,7 @@ div.member div.line{
 	display: block;
 	clear: both;
 	white-space: pre-line;
-	padding-left: 3.2vw;
+	padding-left: 3.4vw;
 }
 .contact-info p{
 	margin: 0 !important;
@@ -1658,7 +1658,7 @@ span.title-bold:nth-child(3){
 	padding: 1vw 0;
 }
 .data-member > p:nth-child(3):before {
-	margin-right: 1vw;
+	margin-right: 1.3vw;
 	display: inline-block;
 	background: url('../img/home_page/arrow-l.png') no-repeat;
 	width: 3vw;
@@ -1709,7 +1709,7 @@ span.title-bold:nth-child(3){
 	justify-content: space-between;
 	display: -webkit-flex;
 	-webkit-justify-content: center;
-	background: rgba(255,255,255,0.8);
+	/*background: rgba(255,255,255,0.8);*/	
 }
 .content-center{
 	text-align: center;

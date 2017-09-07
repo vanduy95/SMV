@@ -67,7 +67,8 @@ $(document).ready(function() {
 				required:true,
 				number:true,
 				min:0,
-				max:100
+				max:100,
+				maxlength: 6,
 			}
 		},
 		messages: {
@@ -75,7 +76,8 @@ $(document).ready(function() {
 				number: "Trường này là số",
 				required: "Trường này không được để trống",
 				min:"Trường này không hợp lệ",
-				max:"Trường này không hợp lệ"
+				max:"Trường này không hợp lệ",
+				maxlength: "Bạn nhập quá dài tối đa 4 chữ số sau dấu `,` ",
 			}
 		}
 	});
