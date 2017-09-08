@@ -89,6 +89,12 @@
           <label name="phone2" class="bg-gray-fix form-control">{{$user->userinfo->phone2}}</label>
         </div>
       </div>
+        <div class="form-group">
+        <label class="control-label col-sm-4" for="phone4">Số điện thoại bổ sung : </label>
+        <div class="col-sm-8"> 
+          <label name="phone2" class="bg-gray-fix form-control">{{$user->userinfo->phone4}}</label>
+        </div>
+      </div>
       <div class="form-group">
         <label class="control-label col-sm-4" for="address1">Địa chỉ thường trú : </label>
         <div class="col-sm-8"> 

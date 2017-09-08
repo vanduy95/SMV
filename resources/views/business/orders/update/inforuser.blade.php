@@ -113,6 +113,12 @@
       </div>
     </div>
     <div class="form-group">
+      <label class="control-label col-sm-4" for="phone4">Điện thoại bổ sung: </label>
+      <div class="col-sm-8"> 
+        <input type="text" tabindex="14" readonly name="phone4" class="form-control" value="{{$UserInfo['phone4']}}">
+      </div>
+    </div>
+    <div class="form-group">
       <label class="control-label col-sm-4"  for="address1">Địa chỉ thường trú *: </label>
       <div class="col-sm-8"> 
         <input type="text" name="address1" tabindex="15" class="form-control" value="{{$UserInfo['address1']}}">

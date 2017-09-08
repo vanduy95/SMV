@@ -154,7 +154,7 @@ if(!$r->salary_avg==null)
 }
 $userinfo->number_account=$r->number_account;
 $userinfo->exchange_status=$r->exchange_status;
-$userinfo->phone2=$r->phone2;
+$userinfo->phone4=$r->phone4;
 $userinfo->bank_name=$r->bank_name;
 $userinfo->time_worked=$r->time_work;
 $userinfo->save();

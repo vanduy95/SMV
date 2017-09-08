@@ -297,7 +297,6 @@ $(document).ready(function() {
           required: true,
           check_text_special:true,
           maxlength: 50,
-          minlength: 6,
           normalizer: function( value ) {
             return $.trim( value );
           }
@@ -319,7 +318,6 @@ $(document).ready(function() {
         },
         address_user: {
           required: true,
-          minlength: 6,
           maxlength: 225,
           normalizer: function( value ) {
             return $.trim( value );
@@ -346,7 +344,6 @@ $(document).ready(function() {
         },
         addr_issue: {
           required: true,
-          minlength: 6,
           maxlength: 50,
           normalizer: function( value ) {
             return $.trim( value );
@@ -360,7 +357,6 @@ $(document).ready(function() {
         name_user:{
           required:"Bạn chưa nhập tên",
           maxlength:"Tên không được nhập quá 50 ký tự",
-          minlength: "Bạn nhập tên quá ngắn, nhập tên nhiều hơn 6 ký tự",
         },
         salary_user:{
           required:"Trường này không được để trống",
@@ -373,7 +369,6 @@ $(document).ready(function() {
         },
         address_user:{
           required:"Bạn chưa nhập địa chỉ",
-          minlength:"Địa chỉ quá ngắn. Không hợp lệ",
           maxlength: "Địa chỉ quá dài. Không hợp lệ"
         },
         number_issue :{
@@ -389,7 +384,6 @@ $(document).ready(function() {
         },
         addr_issue: {
           required: "Bạn chưa nhập nơi cấp CMND",
-          minlength: "Địa chỉ quá ngắn không hợp lệ",
           maxlength: "Địa chỉ quá dài. Không hợp lệ",
         }
       }

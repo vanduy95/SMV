@@ -42,9 +42,9 @@
       <div class="form-group">
     <h3 style="text-align: center;">THÔNG TIN CẦN XÁC THỰC</h3>
     <div class="form-group">
-      <label class="control-label col-sm-4" for="phone2">Số điện thoại khác(nếu có): </label>
+      <label class="control-label col-sm-4" for="phone2">Số điện bổ sung(nếu có): </label>
       <div class="col-sm-8"> 
-        <input readonly type="text" tabindex="5" class="form-control" value="{{$user->userinfo->phone2}}">
+        <input readonly type="text" tabindex="5" class="form-control" value="{{$user->userinfo->phone4}}">
       </div>
     </div>
     <div class="form-group">
