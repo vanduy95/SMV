@@ -50,7 +50,7 @@
         <div class="form-group">
           <label class="control-label col-sm-4" for="">Sức mua còn lại: </label>
           <div class="col-sm-8"> 
-            <label   name="" class="bg-gray-fix form-control">{{str_replace(',','.',number_format($buy-$buys))." đồng"}}</label>
+            <label   name="" class="bg-gray-fix form-control">{{str_replace(',','.',number_format($total_buy-$buys))." đồng"}}</label>
           </div>
         </div>
         <h3 style="text-align: center;">THÔNG TIN CẦN XÁC THỰC</h3>

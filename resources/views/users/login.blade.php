@@ -21,8 +21,27 @@
     {!!Html::style('css/style-responsive.css')!!} 
     {!!Html::script('theme/plugins/jQuery/jquery-2.2.3.min.js')!!}
     {!!Html::script('js/custom.js')!!}
+   <script type="text/javascript">
+       $(document).ready(function() {
+           $('form').submit(function(event) {
+                    $('#loading').show();
+            });
+       });
+   </script>
+   <style type="text/css">
+       #loading{
+            background: url({{ asset('img/loading.gif')}}) center no-repeat rgba(0,0,0,0.5);
+            position: fixed;
+            left: 0px;
+            top: 0px,;
+            width: 100%;
+            height: 100%;
+            z-index: 9999
+        }
+   </style>
 </head>
 <body>
+<div class="loading" id="loading" style="display: none"></div>
 {{--     <div class="container">
         {!!Form::open(array('class'=>'login-form','action'=>'LoginController@login'))!!}
         <div class="login-wrap">
