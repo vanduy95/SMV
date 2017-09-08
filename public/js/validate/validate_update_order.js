@@ -62,6 +62,7 @@ $(document).ready(function() {
 	jQuery.validator.addMethod("checkdateissue", function(value, element) {
             var today = new Date();
             var dateissue = value.split("/");
+
 			var f = new Date(dateissue[2], dateissue[1] - 1, dateissue[0],23,59,59);
    //          return today > f;
             console.log(f);
