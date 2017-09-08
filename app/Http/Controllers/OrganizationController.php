@@ -49,7 +49,7 @@ class OrganizationController extends Controller
 		}
 		catch(\Exception $ex){
 			echo $ex->getMessage()."</br>";
-			echo "<a href='/organization/list/company' class='col-lg-12'>Return List System</a>";
+			echo "<a href='/organization/list/company' class='col-lg-12'>Quay lại danh sách hệ thống</a>";
 		}
 	}
 	
@@ -109,7 +109,7 @@ class OrganizationController extends Controller
 		}
 		catch(\Exception $ex){
 			echo $ex->getMessage()."</br>";
-			echo "<a href='admin/organization/list/company' class='col-lg-12'>Return Import File Excel</a>";
+			echo "<a href='admin/organization/list/company' class='col-lg-12'>Thêm không thành công, quay lại trang tải lên tệp tin</a>";
 		}
 	}
 	public function create_company_excel($type){

@@ -69,15 +69,15 @@
         <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
           <thead>
             <tr role="row">
-              <th>Ma</th>
-              <th>Name</th>
-              <th>City</th>
-              <th>Address</th>
-              <th>Phone</th>
-              <th>Bank</th>
-              <th>Cearted At</th>
-              <th>Update At</th>
-              <th>Action</th>
+              <th>Mã</th>
+              <th>Tên</th>
+              <th>Thành phố</th>
+              <th>Địa chỉ</th>
+              <th>Số điện thoại</th>
+              <th>Ngân hàng</th>
+              <th>Ngày tạo</th>
+              <th>Ngày cập nhật</th>
+              <th>Hành động</th>
             </tr>
           </thead>
           <tbody>
