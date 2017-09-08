@@ -140,7 +140,6 @@
     });
 
     var user_id={{Auth::user()->id}}
-
     $.ajaxSetup({
       headers: {
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -165,6 +164,11 @@
         width: 100%;
         height: 100%;
         z-index: 9999
+      }
+      .div-center{
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
     </style>
 

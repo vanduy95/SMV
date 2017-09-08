@@ -26,11 +26,11 @@ class OrganizationController extends Controller
 			'address'=>$rq['addr'],
 			'phone'=>$rq['phone'],
 			'bank'=>$rq['bank'],
-			'system'=>1,
+			'system'=>0,
 			'created_at'=>$today	
 			]);
 		if($query==1){
-			return redirect('organization/list/company');
+			return redirect('admin/organization/list/company');
 		}
 	}
 	public function list_company(){

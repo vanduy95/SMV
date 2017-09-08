@@ -39,7 +39,7 @@
     <div class="box">
       <div class="box-header">
         <div class="col-lg-4">
-          <h3 class="">List System</h3>
+          <h3 class="">Danh sách hệ thống</h3>
         </div>
         <div class="col-lg-8">
           <form class="form-group" action="{{url('admin/organization/list/company')}}" method="post" enctype="multipart/form-data">
