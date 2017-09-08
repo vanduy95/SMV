@@ -27,7 +27,7 @@ class MenuRequest extends FormRequest
             'name'=>'required|min:3|max:50|unique:menu,name',
             'parent_id'=>'required|numeric',
             'order'=>'required|numeric',
-            'nameroute'=>'required|min:6|max:50'
+            'nameroute'=>'required|max:50'
         ];
     }
     public function messages(){
@@ -41,7 +41,6 @@ class MenuRequest extends FormRequest
         'order.required'=>'Trường này không được để trống',
         'order.numeric'=>'Trường này chỉ được nhập số',
         'nameroute.required'=>'Tên Route không được để trống',
-        'nameroute.min'=>'Tên Route phải nhiều hơn 6 ký tự',
         'nameroute.max'=>'Tên Route phải ít hơn 50 ký tự'
         ];
     }

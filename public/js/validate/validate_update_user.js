@@ -41,14 +41,14 @@ $(document).ready(function() {
 	jQuery.validator.addMethod("checkDate", function(value, element) {
 		var today = Date.now();
 		var birthday = value.split("/");
-		var f = new Date(birthday[2], birthday[1] - 1, birthday[0]);
+		var f = new Date(birthday[2], birthday[1] - 1, birthday[0],23,59,59);
 		return today > f;
 	}, "Ngày sinh phải nhỏ hơn ngày hiện tại");
 
 	jQuery.validator.addMethod("checkdateissue", function(value, element) {
 		var today = Date.now();
 		var dateissue = value.split("/");
-		var f = new Date(dateissue[2], dateissue[1] - 1, dateissue[0]);
+		var f = new Date(dateissue[2], dateissue[1] - 1, dateissue[0],23,59,59);
 		return today > f;
 	}, "Ngày cấp phải nhỏ hơn ngày hiện tại");
 
