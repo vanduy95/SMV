@@ -129,9 +129,9 @@ label.control-label.col-lg-4 {
             </div>
           </div>
           <div class="my-5 col-lg-12 col-md-12 col-xs-12 form-group div-center">
-            <input type="button" id="btn_register" name="btn_register" value="Đăng ký sức mua" class="btn btn-primary col-lg-2 col-md-2 col-xs-3  div-center btn_font_xs" style="background: #160d65;font-size: 1vw;" />
-            <input type="button" id="btn_new_orders" name="btn_new_orders" value="Nhập đơn hàng" class=" div-center col-lg-offset-1 btn btn-primary col-lg-2  col-md-2 col-xs-3 col-md-offset-1 col-xs-offset-1 div-center btn_font_xs " style="background: #160d65;font-size: 1vw;">
-            <input type="submit" id="btn_upload" name="btn_upload" value="Tải phiếu đăng ký" class=" div-center col-lg-offset-1 btn btn-primary col-lg-2 col-md-2 col-xs-3 col-md-offset-1 col-xs-offset-1  div-center btn_font_xs " style="background: #160d65;font-size: 1vw;">
+            <input type="button" id="btn_register" name="btn_register" value="Đăng ký sức mua" class="btn btn-primary col-lg-2 col-md-2 col-xs-3  div-center btn_font_xs" style="background: #160d65;font-size: 1vw; display: flex; justify-content: center; align-items: center;" />
+            <input type="button" id="btn_new_orders" name="btn_new_orders" value="Nhập đơn hàng" class=" div-center col-lg-offset-1 btn btn-primary col-lg-2  col-md-2 col-xs-3 col-md-offset-1 col-xs-offset-1 div-center btn_font_xs " style="background: #160d65;font-size: 1vw; display: flex; justify-content: center; align-items: center;">
+            <input type="submit" id="btn_upload" name="btn_upload" value="Tải phiếu đăng ký" class=" div-center col-lg-offset-1 btn btn-primary col-lg-2 col-md-2 col-xs-3 col-md-offset-1 col-xs-offset-1  div-center btn_font_xs " style="background: #160d65;font-size: 1vw; display: flex; justify-content: center; align-items: center;">
           </div>
         </div>
       </div>
