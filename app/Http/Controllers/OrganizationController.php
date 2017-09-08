@@ -79,27 +79,28 @@ class OrganizationController extends Controller
 	public function insert_company_excel(Request $r ){
 		try{
 			set_time_limit(1800);
+			$today = Carbon::today();
 			$datas=Excel::load(Input::file('upExcel'), function ($reader) {
 			})->get();
-			foreach ($datas->toArray() as $rows => $row) {
-				foreach ($row as $key => $value) {
-					if($value['id']==null){
-						$random=mt_rand(100000,999999);
-					}
-					else{
-						$random=$value['id'];
-					}
-					$query[] = [
-					'ma'=>$random,
-					'name'=>$value['name'],
-					'city'=>$value['city'],
-					'address'=>$value['address'],
-					'phone'=>$value['phone'],
-					'bank'=>$value['bank'],
-					'worker'=>$value['worker'],
-					'system'=>0
-					];
-				}
+			// dd($datas);
+			foreach ($datas as $rows => $value) {
+				// foreach ($row as $key => $value) {
+					// dd($value);
+					// if($value['ma_cong_ty']==null){
+				$random=mt_rand(100000,999999);
+					// }
+				$query[] = [
+				'ma'=>$value['ma_cong_ty']==''?$value['ma_cong_ty']:$random,
+				'name'=>$value['ma_cong_ty'],
+				'city'=>$value['thanh_pho'],
+				'address'=>$value['dia_chi'],
+				'phone'=>$value['so_dien_thoai'],
+				'bank'=>$value['ngan_hang'],
+				'worker'=>$value['cong_nhan'],
+				'system'=>0,
+				'created_at'=>$today
+				];
+				// }
 			}
 			$insert = Organization::insert($query);
 			if($insert==true){

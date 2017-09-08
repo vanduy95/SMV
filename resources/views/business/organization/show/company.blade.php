@@ -1,5 +1,12 @@
 @extends('layouts.master')
 @section('content')
+<script>
+  $(document).ready(function(){
+    $('#btn_reset').click(function(){
+        $('input[type="text"]').val('');
+    });
+  });
+</script>
 <style type="text/css">
   td{
       text-align: center !important;
@@ -98,9 +105,9 @@
                  <label style="font-size: 13px; font-style: italic; color: red">('Những dòng có dấu * là bắt buộc phải điển')</label>
                </div>
              </div>
-             <div class="form-group form-last-group col-lg-12">
-               <input class="btn btn-primary" type="submit" name="Save" value="Save">
-               <input class="btn btn-primary" type="reset" name="Reset" value="Reset">
+             <div class="form-group form-last-group col-lg-12 div-center">
+               <input class="col-lg-2 col-xs-2 btn btn-primary" type="submit" name="Save" value="Lưu">
+               <input class="col-lg-2 col-xs-2 col-xs-offset-1 btn btn-primary" type="button" id="btn_reset" name="btn_reset" value="Nhập Lại">
              </div>
            </form>
          </div>

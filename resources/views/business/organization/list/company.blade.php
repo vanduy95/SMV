@@ -89,7 +89,10 @@
               <td>{{$cp->address}}</td>
               <td>{{$cp->phone}}</td>
               <td>{{$cp->bank}}</td>
-              <td>{{date('d-m-Y',strtotime($cp->created_at))}}</td>
+              <td>
+              @if($cp->created_at!='') {{date('d-m-Y',strtotime($cp->created_at))}}
+                @endif
+              </td>
               <td>
                 @if($cp->updated_at!='') {{date('d-m-Y',strtotime($cp->updated_at))}}
                 @endif
@@ -104,19 +107,19 @@
               </tr>
               @endforeach
             </table>
-            </div>
-            @if(Session::has('message'))
-            <p class="alert alert-info">{{ Session::get('message') }}</p>
-            @endif
-            @if(Session::has('mess_del'))
-            <p class="alert alert-info">{{ Session::get('mess_del') }}</p>
-            @endif
-            @if(Session::has('mess_cexel'))
-            <p class="alert alert-info">{{ Session::get('mess_cexel') }}</p>
-            @endif
           </div>
+          @if(Session::has('message'))
+          <p class="alert alert-info">{{ Session::get('message') }}</p>
+          @endif
+          @if(Session::has('mess_del'))
+          <p class="alert alert-info">{{ Session::get('mess_del') }}</p>
+          @endif
+          @if(Session::has('mess_cexel'))
+          <p class="alert alert-info">{{ Session::get('mess_cexel') }}</p>
+          @endif
         </div>
       </div>
     </div>
-  </section>
-  @stop
+  </div>
+</section>
+@stop
