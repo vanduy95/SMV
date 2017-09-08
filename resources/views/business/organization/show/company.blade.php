@@ -1,12 +1,5 @@
 @extends('layouts.master')
 @section('content')
-<script>
-  $(document).ready(function(){
-    $('#btn_reset').click(function(){
-        $('input[type="text"]').val('');
-    });
-  });
-</script>
 <style type="text/css">
   td{
       text-align: center !important;
@@ -41,7 +34,7 @@
     <div class="col-sm-12">
       <div class="box">
         <div class="box-header with-border">
-          <h3 class="box-title">Edit Company</h3>
+          <h3 class="box-title">Sửa Công Ty</h3>
         </div>
         <div class="panel-body">
           <div class="col-lg-12 form-group">
@@ -53,49 +46,49 @@
              </div>
              @endif
              <div class="form-group form-center-group col-lg-12">
-               <label class="control-label col-lg-4">Code</label>
+               <label class="control-label col-lg-4">Mã công ty</label>
                <div class="col-lg-6">
                  <label class="form-control">{{$organ->ma}}</label> 
                </div>
              </div>
 
              <div class="form-group form-center-group col-lg-12">
-               <label class="control-label col-lg-4">Name: <label style="color:red">*</label> </label>
+               <label class="control-label col-lg-4">Tên công ty: <label style="color:red">*</label> </label>
                <div class="col-lg-6" >
                  <input class="form-control" type="text" name="name" value="{{$organ->name}}" />
                  <p style="color: red;">@if($errors->has('name')){{$errors->first('name')}} @endif</p>
                </div>
              </div>
              <div class="form-group form-center-group col-lg-12">
-               <label class="control-label col-lg-4">City: <label style="color:red">*</label> </label>
+               <label class="control-label col-lg-4">Thành phố: <label style="color:red">*</label> </label>
                <div class="col-lg-6" >
                  <input class="form-control" type="text" value="{{$organ->city}}" name="city">
                  <p style="color: red;">@if($errors->has('city')){{$errors->first('city')}} @endif</p>
                </div>
              </div>
              <div class="form-group form-center-group col-lg-12">
-               <label class="control-label col-lg-4">Address: <label style="color:red">*</label> </label>
+               <label class="control-label col-lg-4">Địa chỉ: <label style="color:red">*</label> </label>
                <div class="col-lg-6" >
                  <input class="form-control" type="text" value="{{$organ->address }}" name="addr">
                  <p style="color: red;">@if($errors->has('addr')){{$errors->first('addr')}} @endif</p>
                </div>
              </div>
              <div class="form-group form-center-group col-lg-12">
-               <label class="control-label col-lg-4">Phone: <label style="color:red">*</label> </label>
+               <label class="control-label col-lg-4">Số điện thoại: <label style="color:red">*</label> </label>
                <div class="col-lg-6" >
                  <input class="form-control" class="" type="text" value="{{$organ->phone}}"  name="phone">
                  <p style="color: red;">@if($errors->has('phone')){{$errors->first('phone')}} @endif</p>
                </div>
              </div>
              <div class="form-group form-center-group col-lg-12">
-               <label class="control-label col-lg-4">Bank: <label style="color:red">*</label> </label>
+               <label class="control-label col-lg-4">Ngân hàng: <label style="color:red">*</label> </label>
                <div class="col-lg-6" >
                  <input class="form-control" type="text" value="{{$organ->bank}}" name="bank">
                  <p style="color: red;">@if($errors->has('bank')){{$errors->first('bank')}} @endif</p>
                </div>
              </div>
              <div class="form-group form-center-group col-lg-12">
-               <label class="control-label col-lg-4">Update At:</label>
+               <label class="control-label col-lg-4">Ngày cập nhật:</label>
                <div class="col-lg-6" >
                  <label>{{date('d-m-Y',strtotime($today))}}</label>
                </div>

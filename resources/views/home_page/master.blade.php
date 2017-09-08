@@ -45,6 +45,9 @@
 	@yield('style')
 	@yield('script')
 	<script type="text/javascript">
+		$('#btn_reset').click(function(){
+			$('input[type="text"]').val('');
+		});
 		$.ajaxSetup({
 			headers: {
 				'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

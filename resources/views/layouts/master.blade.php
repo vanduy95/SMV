@@ -8,7 +8,7 @@
   <title>SMV</title>
   <!-- Tell the browser to be responsive to screen width -->
   {{-- <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"> --}}
-{{--   <meta name="viewport" content="width=device-width,initial-scale=1"> --}}
+  {{--   <meta name="viewport" content="width=device-width,initial-scale=1"> --}}
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   {{-- <meta name="viewport" content="width=device-width, initial-scale=1"> --}}
   {!!Html::style('css/style.css')!!}
@@ -130,6 +130,11 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
   {!!Html::script('js/angular/notification.js')!!}
   <script type="text/javascript">
+    $(document).ready(function(){
+      $('#btn_reset').click(function(){
+        $('input[type="text"]').val('');
+      });
+    });
     $(function () {
       $('#example1').DataTable({
         responsive: {        details: false    }
