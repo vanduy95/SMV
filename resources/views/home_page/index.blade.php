@@ -73,7 +73,7 @@
 										<option value="{{$c->id}}">{{$c->name}}</option>
 										@endforeach
 									</div> --}}
-									<select id="id_company" name="selectpicker_xs" class="col-xs-10 col-md-12 form-control selectpicker"  data-show-subtext="true" data-live-search="true">
+									<select id="id_company" name="selectpicker_lg" class="col-xs-10 col-md-12 form-control selectpicker"  data-id='selectpicker_lg' data-show-subtext="true" data-live-search="true">
 										<option value="">Chọn công ty</option>
 										@foreach ($company as $c)
 										<option value="{{$c->id}}">{{$c->name}}</option>
@@ -203,7 +203,7 @@
 							<label for="">Tên công ty</label>
 							<div class="col-md-12 col-xs-12">
 								<div class="col-xs-12 div-flex" style="padding:0">
-									<select id="selectpicker_xs" name="selectpicker_xs" class="col-xs-12 col-md-12 form-control selectpicker"  data-show-subtext="true" data-live-search="true">
+									<select id="selectpicker_xs" name="selectpicker_xs" class="col-xs-12 col-md-12 form-control selectpicker" data-idxs='selectpicker_xs'  data-show-subtext="true" data-live-search="true">
 										<option style="font-size: 3.2vw;color: black" value="">Chọn công ty</option>
 										@foreach ($company as $c)
 										<option style="font-size: 3.2vw;color: black" value="{{$c->id}}">{{$c->name}}</option>

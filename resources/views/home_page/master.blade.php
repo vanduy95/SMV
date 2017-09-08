@@ -61,6 +61,8 @@
 			document.getElementById("mySidenav").style.width = "0";
 		}
 		$(document).ready(function(){
+			// console.log($('div.div-flex > select#selectpicker_xs').attr('data-idxs'));
+			// console.log(selectpicker_xs);
 			$('input[type=text]').click(function(){
 				$(this).select();
 			});

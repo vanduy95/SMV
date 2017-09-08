@@ -66,7 +66,7 @@ class PurchaseinfoController extends Controller
 						$count_d = DB::table('userinfo')->join('user','user.id','=','userinfo.user_id')->join('organization','organization.id','=','user.organization_id')
 						->where([
 							['organization.id','=',$id_com],
-							['userinfo.employee_id','=',$code],
+							['userinfo.identitycard','=',$cmt],
 							['organization.ma','<>','HT'],
 							['user.syslock','=',1],
 							['user.status','=',0]
@@ -76,7 +76,7 @@ class PurchaseinfoController extends Controller
 							$userall = DB::table('userinfo')->join('user','user.id','=','userinfo.user_id')->join('organization','organization.id','=','user.organization_id')
 							->where([
 								['organization.id','=',$id_com],
-								['userinfo.employee_id','=',$code],
+								['userinfo.identitycard','=',$cmt],
 								['organization.ma','<>','HT']])
 							->select('user.organization_id','userinfo.employee_id','user.id','userinfo.salary','userinfo.identitycard','userinfo.fullname')->get()->toArray();
 							session()->put('customer_id', $userall[0]->id);
@@ -91,7 +91,7 @@ class PurchaseinfoController extends Controller
 						->where([
 							['organization.id','=',$id_com],
 							['orders.process_id','=',5],
-							['userinfo.employee_id','=',$code],
+							['userinfo.identitycard','=',$cmt],
 							['user.syslock','=',1],
 							['user.status','=',0]])
 						->select(DB::raw('user.id,SUM(orders.price) as price, SUM(orders.prepay) as prepay,userinfo.fullname,userinfo.salary,user.id'))->get()->toArray();

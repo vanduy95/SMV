@@ -244,7 +244,7 @@ $(document).ready(function(){
 								// $('#rest').val((numeral(round_d((res[0].salary*2.5)-(res[0].price-res[0].prepay))).format('0,0').replace(/,/g,'.'))+" đồng");
 								$('#rest').val(((res[0].salary*2.5)-(res[0].price-res[0].prepay))<1?"0 đồng":(numeral(round_d((res[0].salary*2.5)-(res[0].price-res[0].prepay))).format('0,0').replace(/,/g,'.'))+" đồng");
 								$('#notify').text('Sức mua hiện tại của bạn không đủ thực hiện giao dịch. Liên hệ với chúng tôi để được hỗ trợ.');
-								$('#hotline').text('Hotline: ');
+								$('#hotline').text('Hotline: 024.66552428 hoặc 0904.633568');
 								$('#return_local').attr('href',url);
 							}
 							else{
@@ -380,7 +380,7 @@ $('#btn_search_xs').click(function(){
 							$('#buy_use_xs').val(numeral(round_d(res[0].price-res[0].prepay)).format('0,0').replace(/,/g,'.')+" đồng");
 							$('#rest_xs').val((numeral(round_d((res[0].salary*2.5)-(res[0].price-res[0].prepay))).format('0,0').replace(/,/g,'.'))+" đồng");
 							$('#notify_xs').text('Sức mua hiện tại của bạn không đủ thực hiện giao dịch. Liên hệ với chúng tôi để được hỗ trợ.');
-							$('#hotline').text('Hotline: ');
+							$('#hotline').text('Hotline: 024.66552428 hoặc 0904.633568');
 							$('#return_local_xs').attr('href',url);
 						}
 						else{
