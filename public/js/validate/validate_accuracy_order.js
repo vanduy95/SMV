@@ -36,19 +36,25 @@ $(document).ready(function() {
     }
     else
     {
-      $('#bank_name').removeAttr('disable');
-      $('#salary_avg').removeAttr('disable');
-      $('#salary_day').removeAttr('disable');
-      $('#identitycard').removeAttr('disable');
-      $('#phone1').removeAttr('disable');
-      $('#number_account').removeAttr('disable');
-      $('#issuedby').removeAttr('disable');
-      $('#phone4').removeAttr('disable');
-      $('#dateissue1').removeAttr('disable') ;
+      $('#bank_name').prop('disabled',false);
+      $('#salary_avg').prop('disabled',false);
+      $('#salary_day').prop('disabled',false);
+      $('#identitycard').prop('disabled',false);
+      $('#phone1').prop('disabled',false);
+      $('#number_account').prop('disabled',false);
+      $('#issuedby').prop('disabled',false);
+      $('#phone4').prop('disabled',false);
+      $('#dateissue1').prop('disabled',false);
       $("#btn_accuracy").removeAttr('formnovalidate')
     }
   });
+  $.validator.addMethod("max_salary", function (value, element) {
+    if(value.replace(/[ đồng,.]/g,'')<100000000)
+      return true
+    else
+      return false
 
+  }, 'Lương trung bình phải nhỏ hơn 100 triệu');
   jQuery.validator.addMethod("checkDate", function(value, element) {
     var today = Date.now();
     var birthday = value.split("/");
@@ -95,6 +101,7 @@ $(document).ready(function() {
      },
      salary_avg:{
        check_salary_avg:true,
+       max_salary:true
      },
      bank_name:{
        maxlength:255,
