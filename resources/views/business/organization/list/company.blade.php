@@ -96,8 +96,8 @@
               </td>
               <td>
                 <div class="btn-group">
-                  <a href="{{ url('admin/organization/show/company',$cp->id) }}" class="confirm" ><i onclick="return confirm('Are you sure??');" class="fa fa-fw fa-cog confirm"></i></a>
-                  <a href="{{ url('admin/organization/del/company',$cp->id)}}"><i onclick="return confirm('Are you sure??');"
+                  <a href="{{ url('admin/organization/show/company',$cp->id) }}" class="confirm" ><i onclick="return confirm('Bạn muốn sửa công ty này???');" class="fa fa-fw fa-cog confirm"></i></a>
+                  <a href="{{ url('admin/organization/del/company',$cp->id)}}"><i onclick="return confirm('Bạn muốn xóa công ty này???');"
                     class="fa fa-fw fa-remove"></i></a> 
                   </div>
                 </td>
