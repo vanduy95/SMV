@@ -179,10 +179,9 @@
         <!-- Left col -->
         <div class="col-md-12">
           <!-- MAP & BOX PANE -->
-          <div class="box box-success">
+          {{-- <div class="box box-success">
             <div class="box-header with-border">
               <h3 class="box-title">Báo cáo truy cập</h3>
-
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                 </button>
@@ -226,11 +225,12 @@
               <!-- /.row -->
             </div>
             <!-- /.box-body -->
-          </div>
+          </div> --}}
           <!-- /.box -->
-          <div class="row">
+          {{-- Direct Chat --}}
+          {{-- <div class="row">
             <div class="col-md-6">
-              <!-- DIRECT CHAT -->
+              -- DIRECT CHAT -->
               <div class="box box-warning direct-chat direct-chat-warning">
                 <div class="box-header with-border">
                   <h3 class="box-title">Direct Chat</h3>
@@ -461,7 +461,7 @@
               <!--/.box -->
             </div>
             <!-- /.col -->
-          </div>
+          </div> --}}
           <!-- /.row -->          <!-- /.box -->
         </div>
         <!-- /.col -->

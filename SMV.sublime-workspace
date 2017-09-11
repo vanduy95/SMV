@@ -520,10 +520,19 @@
 	"buffers":
 	[
 		{
-			"file": "resources/views/business/orders/ordershowadd.blade.php",
+			"file": "resources/views/layouts/master.blade.php",
 			"settings":
 			{
-				"buffer_size": 15603,
+				"buffer_size": 8346,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "resources/views/dashboard/admin/dashboard.blade.php",
+			"settings":
+			{
+				"buffer_size": 21261,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -585,16 +594,16 @@
 		"/C/xampp/htdocs/SMV/resources",
 		"/C/xampp/htdocs/SMV/resources/views",
 		"/C/xampp/htdocs/SMV/resources/views/business",
-		"/C/xampp/htdocs/SMV/resources/views/business/orders",
-		"/C/xampp/htdocs/SMV/resources/views/business/orders/update",
-		"/C/xampp/htdocs/SMV/resources/views/business/organization",
 		"/C/xampp/htdocs/SMV/resources/views/business/organization/list",
 		"/C/xampp/htdocs/SMV/resources/views/business/organization/show",
-		"/C/xampp/htdocs/SMV/resources/views/home_page",
-		"/C/xampp/htdocs/SMV/resources/views/layouts"
+		"/C/xampp/htdocs/SMV/resources/views/dashboard",
+		"/C/xampp/htdocs/SMV/resources/views/dashboard/admin",
+		"/C/xampp/htdocs/SMV/resources/views/layouts",
+		"/C/xampp/htdocs/SMV/resources/views/users"
 	],
 	"file_history":
 	[
+		"/C/xampp/htdocs/SMV/resources/views/business/orders/ordershowadd.blade.php",
 		"/C/xampp/htdocs/SMV/app/Http/Controllers/PurchaseinfoController.php",
 		"/C/xampp/htdocs/SMV/resources/views/home_page/index.blade.php",
 		"/C/xampp/htdocs/SMV/resources/views/home_page/master.blade.php",
@@ -616,7 +625,6 @@
 		"/C/xampp/htdocs/SMV/app/Http/Controllers/StoreController.php",
 		"/C/xampp/htdocs/SMV/app/Http/Requests/RetailsystemCreateRequest.php",
 		"/C/xampp/htdocs/SMV/artisan",
-		"/C/xampp/htdocs/SMV/resources/views/business/orders/ordershowadd.blade.php",
 		"/C/xampp/htdocs/SMV/public/theme/plugins/jQuery_Ajax/jquery-ajax.js",
 		"/D/Project_ReactNative/Demo2/index.android.js",
 		"/C/xampp/htdocs/SMV/resources/views/business/store/show.blade.php",
@@ -968,32 +976,24 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "resources/views/business/orders/ordershowadd.blade.php",
+					"file": "resources/views/layouts/master.blade.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 15603,
+						"buffer_size": 8346,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								6468,
-								6468
-							],
-							[
-								6809,
-								6809
-							],
-							[
-								7144,
-								7144
+								7880,
+								7880
 							]
 						],
 						"settings":
@@ -1003,7 +1003,37 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2678.0,
+						"translation.y": 3438.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "resources/views/dashboard/admin/dashboard.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 21261,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								9186,
+								6879
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Laravel Blade Highlighter/blade.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3381.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
