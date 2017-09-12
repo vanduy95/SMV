@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"or",
+				"organization"
+			],
+			[
 				"count",
 				"count_d"
 			],
@@ -158,10 +162,6 @@
 			[
 				"ro",
 				"round_down"
-			],
-			[
-				"or",
-				"orders"
 			],
 			[
 				"setDa",
@@ -520,19 +520,19 @@
 	"buffers":
 	[
 		{
-			"file": "resources/views/layouts/master.blade.php",
+			"file": "app/Http/Controllers/OrdersController.php",
 			"settings":
 			{
-				"buffer_size": 8346,
+				"buffer_size": 50329,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "resources/views/dashboard/admin/dashboard.blade.php",
+			"file": "app/UserInfo.php",
 			"settings":
 			{
-				"buffer_size": 21261,
+				"buffer_size": 592,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -591,31 +591,32 @@
 	"expanded_folders":
 	[
 		"/C/xampp/htdocs/SMV",
+		"/C/xampp/htdocs/SMV/app",
+		"/C/xampp/htdocs/SMV/public",
+		"/C/xampp/htdocs/SMV/public/orders",
 		"/C/xampp/htdocs/SMV/resources",
-		"/C/xampp/htdocs/SMV/resources/views",
 		"/C/xampp/htdocs/SMV/resources/views/business",
-		"/C/xampp/htdocs/SMV/resources/views/business/organization/list",
-		"/C/xampp/htdocs/SMV/resources/views/business/organization/show",
+		"/C/xampp/htdocs/SMV/resources/views/business/organization",
 		"/C/xampp/htdocs/SMV/resources/views/dashboard",
-		"/C/xampp/htdocs/SMV/resources/views/dashboard/admin",
 		"/C/xampp/htdocs/SMV/resources/views/layouts",
 		"/C/xampp/htdocs/SMV/resources/views/users"
 	],
 	"file_history":
 	[
+		"/C/xampp/htdocs/SMV/resources/views/layouts/master.blade.php",
+		"/C/xampp/htdocs/SMV/resources/views/dashboard/admin/dashboard.blade.php",
+		"/C/xampp/htdocs/SMV/resources/views/business/organization/create_company.blade.php",
+		"/C/xampp/htdocs/SMV/app/Http/Controllers/OrganizationController.php",
+		"/C/xampp/htdocs/SMV/app/Http/Requests/postOrganRequestCom.php",
 		"/C/xampp/htdocs/SMV/resources/views/business/orders/ordershowadd.blade.php",
 		"/C/xampp/htdocs/SMV/app/Http/Controllers/PurchaseinfoController.php",
 		"/C/xampp/htdocs/SMV/resources/views/home_page/index.blade.php",
 		"/C/xampp/htdocs/SMV/resources/views/home_page/master.blade.php",
-		"/C/xampp/htdocs/SMV/resources/views/layouts/master.blade.php",
 		"/C/xampp/htdocs/SMV/resources/views/business/organization/show/company.blade.php",
 		"/C/xampp/htdocs/SMV/public/js/custom.js",
 		"/C/xampp/htdocs/SMV/public/theme/plugins/money_format/numeral_money.min.js",
-		"/C/xampp/htdocs/SMV/app/Http/Requests/postOrganRequestCom.php",
 		"/C/xampp/htdocs/SMV/resources/views/business/organization/list/company.blade.php",
-		"/C/xampp/htdocs/SMV/resources/views/business/organization/create_company.blade.php",
 		"/C/xampp/htdocs/SMV/routes/web.php",
-		"/C/xampp/htdocs/SMV/app/Http/Controllers/OrganizationController.php",
 		"/C/xampp/htdocs/SMV/public/css/style_home.css",
 		"/C/xampp/htdocs/SMV/public/js/validate/validate_update_order.js",
 		"/C/xampp/htdocs/SMV/public/js/validate/validate_add_order.js",
@@ -729,8 +730,7 @@
 		"/C/xampp/htdocs/LOS_APP/resources/views/business/organization/create_company.blade.php",
 		"/C/xampp/htdocs/LOS_APP/database/migrations/2017_07_25_135709_change_table_userinfor.php",
 		"/C/xampp/htdocs/LOS_APP/composer.json",
-		"/C/xampp/htdocs/LOS_APP/resources/views/business/orders/accuracy/orderinfor.blade.php",
-		"/C/xampp/htdocs/LOS_APP/app/Http/Controllers/NotificationController.php"
+		"/C/xampp/htdocs/LOS_APP/resources/views/business/orders/accuracy/orderinfor.blade.php"
 	],
 	"find":
 	{
@@ -749,6 +749,12 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"print_orders",
+			"orders",
+			"order",
+			"printf",
+			"print",
+			"address",
 			"bs-searchbox",
 			"slow_month",
 			"ChangePrice();",
@@ -870,13 +876,7 @@
 			"7vw",
 			".interest",
 			"interest",
-			".interest",
-			"next-step",
-			"#hoverb1",
-			"200 000+",
-			"data-left-rate-xs",
-			"nth-child",
-			".data-member > p"
+			".interest"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -976,67 +976,64 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "resources/views/layouts/master.blade.php",
+					"file": "app/Http/Controllers/OrdersController.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 8346,
+						"buffer_size": 50329,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								7880,
-								7880
+								14823,
+								14823
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Laravel Blade Highlighter/blade.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 3438.0,
+						"translation.y": 7440.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "resources/views/dashboard/admin/dashboard.blade.php",
+					"file": "app/UserInfo.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 21261,
+						"buffer_size": 592,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								9186,
-								6879
+								589,
+								493
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Laravel Blade Highlighter/blade.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 3381.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
@@ -1091,6 +1088,18 @@
 		"selected_items":
 		[
 			[
+				"order",
+				"app\\Http\\Controllers\\OrdersController.php"
+			],
+			[
+				"postorganrequestcom",
+				"app\\Http\\Requests\\postOrganRequestCom.php"
+			],
+			[
+				"orga",
+				"app\\Http\\Controllers\\OrganizationController.php"
+			],
+			[
 				"purc",
 				"app\\Http\\Controllers\\PurchaseinfoController.php"
 			],
@@ -1105,10 +1114,6 @@
 			[
 				"organ",
 				"app\\Http\\Controllers\\OrganizationController.php"
-			],
-			[
-				"postorganrequestcom",
-				"app\\Http\\Requests\\postOrganRequestCom.php"
 			],
 			[
 				"we",
@@ -1173,10 +1178,6 @@
 			[
 				"val",
 				"public\\js\\validate\\validate_add_order.js"
-			],
-			[
-				"order",
-				"app\\Http\\Controllers\\OrdersController.php"
 			],
 			[
 				"com",
@@ -1413,10 +1414,6 @@
 			[
 				"7fcc",
 				"storage\\framework\\views\\7fcc99bad5b47872bcd6d9667f2bf66989b6485a.php"
-			],
-			[
-				"orga",
-				"app\\Http\\Controllers\\OrganizationController.php"
 			],
 			[
 				"orderaddrequest",

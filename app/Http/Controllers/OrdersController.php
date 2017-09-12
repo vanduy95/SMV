@@ -393,6 +393,8 @@ function convertname($str) {
 	 			$doc->setValue('organization_add',$order->user->organization->address);
 	 			$doc->setValue('birthday',\Carbon::parse($order->user->userinfo->birthday)->format('d/m/Y'));
 	 			$doc->setValue('store',$order->store);
+	 			$doc->setValue('address',$order->user->organization->address);
+	 			// dd($order);
 	 			if($order->user->userinfo->sex==1)
 	 			{
 	 				$doc->setValue('sex','Nam');
@@ -434,8 +436,6 @@ function convertname($str) {
 	 				$doc->setValue('ismarital','');
 	 				$doc->setValue('single','');
 	 			}
-
-
 	 			$doc->setValue('issuedby',$order->user->userinfo->issuedby);
 	 			$doc->setValue('issuedby',$order->user->userinfo->issuedby);
 	 			$doc->setValue('address1',$order->user->userinfo->address1);

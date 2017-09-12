@@ -14,4 +14,7 @@ class UserInfo extends Model
     public function assess(){
     	return $this->belongsTo('App\Assess','assess_id','id');
     }
+    // public function organization(){
+    // 	return $this->belongsTo('App\Organization','');
+    // }
 }
