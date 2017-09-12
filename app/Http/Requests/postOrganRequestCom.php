@@ -29,7 +29,7 @@ class postOrganRequestCom extends FormRequest
         'city'=>'required|minlength:6|maxlength:25',
         'addr'=>'required|minlength:10|maxlength:225',
         'noted'=>'',
-        'phone'=>'required|numeric|digits_between:10,13',
+        // 'phone'=>'unique:organization|required|numeric|digits_between:10,13',
         'bank'=>'required|minlength:15|maxlength:225',
         'bbranch'=>''
         ];
@@ -47,9 +47,9 @@ class postOrganRequestCom extends FormRequest
         'addr.required'=>'Xin vui lòng điền vào địa chỉ công ty',
         'addr.min'=>'Địa chỉ công ty phải nhiều hơn 10 kí tự',
         'addr.max'=>'Đại chỉ công ty phải ít hơn 225 kí tự',
-        'phone.required'=>'Yêu cầu nhập vào số điện thoại công ty',
-        'phone.digits_between'=>'Yêu cầu số điện thoại ít nhất phải là 10 chữ số và nhỏ hơn 13 chữ số',
-        'phone.numeric'=>'Chỉ được phép nhập số ở ô này',
+        // 'phone.required'=>'Yêu cầu nhập vào số điện thoại công ty',
+        // 'phone.digits_between'=>'Yêu cầu số điện thoại ít nhất phải là 10 chữ số và nhỏ hơn 13 chữ số',
+        // 'phone.numeric'=>'Chỉ được phép nhập số ở ô này',
         'bank.required' =>'Xin vui lòng điền ngân hàng trả lương',
         'bank.min'=>'Tên ngân hàng phải nhiều hơn 10 kí tự',
         'bank.max'=>'Tên ngân hàng phải ít hơn 225 kí tự'

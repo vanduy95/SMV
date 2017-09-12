@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"Req",
+				"Request"
+			],
+			[
+				"Ses",
+				"Session::flash\tFlash an Item in the Session"
+			],
+			[
 				"or",
 				"organization"
 			],
@@ -506,37 +514,11 @@
 			[
 				"fi",
 				"fixed"
-			],
-			[
-				"btn_",
-				"btn_register"
-			],
-			[
-				"cen",
-				"center-label"
 			]
 		]
 	},
 	"buffers":
 	[
-		{
-			"file": "app/Http/Controllers/OrdersController.php",
-			"settings":
-			{
-				"buffer_size": 50329,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/UserInfo.php",
-			"settings":
-			{
-				"buffer_size": 592,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -595,19 +577,19 @@
 		"/C/xampp/htdocs/SMV/public",
 		"/C/xampp/htdocs/SMV/public/orders",
 		"/C/xampp/htdocs/SMV/resources",
+		"/C/xampp/htdocs/SMV/resources/views",
 		"/C/xampp/htdocs/SMV/resources/views/business",
-		"/C/xampp/htdocs/SMV/resources/views/business/organization",
-		"/C/xampp/htdocs/SMV/resources/views/dashboard",
-		"/C/xampp/htdocs/SMV/resources/views/layouts",
-		"/C/xampp/htdocs/SMV/resources/views/users"
+		"/C/xampp/htdocs/SMV/resources/views/business/organization"
 	],
 	"file_history":
 	[
-		"/C/xampp/htdocs/SMV/resources/views/layouts/master.blade.php",
-		"/C/xampp/htdocs/SMV/resources/views/dashboard/admin/dashboard.blade.php",
+		"/C/xampp/htdocs/SMV/app/UserInfo.php",
+		"/C/xampp/htdocs/SMV/app/Http/Controllers/OrdersController.php",
+		"/C/xampp/htdocs/SMV/app/Http/Requests/postOrganRequestCom.php",
 		"/C/xampp/htdocs/SMV/resources/views/business/organization/create_company.blade.php",
 		"/C/xampp/htdocs/SMV/app/Http/Controllers/OrganizationController.php",
-		"/C/xampp/htdocs/SMV/app/Http/Requests/postOrganRequestCom.php",
+		"/C/xampp/htdocs/SMV/resources/views/layouts/master.blade.php",
+		"/C/xampp/htdocs/SMV/resources/views/dashboard/admin/dashboard.blade.php",
 		"/C/xampp/htdocs/SMV/resources/views/business/orders/ordershowadd.blade.php",
 		"/C/xampp/htdocs/SMV/app/Http/Controllers/PurchaseinfoController.php",
 		"/C/xampp/htdocs/SMV/resources/views/home_page/index.blade.php",
@@ -631,7 +613,6 @@
 		"/C/xampp/htdocs/SMV/resources/views/business/store/show.blade.php",
 		"/C/xampp/htdocs/SMV/resources/views/business/Errors/404.blade.php",
 		"/C/xampp/htdocs/SMV/resources/views/business/404/404.blade.php",
-		"/C/xampp/htdocs/SMV/app/Http/Controllers/OrdersController.php",
 		"/C/xampp/htdocs/SMV/resources/views/business/orders/index.blade.php",
 		"/C/xampp/htdocs/SMV/composer.json",
 		"/C/xampp/htdocs/SMV/vendor/phpoffice/phpword/src/PhpWord/TemplateProcessor.php",
@@ -729,8 +710,7 @@
 		"/C/xampp/htdocs/LOS_APP/composer.lock",
 		"/C/xampp/htdocs/LOS_APP/resources/views/business/organization/create_company.blade.php",
 		"/C/xampp/htdocs/LOS_APP/database/migrations/2017_07_25_135709_change_table_userinfor.php",
-		"/C/xampp/htdocs/LOS_APP/composer.json",
-		"/C/xampp/htdocs/LOS_APP/resources/views/business/orders/accuracy/orderinfor.blade.php"
+		"/C/xampp/htdocs/LOS_APP/composer.json"
 	],
 	"find":
 	{
@@ -976,66 +956,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "app/Http/Controllers/OrdersController.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 50329,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								14823,
-								14823
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 7440.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "app/UserInfo.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 592,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								589,
-								493
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -1087,6 +1009,14 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"org",
+				"app\\Http\\Controllers\\OrganizationController.php"
+			],
+			[
+				"postor",
+				"app\\Http\\Requests\\postOrganRequestCom.php"
+			],
 			[
 				"order",
 				"app\\Http\\Controllers\\OrdersController.php"

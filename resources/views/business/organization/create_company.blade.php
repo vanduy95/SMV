@@ -2,7 +2,7 @@
 @section('content')
 <style type="text/css">
   td{
-      text-align: center !important;
+    text-align: center !important;
   }
   th{
     text-align: center !important;
@@ -70,10 +70,12 @@
                </div>
              </div>
              <div class="form-group col-lg-12">
-               <label class="control-label col-lg-4">Số điện thoại: <label style="color:red">*</label></label>
+               <label class="control-label col-lg-4">Số điện thoại: </label>
                <div class="col-lg-6" >
                  <input class="form-control" class="" type="text"  name="phone" placeholder="Nhập vào số điện thoại công ty"> 
-                 <p style="color: red;">@if($errors->has('phone')){{$errors->first('phone')}}@endif</p>
+                 @if(Session::has('mess_phone'))
+                 <p style="color: red">{{ Session::get('mess_phone') }}</p>
+                 @endif
                </div>
              </div>
              <div class="form-group col-lg-12">
@@ -88,20 +90,20 @@
                <div class="col-lg-6" >
                  <input class="form-control" type="text" name="bbranch" placeholder="Điền vào tên chi nhánh ngân hàng">
                </div>
-             <div class="form-group col-lg-12">
-               <div class="col-lg-6" >
-                 <label style="font-size: 13px; font-style: italic; color: red">('Những dòng có dấu * là bắt buộc phải điển')</label>
+               <div class="form-group col-lg-12">
+                 <div class="col-lg-6" >
+                   <label style="font-size: 13px; font-style: italic; color: red">('Những dòng có dấu * là bắt buộc phải điển')</label>
+                 </div>
                </div>
-             </div>
-             <div class="form-group col-lg-12 div-center">
-               <input class="col-lg-2 btn btn-primary" type="submit" name="Lưu">
-               <input class=" col-lg-2 col-xs-3 col-xs-offset-1 btn btn-primary" type="reset" name="Nhập lại">
-             </div>
-           </form>
+               <div class="form-group col-lg-12 div-center">
+                 <input class="col-lg-2 btn btn-primary" type="submit" name="Lưu">
+                 <input class=" col-lg-2 col-xs-3 col-xs-offset-1 btn btn-primary" type="reset" name="Nhập lại">
+               </div>
+             </form>
+           </div>
          </div>
        </div>
      </div>
    </div>
- </div>
-</section>
-@stop
+ </section>
+ @stop

@@ -17,20 +17,47 @@ class OrganizationController extends Controller
 	public function create_company(){
 		return view('business.organization.create_company');
 	}
-	public function InsertCom(postOrganRequestCom $rq){
+	public function InsertCom(Request $rq){
 		$today = Carbon::today();
-		$query = Organization::insert([
-			'ma'=>$rq['ma'],
-			'name'=>$rq['name'],
-			'city'=>$rq['city'],
-			'address'=>$rq['addr'],
-			'phone'=>$rq['phone'],
-			'bank'=>$rq['bank'],
-			'system'=>0,
-			'created_at'=>$today	
-			]);
-		if($query==1){
-			return redirect('admin/organization/list/company');
+		if((strlen($rq['phone'])<12 && strlen($rq['phone']) > 9)|| (strlen($rq['phone'])==0)) {
+			$space = strpos(($rq['phone']),' ')==''?0:1;
+			if($space==0){
+				dd("khong khoang trang");
+				$query = Organization::insert([
+					'ma'=>$rq['ma'],
+					'name'=>$rq['name'],
+					'city'=>$rq['city'],
+					'address'=>$rq['addr'],
+					'phone'=>$rq['phone'],
+					'bank'=>$rq['bank'],
+					'system'=>0,
+					'created_at'=>$today	
+					]);
+				if($query==1){
+					return redirect('admin/organization/list/company');
+				}
+			}
+			else{
+				\Session::flash('mess_phone','Định dạng số đện thoại không đúng, số điện thoại không được có khoảng trắng!!!');
+				return redirect('admin/organization/create/company');
+			}
+		}
+		else{
+			$space = strpos(($rq['phone']),' ')==''?0:1;
+			if(strlen($rq['phone']) <=9){
+				\Session::flash('mess_phone','Định dạng số đện thoại không đúng, số điện thoại quá ngắn!!!');
+				return redirect('admin/organization/create/company');
+			}
+			else{
+				if($space==0){
+					\Session::flash('mess_phone','Định dạng số đện thoại không đúng, số điện thoại quá dài!!!');
+					return redirect('admin/organization/create/company');
+				}
+				else{
+					\Session::flash('mess_phone','Định dạng số đện thoại không đúng, số điện thoại không được có khoảng trắng!!!');
+					return redirect('admin/organization/create/company');
+				}
+			}
 		}
 	}
 	public function list_company(){
