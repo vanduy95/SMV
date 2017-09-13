@@ -38,7 +38,7 @@
 
 </script>
 <section class="content-header">
-  <p class="alert alert-info"></p>
+  <p class="alert alert-info">Lưu ý: Tệp tin excel chỉ chứa 1 Sheet</p>
 </section>
 <!-- list account -->
 <section class="content">
