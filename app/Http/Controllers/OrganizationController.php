@@ -17,12 +17,11 @@ class OrganizationController extends Controller
 	public function create_company(){
 		return view('business.organization.create_company');
 	}
-	public function InsertCom(Request $rq){
+	public function InsertCom(postOrganRequestCom $rq){
 		$today = Carbon::today();
 		if((strlen($rq['phone'])<12 && strlen($rq['phone']) > 9)|| (strlen($rq['phone'])==0)) {
 			$space = strpos(($rq['phone']),' ')==''?0:1;
 			if($space==0){
-				dd("khong khoang trang");
 				$query = Organization::insert([
 					'ma'=>$rq['ma'],
 					'name'=>$rq['name'],

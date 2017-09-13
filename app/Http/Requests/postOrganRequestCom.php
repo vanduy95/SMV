@@ -25,12 +25,12 @@ class postOrganRequestCom extends FormRequest
     {
         return [
         'ma'=>'required|unique:organization,ma',
-        'name'=>'required|minlength:6|maxlength:225',
-        'city'=>'required|minlength:6|maxlength:25',
-        'addr'=>'required|minlength:10|maxlength:225',
+        'name'=>'required|min:6|max:225',
+        'city'=>'required|min:6|max:25',
+        'addr'=>'required|min:10|max:225',
         'noted'=>'',
         // 'phone'=>'unique:organization|required|numeric|digits_between:10,13',
-        'bank'=>'required|minlength:15|maxlength:225',
+        'bank'=>'required|min:15|max:225',
         'bbranch'=>''
         ];
     }

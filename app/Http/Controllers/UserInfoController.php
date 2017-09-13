@@ -159,30 +159,33 @@ public function postcreateExcel(Request $r,User $user, UserInfo $userinfo){
         {
             // dd($rows);
              // foreach ($row as  $rows) {
-            $username =explode(" ",$this->convertnameinfo($rows['ho_va_ten']));
-            $user =  new User();
-            $user->username = (reset($username)).(end($username)).$rows['ma_nhan_vien'];
-            $user->email = "";
-            $user->password = Hash::make("password");
-            $user->status = 0;
-            $user->syslock = 1;
-            $user->groupuser_id =2;
-            $user->organization_id =$r->organization;
-            $user->save();
-            $userinfo = new UserInfo();
-            $userinfo->user_id=$user->id;
-            $userinfo->fullname = $rows['ho_va_ten'];
-            $userinfo->employee_id = $rows['ma_nhan_vien'];
-            $userinfo->time_worked = $rows['so_thang_lam_viec'];
-            $userinfo->number_account = $rows['so_tai_khoan'];
-            // if(empty($rows['suc_mua_toi_da'])){
-            // $userinfo->salary =is_numeric(str_replace(".","",$rows['suc_mua_toi_da']))?str_replace(".","",$rows['suc_mua_toi_da']):0;
-            // }
-            // else{
-                $userinfo->salary = is_numeric(str_replace(['.',','],"",$rows['muc_luong']))?str_replace(['.',','],"",$rows['muc_luong']):0;
-            // }
-            $userinfo->assess_id = "3";
-            $userinfo->save();
+             if(!empty(trim($rows['ma_nhan_vien']))&&!empty(trim($rows['chung_minh_thu']))){
+                $username =explode(" ",$this->convertnameinfo($rows['ho_va_ten']));
+                $user =  new User();
+                $user->username = (reset($username)).(end($username)).$rows['ma_nhan_vien'];
+                $user->email = "";
+                $user->password = Hash::make("password");
+                $user->status = 0;
+                $user->syslock = 1;
+                $user->groupuser_id =2;
+                $user->organization_id =$r->organization;
+                $user->save();
+                $userinfo = new UserInfo();
+                $userinfo->user_id=$user->id;
+                $userinfo->fullname = $rows['ho_va_ten'];
+                $userinfo->employee_id = $rows['ma_nhan_vien'];
+                $userinfo->identitycard = $rows['chung_minh_thu'];
+                $userinfo->time_worked = $rows['so_thang_lam_viec'];
+                $userinfo->number_account = $rows['so_tai_khoan'];
+                // if(empty($rows['suc_mua_toi_da'])){
+                // $userinfo->salary =is_numeric(str_replace(".","",$rows['suc_mua_toi_da']))?str_replace(".","",$rows['suc_mua_toi_da']):0;
+                // }
+                // else{
+                    $userinfo->salary = is_numeric(str_replace(['.',','],"",$rows['muc_luong']))?str_replace(['.',','],"",$rows['muc_luong']):0;
+                // }
+                $userinfo->assess_id = "3";
+                $userinfo->save();
+            }
              // }
         }
         \Session::flash('mess_userinfo','Tải lên danh sách thành công');
@@ -199,7 +202,7 @@ public function downloadExcel(){
                 $excel->sheet('Sheet1', function($sheet)
                 {
                     $sheet->fromArray('',null,'A1',false,false);
-                    $headings=array('Mã nhân viên','Họ và tên','Số tài khoản','Lương','Số tháng làm việc');
+                    $headings=array('Mã nhân viên','Họ và tên','Số tài khoản','Mức lương','Số tháng làm việc','Chứng minh thư');
                     $sheet->prependRow(1, $headings);
                 });
             })->download('xls');

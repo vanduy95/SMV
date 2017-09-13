@@ -37,7 +37,7 @@
              <div class="form-group col-lg-12">
                <label class="control-label col-lg-4">Mã công ty <label style="color:red">*</label></label>
                <div class="col-lg-6">
-                 <input class="form-control" type="text"   name="ma" placeholder="Nhập vào mã công ty ở đây">
+                 <input class="form-control" type="text" value="{{ old('ma') }}"  name="ma" placeholder="Nhập vào mã công ty ở đây">
                  <p style="color: red;">@if($errors->has('ma')){{$errors->first('ma')}}@endif</p>
                </div>
              </div>
