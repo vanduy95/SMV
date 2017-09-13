@@ -38,14 +38,7 @@
 
 </script>
 <section class="content-header">
-  <h1>
-    Organization 
-    <small>Control panel</small>
-  </h1>
-  <ol class="breadcrumb">
-    <li><a href="{{url('/organization/')}}"><i class="fa fa-dashboard"></i> Home</a></li>
-    <li class="active">Organization</li>
-  </ol>
+  <p class="alert alert-info"></p>
 </section>
 <!-- list account -->
 <section class="content">

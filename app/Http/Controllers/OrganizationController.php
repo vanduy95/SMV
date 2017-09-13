@@ -116,16 +116,17 @@ class OrganizationController extends Controller
 					// if($value['ma_cong_ty']==null){
 				$random=mt_rand(100000,999999);
 					// }
+					// dd($value);
 				$query[] = [
 				'ma'=>$value['ma_cong_ty']==''?$value['ma_cong_ty']:$random,
-				'name'=>$value['ma_cong_ty'],
+				'name'=>$value['ten_cong_ty'],
 				'city'=>$value['thanh_pho'],
-				'address'=>$value['dia_chi'],
-				'phone'=>$value['so_dien_thoai'],
+				'address'=>$value['dia_chi']!==''?$value['dia_chi']:'',
+				'phone'=>$value['so_dien_thoai']!==''?$value['so_dien_thoai']:'',
 				'bank'=>$value['ngan_hang'],
-				'worker'=>$value['cong_nhan'],
+				'worker'=>$value['cong_nhan']!==''?$value['cong_nhan']:0,
 				'system'=>0,
-				'created_at'=>$today
+				'created_at'=>$today,
 				];
 				// }
 			}
