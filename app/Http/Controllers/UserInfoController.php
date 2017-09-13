@@ -156,9 +156,14 @@ public function postcreateExcel(Request $r,User $user, UserInfo $userinfo){
         $datas=Excel::load(Input::file('upExcel'), function ($reader) {})->get();
         foreach($datas as $key => $rows)
         {
+            // dd($rows['ma_nhan_vien']);
             // dd($rows);
              // foreach ($row as  $rows) {
-             if(!empty(trim($rows['ma_nhan_vien']))&&!empty(trim($rows['chung_minh_thu']))){
+             if(!empty(str_replace(' ','',$rows['ma_nhan_vien']))  || !empty(str_replace(' ','',$rows['chung_minh_thu'])) ) {
+             // if(is_numeric($rows['ma_nhan_vien']) || is_numeric($rows['ma_nhan_vien']))
+             // {
+             // echo 'if';
+                // dd($rows);
                 $username =explode(" ",$this->convertnameinfo($rows['ho_va_ten']));
                 $user =  new User();
                 $user->username = (reset($username)).(end($username)).$rows['ma_nhan_vien'];
@@ -168,6 +173,7 @@ public function postcreateExcel(Request $r,User $user, UserInfo $userinfo){
                 $user->syslock = 1;
                 $user->groupuser_id =2;
                 $user->organization_id =$r->organization;
+                $user->save();
                 $userinfo = new UserInfo();
                 $userinfo->user_id=$user->id;
                 $userinfo->fullname = $rows['ho_va_ten'];
@@ -182,10 +188,8 @@ public function postcreateExcel(Request $r,User $user, UserInfo $userinfo){
                 $userinfo->salary = is_numeric(str_replace(['.',','],"",$rows['muc_luong']))?str_replace(['.',','],"",$rows['muc_luong']):0;
                 // }
                 $userinfo->assess_id = "3";
-                $user->save();
                 $userinfo->save();
             }
-             // }
         }
    }
    catch(\Exception $ex){
@@ -193,8 +197,8 @@ public function postcreateExcel(Request $r,User $user, UserInfo $userinfo){
         echo "<a href='/admin/userinfo' class='col-lg-12'>Quay Lại Trang Danh Sách Khách Hàng</a>";
         die();
 }
-        \Session::flash('mess_userinfo','Tải lên danh sách thành công');
-       return redirect('admin/userinfo');
+    \Session::flash('mess_userinfo','Tải lên danh sách thành công');
+    return redirect('admin/userinfo');
 }
 public function downloadExcel(){
     Excel::create('Danh sách mẫu', function($excel)  {
