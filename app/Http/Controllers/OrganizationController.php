@@ -135,12 +135,12 @@ class OrganizationController extends Controller
 			$insert = Organization::insert($query);
 			if($insert==true){
 				\Session::flash('message','Thêm danh sách công ty thành công');
-				return redirect('admin/organization/list/company');		
+				return redirect()->route('getListCompany');	
 			}
 		}
 		catch(\Exception $ex){
 			echo $ex->getMessage()."</br>";
-			echo "<a href='admin/organization/list/company' class='col-lg-12'>Thêm không thành công, quay lại trang tải lên tệp tin</a>";
+			echo "<a href='/admin/organization/list/company' class='col-lg-12'>Thêm không thành công, quay lại trang tải lên tệp tin</a>";
 		}
 	}
 	public function create_company_excel($type){

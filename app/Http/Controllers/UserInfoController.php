@@ -152,7 +152,6 @@ public function checkuser(){
 public function postcreateExcel(Request $r,User $user, UserInfo $userinfo){
     set_time_limit(1800);
     try{
-
        $file = $r->file('upExcel')->getRealPath();
         $datas=Excel::load(Input::file('upExcel'), function ($reader) {})->get();
         foreach($datas as $key => $rows)
@@ -169,7 +168,6 @@ public function postcreateExcel(Request $r,User $user, UserInfo $userinfo){
                 $user->syslock = 1;
                 $user->groupuser_id =2;
                 $user->organization_id =$r->organization;
-                $user->save();
                 $userinfo = new UserInfo();
                 $userinfo->user_id=$user->id;
                 $userinfo->fullname = $rows['ho_va_ten'];
@@ -181,21 +179,22 @@ public function postcreateExcel(Request $r,User $user, UserInfo $userinfo){
                 // $userinfo->salary =is_numeric(str_replace(".","",$rows['suc_mua_toi_da']))?str_replace(".","",$rows['suc_mua_toi_da']):0;
                 // }
                 // else{
-                    $userinfo->salary = is_numeric(str_replace(['.',','],"",$rows['muc_luong']))?str_replace(['.',','],"",$rows['muc_luong']):0;
+                $userinfo->salary = is_numeric(str_replace(['.',','],"",$rows['muc_luong']))?str_replace(['.',','],"",$rows['muc_luong']):0;
                 // }
                 $userinfo->assess_id = "3";
+                $user->save();
                 $userinfo->save();
             }
              // }
         }
+   }
+   catch(\Exception $ex){
+        echo $ex->getMessage()."</br>";
+        echo "<a href='/admin/userinfo' class='col-lg-12'>Quay Lại Trang Danh Sách Khách Hàng</a>";
+        die();
+}
         \Session::flash('mess_userinfo','Tải lên danh sách thành công');
        return redirect('admin/userinfo');
-   }
-
-   catch(\Exception $ex){
-    echo $ex->getMessage()."</br>";
-    echo "<a href='/admin/userinfo' class='col-lg-12'>Quay Lại Trang Danh Sách Khách Hàng</a>";
-}
 }
 public function downloadExcel(){
     Excel::create('Danh sách mẫu', function($excel)  {
