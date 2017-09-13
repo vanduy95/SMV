@@ -155,12 +155,13 @@ public function postcreateExcel(Request $r,User $user, UserInfo $userinfo){
 
        $file = $r->file('upExcel')->getRealPath();
         $datas=Excel::load(Input::file('upExcel'), function ($reader) {})->get();
-        foreach($datas->toArray() as $key=>$row)
+        foreach($datas as $key => $rows)
         {
-             foreach ($row as  $rows) {
+            // dd($rows);
+             // foreach ($row as  $rows) {
             $username =explode(" ",$this->convertnameinfo($rows['ho_va_ten']));
             $user =  new User();
-            $user->username = (reset($username)).(end($username)).$rows['emp_id'];
+            $user->username = (reset($username)).(end($username)).$rows['ma_so_nv'];
             $user->email = "";
             $user->password = Hash::make("password");
             $user->status = 0;
@@ -171,12 +172,18 @@ public function postcreateExcel(Request $r,User $user, UserInfo $userinfo){
             $userinfo = new UserInfo();
             $userinfo->user_id=$user->id;
             $userinfo->fullname = $rows['ho_va_ten'];
-            $userinfo->employee_id = $rows['emp_id'];
-            $userinfo->salary =is_numeric(str_replace(".","",$rows['suc_mua_toi_da']))?str_replace(".","",$rows['suc_mua_toi_da']):0;
+            $userinfo->employee_id = $rows['ma_so_nv'];
+            // if(empty($rows['suc_mua_toi_da'])){
+            // $userinfo->salary =is_numeric(str_replace(".","",$rows['suc_mua_toi_da']))?str_replace(".","",$rows['suc_mua_toi_da']):0;
+            // }
+            // else{
+                $userinfo->salary = is_numeric(str_replace(".","",$rows['muc_luong']))?str_replace(".","",$rows['muc_luong']):0;
+            // }
             $userinfo->assess_id = "3";
             $userinfo->save();
-             }
+             // }
         }
+        \Session::flash('mess_userinfo','Tải lên danh sách thành công');
        return redirect('admin/userinfo');
    }
 

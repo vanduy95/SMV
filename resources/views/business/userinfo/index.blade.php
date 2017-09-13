@@ -23,7 +23,6 @@
 </section>
 <div class="modal fade" id="upload" role="dialog">
 	<div class="modal-dialog">
-		
 		<!-- Modal content-->
 		<div class="modal-content">
 			<div class="modal-header">
@@ -34,18 +33,18 @@
 					{{ csrf_field() }}
 					<div class="form-group">
 						<label class="control-label col-md-3" for="organization">Chọn công ty:</label>
-						<div class="col-md-9"> 
+						<div class="col-md-8"> 
 							<select name="organization" class="form-control" id="organization" placeholder="Enter password">
-							<option value="">Chọn công ty</option>
+								<option value="">Chọn công ty</option>
 								@foreach ($organization as $organization)
-									<option value="{{$organization->id}}" >{{$organization->name}}</option>
+								<option value="{{$organization->id}}" >{{$organization->name}}</option>
 								@endforeach
 							</select> 
 						</div>
 					</div>	
 					<div class="form-group">
 						<label class="control-label col-md-3">Tải lên danh sách:</label>
-						<div class="input-group col-md-8">
+						<div class="col-md-8">
 							<input name="upExcel" type="file" accept="" class="form-control" >
 						</div>
 					</div>
@@ -64,6 +63,11 @@
 		<div class="col-sm-12">
 			<div class="box">
 				<div class="box-header">
+					<div class="col-lg-10">
+						@if(Session::has('mess_userinfo'))
+							<p class="alert alert-success text-center">{{Session::get('mess_userinfo')}}</p>
+						@endif
+					</div>
 					<div class="col-lg-2 pull-right"> 
 						<button class="btn btn-primary" data-toggle="modal" data-target="#upload"><i class="fa fa-upload" aria-hidden="true"></i> Tải lên danh sách</button>
 					</div>
@@ -71,12 +75,8 @@
 						<a href="/admin/user/xls"><button type="submit" class="btn btn-primary"/><i class="fa fa-download" aria-hidden="true"></i>Tải về danh sách</button></a>
 					</div> --}}
 				</div>
-				@if(Session::has('mess_userinfo'))
-				<p class="alert alert-info">{{ Session::get('mess_userinfo') }}</p>
-				@endif
 				<div class="box-body">
 					<div class="table-responsive">
-
 						<table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
 							<thead>
 								<tr></tr>
@@ -103,11 +103,11 @@
 									<td>{{$usf->birthday}}</td>
 									<td>
 										@if ($usf->sex==1)
-											Nữ
+										Nữ
 										@elseif($usf->sex==2)
-											Nam
+										Nam
 										@else
-											Chưa có
+										Chưa có
 										@endif
 										
 									</td>

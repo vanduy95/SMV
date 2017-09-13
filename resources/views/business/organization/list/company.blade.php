@@ -1,5 +1,23 @@
 @extends('layouts.master')
 @section('content')
+<script>
+  $(document).ready(function(){
+    $("#form_upexcel").validate({
+      rules:{
+        text_Excel:{
+          required: true,
+        }
+      },
+      messages:{
+        text_Excel: "Bạn chưa chọn danh sách cần tải lên",
+      }
+    });
+  });
+  function myFun(){
+    var x= document.getElementById("btnUpload").value.split("\\");
+    document.getElementById("btnFile").value = x[2];
+  }
+</script>
 <style type="text/css">
   th{
     vertical-align: middle !important;
@@ -17,10 +35,7 @@
   }
 </style>
 <script>
-  function myFun(){
-    var x= document.getElementById("btnUpload").value.split("\\");
-    document.getElementById("btnFile").value = x[2];
-  }
+
 </script>
 <section class="content-header">
   <h1>
@@ -42,7 +57,7 @@
           <h3 class="">Danh sách hệ thống</h3>
         </div>
         <div class="col-lg-8">
-          <form class="form-group" action="{{url('admin/organization/list/company')}}" method="post" enctype="multipart/form-data">
+          <form id="form_upexcel" class="form-group" action="{{url('admin/organization/list/company')}}" method="post" enctype="multipart/form-data">
             {{ csrf_field() }}
             <div>
               <label for="">Tệp tin Excel</label>
@@ -54,8 +69,9 @@
                     Browse&hellip; <input id="btnUpload" name="upExcel" onchange="myFun();" type="file" style="display: none;">
                   </span>
                 </label>
-                <input type="text" id="btnFile" class="form-control" readonly>
+                <input name="text_Excel" type="text" id="btnFile" class="form-control" readonly>
               </div>
+              <label style="display: none" id="btnFile-error" class="error" for="btnFile">Bạn chưa chọn danh sách cần tải lên</label>
             </div>
             <div class="col-lg-6">
               <input type="submit" class="btn btn-primary col-lg-5" name="save"  value="Tải lên">
@@ -90,7 +106,7 @@
               <td>{{$cp->phone}}</td>
               <td>{{$cp->bank}}</td>
               <td>
-              @if($cp->created_at!='') {{date('d-m-Y',strtotime($cp->created_at))}}
+                @if($cp->created_at!='') {{date('d-m-Y',strtotime($cp->created_at))}}
                 @endif
               </td>
               <td>

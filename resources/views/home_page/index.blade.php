@@ -155,6 +155,9 @@
 				<div class="col-lg-3 col-md-12 col-xs-9 mr-5">
 					<img style="width: 100%" src="../img/home_page/mediamart.png" alt="">
 				</div>
+				<div class="col-lg-3 ml-5 col-md-12 col-xs-9 mr-5">
+					<img style="width: 100%" src="../img/home_page/digiCity.png" alt="">
+				</div>
 				<div class="col-lg-3 ml-5 col-md-12 col-xs-9">
 					<img style="width: 100%" src="../img/home_page/doangia.png" alt="">
 				</div>
@@ -321,10 +324,13 @@
 			</div>
 			<div class="partner-img">
 				<div class="py-5 py-xs-0 py-md-5 col-lg-12 col-md-12 col-xs-12 div-flex">
-					<div class="col-lg-3 col-md-12 col-xs-9 mr-5">
+					<div class="col-lg-3 col-md-12 col-xs-6 mr-5">
 						<img style="width: 100%" src="../img/home_page/mediamart.png" alt="">
 					</div>
-					<div class="col-lg-3 ml-5 col-md-12 col-xs-9">
+					<div class="col-lg-3 ml-5 col-md-12 col-xs-6">
+						<img style="width: 100%" src="../img/home_page/digiCity.png" alt="">
+					</div>
+					<div class="col-lg-3 ml-5 col-md-12 col-xs-6">
 						<img style="width: 100%" src="../img/home_page/doangia.png" alt="">
 					</div>
 				</div>
