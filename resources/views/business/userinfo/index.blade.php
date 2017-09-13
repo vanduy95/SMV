@@ -12,14 +12,11 @@
 </style>
 
 <!-- List all Product -->
-<section class="content-header">
-	<h1>
-		Quản lý khách hàng
-	</h1>
-	<ol class="breadcrumb">
-		<li><a href="{{url('/')}}"><i class="fa fa-dashboard"></i> Home</a></li>
-		<li class="active">User</li>
-	</ol>
+<section class="content-header div-center">
+	<form method="post" class="col-lg-6" action="{{url('admin/userinfo/download/demo')}}">
+		{{csrf_field()}}
+		<p style="padding: 10px; font-size: 20px;" class="alert alert-info col-lg-12 text-center">Lưu ý: Tệp tin excel chỉ chứa 1 Sheet! <input type="submit" class="btn btn-warning" value='Tải về định dạng mẫu'/></p>
+	</form>
 </section>
 <div class="modal fade" id="upload" role="dialog">
 	<div class="modal-dialog">
@@ -65,7 +62,7 @@
 				<div class="box-header">
 					<div class="col-lg-10">
 						@if(Session::has('mess_userinfo'))
-							<p class="alert alert-success text-center">{{Session::get('mess_userinfo')}}</p>
+						<p class="alert alert-success text-center">{{Session::get('mess_userinfo')}}</p>
 						@endif
 					</div>
 					<div class="col-lg-2 pull-right"> 

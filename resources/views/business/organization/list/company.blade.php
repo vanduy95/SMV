@@ -37,8 +37,11 @@
 <script>
 
 </script>
-<section class="content-header">
-  <p class="alert alert-info">Lưu ý: Tệp tin excel chỉ chứa 1 Sheet</p>
+<section class="content-header div-center">
+  <form method="post" class="col-lg-6" action="{{url('admin/organization/download/demo')}}">
+  {{csrf_field()}}
+    <p style="padding: 10px; font-size: 20px;" class="alert alert-info col-lg-12 text-center">Lưu ý: Tệp tin excel chỉ chứa 1 Sheet! <input type="submit" class="btn btn-warning" value='Tải về định dạng mẫu'/></p>
+  </form>
 </section>
 <!-- list account -->
 <section class="content">
@@ -47,9 +50,10 @@
     <div class="box">
       <div class="box-header">
         <div class="col-lg-4">
-          <h3 class="">Danh sách hệ thống</h3>
+          <h3 class="">Danh sách doanh nghiệp</h3>
         </div>
         <div class="col-lg-8">
+
           <form id="form_upexcel" class="form-group" action="{{url('admin/organization/list/company')}}" method="post" enctype="multipart/form-data">
             {{ csrf_field() }}
             <div>

@@ -59,7 +59,6 @@ Route::get('orders/postAjaxNewUserOrder',function(){
 Route::get('success',array('as'=>'success',function(){return view('business.orders.success');}));
 Route::group(['middleware'=>['authen']],function(){
 	Route::group(['prefix'=>'admin'],function(){
-		
 		Route::post('ajax/uploadImage', 'OrdersController@uploadImage');
 		Route::post('ajax/deleteImage', 'OrdersController@deleteImage');
 		Route::get('notificationUser','NotificationController@notifyUser');
@@ -91,7 +90,10 @@ Route::group(['middleware'=>['authen']],function(){
 		Route::get('groupuser/show/{groupuser}',array('as'=>'groupshow','uses'=>'GroupUserController@show'));
 		Route::post('groupuser/show/{groupuser}',array('as'=>'groupshow','uses'=>'GroupUserController@update'));
 		Route::get('groupuser/{id}',array('as'=>'destroygroup','uses'=>'GroupUserController@destroy'));
-
+		Route::post('userinfo/download/demo',array('as'=>'downloadExcelDemo','uses'=>'UserInfoController@downloadExcel'));
+		Route::get('userinfo/download/demo',function(){
+			return redirect()->route('indexuserinfo');
+		});
 		Route::get('userinfo',array('as'=>'indexuserinfo','uses'=>'UserInfoController@index'));
 		Route::post('userinfo',array('as'=>'exceluserinfo','uses'=>'UserInfoController@postcreateExcel'));
 		Route::get('userinfo/create',array('as'=>'userinfocreate','uses'=>'UserInfoController@getcreate'));
@@ -181,6 +183,10 @@ Route::group(['middleware'=>['authen']],function(){
 			Route::get('/company',array('as'=>'getCreateCompany','uses'=>'OrganizationController@create_company'));
 			Route::post('/company',array('as'=>'postInsOrgCompany','uses'=>'OrganizationController@InsertCom'));
 			
+		});
+		Route::post('organization/download/demo',array('as'=>'demoExcel','uses'=>'OrganizationController@demoExcel'));
+		Route::get('organization/download/demo',function(){
+			return redirect('admin/organization/list/company');
 		});
 		Route::group(['prefix'=>'/organization/list'],function(){
 			Route::get('/company',array('as'=>'getListCompany','uses'=>'OrganizationController@list_company'));

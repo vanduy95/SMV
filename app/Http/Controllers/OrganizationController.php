@@ -117,19 +117,22 @@ class OrganizationController extends Controller
 				$random=mt_rand(100000,999999);
 					// }
 					// dd($value);
-				$query[] = [
-				'ma'=>$value['ma_cong_ty']==''?$value['ma_cong_ty']:$random,
-				'name'=>$value['ten_cong_ty'],
-				'city'=>$value['thanh_pho'],
-				'address'=>$value['dia_chi']!==''?$value['dia_chi']:'',
-				'phone'=>$value['so_dien_thoai']!==''?$value['so_dien_thoai']:'',
-				'bank'=>$value['ngan_hang'],
-				'worker'=>$value['cong_nhan']!==''?$value['cong_nhan']:0,
-				'system'=>0,
-				'created_at'=>$today,
-				];
+				if($value['ten_cong_ty']!=''){
+					$query[] = [
+					'ma'=>$value['ma_cong_ty']==''?$value['ma_cong_ty']:$random,
+					'name'=>$value['ten_cong_ty'],
+					'city'=>$value['thanh_pho'],
+					'address'=>$value['dia_chi']!==''?$value['dia_chi']:'',
+					'phone'=>$value['so_dien_thoai']!==''?$value['so_dien_thoai']:'',
+					'bank'=>$value['ngan_hang'],
+					'worker'=>$value['cong_nhan']!==''?$value['cong_nhan']:0,
+					'system'=>0,
+					'created_at'=>$today,
+					];
+				}
 				// }
 			}
+			//ket thuc
 			$insert = Organization::insert($query);
 			if($insert==true){
 				\Session::flash('message','Thêm danh sách công ty thành công');
@@ -153,4 +156,15 @@ class OrganizationController extends Controller
 			});
 		})->download($type);
 	}
+	public function demoExcel(){
+			$type='xls';
+			Excel::create('Danh sách mẫu', function($excel)  {
+				$excel->sheet('Sheet1', function($sheet)
+				{
+					$sheet->fromArray('',null,'A1',false,false);
+					$headings=array('Mã công ty','Tên công ty','Thành phố','Địa chỉ','Số điện thoại','Ngân hàng','Công nhân','Ngày tạo');
+					$sheet->prependRow(1, $headings);
+				});
+			})->download($type);
+		}
 }

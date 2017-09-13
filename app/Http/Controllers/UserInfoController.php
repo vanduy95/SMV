@@ -161,7 +161,7 @@ public function postcreateExcel(Request $r,User $user, UserInfo $userinfo){
              // foreach ($row as  $rows) {
             $username =explode(" ",$this->convertnameinfo($rows['ho_va_ten']));
             $user =  new User();
-            $user->username = (reset($username)).(end($username)).$rows['ma_so_nv'];
+            $user->username = (reset($username)).(end($username)).$rows['ma_nhan_vien'];
             $user->email = "";
             $user->password = Hash::make("password");
             $user->status = 0;
@@ -172,12 +172,14 @@ public function postcreateExcel(Request $r,User $user, UserInfo $userinfo){
             $userinfo = new UserInfo();
             $userinfo->user_id=$user->id;
             $userinfo->fullname = $rows['ho_va_ten'];
-            $userinfo->employee_id = $rows['ma_so_nv'];
+            $userinfo->employee_id = $rows['ma_nhan_vien'];
+            $userinfo->time_worked = $rows['so_thang_lam_viec'];
+            $userinfo->number_account = $rows['so_tai_khoan'];
             // if(empty($rows['suc_mua_toi_da'])){
             // $userinfo->salary =is_numeric(str_replace(".","",$rows['suc_mua_toi_da']))?str_replace(".","",$rows['suc_mua_toi_da']):0;
             // }
             // else{
-                $userinfo->salary = is_numeric(str_replace(".","",$rows['muc_luong']))?str_replace(".","",$rows['muc_luong']):0;
+                $userinfo->salary = is_numeric(str_replace(['.',','],"",$rows['muc_luong']))?str_replace(['.',','],"",$rows['muc_luong']):0;
             // }
             $userinfo->assess_id = "3";
             $userinfo->save();
@@ -189,8 +191,18 @@ public function postcreateExcel(Request $r,User $user, UserInfo $userinfo){
 
    catch(\Exception $ex){
     echo $ex->getMessage()."</br>";
-    echo "<a href='/admin/user' class='col-lg-12'>Quay Lại Trang List User</a>";
+    echo "<a href='/admin/userinfo' class='col-lg-12'>Quay Lại Trang Danh Sách Khách Hàng</a>";
 }
+}
+public function downloadExcel(){
+    Excel::create('Danh sách mẫu', function($excel)  {
+                $excel->sheet('Sheet1', function($sheet)
+                {
+                    $sheet->fromArray('',null,'A1',false,false);
+                    $headings=array('Mã nhân viên','Họ và tên','Số tài khoản','Lương','Số tháng làm việc');
+                    $sheet->prependRow(1, $headings);
+                });
+            })->download('xls');
 }
 public function AjaxcheckEmployee_id(Request $req)
 {
