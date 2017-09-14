@@ -3,7 +3,7 @@ $(document).ready(function(){
   $('#select_city').on('change',function(){
     var val = $('option:selected',$('#select_city')).text();
     var market = $('option:selected',$('#select_market')).val();
-    var url  = "http://"+document.location.host+"/ordersPostAjax";
+    var url  = "/ordersPostAjax";
     $.ajaxSetup({
       headers: {
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -61,7 +61,7 @@ $(document).ready(function(){
     var dis = $('option:selected',$('#select_dis')).text();
     var city = $('option:selected',$('#select_city')).text();
     var market = $('option:selected',$('#select_market')).val();
-    var url  = "http://"+document.location.host+"/ordersPostAjax";
+    var url  = "/ordersPostAjax";
     $.ajaxSetup({
       headers: {
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -95,7 +95,7 @@ $(document).ready(function(){
       var market = $('option:selected',$('#select_market')).text();
       var dis = $('option:selected',$('#select_dis')).val();
       var city = $('option:selected',$('#select_city')).val();
-      var url  = "http://"+document.location.host+"/ordersPostAjax";
+      var url  = "/ordersPostAjax";
       $.ajaxSetup({
         headers: {
           'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -129,7 +129,7 @@ $(document).ready(function(){
     var market = $('option:selected',$('#select_market')).text();
     var dis = $('option:selected',$('#select_dis')).val();
     var city = $('option:selected',$('#select_city')).val();
-    var url  = "http://"+document.location.host+"/ordersPostAjax";
+    var url  = "/ordersPostAjax";
     $.ajaxSetup({
       headers: {
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -183,7 +183,7 @@ $(document).ready(function(){
  });
 //null dashboard
 $(document).ready(function(){
-  var url  = "http://"+document.location.host+"/organizationPostCompany";
+  var url  = "/organizationPostCompany";
   $('#input_company').keyup(function(){
     $('#select_company').show();
     var name_cp =$('#input_company').val();
