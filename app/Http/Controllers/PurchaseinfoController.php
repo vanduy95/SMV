@@ -15,6 +15,7 @@ class PurchaseinfoController extends Controller
 	public function getsearch(){
 		$company = DB::table('organization')->where('ma','<>','HT')->select('name','id')->get();
 		// return view('sucmua.index',compact('company'));
+		// dd($company);
 		return view('home_page.index',compact('company'));
 	}
 	public function getAjaxCompany(Request $r){

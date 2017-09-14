@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"is_n",
+				"is_numeric"
+			],
+			[
+				"row",
+				"rows"
+			],
+			[
 				"use",
 				"userinfo"
 			],
@@ -296,10 +304,6 @@
 				"min-height"
 			],
 			[
-				"row",
-				"row-info-content"
-			],
-			[
 				"p",
 				"p\tpadding"
 			],
@@ -510,10 +514,6 @@
 			[
 				"nu",
 				"number_issue"
-			],
-			[
-				"ma",
-				"maxlength"
 			]
 		]
 	},
@@ -550,7 +550,7 @@
 			"file": "app/Http/Controllers/UserInfoController.php",
 			"settings":
 			{
-				"buffer_size": 8875,
+				"buffer_size": 9098,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -1133,15 +1133,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 8875,
+						"buffer_size": 9098,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								6252,
-								6256
+								6556,
+								6556
 							]
 						],
 						"settings":
@@ -1151,7 +1151,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 3020.0,
+						"translation.y": 3058.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
