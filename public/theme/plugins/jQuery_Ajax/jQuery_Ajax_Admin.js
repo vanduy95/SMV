@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	var url  = "http://"+document.location.host+"/admin/ajax/postretailOrders";
+	var url  ="/admin/ajax/postretailOrders";
 	$.ajaxSetup({
 		headers: {
 			'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

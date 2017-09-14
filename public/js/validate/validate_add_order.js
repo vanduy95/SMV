@@ -170,7 +170,7 @@ $(document).ready(function() {
     e.stopImmediatePropagation();
   });
   $('#btn_success_redirect').click(function(){
-    window.location.href = url;
+    window.location.href = "/";
   });
   $('#btn_upload').click(function(e){
     var company = $('#company').val();
