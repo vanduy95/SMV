@@ -186,6 +186,10 @@
 				<a href="" class="f-social-icon"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
 				<a href="" class="f-social-icon"><i class="fa fa-twitter" aria-hidden="true"></i></a>
 			</div>
+			<div class="row Hotline-logo footer-hotline div-flex">
+					<p style="font-size: 1.7vw;"><i class="fa fa-phone" aria-hidden="true" style="margin-right: 1vw;"></i><span style="font-size: 1.5vw">Hotline:</span></p>
+					<p style="padding-left: 3.5vw;"><span style="font-size: 1.5vw">024.6655.2428</span><span style="padding: 1vw;">-</span> <span style="font-size: 1.5vw">0904.633.568</span></p>
+			</div>
 			<div class="container">
 				<div class="row footer-copyright">
 					<span>&#169 2017 Sucmuaviet. All rights reserved</span>
@@ -205,8 +209,12 @@
 				<p>Mã số doanh nghiệp: 107761776</p>
 				<p>Nơi cấp: Sở kế hoạch đầu tư thành phố Hà Nội</p>
 			</div>
-			<div class="row footer-hotline">
+			{{-- <div class="row footer-hotline">
 				<span>HOTLINE : 0904 633 568</span>
+			</div> --}}
+			<div class="row Hotline-logo footer-hotline div-flex">
+					<p style="font-size: 1.7vw;"><i class="fa fa-phone" aria-hidden="true" style="margin-right: 1vw;"></i><span style="font-size: 1.5vw">Hotline:</span></p>
+					<p style="padding-left: 3.5vw;"><span style="font-size: 1.5vw">024.6655.2428</span><span style="padding: 1vw;">-</span> <span style="font-size: 1.5vw">0904.633.568</span></p>
 			</div>
 			<div class="clear"></div>
 		</div>
