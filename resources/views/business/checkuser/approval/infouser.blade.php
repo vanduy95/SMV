@@ -20,27 +20,27 @@
         <label class="control-label col-sm-4" for="identitycard">Số CMND : </label>
         <div class="col-sm-8"> 
           <label class="bg-gray-fix form-control" name="name">{{$user->userinfo->identitycard}}</label>
-       </div>
-     </div>
-     <div class="form-group">
-      <label class="control-label col-sm-4">Ngày cấp : </label>
-      <div class="col-sm-8"> 
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-4">Ngày cấp : </label>
+        <div class="col-sm-8"> 
           <label class="bg-gray-fix form-control">{{date('d-m-Y',strtotime($user->userinfo->dateissue))}}</label>
+        </div>
       </div>
-    </div>
-    <div class="form-group">
-      <label class="control-label col-sm-4" for="issuedby">Nơi cấp : </label>
-      <div class="col-sm-8"> 
+      <div class="form-group">
+        <label class="control-label col-sm-4" for="issuedby">Nơi cấp : </label>
+        <div class="col-sm-8"> 
           <label class="bg-gray-fix form-control">{{$user->userinfo->issuedby}}</label>
+        </div>
       </div>
-    </div>
-     <div class="form-group">
-      <label class="control-label col-sm-4" for="issuedby">Công ty hiện tại : </label>
-      <div class="col-sm-8"> 
+      <div class="form-group">
+        <label class="control-label col-sm-4" for="issuedby">Công ty hiện tại : </label>
+        <div class="col-sm-8"> 
           <label class="bg-gray-fix form-control">{{$user->organization->name}}</label>
+        </div>
       </div>
-    </div>
-     <div class="form-group">
+      <div class="form-group">
         <label class="control-label col-sm-4" for="employee_id">Mã nhân viên:</label>
         <div class="col-sm-8"> 
           <label class="bg-gray-fix form-control">{{$user->userinfo->employee_id}}</label>
@@ -89,12 +89,6 @@
           <label name="phone2" class="bg-gray-fix form-control">{{$user->userinfo->phone2}}</label>
         </div>
       </div>
-        <div class="form-group">
-        <label class="control-label col-sm-4" for="phone4">Số điện thoại bổ sung : </label>
-        <div class="col-sm-8"> 
-          <label name="phone2" class="bg-gray-fix form-control">{{$user->userinfo->phone4}}</label>
-        </div>
-      </div>
       <div class="form-group">
         <label class="control-label col-sm-4" for="address1">Địa chỉ thường trú : </label>
         <div class="col-sm-8"> 
@@ -127,10 +121,16 @@
           <label name="identitycard" class=" bg-gray-fix form-control">{{$user->userinfo->department}}</label>
         </div>
       </div>
-      <div class="form-group" style="margin-top: 45px;">
+      <div class="form-group">
         <label class="control-label col-sm-4" for="address2">Ghi chú 2: </label>
         <div class="col-sm-8"> 
           <label name="note2" class="bg-gray-fix form-control">{{$user->userinfo->note2}}</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-4" for="phone4">Số điện thoại bổ sung trong quá trình xác thực: </label>
+        <div class="col-sm-8"> 
+          <label name="phone2" class="bg-gray-fix form-control">{{$user->userinfo->phone4}}</label>
         </div>
       </div>
     </div> 

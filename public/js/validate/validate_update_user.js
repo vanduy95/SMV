@@ -71,9 +71,7 @@ $(document).ready(function() {
 				minlength:3
 			},
 			employee_id:{
-				required:true,
 				maxlength:255,
-				minlength:6,
 				normalizer: function( value ) {
 					return $.trim( value );
 				},
@@ -194,9 +192,7 @@ $(document).ready(function() {
 				minlength:"Tên khách hàng phải từ 3->255 ký tự"
 			},
 			employee_id:{
-				required:"Mã nhân viên không được để trống, không có khoảng trống ở đầu",
 				maxlength:"Mã nhân viên quá dài",
-				minlength:"Mã nhân viên quá ngắn",
 				remote:'Mã nhân viên này đã tồn tại'
 			},
 			birthday:{

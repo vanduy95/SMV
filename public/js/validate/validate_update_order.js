@@ -145,7 +145,7 @@ $(document).ready(function() {
 				normalizer: function( value ) {
 					return $.trim( value );
 				},
-				required:true,
+				// required:true,
 				maxlength:255,
 				remote: {
 					url:"/checkEmployee_id",
@@ -160,7 +160,6 @@ $(document).ready(function() {
 					}
 				}
 			},
-			
 			birthday:{
 				required:true,
 				validDate:true,
