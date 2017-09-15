@@ -78,7 +78,7 @@ $(document).ready(function() {
 					return $.trim( value );
 				},
 				remote: {
-					url: "http://"+window.location.host+"/checkEmployee_id",
+					url: "/checkEmployee_id",
 					type: "post",
 					data: {
 						identitycard: function() {
@@ -144,7 +144,7 @@ $(document).ready(function() {
 				required:true,
 				number:true,
 				remote: {
-					url: "http://"+window.location.host+"/checkidentitycard",
+					url: "/checkidentitycard",
 					type: "post",
 					data: {
 						identitycard: function() {

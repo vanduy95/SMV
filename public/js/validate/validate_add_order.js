@@ -1,5 +1,4 @@
 $(document).ready(function() {
-  var url  = "http://"+document.location.host;
   $("#date_issue_reg").kendoDatePicker({
     format: "dd/MM/yyyy"
   });
@@ -34,7 +33,7 @@ $(document).ready(function() {
       });
       $.ajax({
         type: "post",
-        url: url+"/orders/postAjaxNewUserOrder",
+        url: "/orders/postAjaxNewUserOrder",
         data:{
           company: company,
           name: name,
@@ -80,7 +79,7 @@ $(document).ready(function() {
     });
      $.ajax({
       type: "post",
-      url: url+"/orders/postAjaxNewUserOrder",
+      url: "/orders/postAjaxNewUserOrder",
       data:{
         company: company,
         name: name,
@@ -138,7 +137,7 @@ $(document).ready(function() {
       });
       $.ajax({
         type: "post",
-        url: url+"/orders/postAjaxNewUserOrder",
+        url: "/orders/postAjaxNewUserOrder",
         data:{
           user_id: user_id,
           name_product: name_product,
@@ -189,7 +188,7 @@ $(document).ready(function() {
     });
     $.ajax({
       type: "post",
-      url: url+"orders/postAjaxNewUserOrder",
+      url: "orders/postAjaxNewUserOrder",
       data:{
         company: company,
         name: name,
