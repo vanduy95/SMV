@@ -64,8 +64,8 @@ $(document).ready(function() {
     e.stopImmediatePropagation();
   });
   $('#btn_new_orders').click(function(e){
-    $('#loading').show();
     if($('#userifo_form').valid()){
+      $('#loading').show();
      var company = $('#company').val();
      var name = $('#name_user').val();
      var salary = $('#salary_user').val();
@@ -118,8 +118,9 @@ $(document).ready(function() {
     $('body').scrollTop(0);
   });
   $('#btn_order_apply').click(function(e){
-    $('#loading').show();
+    
     if($('#orders_form').valid()){
+      $('#loading').show();
       var user_id = $('#user_id').val();
       var name_product = $('#product').val();
       var code_product = $('#code_product').val();
