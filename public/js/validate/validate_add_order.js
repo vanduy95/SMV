@@ -389,7 +389,13 @@ $(document).ready(function() {
     });
 
 
+  $.validator.addMethod("max_price", function (value, element) {
+    if(value.replace(/[ đồng,.]/g,'')<100000000)
+      return true
+    else
+      return false
 
+  }, 'Lương phải nhỏ hơn 100 triệu');
     $.validator.addMethod("check_pre_pay", function (value, element) {
       if($('#pre_pay').val()==''&&$('#select_rate').val()=='')
         return false
@@ -457,6 +463,7 @@ $(document).ready(function() {
         },
         price: {
           required: true,
+          max_price:true,
           check_price_vs_buy:true,
           min_price:true,
         },
