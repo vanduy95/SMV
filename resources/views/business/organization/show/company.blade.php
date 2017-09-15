@@ -74,7 +74,7 @@
                </div>
              </div>
              <div class="form-group form-center-group col-lg-12">
-               <label class="control-label col-lg-4">Số điện thoại: <label style="color:red">*</label> </label>
+               <label class="control-label col-lg-4">Số điện thoại:</label>
                <div class="col-lg-6" >
                  <input class="form-control" class="" type="text" value="{{$organ->phone}}"  name="phone">
                  <p style="color: red;">@if($errors->has('phone')){{$errors->first('phone')}} @endif</p>

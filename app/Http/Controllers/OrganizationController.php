@@ -113,12 +113,12 @@ class OrganizationController extends Controller
 				// foreach ($row as $key => $value) {
 					// dd($value);
 					// if($value['ma_cong_ty']==null){
-				$random=mt_rand(100000,999999);
 					// }
 					// dd($value);
 				if($value['ten_cong_ty']!=''){
+					$random=mt_rand(100000,999999);
 					$query[] = [
-					'ma'=>$value['ma_cong_ty']==''?$value['ma_cong_ty']:$random,
+					'ma'=>$value['ma_cong_ty']!=''?$value['ma_cong_ty']:$random,
 					'name'=>$value['ten_cong_ty'],
 					'city'=>$value['thanh_pho'],
 					'address'=>$value['dia_chi']!==''?$value['dia_chi']:'',
@@ -156,14 +156,14 @@ class OrganizationController extends Controller
 		})->download($type);
 	}
 	public function demoExcel(){
-			$type='xls';
-			Excel::create('Danh sách mẫu', function($excel)  {
-				$excel->sheet('Sheet1', function($sheet)
-				{
-					$sheet->fromArray('',null,'A1',false,false);
-					$headings=array('Mã công ty','Tên công ty','Thành phố','Địa chỉ','Số điện thoại','Ngân hàng','Công nhân','Ngày tạo');
-					$sheet->prependRow(1, $headings);
-				});
-			})->download($type);
-		}
+		$type='xls';
+		Excel::create('Danh sách mẫu', function($excel)  {
+			$excel->sheet('Sheet1', function($sheet)
+			{
+				$sheet->fromArray('',null,'A1',false,false);
+				$headings=array('Mã công ty','Tên công ty','Thành phố','Địa chỉ','Số điện thoại','Ngân hàng','Công nhân','Ngày tạo');
+				$sheet->prependRow(1, $headings);
+			});
+		})->download($type);
+	}
 }

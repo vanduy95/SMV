@@ -156,14 +156,11 @@ public function postcreateExcel(Request $r,User $user, UserInfo $userinfo){
         $datas=Excel::load(Input::file('upExcel'), function ($reader) {})->get();
         foreach($datas as $key => $rows)
         {
+            // $equal_id = UserInfo::where('employee_id','=',$rows['ma_nhan_vien']==''?0:$rows['ma_nhan_vien'])->get()->count();
+            // $equal_cmt = UserInfo::where('identitycard','=',$rows['chung_minh_thu']==''?0:$rows['chung_minh_thu'])->get()->count();
             // dd($rows['ma_nhan_vien']);
-            // dd($rows);
-             // foreach ($row as  $rows) {
              if(!empty(str_replace(' ','',$rows['ma_nhan_vien']))  || !empty(str_replace(' ','',$rows['chung_minh_thu'])) ) {
-             // if(is_numeric($rows['ma_nhan_vien']) || is_numeric($rows['ma_nhan_vien']))
-             // {
-             // echo 'if';
-                // dd($rows);
+                    // if($equal_id < 1 && $equal_cmt <1){
                 $username =explode(" ",$this->convertnameinfo($rows['ho_va_ten']));
                 $user =  new User();
                 $user->username = (reset($username)).(end($username)).$rows['ma_nhan_vien'];
@@ -181,16 +178,20 @@ public function postcreateExcel(Request $r,User $user, UserInfo $userinfo){
                 $userinfo->identitycard = $rows['chung_minh_thu'];
                 $userinfo->time_worked = $rows['so_thang_lam_viec'];
                 $userinfo->number_account = $rows['so_tai_khoan'];
-                // if(empty($rows['suc_mua_toi_da'])){
-                // $userinfo->salary =is_numeric(str_replace(".","",$rows['suc_mua_toi_da']))?str_replace(".","",$rows['suc_mua_toi_da']):0;
-                // }
-                // else{
                 $userinfo->salary = is_numeric(str_replace(['.',','],"",$rows['muc_luong']))?str_replace(['.',','],"",$rows['muc_luong']):0;
-                // }
                 $userinfo->assess_id = "3";
                 $userinfo->save();
+                // }
+                // else{
+                //     $error=[
+                //         $rows['ma_nhan_vien'], $rows['ho_va_ten'],$rows['chung_minh_thu']
+                //     ];
+                // }
             }
         }
+        // if(count($error) > 0){
+        //     dd($error);
+        // }
    }
    catch(\Exception $ex){
         echo $ex->getMessage()."</br>";

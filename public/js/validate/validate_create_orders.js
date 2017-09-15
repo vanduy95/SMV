@@ -183,7 +183,7 @@ $(document).ready(function() {
   //   });
   //   $.ajax({
   //     type: "post",
-  //     url: url+"/postAjaxNewUserOrder",
+  //     url: "/postAjaxNewUserOrder",
   //     data:{
   //       company: company,
   //       name: name,

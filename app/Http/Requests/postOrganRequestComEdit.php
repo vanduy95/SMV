@@ -27,8 +27,7 @@ class postOrganRequestComEdit extends FormRequest
         'name'=>'required|min:6|max:225',
         'city'=>'required|min:6|max:25',
         'addr'=>'required|min:10|max:225',
-        'noted'=>'',
-        'phone'=>'required|numeric|digits_between:10,13',
+        'phone'=>'numeric|digits_between:10,13',
         'bank'=>'required|min:15|max:225',
         'bbranch'=>''
         ];
@@ -44,7 +43,6 @@ class postOrganRequestComEdit extends FormRequest
         'addr.required'=>'Xin vui lòng điền vào địa chỉ công ty',
         'addr.min'=>'Địa chỉ công ty phải nhiều hơn 10 kí tự',
         'addr.max'=>'Đại chỉ công ty phải ít hơn 225 kí tự',
-        'phone.required'=>'Yêu cầu nhập vào số điện thoại công ty',
         'phone.digits_between'=>'Yêu cầu số điện thoại ít nhất phải là 10 chữ số và nhỏ hơn 13 chữ số',
         'phone.numeric'=>'Chỉ được phép nhập số ở ô này',
         'bank.required' =>'Xin vui lòng điền ngân hàng trả lương',

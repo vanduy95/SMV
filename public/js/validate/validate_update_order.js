@@ -148,7 +148,7 @@ $(document).ready(function() {
 				required:true,
 				maxlength:255,
 				remote: {
-					url: "/checkEmployee_id",
+					url:"/checkEmployee_id",
 					type: "post",
 					data: {
 						employee_id: function() {

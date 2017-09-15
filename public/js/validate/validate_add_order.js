@@ -170,7 +170,7 @@ $(document).ready(function() {
     e.stopImmediatePropagation();
   });
   $('#btn_success_redirect').click(function(){
-    window.location.href = url;
+    window.location.href = "/";
   });
   $('#btn_upload').click(function(e){
     var company = $('#company').val();
@@ -188,7 +188,7 @@ $(document).ready(function() {
     });
     $.ajax({
       type: "post",
-      url: "orders/postAjaxNewUserOrder",
+      url: "/orders/postAjaxNewUserOrder",
       data:{
         company: company,
         name: name,
@@ -328,7 +328,7 @@ $(document).ready(function() {
           minlength: 9,
           maxlength: 12,
           remote: {
-            url: "http://"+window.location.host+"/checkidentitycard",
+            url: "/checkidentitycard",
             type: "post",
             data: {
               identitycard: function() {
