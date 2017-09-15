@@ -32,7 +32,7 @@ $(document).ready(function() {
       });
       $.ajax({
         type: "post",
-        url:"/orders/postAjaxNewUserOrder",
+        url: "/orders/postAjaxNewUserOrder",
         data:{
           company: company,
           name: name,

@@ -56,6 +56,7 @@ $(document).ready(function() {
            $('body').scrollTop(0);
          }
        },error: function(res){
+        $('#loading').hide();
           // console.log(res);
         }
       });
@@ -63,6 +64,7 @@ $(document).ready(function() {
     e.stopImmediatePropagation();
   });
   $('#btn_new_orders').click(function(e){
+    $('#loading').show();
     if($('#userifo_form').valid()){
      var company = $('#company').val();
      var name = $('#name_user').val();
@@ -93,6 +95,7 @@ $(document).ready(function() {
       },
       dataType: "json",
       success: function(res){
+        $('#loading').hide();
         if(res.user_id){
           $('#fullname').val(res.fullname);
           $('#user_id').val(res.user_id);
@@ -103,7 +106,7 @@ $(document).ready(function() {
           $('body').scrollTop(0);
         }
       },error: function(res){
-        // console.log(res);
+        $('#loading').hide();
       }
     });
    }
@@ -115,6 +118,7 @@ $(document).ready(function() {
     $('body').scrollTop(0);
   });
   $('#btn_order_apply').click(function(e){
+    $('#loading').show();
     if($('#orders_form').valid()){
       var user_id = $('#user_id').val();
       var name_product = $('#product').val();
@@ -158,12 +162,13 @@ $(document).ready(function() {
         dataType: "json",
         success: function(res){
           if(res.success){
+            $('#loading').hide();
             $('#create_order').remove();
             $('#success_order').show();
             $('body').scrollTop(0);
           }
         },error: function(res){
-          console.log(res);
+          $('#loading').hide();
         }
       });
     }
@@ -389,7 +394,13 @@ $(document).ready(function() {
     });
 
 
+  $.validator.addMethod("max_price", function (value, element) {
+    if(value.replace(/[ đồng,.]/g,'')<100000000)
+      return true
+    else
+      return false
 
+  }, 'Giá phải nhỏ hơn 100 triệu');
     $.validator.addMethod("check_pre_pay", function (value, element) {
       if($('#pre_pay').val()==''&&$('#select_rate').val()=='')
         return false
@@ -457,6 +468,7 @@ $(document).ready(function() {
         },
         price: {
           required: true,
+          max_price:true,
           check_price_vs_buy:true,
           min_price:true,
         },

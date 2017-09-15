@@ -116,7 +116,7 @@ $(document).ready(function() {
    },
    messages:{
     time_work:{
-        required:"Trường không được để trống",
+        required:"Bạn cần xác thực đầy đủ thông tin này",
       },
      phone4:{
        number:"Số điện thoại phải là dạng số",
@@ -130,7 +130,7 @@ $(document).ready(function() {
        maxlength:"Đây không phải là số điện thoại"
      },
      number_account:{
-       required:"Số tài khoản không được để trống",
+       required:"Bạn cần xác thực đầy đủ thông tin này",
        number:"Phải nhập kiểu số",
        maxlength:"Số tài khoản quá dài",
        minlength:"Số tài khoản quá ngắn"
@@ -139,15 +139,15 @@ $(document).ready(function() {
        required:"Không được để trống trường này",
      },
      salary_avg:{
-       required:"Không được để trống trường này",
+       required:"Bạn cần xác thực đầy đủ thông tin này",
        number:"Phải nhập vào số"
      },
      bank_name:{
-       required:"Tên ngân hàng không được để trống",
+       required:"Bạn cần xác thực đầy đủ thông tin này",
        maxlength:"Tên ngẫn hàng phải nhỏ hơn 255 ký tự",
      },
      salary_day:{
-       required:"Không được để trống trường này",
+       required:"Bạn cần xác thực đầy đủ thông tin này",
        number:"phải nhập khiểu số",
        max:"Phải nhập từ 1->31",
        min:"Phải nhập từ 1->31",
