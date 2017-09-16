@@ -316,7 +316,6 @@ $(document).ready(function() {
 				minlength:"Tên khách hàng phải từ 3->255 ký tự"
 			},
 			employee_id:{
-				required:"Mã nhân viên không được để trống",
 				maxlength:"Mã nhân viên quá dài",
 				remote:'Mã nhân viên này đã tồn tại'
 			},
