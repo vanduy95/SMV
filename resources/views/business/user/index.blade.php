@@ -47,6 +47,7 @@
 									<th>Tên đăng nhập</th>
 									<th>Email</th>
 									<th>Trạng thái</th>
+									<th>Công ty</th>
 									<th>Ngày tạo</th>
 									<th>Ngày sửa</th>
 									<th>Hành động</th>
@@ -66,6 +67,7 @@
 										Không kích hoạt
 										@endif
 									</td>
+									<td>{{$u->organization->name}}</td>
 									<td>{{ Carbon\Carbon::parse($u->created_at)->format('d-m-Y')}}</td>
 									<td>{{ Carbon\Carbon::parse($u->updated_at)->format('d-m-Y')}}</td>
 									<td>
@@ -345,6 +347,7 @@
 					else
 						$(".user_"+data.user.id).parent().find('td').eq(4).html('Không kích hoạt');
 					$(".user_"+data.user.id).parent().find('td').eq(5).html(data.organization.name);
+					$(".user_"+data.user.id).parent().find('td').eq(7).html(data.updated_at);
 					swal({
 						title: "Sửa thành công!",
 						text: "",

@@ -1243,7 +1243,7 @@ function convertname($str) {
  		$order->user_id=$r->user_id;
  		$order->process_id='1';
  		$order->retailsystem_id=$r_id[0]->id;
- 		// $order->created_at=\Carbon::today();
+ 		$order->created_at=\Carbon::today();
  		$order->save();
  		$users=User::whereIn('groupuser_id',[1,3])->get();
  		// $users=User::whereIn('groupuser_id',[1,3])->get();

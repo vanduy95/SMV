@@ -55,12 +55,13 @@ class UserController extends Controller
 	}
 	public function update(Request $request){
 		$user = User::find($request->user_id);
-		$user->username = $request->username;
+		$user->username = str_replace(' ','',$request->username);
 		$user->groupuser_id = $request->groupuser_id;
 		$user->email = $request->email;
 		$user->status = $request->status;
 		$user->syslock = '0';
-		$user->organization_id = $request->organization;
+		$user->organization_id =1;
+		// $user->organization_id = $request->organization;
 		$user->save();
 		return response()->json(['user'=>$user,'groupuser'=>$user->groupuser,'organization'=>$user->organization]);
 	}
