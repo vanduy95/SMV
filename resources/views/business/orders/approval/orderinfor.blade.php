@@ -66,7 +66,7 @@
       <div class="form-group">
         <label class="control-label col-sm-4">Số tiền thanh toán hàng tháng:</label>
         <div class="col-sm-8">          
-          <label class="bg-gray-fix form-control">{{str_replace(',','.',number_format(($orders->retailSystem->interest_rate*((double)$orders->price-(double)$orders->prepay)+((double)$orders->price-(double)$orders->prepay)/$orders->lead_time)+11000))}} đồng</label>
+          <label class="bg-gray-fix form-control">{{str_replace(',','.',number_format(($orders->retailSystem->interest_rate/100*((double)$orders->price-(double)$orders->prepay)+((double)$orders->price-(double)$orders->prepay)/$orders->lead_time)+11000))}} đồng</label>
         </div>
         <div class="clear"></div>
       </div>

@@ -7,7 +7,7 @@
           <div class="row">
             <div class="col-md-6">
               <input type="hidden" name="orders_id" value="{{$orders->id}}">
-              <input type="hidden" id="interest_rate" value="{{$orders->retailSystem->interest_rate}}">
+              <input type="hidden" id="interest_rate" value="{{$orders->retailSystem->interest_rate/100}}">
                 <div class="form-group">
                   <label class="control-label col-sm-4">Sản phẩm *:</label>
                   <div class="col-sm-8">          
@@ -74,7 +74,7 @@
                   <div class="col-sm-8">        
                     <input type="text" tabindex="9" readonly autocomplete="off" id="slow_month" class="form-control" 
                     @if ($orders->lead_time)
-                      value="{{number_format(($orders->retailSystem->interest_rate*((double)$orders->price-(double)$orders->prepay)+((double)$orders->price-(double)$orders->prepay)/$orders->lead_time)+11000)}}"
+                      value="{{number_format((($orders->retailSystem->interest_rate)/100*((double)$orders->price-(double)$orders->prepay)+((double)$orders->price-(double)$orders->prepay)/$orders->lead_time)+11000)}}"
                     @endif>
                   </div>
                 </div>
