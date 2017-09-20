@@ -71,7 +71,7 @@
                 </div>
                  <div class="form-group">
                   <label class="control-label col-sm-4">Số tiền thanh toán hàng tháng:</label>
-                  <div class="col-sm-8">          
+                  <div class="col-sm-8">        
                     <input type="text" tabindex="9" readonly autocomplete="off" id="slow_month" class="form-control" 
                     @if ($orders->lead_time)
                       value="{{number_format(($orders->retailSystem->interest_rate*((double)$orders->price-(double)$orders->prepay)+((double)$orders->price-(double)$orders->prepay)/$orders->lead_time)+11000)}}"
