@@ -214,7 +214,7 @@
 			</div> --}}
 			<div class="row Hotline-logo footer-hotline div-flex">
 					<p style="font-size: 1.7vw;"><i class="fa fa-phone" aria-hidden="true" style="margin-right: 1vw;"></i><span style="font-size: 1.5vw">Hotline:</span></p>
-					<p style="padding-left: 3.5vw;"><span style="font-size: 1.5vw">024.6655.2428</span><span style="padding: 1vw;">-</span> <span style="font-size: 1.5vw">0904.633.568</span></p>
+					<p style="padding-left: 3.5vw;"><span style="font-size: 2vw">024.6655.2428</span><span style="padding: 1vw;">-</span> <span style="font-size: 2vw">0904.633.568</span></p>
 			</div>
 			<div class="clear"></div>
 		</div>
