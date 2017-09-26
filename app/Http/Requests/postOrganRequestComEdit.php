@@ -46,7 +46,7 @@ class postOrganRequestComEdit extends FormRequest
         'phone.digits_between'=>'Yêu cầu số điện thoại ít nhất phải là 10 chữ số và nhỏ hơn 13 chữ số',
         'phone.numeric'=>'Chỉ được phép nhập số ở ô này',
         'bank.required' =>'Xin vui lòng điền ngân hàng trả lương',
-        'bank.min'=>'Tên ngân hàng phải nhiều hơn 15 kí tự',
+        'bank.min'=>'Tên ngân hàng phải nhiều hơn 5 kí tự',
         'bank.max'=>'Tên ngân hàng phải ít hơn 225 kí tự'
         ];
     }

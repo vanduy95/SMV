@@ -1,12 +1,12 @@
 @extends('layouts.master')
 @section('content')
 <style type="text/css">
-  td{
-    text-align: center !important;
-  }
-  th{
-    text-align: center !important;
-  }
+td{
+  text-align: center !important;
+}
+th{
+  text-align: center !important;
+}
 </style>
 <section class="content-header">
 	<h1>
@@ -27,7 +27,7 @@
 				</div>
 				<div class="panel-body">
 					<div class="col-lg-12 form-group">
-						<form class="col-lg-offset-1 form-group" action="{{url('admin/organization/create/company')}}" method="POST">
+						<form class="col-lg-offset-1 form-group" action="{{url('admin/organization/create/company')}}" id="createform" method="POST">
 							{{ csrf_field() }}		          
               @if(session('notify'))
               <div class="alert bg-teal disabled color-palette">
@@ -37,7 +37,7 @@
              <div class="form-group col-lg-12">
                <label class="control-label col-lg-4">Mã công ty <label style="color:red">*</label></label>
                <div class="col-lg-6">
-                 <input class="form-control" type="text" value="{{ old('ma') }}"  name="ma" placeholder="Nhập vào mã công ty ở đây">
+                <input class="form-control" type="text" value="{{ old('ma') }}"  name="ma" id="ma" placeholder="Nhập vào mã công ty ở đây">
                  <p style="color: red;">@if($errors->has('ma')){{$errors->first('ma')}}@endif</p>
                </div>
              </div>
@@ -45,21 +45,21 @@
              <div class="form-group col-lg-12">
                <label class="control-label col-lg-4">Tên công ty: <label style="color:red">*</label></label>
                <div class="col-lg-6" >
-                 <input class="form-control" type="text" name="name" placeholder="Nhập vào tên công ty ở đây" />
+                 <input class="form-control" type="text" name="name" id="name"  placeholder="Nhập vào tên công ty ở đây" />
                  <p  style="color: red;">@if($errors->has('name')){{$errors->first('name')}}@endif</p>
                </div>
              </div>
              <div class="form-group col-lg-12">
                <label class="control-label col-lg-4">Thành phố: <label style="color:red">*</label></label>
                <div class="col-lg-6" >
-                 <input class="form-control" type="text" name="city" placeholder="Nhập vào tên thành phố">
+                 <input class="form-control" type="text" name="city" id="city" placeholder="Nhập vào tên thành phố">
                  <p style="color: red;">@if($errors->has('city')){{$errors->first('city')}}@endif</p>
                </div>
              </div>
              <div class="form-group col-lg-12">
                <label class="control-label col-lg-4">Địa Chỉ: <label style="color:red">*</label></label>
                <div class="col-lg-6" >
-                 <input class="form-control" type="text" name="addr" placeholder="Nhập vào địa chỉ công ty">
+                 <input class="form-control" type="text" name="addr" id="addr" placeholder="Nhập vào địa chỉ công ty">
                  <p style="color: red;">@if($errors->has('addr')){{$errors->first('addr')}}@endif</p>
                </div>
              </div>
@@ -81,7 +81,7 @@
              <div class="form-group col-lg-12">
                <label class="control-label col-lg-4">Ngân Hàng: <label style="color:red">*</label></label>
                <div class="col-lg-6" >
-                 <input class="form-control" type="text" name="bank" placeholder="Điền vào tên ngân hàng trả lương">
+                 <input class="form-control" type="text" name="bank" id="bank" placeholder="Điền vào tên ngân hàng trả lương">
                  <p style="color: red;">@if($errors->has('bank')){{$errors->first('bank')}}@endif</p>
                </div>
              </div>
@@ -106,4 +106,66 @@
      </div>
    </div>
  </section>
- @stop
+ <script type="text/javascript">
+  $(document).ready(function() {
+   $("#createform").validate({
+    rules: {
+      ma: {
+        required: true,
+      },
+      name: {
+        required: true,
+        maxlength: 225,
+        minlength: 6,
+      },
+      city: {
+        required: true,
+        maxlength: 225,
+        minlength: 6,
+
+        min_price:true,
+      },
+      addr:{
+        required: true,
+        minlength: 6,
+        maxlength: 225,
+      },
+
+      bank: {
+        required: true,
+        maxlength: 225,
+        minlength: 5,
+      },
+    },
+    messages: {
+      ma: {
+        required: "Trường không được để trống",
+        maxlength: "Trường có độ dài tối đa là 225 ký tự",
+        minlength: "Trường có độ dài tối thiêu là 6 ký tự",
+      },
+      name: {
+        required: "Trường không được để trống",
+        maxlength: "Trường có độ dài tối đa là 225 ký tự",
+        minlength: "Trường có độ dài tối thiêu là 6 ký tự",
+      },
+      city: {
+        required: "Trường không được để trống",
+        maxlength: "Trường có độ dài tối đa là 225 ký tự",
+        minlength: "Trường có độ dài tối thiêu là 6 ký tự",
+      },
+      addr: {
+        required: "Trường không được để trống",
+        maxlength: "Trường có độ dài tối đa là 225 ký tự",
+        minlength: "Trường có độ dài tối thiêu là 6 ký tự",
+
+      },
+      bank: {
+        required: "Trường không được để trống",
+        maxlength: "Trường có độ dài tối đa là 225 ký tự",
+        minlength: "Trường có độ dài tối thiêu là 5 ký tự",
+      },
+    }
+  });
+ });
+</script>
+@stop

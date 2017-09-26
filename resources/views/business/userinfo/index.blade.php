@@ -112,7 +112,7 @@
 									<td>
 										<div class="btn-group">
 											<a href="{{ route('userinfoshow',$usf->id) }}"><i class="fa fa-fw fa-cog"></i></a>
-											<a href="{{ route('destroyuserinfo',$usf->id) }}"><i class="fa fa-fw fa-remove"></i></a>
+											<a href="{{ route('destroyuserinfo',$usf->id) }}"><i onclick="return confirm('Bạn muốn xóa người dùng này???');" class="fa fa-fw fa-remove"></i></a>
 										</div>
 									</td>
 								</tr> 

@@ -38,7 +38,7 @@
         </div>
         <div class="panel-body">
           <div class="col-lg-12 form-group">
-            <form class="col-lg-offset-1 form-group" action="{{url('admin/organization/show/company',$organ->id)}}" method="POST">
+            <form class="col-lg-offset-1 form-group" action="{{url('admin/organization/show/company',$organ->id)}}" id="createform" method="POST">
               {{ csrf_field() }}              
               @if(session('notify'))
               <div class="alert bg-teal disabled color-palette">
@@ -55,35 +55,35 @@
              <div class="form-group form-center-group col-lg-12">
                <label class="control-label col-lg-4">Tên công ty: <label style="color:red">*</label> </label>
                <div class="col-lg-6" >
-                 <input class="form-control" type="text" name="name" value="{{$organ->name}}" />
+                 <input class="form-control" type="text" name="name" id="name" value="{{$organ->name}}" />
                  <p style="color: red;">@if($errors->has('name')){{$errors->first('name')}} @endif</p>
                </div>
              </div>
              <div class="form-group form-center-group col-lg-12">
                <label class="control-label col-lg-4">Thành phố: <label style="color:red">*</label> </label>
                <div class="col-lg-6" >
-                 <input class="form-control" type="text" value="{{$organ->city}}" name="city">
+                 <input class="form-control" type="text" value="{{$organ->city}}" name="city" id="city">
                  <p style="color: red;">@if($errors->has('city')){{$errors->first('city')}} @endif</p>
                </div>
              </div>
              <div class="form-group form-center-group col-lg-12">
                <label class="control-label col-lg-4">Địa chỉ: <label style="color:red">*</label> </label>
                <div class="col-lg-6" >
-                 <input class="form-control" type="text" value="{{$organ->address }}" name="addr">
+                 <input class="form-control" type="text" value="{{$organ->address }}" name="addr" id="addr">
                  <p style="color: red;">@if($errors->has('addr')){{$errors->first('addr')}} @endif</p>
                </div>
              </div>
              <div class="form-group form-center-group col-lg-12">
                <label class="control-label col-lg-4">Số điện thoại:</label>
                <div class="col-lg-6" >
-                 <input class="form-control" class="" type="text" value="{{$organ->phone}}"  name="phone">
+                 <input class="form-control" class="" type="text" value="{{$organ->phone}}" name="phone" id="phone">
                  <p style="color: red;">@if($errors->has('phone')){{$errors->first('phone')}} @endif</p>
                </div>
              </div>
              <div class="form-group form-center-group col-lg-12">
                <label class="control-label col-lg-4">Ngân hàng: <label style="color:red">*</label> </label>
                <div class="col-lg-6" >
-                 <input class="form-control" type="text" value="{{$organ->bank}}" name="bank">
+                 <input class="form-control" type="text" value="{{$organ->bank}}" name="bank" id="bank">
                  <p style="color: red;">@if($errors->has('bank')){{$errors->first('bank')}} @endif</p>
                </div>
              </div>
@@ -109,4 +109,65 @@
    </div>
  </div>
 </section>
+<script type="text/javascript">
+  $(document).ready(function() {
+   $("#createform").validate({
+    rules: {
+      ma: {
+        required: true,
+      },
+      name: {
+        required: true,
+        maxlength: 225,
+        minlength: 6,
+      },
+      city: {
+        required: true,
+        maxlength: 225,
+        minlength: 6,
+
+        min_price:true,
+      },
+      addr:{
+        required: true,
+        minlength: 6,
+        maxlength: 225,
+      },
+
+      bank: {
+        required: true,
+        maxlength: 225,
+        minlength: 5,
+      },
+    },
+    messages: {
+      ma: {
+        required: "Trường không được để trống",
+        maxlength: "Trường có độ dài tối đa là 225 ký tự",
+        minlength: "Trường có độ dài tối thiêu là 6 ký tự",
+      },
+      name: {
+        required: "Trường không được để trống",
+        maxlength: "Trường có độ dài tối đa là 225 ký tự",
+        minlength: "Trường có độ dài tối thiêu là 6 ký tự",
+      },
+      city: {
+        required: "Trường không được để trống",
+        maxlength: "Trường có độ dài tối đa là 225 ký tự",
+        minlength: "Trường có độ dài tối thiêu là 6 ký tự",
+      },
+      addr: {
+        required: "Trường không được để trống",
+        maxlength: "Trường có độ dài tối đa là 225 ký tự",
+        minlength: "Trường có độ dài tối thiêu là 6 ký tự",
+
+      },
+      bank: {
+        required: "Trường không được để trống",
+        maxlength: "Trường có độ dài tối đa là 225 ký tự",
+        minlength: "Trường có độ dài tối thiêu là 5 ký tự",
+      },
+    }
+  });
+ });
 @stop
