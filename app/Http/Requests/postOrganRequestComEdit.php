@@ -28,7 +28,7 @@ class postOrganRequestComEdit extends FormRequest
         'city'=>'required|min:6|max:25',
         'addr'=>'required|min:10|max:225',
         'phone'=>'numeric|digits_between:10,13',
-        'bank'=>'required|min:15|max:225',
+        'bank'=>'required|min:5|max:225',
         'bbranch'=>''
         ];
     }
