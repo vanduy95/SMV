@@ -681,7 +681,7 @@ function convertname($str) {
  			break;
  			case 4:
  			if($orders->process_id==2){
- 				return view('business.orders.accuracy.index',compact('UserInfo','orders','city','buy','buys','retailsystem','comparison','total_buy'));
+ 				return view('business.orders.accuracy.index',compact('UserInfo','orders','city','buy','buys','retailsystem','comparison','total_buy','warning_order'));
  			}
  			else{
  				\Session::flash('success_accruracy','Đơn hàng đã được xử lý hoặc đã chuyển trạng thái');
@@ -693,7 +693,7 @@ function convertname($str) {
  				$days = $this->first_day_payment($orders->updated_at,$UserInfo->salary_day);
  				if($days!=null)
  					$day=$days;
- 				return view('business.orders.approval.index',compact('UserInfo','orders','city','buy','buys','retailsystem','day','total_buy'));
+ 				return view('business.orders.approval.index',compact('UserInfo','orders','city','buy','buys','retailsystem','day','total_buy','warning_order'));
  			}
  			else{
  				\Session::flash('success_accruracy','Đơn hàng đã được xử lý hoặc đã chuyển trạng thái');
@@ -1168,6 +1168,7 @@ function convertname($str) {
  	public function postAjaxNewUserOrder(Request $r){
  		// return \Response::json($r->name);
  		if(!empty($r->btn_register)){
+ 			dd($r);
  			$user = new User();
  			$userinfo = new UserInfo();
  			$user->username = convertname($r->name).rand(100,999);

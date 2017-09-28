@@ -65,6 +65,9 @@
 			<div class="row ">
 				<div class="col-md-12" align="center"><b>Ngày xác thực gần nhất : {{date('d-m-Y',strtotime($UserInfo->updated_at))}}</b></div>
 			</div>
+			@if($warning_order<1)
+			<p class="alert alert-danger text-center">Đơn hàng này đã vượt quá sức mua</p> 
+			@endif()
 			<div class="row ">
 				<div class="col-md-12 pull-right" style="margin-bottom: 20px">
 					<script src="https://rawgit.com/enyo/dropzone/master/dist/dropzone.js"></script>

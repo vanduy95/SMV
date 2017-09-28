@@ -24,7 +24,7 @@ $(document).ready(function() {
       var number_i = $('#number_issue').val();
       var date_issue = $('#date_issue_reg').val();
       var addr_issue = $('#addr_issue').val();
-      // console.log(company+name+salary+phone+add_u+number_i+date_issue+addr_issue);
+      console.log(company+name+salary+phone+add_u+number_i+date_issue+addr_issue);
       $.ajaxSetup({
         headers: {
           'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -313,7 +313,7 @@ $(document).ready(function() {
       },
       messages: {
         company:{
-          required:"Bạn chưa chọn công ty",
+          required:"Công ty không được để trống",
         },
         name_user:{
           required:"Bạn chưa nhập tên",

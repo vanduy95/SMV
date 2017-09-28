@@ -3,9 +3,9 @@
 	height: 10vw;
 	padding: 0;
 }
-.dropdown-menu > li:last-of-type{
+/*.dropdown-menu > li:last-of-type{
 	padding-bottom: 5vw;
-}
+}*/
 div.dropdown-menu.open{
 	width: 100%;
 }
