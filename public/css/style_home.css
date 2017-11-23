@@ -472,7 +472,7 @@ nav.navbar.navbar-default {
 		margin-top: 1vw;
 		background-repeat: no-repeat;
 		padding: 2vw 0 2vw 9vw;
-		background-image: url('../img/home_page/tick.png'); 
+		/*background-image: url('../img/home_page/tick.png'); */
 		color: white;
 		vertical-align: middle;
 		/*font-size: 5vw;*/

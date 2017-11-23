@@ -73,22 +73,22 @@
 										<option value="{{$c->id}}">{{$c->name}}</option>
 										@endforeach
 									</div> --}}
-									<select id="id_company" name="selectpicker_lg" class="col-xs-10 col-md-12 form-control selectpicker"  data-id='selectpicker_lg' data-show-subtext="true" data-live-search="true">
+<!-- 									<select id="id_company" name="selectpicker_lg" class="col-xs-10 col-md-12 form-control selectpicker"  data-id='selectpicker_lg' data-show-subtext="true" data-live-search="true">
 										<option value="">Chọn công ty</option>
 										@foreach ($company as $c)
 										<option value="{{$c->id}}">{{$c->name}}</option>
 										@endforeach
 									</select>
-									<p class="text-center error" id="error_com"></p>
+									<p class="text-center error" id="error_com"></p> -->
 								</div>
 								<div class=" col-lg-12 col-md-12 col-xs-12 form-group">
 									<input  autocomplete="off" id="txt_cmt" name="txt_cmt" class="form-control text-padding-input" style="border-radius: 0; height: 4.5rem" type="text" placeholder="Nhập số chứng minh nhân dân">
 									<p class="text-center error" id="error_cmt"></p>
 								</div>
-								<div class=" col-lg-12 col-md-12 col-xs-12 form-group">
+								<!-- <div class=" col-lg-12 col-md-12 col-xs-12 form-group">
 									<input autocomplete="off" id="txt_code" name="txt_code" class="form-control text-padding-input" style="border-radius: 0; height: 4.5rem" type="text" placeholder="Nhập mã nhân viên">
 									<p class="text-center error" id="error_code"></p>
-								</div>
+								</div> -->
 								<div class=" col-lg-12 col-md-12 col-xs-12 div-flex  form-group">
 									<input class="div-flex my-3 btn-submit-form col-lg-7 col-md-7" type="button" name="submit_search" id="submit_search" value="Kiểm tra sức mua">
 								</div>
@@ -202,7 +202,7 @@
 						<p class="text-vw-5 py-xs-0 py-md-3" style="color: white; font-weight: 600;padding: 5px;">Kiểm tra sức mua của bạn</p>	
 					</div>
 					<div class="col-md-12 col-xs-12" style="padding:0">
-						<div class="text-center col-md-12 col-xs-12 form-group">
+						<!-- <div class="text-center col-md-12 col-xs-12 form-group">
 							<label for="">Tên công ty</label>
 							<div class="col-md-12 col-xs-12">
 								<div class="col-xs-12 div-flex" style="padding:0">
@@ -215,7 +215,7 @@
 								</div>
 								<p  class="error" id="error_com_xs"></p>
 							</div>
-						</div>
+						</div> -->
 						<div class="text-center col-md-12 col-xs-12">
 							<label for="">Chứng minh nhân dân</label>
 							<div class="col-md-12 col-xs-12">
@@ -225,7 +225,7 @@
 								<p class="error"  id="error_cmt_xs"></p>
 							</div>
 						</div>
-						<div class="text-center col-md-12 col-xs-12">
+						<!-- <div class="text-center col-md-12 col-xs-12">
 							<label for="">Mã số nhân viên</label>
 							<div class="col-md-12 col-xs-12">
 								<div class="col-xs-12 div-flex" style="padding:0">
@@ -233,7 +233,7 @@
 								</div>
 								<p class="error"  id="error_code_xs"></p>
 							</div>
-						</div>
+						</div> -->
 						<div class="col-md-12 col-xs-12 py-2">
 							<div class="col-md-12 col-xs-12 py-2">
 								<div class="col-md-12 col-xs-12 div-flex py-2" style="padding:0">
@@ -345,7 +345,7 @@
 				<p>Sức mua được cung cấp</p>
 			</div>
 			<div class="row-info-content col-md-6 col-xs-6">
-				<h1>50+</h1>
+				<h1>100+</h1>
 				<p>Siêu thị bán lẻ áp dụng</p>
 			</div>
 			<div class="clear"></div>
@@ -363,7 +363,7 @@
 		</div>
 		<div class="col-lg-6 col-md-12 col-xs-12" style="padding: 0">
 			<div class="col-lg-offset-1 col-lg-5" style="padding: 0;"> 
-				<h1 class="text-center" style="color: white;font-size: 2.5vw;">50+</h1>
+				<h1 class="text-center" style="color: white;font-size: 2.5vw;">100+</h1>
 				<p class="text-center" style="color: white;font-size: 1.5vw;">Siêu thị bán lẻ áp dụng</p>
 			</div>
 		</div>
@@ -435,7 +435,7 @@
 									<img src="../img/home_page/arrow.png" alt="">
 								</span>
 								<span class=" col-lg-5 col-md-5 col-xs-5 font-next-step">
-									Cách 2: Hoặc đăng ký sức mua bằng cách chọn công ty và điền thông tin của bạn. Sức mua của bạn sẽ được cập nhật trong vòng 15 phút.
+									Đăng ký hội viên bằng cách nhập thông tin đăng ký và Cập nhật hồ sơ cá nhân của bạn theo hướng dẫn của nhân viên tư vấn.
 								</span>
 							</div>
 						</div>
@@ -516,7 +516,7 @@
 			<div class="col-md-12 col-xs-12 div-flex">
 				<div id="data-step-xs-1"  class="data-step-xs data-step-xs-1 col-md-9 col-xs-11">
 					<p>1. Kiểm tra sức mua đã được cấp.</p>
-					<p>2. Đăng ký sức mua bằng cách chọn công ty và điền thông tin của bạn. Sức mua của bạn sẽ được cập nhật trong vòng 15 phút.</p>
+					<p>Đăng ký hội viên bằng cách nhập thông tin đăng ký và Cập nhật hồ sơ cá nhân của bạn theo hướng dẫn của nhân viên tư vấn.</p>
 				</div>
 				<div  id="data-step-xs-2"  class="data-step-xs  col-md-9 col-xs-11" style="display: none">
 					<p>1. Đến hệ thống siêu thị liên kết, lựa chọn sản phẩm. Nhân viên siêu thị sẽ cập nhật đơn hàng của bạn.</p>
@@ -542,14 +542,14 @@
 		<hr class="hr-style">
 	</div>
 	<div class="col-lg-12 col-md-12 col-xs-12 div-flex" style="padding: 0">
-		<div class="col-lg-4 col-md-4 col-xs-5  conddtion-member" style="padding: 0">
-			<p class="">1. Doanh nghiệp bạn đang công tác đã có trong danh sách lựa chọn của Sức Mua Việt</p>
-			<img  src="{{url('img/home_page/tick.png')}}"/>
+		<div class="col-lg-4 col-md-4 col-xs-5  conddtion-member" style="padding-bottom: 2rem">
+			<p class="">Bạn đang làm việc chính thức tại một doanh nghiệp và có mức thu nhập từ 3 triệu đồng trở lên.</p>
+			<!-- <img  src="{{url('img/home_page/tick.png')}}"/> -->
 		</div>
-		<div class="col-lg-offset-1 col-xs-offset-1 col-md-offset-1 col-lg-4 col-md-4 col-xs-5 conddtion-member">
+		<!-- <div class="col-lg-offset-1 col-xs-offset-1 col-md-offset-1 col-lg-4 col-md-4 col-xs-5 conddtion-member">
 			<p class="" >2. Bạn đã ký hợp đồng chính thức với doanh nghiệp </p>
 			<img  src="{{url('img/home_page/tick.png')}}"/>
-		</div>
+		</div> -->
 	</div>
 	<div class="clear"></div>
 </section>
@@ -560,12 +560,12 @@
 		<hr class="hr-style">
 	</div>
 	<div class="col-lg-12 col-md-12 col-xs-12" style="padding: 0">
-		<div class="col-lg-12 col-md-12 col-xs-12  conddtion-member">
-			<p class="text-vw-4">1. Đơn vị bạn đang công tác đã tham  gia chương trình của Sức Mua Việt</p>
+		<div class="col-lg-12 col-md-12 col-xs-12  conddtion-member" style="padding-bottom: 1rem">
+			<p class="text-vw-4">Bạn đang làm việc chính thức tại một doanh nghiệp và có mức thu nhập từ 3 triệu đồng trở lên.</p>
 		</div>
-		<div class=" col-lg-12 col-md-12 col-xs-12 conddtion-member member-botton">
+		<!-- <div class=" col-lg-12 col-md-12 col-xs-12 conddtion-member member-botton">
 			<p class="text-vw-4" >2. Bạn đã ký hợp đồng chính thức với doanh nghiệp </p>
-		</div>
+		</div> -->
 	</div>
 	<div class="clear"></div>
 </section>

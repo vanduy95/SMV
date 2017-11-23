@@ -36,9 +36,9 @@
 						<div class="clear"></div>
 					</div>
 					<div class="text-aboutus col-lg-3 col-xs-6" style="padding-right: 0">
-						<span class="title-bold">Tiện lợi trong mua sắm: </span>
+						<span class="title-bold">Dễ dàng trong thanh toán: </span>
 						<span class="definition">
-							Khách hàng có thể xác định được "Sức mua" trước khi mua sắm.
+							Hình thức thanh toán dễ dàng thông qua tài khoản ngân hàng.
 						</span>
 						<div class="clear"></div>
 					</div>
@@ -85,7 +85,7 @@
 					</div>
 					<div class="img-content">
 						<div class="content-sm col-lg-9 col-md-12 col-xs-12">
-							<span><i class="fa fa-circle" aria-hidden="true"></i>Cấp trước Sức Mua để mua sắm hàng hóa tương đương 200% - 300% lương hàng tháng.<br/></span>
+							<span><i class="fa fa-circle" aria-hidden="true"></i>Cấp trước Sức Mua để mua sắm hàng hóa tương đương từ 2 đến 3 lần mức  lương hàng tháng.<br/></span>
 							<span><i class="fa fa-circle" aria-hidden="true"></i>Hội viên được thỏa mái mua sắm toàn bộ các mặt hàng tại hệ thống của hàng, siêu thị của đối tác với:<span class="interest-0"> Ưu đãi trả góp 6 tháng, lãi suất 0%</span>. Đây thực sự là cơ hội mua sắm tốt nhất và tiết kiệm nhất so với các hình thức mua sắm khác.</span>
 						</div>
 						<div class="img-logo col-lg-2" style="padding: 0">
@@ -98,8 +98,8 @@
 			<div class="col-lg-12 col-md-12 col-xs-12 div-center">
 				<div class="data-member col-lg-10 col-md-10 col-xs-10">
 					<p class="col-lg-12 col-md-12 col-xs-12 text-right">Để trở thành hội viên</p>
-					<p class=" col-lg-12 col-md-12 col-xs-12 text-right">Doanh nghiệp bạn đang công tác đã có trong danh sách lựa chọn của Sức Mua Việt.</p>
-					<p class="  col-lg-12 col-md-12 col-xs-12 text-right">Bạn đã ký hợp đồng chính thức với doanh nghiệp, thời gian làm việc trên 6 tháng.</p>
+					<p class=" col-lg-12 col-md-12 col-xs-12 text-right">Bạn đang làm việc chính thức tại một doanh nghiệp và có mức thu nhập từ 3 triệu đồng trở lên.</p>
+					<!-- <p class="  col-lg-12 col-md-12 col-xs-12 text-right">Bạn đã ký hợp đồng chính thức với doanh nghiệp, thời gian làm việc trên 6 tháng.</p> -->
 				</div>
 			</div>
 			<div class="col-lg-12 col-md-12 col-xs-12 div-center">
