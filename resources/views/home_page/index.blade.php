@@ -21,7 +21,7 @@
 							</div>
 							<div class="pb-md-5 pb-5 col-lg-12 col-md-12 col-xs-12 div-flex">
 								<input class="col-lg-4 col-md-5 col-xs-9 btn btn-primary" id="btn_retype" type="button" value="Nhập lại thông tin" style="background: #cccccc; border: 1px solid #cccccc">
-								<input class="col-lg-3 col-md-5 col-xs-5 col-xs-offset-1 col-md-offset-1 col-lg-offset-1 btn btn-primary" id="btn_new_reg" type="button" value="Đăng ký mới" style="background: #170e66" >
+								<input class="col-lg-3 col-md-5 col-xs-5 col-xs-offset-1 col-md-offset-1 col-lg-offset-1 btn btn-primary" id="btn_new_reg" type="button" value="Đăng ký hội viên" style="background: #170e66" >
 							</div>
 						</div>
 					</div>
@@ -91,7 +91,8 @@
 								</div> -->
 								<div class=" col-lg-12 col-md-12 col-xs-12 div-flex  form-group" style="display: flex; justify-content: space-around;">
 									<input class="div-flex my-3 btn-submit-form col-lg-5 col-md-5" type="button" name="submit_search" id="submit_search" value="Kiểm tra sức mua">
-									<input class="div-flex my-3 btn-submit-form col-lg-5 col-md-5" type="button" value="Đăng ký hội viên">
+									<input class="div-flex my-3 btn-submit-form col-lg-5 col-md-5" 
+									id="btn_new_reg_show" name="btn_new_reg_show" type="button" value="Đăng ký hội viên">
 								</div>
 								<div class="clear"></div>
 							</form>
@@ -118,18 +119,21 @@
 									<label for="">Sức mua còn lại</label>
 									<input id="rest" name="rest" class="form-control text-padding-input" style="border-radius: 0; height: 4.5rem" type="text" readonly="">
 								</div>
-								<div id="next_register" class=" col-lg-12 col-md-12 div-flex col-xs-12 form-group">
-									<div class="col-lg-6 col-xs-9 col-md-6">
+								<div id="next_register" class=" col-lg-12 col-md-12 div-flex form-group">
+									<div class="col-lg-4 col-md-4" style="padding: 2px">
 										<input class="col-lg-12 col-md-12 col-xs-12 btn btn-primary" name="btn_orders" type="submit" value="Đăng kí mua hàng">
 									</div>
-									<div class="col-lg-6 col-xs-9 col-md-6">
+									<div class="col-lg-4 col-md-4" style="padding: 2px">
 										<input class="col-lg-12 col-xs-12 col-md-12 btn btn-primary" type="submit" name="btn_upload" id="upload" value="Tải phiếu đăng ký">
+									</div>
+									<div class="col-lg-4 col-md-4" style="padding: 2px">
+										<input class="col-lg-12 col-xs-12 col-md-12 btn btn-primary" type="submit" name="" id="" style="white-space: normal;" value="Cập nhật hồ sơ cá nhân">
 									</div>
 								</div>
 								<div class="col-lg-12" id="dont_next" style="display: none">
 									<div class="col-lg-12">
 										<p id="notify" class="text-center" style="color: red; margin: 0">Sức mua hiện tại của bạn không đủ thực hiện giao dịch. Liên hệ với chúng tôi để được hỗ trợ.</p>
-										<p id="hotline"><span class="text-center" style="color: red" id="phone"></span></p>
+										<p id="hotline" class="text-center"><span class="text-center" style="color: red" id="phone"></span></p>
 									</div>
 									<div class="mb-2 col-lg-12 div-flex">
 										<a href="#" id="return_local" style="max-width: 100%;" class="btn btn-primary col-lg-6">Quay về trang chủ</a>
@@ -186,7 +190,7 @@
 					</div>
 					<div class="col-lg-12 col-md-12 col-xs-12 div-flex">
 						<input class="col-lg-4 col-md-5 col-xs-6 btn btn-primary" id="btn_retype_xs" type="button" value="Nhập lại thông tin" style="background: #cccccc; border: 1px solid #cccccc; font-size: 3vw">
-						<input class="col-lg-3 col-md-4 col-xs-5 col-lg-offset-1 col-xs-offset-1 col-md-offset-1 btn btn-primary" id="btn_new_reg_xs" type="button" value="Đăng ký mới" style="background: #170e66; font-size: 4vw" >
+						<input class="col-lg-3 col-md-4 col-xs-5 col-lg-offset-1 col-xs-offset-1 col-md-offset-1 btn btn-primary" id="btn_new_reg_xs" type="button" value="Đăng ký hội viên" style="background: #170e66; font-size: 3vw" >
 					</div>
 				</div>
 			</div>
@@ -238,7 +242,9 @@
 						<div class="col-md-12 col-xs-12 py-2">
 							<div class="col-md-12 col-xs-12 py-2">
 								<div class="col-md-12 col-xs-12 div-flex py-2" style="padding:0">
-									<input id="btn_search_xs" class="  col-md-4 col-xs-6 btn btn-primary" type="button" style="background: #170e66; border-radius: 10px;align-items: center !important; font-size: 3.3vw;" value="Kiểm tra">
+									<input id="btn_search_xs" class="  col-md-4 col-xs-5 btn btn-primary" type="button" style="background: #170e66; border-radius: 10px;align-items: center !important; font-size: 3.3vw;" value="Kiểm tra">
+									<input class="col-xs-offset-1 col-md-4 col-xs-5 btn btn-primary" 
+									id="btn_new_reg_xs_show" name="btn_new_reg_xs_show" type="button" style="background: #170e66; border-radius: 10px;align-items: center !important; font-size: 3.3vw;" value="Đăng ký hội viên">
 								</div>
 							</div>
 						</div>
@@ -293,15 +299,16 @@
 						<div id="next_register_xs" class="col-md-12 col-xs-12 py-2" style="padding: 0">
 							<div class="col-md-12 col-xs-12 py-2" style="padding: 0">
 								<div class="col-xs-12 div-flex py-2" style="padding: 0">
-									<input id="btn_orders_xs" name="btn_orders_xs" class="col-md-5 col-xs-5 col-xs  btn btn-primary" type="submit" style="background: #170e66; border-radius: 10px;font-size: 10px;" value="Đăng ký mua hàng">
-									<input id="btn_upload_xs" name="btn_upload_xs" class="col-xs-offset-1 col-md-5 col-xs-5 col-xs  btn btn-primary" type="submit" style="background: #170e66; border-radius: 10px;font-size: 10px;" value="Tải phiếu đăng ký">
+									<input id="btn_orders_xs" name="btn_orders_xs" class="col-xs-3 col-xs  btn btn-primary" type="submit" style="background: #170e66; border-radius: 10px;font-size: 10px;" value="Đăng ký mua hàng">
+									<input id="" name="" class="col-xs-offset-1  col-xs-3 col-xs  btn btn-primary" type="submit" style="background: #170e66; border-radius: 10px;font-size: 10px;" value="Cập nhật hồ sơ cá nhân">
+									<input id="btn_upload_xs" name="btn_upload_xs" class="col-xs-offset-1  col-xs-3 col-xs  btn btn-primary" type="submit" style="background: #170e66; border-radius: 10px;font-size: 10px;" value="Tải phiếu đăng ký">
 								</div>
 							</div>
 						</div>
 						<div class="col-lg-12" id="dont_next_xs" style="display: none">
 							<div class="col-lg-12">
 								<p id="notify_xs" class="text-center" style="color: red; margin: 0">Sức mua hiện tại của bạn không đủ thực hiện giao dịch. Liên hệ với chúng tôi để được hỗ trợ.</p>
-								<p id="hotline"><span class="text-center" style="color: red" id="phone"></span></p>
+								<p id="hotline" class="text-center"><span class="text-center" style="color: red" id="phone"></span></p>
 							</div>
 							<div class="mb-2 col-lg-12 div-flex">
 								<a href="#" id="return_local_xs" style="max-width: 100%;" class="btn btn-primary col-lg-6">Quay về trang chủ</a>

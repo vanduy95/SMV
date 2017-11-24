@@ -169,18 +169,26 @@ $(document).ready(function(){
 			});
 		}
 	});
+	$('#btn_new_reg_xs_show').click(function(){
+		// console.log('btn_new_reg_xs_show');
+		window.location.href = "/orders/add";
+	});
+	$('#btn_new_reg_show').click(function(){
+		// console.log('btn_new_reg_show');
+		window.location.href = "/orders/add";
+	});
 	$('#submit_search').click(function(){
 		$('#loading').show();
-		var id_comp = $('#id_company').val();
+		// var id_comp = $('#id_company').val();
 		var cmt = $('#txt_cmt').val();
-		var code = $('#txt_code').val();
-		$('select#id_company').val("").change();
-		$('#text-input').val("");
+		// var code = $('#txt_code').val();
+		// $('select#id_company').val("").change();
+		// $('#text-input').val("");
 		$('#txt_cmt').val("");
-		$('#txt_code').val("");
-		$('#error_com').html("");
+		// $('#txt_code').val("");
+		// $('#error_com').html("");
 		$('#error_cmt').html("");
-		$('#error_code').html("");
+		// $('#error_code').html("");
 		$.ajaxSetup({
 			headers: {
 				'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -190,74 +198,138 @@ $(document).ready(function(){
 			type:"POST",
 			url:"/userPostAjax",
 			data:{
-				id_com: id_comp,
+				// id_com: id_comp,
 				cmt: cmt,
-				code: code,
+				// code: code,
 			},
 			dataType:"json",
 			success: function(res){
 				$('#loading').hide();
-				if(res.error_all){
-					$('#error_com').html("Bạn phải chọn công ty");
-					$('#error_cmt').html("Nhập số chứng minh nhân dân hoặc mã nhân viên");
-					$('#error_code').html("Nhập mã nhân viên hoặc số chứng minh nhân dân");
+				console.log(res);
+				if(res.error_cmt){
+					$('#error_cmt').html("Mời bạn nhập số chứng minh nhân dân");
 				}
-				else if(res.error_code){
-					$('#error_com').html("Bạn phải chọn công ty");
-				}
-				else if(res.error_cmt){
-					$('#error_com').html("Bạn phải chọn công ty");
-				}
-				else if(res.error_com){
-					$('#error_com').html("Bạn phải chọn công ty");
-				}
-				else if(res.error_cmt_code){
-					$('#error_cmt').html("Nhập số chứng minh nhân dân hoặc mã nhân viên");
-					$('#error_code').html("Nhập mã nhân viên hoặc số chứng minh nhân dân");
-				}
-				if(!res.error_all && !res.error_code && !res.error_cmt){
-					if(!res.cmt && !res.code_t){
-						if(!res.data){
-							if(res.nonotify=="nonotify"){
-								$('#register_form').hide();
-								$('#data_form').show();
-								$('#next_register').show();
-								$('#u_name').val(res[0].fullname);
-								$('#id_user').val(res[0].id);
-								$('#sum_buy').val(round_d((res[0].salary)*2.5));
-								$('#buy_use').val(round_d(res[0].price-res[0].prepay));
-								$('#rest').val(round_d((res[0].salary*2.5)-(res[0].price-res[0].prepay)));
-								$('#id_user').val(res[0].id);
-								$('#upload').attr('href','/orders/upload/'+res[0].id);
-							}
-							if(res[0].notify=="notify"){
-								$('#register_form').hide();
-								$('#next_register').hide();
-								$('#data_form').show();
-								$('#dont_next').show();
-								$('#u_name').val(res[0].fullname);
-								$('#sum_buy').val((numeral(round_d(res[0].salary*2.5)).format('0,0').replace(/,/g,'.')+" đồng"));
-								$('#buy_use').val(numeral(round_d(res[0].price-res[0].prepay)).format('0,0').replace(/,/g,'.')+" đồng");
-								// $('#rest').val((numeral(round_d((res[0].salary*2.5)-(res[0].price-res[0].prepay))).format('0,0').replace(/,/g,'.'))+" đồng");
-								$('#rest').val(((res[0].salary*2.5)-(res[0].price-res[0].prepay))<1?"0 đồng":(numeral(round_d((res[0].salary*2.5)-(res[0].price-res[0].prepay))).format('0,0').replace(/,/g,'.'))+" đồng");
-								$('#notify').text('Sức mua hiện tại của bạn không đủ thực hiện giao dịch. Liên hệ với chúng tôi để được hỗ trợ.');
-								$('#hotline').text('Hotline: 024.66552428 hoặc 0904.633568');
-								$('#return_local').attr('href','/');
-							}
-							else{
-								$('#register_form').hide();
-								$('#data_form').show();
-								$('#next_register').show();
-								$('#u_name').val(res[0].fullname);
-								$('#id_user').val(res[0].id);
-								$('#sum_buy').val((numeral(round_d((res[0].salary)*2.5)).format('0,0')).replace(',','.').replace(',','.').replace(',','.')+" đồng");
-								$('#buy_use').val((res[0].price)==null?0+" đồng":(numeral(round_d(res[0].price-res[0].prepay)).format('0,0')).replace(',','.').replace(',','.').replace(',','.')+" đồng");
-								$('#rest').val(((res[0].price)==null?(numeral(round_d((res[0].salary)*2.5)).format('0,0')).replace(',','.').replace(',','.').replace(',','.')+" đồng":(numeral(round_d((res[0].salary)*2.5-(res[0].price-res[0].prepay))).format('0,0')).replace(',','.').replace(',','.').replace(',','.')+" đồng"));
-								$('#id_user').val(res[0].id);
-								$('#upload').attr('href','/orders/upload/'+res[0].id);
-							}
+				if(!res.error_null){
+					if(!res[0].error_data){
+						if(res[0].error_notify=='nonotify'){
+							// console.log("wtf2");
+							$('#register_form').hide();
+										$('#data_form').show();
+										$('#next_register').show();
+										$('#u_name').val(res[0].fullname);
+										$('#id_user').val(res[0].id);
+										$('#sum_buy').val(round_d((res[0].salary)*2.5));
+										$('#buy_use').val(round_d(res[0].price-res[0].prepay));
+										$('#rest').val(round_d((res[0].salary*2.5)-(res[0].price-res[0].prepay)));
+										$('#id_user').val(res[0].id);
+										$('#upload').attr('href','/orders/upload/'+res[0].id);
 						}
-						else{
+						if(res[0].error_notify=='notify1'){
+							// console.log("wtf");
+							$('#register_form').hide();
+										$('#next_register').hide();
+										$('#data_form').show();
+										$('#dont_next').show();
+										$('#u_name').val(res[0].fullname);
+										$('#sum_buy').val((numeral(round_d(res[0].salary*2.5)).format('0,0').replace(/,/g,'.')+" đồng"));
+										$('#buy_use').val(numeral(round_d(res[0].price-res[0].prepay)).format('0,0').replace(/,/g,'.')+" đồng");
+										// $('#rest').val((numeral(round_d((res[0].salary*2.5)-(res[0].price-res[0].prepay))).format('0,0').replace(/,/g,'.'))+" đồng");
+										$('#rest').val(((res[0].salary*2.5)-(res[0].price-res[0].prepay))<1?"0 đồng":(numeral(round_d((res[0].salary*2.5)-(res[0].price-res[0].prepay))).format('0,0').replace(/,/g,'.'))+" đồng");
+										$('#notify').text('Sức mua hiện tại của bạn không đủ thực hiện giao dịch. Liên hệ với chúng tôi để được hỗ trợ.');
+										$('#hotline').text('Hotline: 024.66552428 hoặc 0904.633568');
+										$('#return_local').attr('href','/');
+						}else{
+							$('#register_form').hide();
+								$('#data_form').show();
+								$('#next_register').show();
+								$('#u_name').val(res[0].fullname);
+								$('#id_user').val(res[0].id);
+								$('#sum_buy').val((numeral(round_d((res[0].salary)*2.5)).format('0,0')).replace(/,/g,'.')+" đồng");
+								$('#buy_use').val((res[0].price)==null?0+" đồng":(numeral(round_d(res[0].price-res[0].prepay)).format('0,0')).replace(/,/g,'.')+" đồng");
+								$('#rest').val(((res[0].price)==null?(numeral(round_d((res[0].salary)*2.5)).format('0,0')).replace(/,/g,'.')+" đồng":(numeral(round_d((res[0].salary)*2.5-(res[0].price-res[0].prepay))).format('0,0')).replace(',','.').replace(',','.').replace(',','.')+" đồng"));
+								$('#id_user').val(res[0].id);
+								$('#upload').attr('href','/orders/upload/'+res[0].id);
+						}
+					}else{
+						$('#alert_info').show();
+								$('#btn_retype').click(function(){
+									$('#alert_info').hide();
+								}); 
+								$('#btn_new_reg').click(function(){
+									window.location.href = "/orders/add";
+								});
+					}
+				}
+				else{
+					$('#alert_info').show();
+							$('#btn_retype').click(function(){
+								$('#alert_info').hide();
+							}); 
+							$('#btn_new_reg').click(function(){
+								window.location.href = "/orders/add";
+					});
+				}
+				// if(res.error_all){
+				// 	$('#error_com').html("Bạn phải chọn công ty");
+				// 	$('#error_cmt').html("Nhập số chứng minh nhân dân hoặc mã nhân viên");
+				// 	$('#error_code').html("Nhập mã nhân viên hoặc số chứng minh nhân dân");
+				// }
+				// else if(res.error_code){
+				// 	$('#error_com').html("Bạn phải chọn công ty");
+				// }
+				// else if(res.error_cmt){
+				// 	$('#error_com').html("Bạn phải chọn công ty");
+				// }
+				// else if(res.error_com){
+				// 	$('#error_com').html("Bạn phải chọn công ty");
+				// }
+				// else if(res.error_cmt_code){
+				// 	$('#error_cmt').html("Nhập số chứng minh nhân dân hoặc mã nhân viên");
+				// 	$('#error_code').html("Nhập mã nhân viên hoặc số chứng minh nhân dân");
+				// }
+				// if(!res.error_cmt){
+				// 	if(!res.cmt && !res.code_t){
+				// 		if(!res.data){
+				// 			if(res.nonotify=="nonotify"){
+				// 				$('#register_form').hide();
+				// 				$('#data_form').show();
+				// 				$('#next_register').show();
+				// 				$('#u_name').val(res[0].fullname);
+				// 				$('#id_user').val(res[0].id);
+				// 				$('#sum_buy').val(round_d((res[0].salary)*2.5));
+				// 				$('#buy_use').val(round_d(res[0].price-res[0].prepay));
+				// 				$('#rest').val(round_d((res[0].salary*2.5)-(res[0].price-res[0].prepay)));
+				// 				$('#id_user').val(res[0].id);
+				// 				$('#upload').attr('href','/orders/upload/'+res[0].id);
+				// 			}
+				// 			if(res[0].notify=="notify"){
+				// 				$('#register_form').hide();
+				// 				$('#next_register').hide();
+				// 				$('#data_form').show();
+				// 				$('#dont_next').show();
+				// 				$('#u_name').val(res[0].fullname);
+				// 				$('#sum_buy').val((numeral(round_d(res[0].salary*2.5)).format('0,0').replace(/,/g,'.')+" đồng"));
+				// 				$('#buy_use').val(numeral(round_d(res[0].price-res[0].prepay)).format('0,0').replace(/,/g,'.')+" đồng");
+				// 				// $('#rest').val((numeral(round_d((res[0].salary*2.5)-(res[0].price-res[0].prepay))).format('0,0').replace(/,/g,'.'))+" đồng");
+				// 				$('#rest').val(((res[0].salary*2.5)-(res[0].price-res[0].prepay))<1?"0 đồng":(numeral(round_d((res[0].salary*2.5)-(res[0].price-res[0].prepay))).format('0,0').replace(/,/g,'.'))+" đồng");
+				// 				$('#notify').text('Sức mua hiện tại của bạn không đủ thực hiện giao dịch. Liên hệ với chúng tôi để được hỗ trợ.');
+				// 				$('#hotline').text('Hotline: 024.66552428 hoặc 0904.633568');
+				// 				$('#return_local').attr('href','/');
+				// 			}
+				// 			else{
+				// 				$('#register_form').hide();
+				// 				$('#data_form').show();
+				// 				$('#next_register').show();
+				// 				$('#u_name').val(res[0].fullname);
+				// 				$('#id_user').val(res[0].id);
+				// 				$('#sum_buy').val((numeral(round_d((res[0].salary)*2.5)).format('0,0')).replace(',','.').replace(',','.').replace(',','.')+" đồng");
+				// 				$('#buy_use').val((res[0].price)==null?0+" đồng":(numeral(round_d(res[0].price-res[0].prepay)).format('0,0')).replace(',','.').replace(',','.').replace(',','.')+" đồng");
+				// 				$('#rest').val(((res[0].price)==null?(numeral(round_d((res[0].salary)*2.5)).format('0,0')).replace(',','.').replace(',','.').replace(',','.')+" đồng":(numeral(round_d((res[0].salary)*2.5-(res[0].price-res[0].prepay))).format('0,0')).replace(',','.').replace(',','.').replace(',','.')+" đồng"));
+				// 				$('#id_user').val(res[0].id);
+				// 				$('#upload').attr('href','/orders/upload/'+res[0].id);
+				// 			}
+				// 		}
+						// else{
 							// $('.sweet-alert button.cancel').val('Nhập lại thông tin');
 							// $('.sa-confirm-button-container button.confirm').val('Cập nhật thông tin và đơn hàng');
 							// swal({
@@ -279,24 +351,24 @@ $(document).ready(function(){
 							// 		window.location.href=url;
 							// 	}, 1500);
 							// });
-							$('#alert_info').show();
-							$('#btn_retype').click(function(){
-								$('#alert_info').hide();
-							}); 
-							$('#btn_new_reg').click(function(){
-								window.location.href = "/orders/add";
-							});
-						}
-					}
-					else{
-						if(res.cmt){
-							$('#error_cmt').html(res.cmt)
-						}
-						else{
-							$('#error_code').html(res.code_t)
-						}
-					}
-				}
+							// $('#alert_info').show();
+							// $('#btn_retype').click(function(){
+							// 	$('#alert_info').hide();
+							// }); 
+							// $('#btn_new_reg').click(function(){
+							// 	window.location.href = "/orders/add";
+							// });
+						// }
+					// }
+					// else{
+					// 	if(res.cmt){
+					// 		$('#error_cmt').html(res.cmt)
+					// 	}
+					// 	else{
+					// 		$('#error_code').html(res.code_t)
+					// 	}
+					// }
+				// }
 			},
 			error: function(res){
 				console.log(res.responseText);
@@ -307,17 +379,17 @@ $(document).ready(function(){
 		});
 });
 $('#btn_search_xs').click(function(){
-	var id_comp = $('#selectpicker_xs').val();
+	// var id_comp = $('#selectpicker_xs').val();
 	var cmt = $('#number_iden').val();
-	var code = $('#code_employ').val();
-	$('#selectpicker_xs').val("");
-	$('span.filter-option').text("Chọn công ty");
+	// var code = $('#code_employ').val();
+	// $('#selectpicker_xs').val("");
+	// $('span.filter-option').text("Chọn công ty");
 	$('#number_iden').val("");
-	$('#code_employ').val("");
-	$('#txt_code').val("");
-	$('#error_com_xs').html("");
+	// $('#code_employ').val("");
+	// $('#txt_code').val("");
+	// $('#error_com_xs').html("");
 	$('#error_cmt_xs').html("");
-	$('#error_code_xs').html("");
+	// $('#error_code_xs').html("");
 	$.ajaxSetup({
 		headers: {
 			'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -327,88 +399,154 @@ $('#btn_search_xs').click(function(){
 		type:"POST",
 		url: "/userPostAjax",
 		data:{
-			id_com: id_comp,
+			// id_com: id_comp,
 			cmt: cmt,
-			code: code,
+			// code: code,
 		},
 		dataType:"json",
 		success: function(res){
-			if(res.error_all){
-				$('#error_com_xs').html("Bạn phải chọn công ty");
-				$('#error_cmt_xs').html("Nhập số chứng minh nhân dân hoặc mã nhân viên");
-				$('#error_code_xs').html("Nhập mã nhân viên hoặc số chứng minh nhân dân");
-			}
-			else if(res.error_code){
-				$('#error_com_xs').html("Bạn phải chọn công ty");
-			}
-			else if(res.error_cmt){
-				$('#error_com_xs').html("Bạn phải chọn công ty");
-			}
-			else if(res.error_com){
-				$('#error_com_xs').html("Bạn phải chọn công ty");
-			}
-			else if(res.error_cmt_code){
-				$('#error_cmt_xs').html("Nhập số chứng minh nhân dân hoặc mã nhân viên");
-				$('#error_code_xs').html("Nhập mã nhân viên hoặc số chứng minh nhân dân");
-			}
-			else if(!res.error_all && !res.error_code && !res.error_cmt){
-				if(!res.cmt){
-					if(!res.data){
-						if(res.nonotify=="nonotify"){
+			// $('#loading').hide();
+				console.log(res);
+				if(res.error_cmt){
+					$('#error_cmt_xs').html("Mời bạn nhập số chứng minh nhân dân");
+				}
+				if(!res.error_null){
+					if(!res[0].error_data){
+						if(res[0].error_notify=='nonotify'){
+							// console.log("wtf2");
 							$('#register_form_xs').hide();
-							$('#data_form_xs').show();
-							// $('#next_register').show();
-							$('#u_name_xs').val(res[0].fullname);
-							$('#sum_buy_xs').val(round_d((res[0].salary)*2.5));
-							$('#buy_use_xs').val(round_d(res[0].price));
-							$('#rest_xs').val(round_d((res[0].salary*2.5)-(res[0].price-res[0].prepay)));
-							$('#id_user_xs').val(res[0].id);
-							$('#btn_upload_xs').attr('href','/orders/upload/'+res[0].id);
+										$('#data_form_xs').show();
+										$('#next_register_xs').show();
+										$('#u_name_xs').val(res[0].fullname);
+										$('#id_user_xs').val(res[0].id);
+										$('#sum_buy_xs').val(round_d((res[0].salary)*2.5));
+										$('#buy_use_xs').val(round_d(res[0].price-res[0].prepay));
+										$('#rest_xs').val(round_d((res[0].salary*2.5)-(res[0].price-res[0].prepay)));
+										$('#id_user_xs').val(res[0].id);
+										$('#btn_upload_xs').attr('href','/orders/upload/'+res[0].id);
 						}
-						if(res[0].notify=="notify"){
+						if(res[0].error_notify=='notify1'){
+							// console.log("wtf");
 							$('#register_form_xs').hide();
-							$('#next_register_xs').hide();
-							$('#data_form_xs').show();
-							$('#dont_next_xs').show();
-							$('#u_name_xs').val(res[0].fullname);
-							$('#sum_buy_xs').val((numeral(round_d(res[0].salary*2.5)).format('0,0').replace(/,/g,'.')+" đồng"));
-							$('#buy_use_xs').val(numeral(round_d(res[0].price-res[0].prepay)).format('0,0').replace(/,/g,'.')+" đồng");
-							$('#rest_xs').val((numeral(round_d((res[0].salary*2.5)-(res[0].price-res[0].prepay))).format('0,0').replace(/,/g,'.'))+" đồng");
-							$('#notify_xs').text('Sức mua hiện tại của bạn không đủ thực hiện giao dịch. Liên hệ với chúng tôi để được hỗ trợ.');
-							$('#hotline').text('Hotline: 024.66552428 hoặc 0904.633568');
-							$('#return_local_xs').attr('href','/');
-						}
-						else{
+										$('#next_register_xs').hide();
+										$('#data_form_xs').show();
+										$('#dont_next_xs').show();
+										$('#u_name_xs').val(res[0].fullname);
+										$('#sum_buy_xs').val((numeral(round_d(res[0].salary*2.5)).format('0,0').replace(/,/g,'.')+" đồng"));
+										$('#buy_use_xs').val(numeral(round_d(res[0].price-res[0].prepay)).format('0,0').replace(/,/g,'.')+" đồng");
+										// $('#rest').val((numeral(round_d((res[0].salary*2.5)-(res[0].price-res[0].prepay))).format('0,0').replace(/,/g,'.'))+" đồng");
+										$('#rest_xs').val(((res[0].salary*2.5)-(res[0].price-res[0].prepay))<1?"0 đồng":(numeral(round_d((res[0].salary*2.5)-(res[0].price-res[0].prepay))).format('0,0').replace(/,/g,'.'))+" đồng");
+										$('#notify_xs').text('Sức mua hiện tại của bạn không đủ thực hiện giao dịch. Liên hệ với chúng tôi để được hỗ trợ.');
+										$('#hotline').text('Hotline: 024.66552428 hoặc 0904.633568');
+										$('#return_local_xs').attr('href','/');
+						}else{
 							$('#register_form_xs').hide();
-							$('#data_form_xs').show();
-							$('#next_register').show();
-							$('#u_name_xs').val(res[0].fullname);
-							$('#sum_buy_xs').val((numeral(round_d((res[0].salary)*2.5)).format('0,0')).replace(',','.').replace(',','.').replace(',','.')+" đồng");
-							$('#buy_use_xs').val((res[0].price)==null?0+" đồng":(numeral(round_d(res[0].price-res[0].prepay)).format('0,0')).replace(',','.').replace(',','.').replace(',','.')+" đồng");
-							$('#rest_xs').val(((res[0].price)==null?(numeral(round_d((res[0].salary)*2.5)).format('0,0')).replace(',','.').replace(',','.').replace(',','.')+" đồng":(numeral(round_d((res[0].salary)*2.5-(res[0].price-res[0].prepay))).format('0,0')).replace(',','.').replace(',','.').replace(',','.')+" đồng"));
-							$('#id_user_xs').val(res[0].id);
-							$('#btn_upload_xs').attr('href','/orders/upload/'+res[0].id);
+								$('#data_form_xs').show();
+								$('#next_register_xs').show();
+								$('#u_name_xs').val(res[0].fullname);
+								$('#id_user_xs').val(res[0].id);
+								$('#sum_buy_xs').val((numeral(round_d((res[0].salary)*2.5)).format('0,0')).replace(/,/g,'.')+" đồng");
+								$('#buy_use_xs').val((res[0].price)==null?0+" đồng":(numeral(round_d(res[0].price-res[0].prepay)).format('0,0')).replace(/,/g,'.')+" đồng");
+								$('#rest_xs').val(((res[0].price)==null?(numeral(round_d((res[0].salary)*2.5)).format('0,0')).replace(/,/g,'.')+" đồng":(numeral(round_d((res[0].salary)*2.5-(res[0].price-res[0].prepay))).format('0,0')).replace(',','.').replace(',','.').replace(',','.')+" đồng"));
+								$('#id_user_xs').val(res[0].id);
+								$('#btn_upload_xs').attr('href','/orders/upload/'+res[0].id);
 						}
-					}
-					else{
+					}else{
 						$('#alert_info_xs').show();
-						$('#btn_retype_xs').click(function(){
-							$('#alert_info_xs').hide();
-						}); 
-						$('#btn_new_reg_xs').click(function(){
-							window.location.href = "/orders/add";
-						});
+								$('#btn_retype_xs').click(function(){
+									$('#alert_info_xs').hide();
+								}); 
+								$('#btn_new_reg_xs').click(function(){
+									window.location.href = "/orders/add";
+								});
 					}
 				}
 				else{
-					if(res.cmt){
-						$('#error_cmt_xs').html(res.cmt)
-					}
-					if(res.code_t){
-						$('#error_code_xs').html(res.code_t)
-					}
+					$('#alert_info_xs').show();
+							$('#btn_retype_xs').click(function(){
+								$('#alert_info_xs').hide();
+							}); 
+							$('#btn_new_reg_xs').click(function(){
+								window.location.href = "/orders/add";
+					});
 				}
-			}
+			// if(res.error_all){
+			// 	// $('#error_com_xs').html("Bạn phải chọn công ty");
+			// 	// $('#error_cmt_xs').html("Nhập số chứng minh nhân dân hoặc mã nhân viên");
+			// 	// $('#error_code_xs').html("Nhập mã nhân viên hoặc số chứng minh nhân dân");
+			// 	$('#error_cmt_xs').html("Mời bạn nhập số chứng minh nhân dân");
+			// }
+			// else if(res.error_code){
+			// 	$('#error_com_xs').html("Bạn phải chọn công ty");
+			// }
+			// else if(res.error_cmt){
+			// 	$('#error_com_xs').html("Bạn phải chọn công ty");
+			// }
+			// else if(res.error_com){
+			// 	$('#error_com_xs').html("Bạn phải chọn công ty");
+			// }
+			// else if(res.error_cmt_code){
+			// 	$('#error_cmt_xs').html("Nhập số chứng minh nhân dân hoặc mã nhân viên");
+			// 	$('#error_code_xs').html("Nhập mã nhân viên hoặc số chứng minh nhân dân");
+			// }
+			// else if(!res.error_all && !res.error_code && !res.error_cmt){
+			// 	if(!res.cmt){
+			// 		if(!res.data){
+			// 			if(res.nonotify=="nonotify"){
+			// 				$('#register_form_xs').hide();
+			// 				$('#data_form_xs').show();
+			// 				// $('#next_register').show();
+			// 				$('#u_name_xs').val(res[0].fullname);
+			// 				$('#sum_buy_xs').val(round_d((res[0].salary)*2.5));
+			// 				$('#buy_use_xs').val(round_d(res[0].price));
+			// 				$('#rest_xs').val(round_d((res[0].salary*2.5)-(res[0].price-res[0].prepay)));
+			// 				$('#id_user_xs').val(res[0].id);
+			// 				$('#btn_upload_xs').attr('href','/orders/upload/'+res[0].id);
+			// 			}
+			// 			if(res[0].notify=="notify"){
+			// 				$('#register_form_xs').hide();
+			// 				$('#next_register_xs').hide();
+			// 				$('#data_form_xs').show();
+			// 				$('#dont_next_xs').show();
+			// 				$('#u_name_xs').val(res[0].fullname);
+			// 				$('#sum_buy_xs').val((numeral(round_d(res[0].salary*2.5)).format('0,0').replace(/,/g,'.')+" đồng"));
+			// 				$('#buy_use_xs').val(numeral(round_d(res[0].price-res[0].prepay)).format('0,0').replace(/,/g,'.')+" đồng");
+			// 				$('#rest_xs').val((numeral(round_d((res[0].salary*2.5)-(res[0].price-res[0].prepay))).format('0,0').replace(/,/g,'.'))+" đồng");
+			// 				$('#notify_xs').text('Sức mua hiện tại của bạn không đủ thực hiện giao dịch. Liên hệ với chúng tôi để được hỗ trợ.');
+			// 				$('#hotline').text('Hotline: 024.66552428 hoặc 0904.633568');
+			// 				$('#return_local_xs').attr('href','/');
+			// 			}
+			// 			else{
+			// 				$('#register_form_xs').hide();
+			// 				$('#data_form_xs').show();
+			// 				$('#next_register').show();
+			// 				$('#u_name_xs').val(res[0].fullname);
+			// 				$('#sum_buy_xs').val((numeral(round_d((res[0].salary)*2.5)).format('0,0')).replace(',','.').replace(',','.').replace(',','.')+" đồng");
+			// 				$('#buy_use_xs').val((res[0].price)==null?0+" đồng":(numeral(round_d(res[0].price-res[0].prepay)).format('0,0')).replace(',','.').replace(',','.').replace(',','.')+" đồng");
+			// 				$('#rest_xs').val(((res[0].price)==null?(numeral(round_d((res[0].salary)*2.5)).format('0,0')).replace(',','.').replace(',','.').replace(',','.')+" đồng":(numeral(round_d((res[0].salary)*2.5-(res[0].price-res[0].prepay))).format('0,0')).replace(',','.').replace(',','.').replace(',','.')+" đồng"));
+			// 				$('#id_user_xs').val(res[0].id);
+			// 				$('#btn_upload_xs').attr('href','/orders/upload/'+res[0].id);
+			// 			}
+			// 		}
+			// 		else{
+			// 			$('#alert_info_xs').show();
+			// 			$('#btn_retype_xs').click(function(){
+			// 				$('#alert_info_xs').hide();
+			// 			}); 
+			// 			$('#btn_new_reg_xs').click(function(){
+			// 				window.location.href = "/orders/add";
+			// 			});
+			// 		}
+			// 	}
+			// 	else{
+			// 		if(res.cmt){
+			// 			$('#error_cmt_xs').html(res.cmt)
+			// 		}
+			// 		if(res.code_t){
+			// 			$('#error_code_xs').html(res.code_t)
+			// 		}
+			// 	}
+			// }
 			// if(res.error_all){
 			// 	$('#error_cmt_xs').html("Nhập số chứng minh nhân dân hoặc mã nhân viên");
 			// 	$('#error_code_xs').html("Nhập mã nhân viên hoặc số chứng minh nhân dân");

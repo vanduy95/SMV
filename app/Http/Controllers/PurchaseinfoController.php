@@ -33,27 +33,10 @@ class PurchaseinfoController extends Controller
 		}
 	}
 	public function getAjaxUser(Request $r){
-		$id_com = $_POST['id_com'];
 		$cmt = $_POST['cmt'];
-		$code = $_POST['code'];
-		if (!empty($id_com) && ((!empty($cmt) || !empty($code)))) {
-			try{
-				if(empty($cmt)){
-					$count = DB::table('userinfo')->join('user','user.id','=','userinfo.user_id')->join('organization','organization.id','=','user.organization_id')->join('orders','orders.user_id','=','user.id')
+		if(!empty($cmt)){
+			$count = DB::table('userinfo')->join('user','user.id','=','userinfo.user_id')->join('organization','organization.id','=','user.organization_id')->join('orders','orders.user_id','=','user.id')
 					->where([
-						['organization.id','=',$id_com],
-						['userinfo.employee_id','=',$code],
-						['orders.process_id','=',5],
-						['organization.ma','<>','HT'],
-						['user.syslock','=',1],
-						['user.status','=',0]
-						])
-					->select('user.organization_id','userinfo.employee_id','user.id','userinfo.salary','userinfo.identitycard','userinfo.fullname')->get()->count();
-				}
-				else{
-					$count = DB::table('userinfo')->join('user','user.id','=','userinfo.user_id')->join('organization','organization.id','=','user.organization_id')->join('orders','orders.user_id','=','user.id')
-					->where([
-						['organization.id','=',$id_com],
 						['userinfo.identitycard','=',$cmt],
 						['orders.process_id','=',5],
 						['organization.ma','<>','HT'],
@@ -61,12 +44,10 @@ class PurchaseinfoController extends Controller
 						['user.status','=',0]
 						])
 					->select('user.organization_id','userinfo.employee_id','user.id','userinfo.salary','userinfo.identitycard','userinfo.fullname')->get()->count();
-				}
-				if(!empty($_POST['id_com'] && !empty($_POST['code']) && !empty($_POST['cmt']))){
-					if($count==0){
-						$count_d = DB::table('userinfo')->join('user','user.id','=','userinfo.user_id')->join('organization','organization.id','=','user.organization_id')
+					// return $count;
+				if($count==0){
+					$count_d = DB::table('userinfo')->join('user','user.id','=','userinfo.user_id')->join('organization','organization.id','=','user.organization_id')
 						->where([
-							['organization.id','=',$id_com],
 							['userinfo.identitycard','=',$cmt],
 							['organization.ma','<>','HT'],
 							['user.syslock','=',1],
@@ -76,7 +57,6 @@ class PurchaseinfoController extends Controller
 						if($count_d==1){
 							$userall = DB::table('userinfo')->join('user','user.id','=','userinfo.user_id')->join('organization','organization.id','=','user.organization_id')
 							->where([
-								['organization.id','=',$id_com],
 								['userinfo.identitycard','=',$cmt],
 								['organization.ma','<>','HT']])
 							->select('user.organization_id','userinfo.employee_id','user.id','userinfo.salary','userinfo.identitycard','userinfo.fullname')->get()->toArray();
@@ -84,13 +64,12 @@ class PurchaseinfoController extends Controller
 							return Response::json($userall);
 						}
 						else{
-							return Response::json(['data'=>'Không tồn tại khách hàng']);
+							return Response::json(['error_null'=>'Không tồn tại khách hàng']);
 						}
-					}
-					if($count>0){
-						$userall= DB::table('userinfo')->join('user','user.id','=','user.id')->join('organization','organization.id','=','user.organization_id')->join('orders','orders.user_id','=','user.id')->groupBy('user.id','userinfo.fullname','userinfo.salary')
+				}
+				if($count==1){
+						$userall= DB::table('userinfo')->join('user','user.id','=','userinfo.user_id')->join('organization','organization.id','=','user.organization_id')->join('orders','orders.user_id','=','user.id')->groupBy('user.id','userinfo.fullname','userinfo.salary')
 						->where([
-							['organization.id','=',$id_com],
 							['orders.process_id','=',5],
 							['userinfo.identitycard','=',$cmt],
 							['user.syslock','=',1],
@@ -98,18 +77,19 @@ class PurchaseinfoController extends Controller
 						->select(DB::raw('user.id,SUM(orders.price) as price, SUM(orders.prepay) as prepay,userinfo.fullname,userinfo.salary,user.id'))->get()->toArray();
 						session()->put('customer_id', $userall[0]->id);
 						$cal = ($userall[0]->salary*2.5)-$userall[0]->price;
+						// return $cal;
 						if($cal==0 || $cal < 0){
 							$usercut = [
 							['price'=>round_down($userall[0]->price),
-							'fullname'=>$userall[0]->fullname,
 							'prepay' =>$userall[0]->prepay,
+							'fullname'=>$userall[0]->fullname,
 							'salary'=>round_down($userall[0]->salary),
-							'notify'=>'notify']];
+							'error_notify'=>'notify1']];
 							return Response::json($usercut);
 						}
 						else if($cal > 0){
 							session()->put('customer_id', $userall[0]->id);
-							$user_megre = array_merge($userall,['nonotify'=>'nonotify']);
+							$user_megre = array_merge($userall,['error_notify'=>'nonotify']);
 							return Response::json($user_megre);
 						}
 						else{
@@ -118,162 +98,254 @@ class PurchaseinfoController extends Controller
 							'fullname'=>$userall[0]->fullname,
 							'prepay' =>$userall[0]->prepay,
 							'salary'=>round_down($userall[0]->salary),
-							'notify'=>'notify']];
+							'error_notify'=>'notify']];
 							return Response::json($usercut);
 						}
-					}
+				}else if($count > 1){
+					return Response::json(['error_data'=>'Lỗi truy xuất dữ liệu!']);
 				}
-				if(!empty($_POST['cmt']) && !empty($_POST['id_com'])){
-					if(!is_numeric($_POST['cmt'])){
-						return Response::json(["cmt"=>"Chứng minh nhân dân không được chứa chữ"]);
-					}
-					if($count==0){
-						$count_d = DB::table('userinfo')->join('user','user.id','=','userinfo.user_id')->join('organization','organization.id','=','user.organization_id')
-						->where([
-							['organization.id','=',$id_com],
-							['userinfo.identitycard','=',$cmt],
-							['organization.ma','<>','HT'],
-							['user.syslock','=',1],
-							['user.status','=',0]
-							])
-						->select('user.organization_id','userinfo.employee_id','user.id','userinfo.salary','userinfo.identitycard','userinfo.fullname')->get()->count();
-						$userall = DB::table('userinfo')->join('user','user.id','=','userinfo.user_id')->join('organization','organization.id','=','user.organization_id')
-						->where([
-							['organization.id','=',$id_com],
-							['userinfo.identitycard','=',$cmt],
-							['user.syslock','=',1],
-							['user.status','=',0]
-							])
-						->select('user.organization_id','userinfo.employee_id','user.id','userinfo.salary','userinfo.identitycard','userinfo.fullname')->get()->toArray();
-						if($count_d==1){
-							session()->put('customer_id', $userall[0]->id);
-							return Response::json($userall);
-						}else{
-							return Response::json(['data'=>'Không tồn tại khách hàng']);
-						}
-					}
-					if($count>0){
-						$userall= DB::table('userinfo')->join('user','user.id','=','userinfo.user_id')->join('organization','organization.id','=','user.organization_id')->join('orders','orders.user_id','=','user.id')->groupBy('user.id','userinfo.fullname','userinfo.salary')
-						->where([
-							['organization.id','=',$id_com],
-							['orders.process_id','=',5],
-							['userinfo.identitycard','=',$cmt],
-							['user.syslock','=',1],
-							['user.status','=',0]
-							])
-						->select(DB::raw('user.id,SUM(orders.price) as price, SUM(orders.prepay) as prepay,userinfo.fullname,userinfo.salary,user.id'))->get()->toArray();
-						// dd($userall);
-						session()->put('customer_id', $userall[0]->id);
-						$cal = ($userall[0]->salary*2.5)-$userall[0]->price;
-						if($cal==0 || $cal < 0){
-							$usercut = [
-							['price'=>round_down($userall[0]->price),
-							'fullname'=>$userall[0]->fullname,
-							'prepay' =>$userall[0]->prepay,
-							'salary'=>round_down($userall[0]->salary),
-							'notify'=>'notify']];
-							return Response::json($usercut);
-						}
-						else if($cal > 0){
-							session()->put('customer_id', $userall[0]->id);
-							$user_megre = array_merge($userall,['nonotify'=>'nonotify']);
-							return Response::json($user_megre);
-						}
-						else{
-							$usercut = [
-							['price'=>round_down($userall[0]->price),
-							'fullname'=>$userall[0]->fullname,
-							'prepay' =>$userall[0]->prepay,
-							'salary'=>round_down($userall[0]->salary),
-							'notify'=>'notify']];
-							return Response::json($usercut);
-						}
-					}
-				}
-				if(!empty($_POST['id_com']) && !empty($_POST['code'])){
-					if(!preg_match('/[^!@#$%^&&&&*()_+~`<>?\/]/',($_POST['code']))){
-						return Response::json(["code_t"=>"Mã nhân viên không được chứa ký tự đặc biệt"]);
-					}
-					if($count==0){
-						$count_d = DB::table('userinfo')->join('user','user.id','=','userinfo.user_id')->join('organization','organization.id','=','user.organization_id')
-						->where([
-							['organization.id','=',$id_com],
-							['userinfo.employee_id','=',$code],
-							['user.syslock','=',1],
-							['user.status','=',0]
-							])
-						->select('user.organization_id','userinfo.employee_id','user.id','userinfo.salary','userinfo.identitycard','userinfo.fullname')->get()->count();
-						if($count_d==1){
-							$userall = DB::table('userinfo')->join('user','user.id','=','userinfo.user_id')->join('organization','organization.id','=','user.organization_id')
-							->where([
-								['userinfo.employee_id','=',$code],
-								['organization.id','=',$id_com],
-								['user.syslock','=',1],
-								['user.status','=',0]
-								])
-							->select('user.organization_id','userinfo.employee_id','user.id','userinfo.salary','userinfo.identitycard','userinfo.fullname')->get()->toArray();
-							session()->put('customer_id', $userall[0]->id);
-							return Response::json($userall);
-						}else{
-							return Response::json(['data'=>'Không tồn tại khách hàng']);
-						}
-					}
-					if($count>0){
-						$userall= DB::table('userinfo')->join('user','user.id','=','userinfo.user_id')->join('organization','organization.id','=','user.organization_id')->join('orders','orders.user_id','=','user.id')->groupBy('user.id','userinfo.fullname','userinfo.salary')
-						->where([
-							['organization.id','=',$id_com],
-							['orders.process_id','=',5],
-							['userinfo.employee_id','=',$code],
-							['user.syslock','=',1],
-							['user.status','=',0]
-							])
-						->select(DB::raw('user.id,SUM(orders.price) as price, SUM(orders.prepay) as prepay,userinfo.fullname,userinfo.salary,user.id'))->get()->toArray();
-						$cal = ($userall[0]->salary*2.5)-$userall[0]->price;
-						if($cal==0 || $cal < 0){
-							$usercut = [
-							['price'=>round_down($userall[0]->price),
-							'fullname'=>$userall[0]->fullname,
-							'prepay'=>$userall[0]->prepay,
-							'salary'=>round_down($userall[0]->salary),
-							'notify'=>'notify']];
-							return Response::json($usercut);
-						}
-						else if($cal > 0){
-							session()->put('customer_id', $userall[0]->id);
-							$user_megre = array_merge($userall,['nonotify'=>'nonotify']);
-							return Response::json($user_megre);
-						}
-						else{
-							$usercut = [
-							['price'=>round_down($userall[0]->price),
-							'fullname'=>$userall[0]->fullname,
-							'prepay'=>$userall[0]->prepay,
-							'salary'=>round_down($userall[0]->salary),
-							'notify'=>'notify']];
-							return Response::json($usercut);
-						}
-					}
-				}
-			}
-			catch(\Expression $ex){
-				return Response::json(["data"=>$ex]);
-			}
+
+		}else{
+			return Response::json(['error_cmt'=>'khong hon le']);
 		}
-		else if(empty($r->id_com) && empty($r->cmt) && empty($r->code)){
-			return Response::json(['error_all'=>' ']);
-		}
-		else if(empty($r->id_com) && empty($r->cmt)){
-			return Response::json(["error_cmt"=>' ']);
-		}
-		else if(empty($r->id_com) && empty($r->code)){
-			return Response::json(["error_code"=>' ']);
-		}
-		else if(empty($r->id_com)){
-			return Response::json(["error_com"=>' ']);
-		}
-		else{
-			return Response::json(["error_cmt_code"=>' ']);
-		}
+		// if (!empty($id_com) && ((!empty($cmt) || !empty($code)))) {
+		// 	try{
+		// 		if(empty($cmt)){
+		// 			$count = DB::table('userinfo')->join('user','user.id','=','userinfo.user_id')->join('organization','organization.id','=','user.organization_id')->join('orders','orders.user_id','=','user.id')
+		// 			->where([
+		// 				['organization.id','=',$id_com],
+		// 				['userinfo.employee_id','=',$code],
+		// 				['orders.process_id','=',5],
+		// 				['organization.ma','<>','HT'],
+		// 				['user.syslock','=',1],
+		// 				['user.status','=',0]
+		// 				])
+		// 			->select('user.organization_id','userinfo.employee_id','user.id','userinfo.salary','userinfo.identitycard','userinfo.fullname')->get()->count();
+		// 		}
+		// 		else{
+		// 			$count = DB::table('userinfo')->join('user','user.id','=','userinfo.user_id')->join('organization','organization.id','=','user.organization_id')->join('orders','orders.user_id','=','user.id')
+		// 			->where([
+		// 				['organization.id','=',$id_com],
+		// 				['userinfo.identitycard','=',$cmt],
+		// 				['orders.process_id','=',5],
+		// 				['organization.ma','<>','HT'],
+		// 				['user.syslock','=',1],
+		// 				['user.status','=',0]
+		// 				])
+		// 			->select('user.organization_id','userinfo.employee_id','user.id','userinfo.salary','userinfo.identitycard','userinfo.fullname')->get()->count();
+		// 		}
+		// 		if(!empty($_POST['id_com'] && !empty($_POST['code']) && !empty($_POST['cmt']))){
+		// 			if($count==0){
+		// 				$count_d = DB::table('userinfo')->join('user','user.id','=','userinfo.user_id')->join('organization','organization.id','=','user.organization_id')
+		// 				->where([
+		// 					['organization.id','=',$id_com],
+		// 					['userinfo.identitycard','=',$cmt],
+		// 					['organization.ma','<>','HT'],
+		// 					['user.syslock','=',1],
+		// 					['user.status','=',0]
+		// 					])
+		// 				->select('user.organization_id','userinfo.employee_id','user.id','userinfo.salary','userinfo.identitycard','userinfo.fullname')->get()->count();
+		// 				if($count_d==1){
+		// 					$userall = DB::table('userinfo')->join('user','user.id','=','userinfo.user_id')->join('organization','organization.id','=','user.organization_id')
+		// 					->where([
+		// 						['organization.id','=',$id_com],
+		// 						['userinfo.identitycard','=',$cmt],
+		// 						['organization.ma','<>','HT']])
+		// 					->select('user.organization_id','userinfo.employee_id','user.id','userinfo.salary','userinfo.identitycard','userinfo.fullname')->get()->toArray();
+		// 					session()->put('customer_id', $userall[0]->id);
+		// 					return Response::json($userall);
+		// 				}
+		// 				else{
+		// 					return Response::json(['data'=>'Không tồn tại khách hàng']);
+		// 				}
+		// 			}
+		// 			if($count>0){
+		// 				$userall= DB::table('userinfo')->join('user','user.id','=','user.id')->join('organization','organization.id','=','user.organization_id')->join('orders','orders.user_id','=','user.id')->groupBy('user.id','userinfo.fullname','userinfo.salary')
+		// 				->where([
+		// 					['organization.id','=',$id_com],
+		// 					['orders.process_id','=',5],
+		// 					['userinfo.identitycard','=',$cmt],
+		// 					['user.syslock','=',1],
+		// 					['user.status','=',0]])
+		// 				->select(DB::raw('user.id,SUM(orders.price) as price, SUM(orders.prepay) as prepay,userinfo.fullname,userinfo.salary,user.id'))->get()->toArray();
+		// 				session()->put('customer_id', $userall[0]->id);
+		// 				$cal = ($userall[0]->salary*2.5)-$userall[0]->price;
+		// 				if($cal==0 || $cal < 0){
+		// 					$usercut = [
+		// 					['price'=>round_down($userall[0]->price),
+		// 					'fullname'=>$userall[0]->fullname,
+		// 					'prepay' =>$userall[0]->prepay,
+		// 					'salary'=>round_down($userall[0]->salary),
+		// 					'notify'=>'notify']];
+		// 					return Response::json($usercut);
+		// 				}
+		// 				else if($cal > 0){
+		// 					session()->put('customer_id', $userall[0]->id);
+		// 					$user_megre = array_merge($userall,['error_notify'=>'nonotify']);
+		// 					return Response::json($user_megre);
+		// 				}
+		// 				else{
+		// 					$usercut = [
+		// 					['price'=>round_down($userall[0]->price),
+		// 					'fullname'=>$userall[0]->fullname,
+		// 					'prepay' =>$userall[0]->prepay,
+		// 					'salary'=>round_down($userall[0]->salary),
+		// 					'error_notify'=>'notify']];
+		// 					return Response::json($usercut);
+		// 				}
+		// 			}
+		// 		}
+		// 		if(!empty($_POST['cmt']) && !empty($_POST['id_com'])){
+		// 			if(!is_numeric($_POST['cmt'])){
+		// 				return Response::json(["cmt"=>"Chứng minh nhân dân không được chứa chữ"]);
+		// 			}
+		// 			if($count==0){
+		// 				$count_d = DB::table('userinfo')->join('user','user.id','=','userinfo.user_id')->join('organization','organization.id','=','user.organization_id')
+		// 				->where([
+		// 					['organization.id','=',$id_com],
+		// 					['userinfo.identitycard','=',$cmt],
+		// 					['organization.ma','<>','HT'],
+		// 					['user.syslock','=',1],
+		// 					['user.status','=',0]
+		// 					])
+		// 				->select('user.organization_id','userinfo.employee_id','user.id','userinfo.salary','userinfo.identitycard','userinfo.fullname')->get()->count();
+		// 				$userall = DB::table('userinfo')->join('user','user.id','=','userinfo.user_id')->join('organization','organization.id','=','user.organization_id')
+		// 				->where([
+		// 					['organization.id','=',$id_com],
+		// 					['userinfo.identitycard','=',$cmt],
+		// 					['user.syslock','=',1],
+		// 					['user.status','=',0]
+		// 					])
+		// 				->select('user.organization_id','userinfo.employee_id','user.id','userinfo.salary','userinfo.identitycard','userinfo.fullname')->get()->toArray();
+		// 				if($count_d==1){
+		// 					session()->put('customer_id', $userall[0]->id);
+		// 					return Response::json($userall);
+		// 				}else{
+		// 					return Response::json(['data'=>'Không tồn tại khách hàng']);
+		// 				}
+		// 			}
+		// 			if($count>0){
+		// 				$userall= DB::table('userinfo')->join('user','user.id','=','userinfo.user_id')->join('organization','organization.id','=','user.organization_id')->join('orders','orders.user_id','=','user.id')->groupBy('user.id','userinfo.fullname','userinfo.salary')
+		// 				->where([
+		// 					['organization.id','=',$id_com],
+		// 					['orders.process_id','=',5],
+		// 					['userinfo.identitycard','=',$cmt],
+		// 					['user.syslock','=',1],
+		// 					['user.status','=',0]
+		// 					])
+		// 				->select(DB::raw('user.id,SUM(orders.price) as price, SUM(orders.prepay) as prepay,userinfo.fullname,userinfo.salary,user.id'))->get()->toArray();
+		// 				// dd($userall);
+		// 				session()->put('customer_id', $userall[0]->id);
+		// 				$cal = ($userall[0]->salary*2.5)-$userall[0]->price;
+		// 				if($cal==0 || $cal < 0){
+		// 					$usercut = [
+		// 					['price'=>round_down($userall[0]->price),
+		// 					'fullname'=>$userall[0]->fullname,
+		// 					'prepay' =>$userall[0]->prepay,
+		// 					'salary'=>round_down($userall[0]->salary),
+		// 					'notify'=>'notify']];
+		// 					return Response::json($usercut);
+		// 				}
+		// 				else if($cal > 0){
+		// 					session()->put('customer_id', $userall[0]->id);
+		// 					$user_megre = array_merge($userall,['nonotify'=>'nonotify']);
+		// 					return Response::json($user_megre);
+		// 				}
+		// 				else{
+		// 					$usercut = [
+		// 					['price'=>round_down($userall[0]->price),
+		// 					'fullname'=>$userall[0]->fullname,
+		// 					'prepay' =>$userall[0]->prepay,
+		// 					'salary'=>round_down($userall[0]->salary),
+		// 					'notify'=>'notify']];
+		// 					return Response::json($usercut);
+		// 				}
+		// 			}
+		// 		}
+		// 		if(!empty($_POST['id_com']) && !empty($_POST['code'])){
+		// 			if(!preg_match('/[^!@#$%^&&&&*()_+~`<>?\/]/',($_POST['code']))){
+		// 				return Response::json(["code_t"=>"Mã nhân viên không được chứa ký tự đặc biệt"]);
+		// 			}
+		// 			if($count==0){
+		// 				$count_d = DB::table('userinfo')->join('user','user.id','=','userinfo.user_id')->join('organization','organization.id','=','user.organization_id')
+		// 				->where([
+		// 					['organization.id','=',$id_com],
+		// 					['userinfo.employee_id','=',$code],
+		// 					['user.syslock','=',1],
+		// 					['user.status','=',0]
+		// 					])
+		// 				->select('user.organization_id','userinfo.employee_id','user.id','userinfo.salary','userinfo.identitycard','userinfo.fullname')->get()->count();
+		// 				if($count_d==1){
+		// 					$userall = DB::table('userinfo')->join('user','user.id','=','userinfo.user_id')->join('organization','organization.id','=','user.organization_id')
+		// 					->where([
+		// 						['userinfo.employee_id','=',$code],
+		// 						['organization.id','=',$id_com],
+		// 						['user.syslock','=',1],
+		// 						['user.status','=',0]
+		// 						])
+		// 					->select('user.organization_id','userinfo.employee_id','user.id','userinfo.salary','userinfo.identitycard','userinfo.fullname')->get()->toArray();
+		// 					session()->put('customer_id', $userall[0]->id);
+		// 					return Response::json($userall);
+		// 				}else{
+		// 					return Response::json(['data'=>'Không tồn tại khách hàng']);
+		// 				}
+		// 			}
+		// 			if($count>0){
+		// 				$userall= DB::table('userinfo')->join('user','user.id','=','userinfo.user_id')->join('organization','organization.id','=','user.organization_id')->join('orders','orders.user_id','=','user.id')->groupBy('user.id','userinfo.fullname','userinfo.salary')
+		// 				->where([
+		// 					['organization.id','=',$id_com],
+		// 					['orders.process_id','=',5],
+		// 					['userinfo.employee_id','=',$code],
+		// 					['user.syslock','=',1],
+		// 					['user.status','=',0]
+		// 					])
+		// 				->select(DB::raw('user.id,SUM(orders.price) as price, SUM(orders.prepay) as prepay,userinfo.fullname,userinfo.salary,user.id'))->get()->toArray();
+		// 				$cal = ($userall[0]->salary*2.5)-$userall[0]->price;
+		// 				if($cal==0 || $cal < 0){
+		// 					$usercut = [
+		// 					['price'=>round_down($userall[0]->price),
+		// 					'fullname'=>$userall[0]->fullname,
+		// 					'prepay'=>$userall[0]->prepay,
+		// 					'salary'=>round_down($userall[0]->salary),
+		// 					'notify'=>'notify']];
+		// 					return Response::json($usercut);
+		// 				}
+		// 				else if($cal > 0){
+		// 					session()->put('customer_id', $userall[0]->id);
+		// 					$user_megre = array_merge($userall,['nonotify'=>'nonotify']);
+		// 					return Response::json($user_megre);
+		// 				}
+		// 				else{
+		// 					$usercut = [
+		// 					['price'=>round_down($userall[0]->price),
+		// 					'fullname'=>$userall[0]->fullname,
+		// 					'prepay'=>$userall[0]->prepay,
+		// 					'salary'=>round_down($userall[0]->salary),
+		// 					'notify'=>'notify']];
+		// 					return Response::json($usercut);
+		// 				}
+		// 			}
+		// 		}
+		// 	}
+		// 	catch(\Expression $ex){
+		// 		return Response::json(["data"=>$ex]);
+		// 	}
+		// }
+		// else if(empty($r->id_com) && empty($r->cmt) && empty($r->code)){
+		// 	return Response::json(['error_all'=>' ']);
+		// }
+		// else if(empty($r->id_com) && empty($r->cmt)){
+		// 	return Response::json(["error_cmt"=>' ']);
+		// }
+		// else if(empty($r->id_com) && empty($r->code)){
+		// 	return Response::json(["error_code"=>' ']);
+		// }
+		// else if(empty($r->id_com)){
+		// 	return Response::json(["error_com"=>' ']);
+		// }
+		// else{
+		// 	return Response::json(["error_cmt_code"=>' ']);
+		// }
 	}
 	public function postsearch(Request $request){
 		if(!empty($request->btn_orders) || !empty($request->btn_orders_xs)){
