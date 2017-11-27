@@ -22,9 +22,9 @@
 						<div class="clear"></div>
 					</div>
 					<div class="text-aboutus col-lg-3 col-xs-6 reset-padding">
-						<span class="title-bold">Dễ dàng trong thanh toán: </span>
+						<span class="title-bold">Tiện lợi trong mua sắm: </span>
 						<span class="definition">
-							Hình thức thanh toán tự động qua tài khoản ngân hàng, khách hàng không phải đến ngân hàng nộp tiền trả góp hàng tháng.
+							Khách hàng có thể xác định được “Sức mua” trước khi mua sắm. 
 						</span>
 						<div class="clear"></div>
 					</div>
