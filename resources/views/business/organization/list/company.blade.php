@@ -59,7 +59,7 @@
             <div>
               <label for="">Tệp tin Excel</label>
             </div>
-            <div class="col-lg-6 col-sm-6 col-12">
+            <div class="col-lg-6 col-sm-6">
               <div class="input-group">
                 <label class="input-group-btn">
                   <span class="btn btn-primary">

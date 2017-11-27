@@ -14,16 +14,17 @@ $(document).ready(function() {
       $("#price").val(a.replace(/,/g,'.')+" đồng");
     }
   });
-  $('#btn_register').button().click(function(e){
+  $('#btn_update_info').button().click(function(e){
     if($('#userifo_form').valid()){
       $('#loading').show();
-      var company = $('#company').val();
+      // var company = $('#company').val();
       var name = $('#name_user').val();
       var salary = $('#salary_user').val();
       var phone = $('#phone_user').val();
       var add_u = $('#address_user').val();
       var number_i = $('#number_issue').val();
-      var date_issue = $('#date_issue_reg').val();
+      var selected_city = $('#selected_city').val();
+      // var date_issue = $('#date_issue_reg').val();
       var addr_issue = $('#addr_issue').val();
       // console.log(company+name+salary+phone+add_u+number_i+date_issue+addr_issue);
       $.ajaxSetup({
@@ -35,18 +36,72 @@ $(document).ready(function() {
         type: "post",
         url: "/orders/postAjaxNewUserOrder",
         data:{
-          company: company,
+          // company: company,
           name: name,
           salary: salary,
           phone: phone,
           add_u: add_u,
           number_i: number_i,
-          date_issue: date_issue,
+          // date_issue: date_issue,
+          selected_city: selected_city,
+          addr_issue: addr_issue,
+          btn_update_info: "btn_update_info"
+        },
+        dataType: "json",
+        success: function(res){
+          console.log(res);
+          if(res.user_id){
+           $('#loading').hide();
+           $('#fullname').val(res.fullname);
+           $('#user_id').val(res.user_id);
+           $('#register_user').remove();
+           $('#success_register').show();
+           $('body').scrollTop(0);
+         }
+       },error: function(res){
+        $('#loading').hide();
+          // console.log(res);
+        }
+      });
+    }
+    e.stopImmediatePropagation();
+  });
+  $('#btn_register').button().click(function(e){
+    if($('#userifo_form').valid()){
+      $('#loading').show();
+      // var company = $('#company').val();
+      var name = $('#name_user').val();
+      var salary = $('#salary_user').val();
+      var phone = $('#phone_user').val();
+      var add_u = $('#address_user').val();
+      var number_i = $('#number_issue').val();
+      var selected_city = $('#selected_city').val();
+      // var date_issue = $('#date_issue_reg').val();
+      var addr_issue = $('#addr_issue').val();
+      // console.log(company+name+salary+phone+add_u+number_i+date_issue+addr_issue);
+      $.ajaxSetup({
+        headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+      });
+      $.ajax({
+        type: "post",
+        url: "/orders/postAjaxNewUserOrder",
+        data:{
+          // company: company,
+          name: name,
+          salary: salary,
+          phone: phone,
+          add_u: add_u,
+          number_i: number_i,
+          // date_issue: date_issue,
+          selected_city: selected_city,
           addr_issue: addr_issue,
           btn_register: "btn_register"
         },
         dataType: "json",
         success: function(res){
+          console.log(res);
           if(res.user_id){
            $('#loading').hide();
            $('#fullname').val(res.fullname);
@@ -297,6 +352,8 @@ $(document).ready(function() {
       rules: {
         company: {
           required: true,
+          minlength: 6,
+          maxlength: 100,
         },
         name_user: {
           required: true,
@@ -353,11 +410,16 @@ $(document).ready(function() {
           normalizer: function( value ) {
             return $.trim( value );
           }
-        } 
+        },
+        selected_city:{
+          required: true,
+        }
       },
       messages: {
         company:{
-          required:"Bạn chưa chọn công ty",
+          required:"Bạn chưa nhập vào công ty đang làm việc",
+          minlength: "Tên công ty không được ít hơn 5 kí tự",
+          maxlength: "Tên công ty không được nhiều hơn 100 kí tự",
         },
         name_user:{
           required:"Bạn chưa nhập tên",
@@ -390,6 +452,9 @@ $(document).ready(function() {
         addr_issue: {
           required: "Bạn chưa nhập nơi cấp CMND",
           maxlength: "Địa chỉ quá dài. Không hợp lệ",
+        },
+        selected_city:{
+          required: "Bạn chưa chọn thành phố đang làm việc",
         }
       }
     });

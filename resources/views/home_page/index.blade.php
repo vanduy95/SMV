@@ -121,13 +121,13 @@
 								</div>
 								<div id="next_register" class=" col-lg-12 col-md-12 div-flex form-group">
 									<div class="col-lg-4 col-md-4" style="padding: 2px">
-										<input class="col-lg-12 col-md-12 col-xs-12 btn btn-primary" name="btn_orders" type="submit" value="Đăng kí mua hàng">
+										<input class="col-lg-12 col-md-12 col-xs-12 btn btn-primary" name="btn_orders"  style="font-size: 9pt !important;padding-left: 0;padding-right: 0" type="submit" value="Đăng kí mua hàng">
 									</div>
 									<div class="col-lg-4 col-md-4" style="padding: 2px">
-										<input class="col-lg-12 col-xs-12 col-md-12 btn btn-primary" type="submit" name="btn_upload" id="upload" value="Tải phiếu đăng ký">
+										<input class="col-lg-12 col-xs-12 col-md-12 btn btn-primary" type="submit" name="btn_upload"  style="font-size: 9pt !important;padding-left: 0;padding-right: 0" id="upload" value="Tải phiếu đăng ký">
 									</div>
 									<div class="col-lg-4 col-md-4" style="padding: 2px">
-										<input class="col-lg-12 col-xs-12 col-md-12 btn btn-primary" type="submit" name="" id="" style="white-space: normal;" value="Cập nhật hồ sơ cá nhân">
+										<input class="col-lg-12 col-xs-12 col-md-12 btn btn-primary" type="submit" name="btn_update_info" id="btn_update_info" style="font-size: 9pt !important;padding-left: 0;padding-right: 0" value="Cập nhật hồ sơ cá nhân">
 									</div>
 								</div>
 								<div class="col-lg-12" id="dont_next" style="display: none">

@@ -9,6 +9,17 @@
 .checkbox {
 	width: 20px!important;
 }
+.div-flex{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	display: -webkit-flex;
+	/*display: -ms-flexbox;  */
+	display: -webkit-flex; 
+	-webkit-justify-content: center;
+	-webkit-align-items: center;
+	
+}
 .content-header>h1 {
 	margin-bottom: 20px!important;
 }

@@ -1168,7 +1168,6 @@ function convertname($str) {
  	public function postAjaxNewUserOrder(Request $r){
  		// return \Response::json($r->name);
  		if(!empty($r->btn_register)){
- 			dd($r);
  			$user = new User();
  			$userinfo = new UserInfo();
  			$user->username = convertname($r->name).rand(100,999);
@@ -1176,23 +1175,24 @@ function convertname($str) {
  			$user->password= Hash::make("password");
  			$user->status = 4;
  			$user->syslock=1;
- 			$user->organization_id = $r->company;
+ 			$user->organization_id = 0;
  			// $user->created_at = \Carbon::today();
  			// $userinfo->employee_id = rand(10000000,99999999);
  			$userinfo->fullname = $r->name;
  			$userinfo->address1 = $r->add_u;
- 			$userinfo->dateissue = Carbon::createFromFormat('d/m/Y', $r->date_issue);
- 			$userinfo->salary = str_replace(['.',' đồng'],"",$r->salary);
- 		$userinfo->issuedby = $r->addr_issue;//noi cap
- 		$userinfo->identitycard = $r->number_i;
- 		$userinfo->phone1 = $r->phone;
- 		$userinfo->assess_id = 1;
+ 			$userinfo->address2 = $r->selected_city;
+ 			// $userinfo->dateissue = Carbon::createFromFormat('d/m/Y', $r->date_issue);
+	 		$userinfo->salary = str_replace(['.',' đồng'],"",$r->salary);
+	 		$userinfo->issuedby = $r->addr_issue;//noi cap
+	 		$userinfo->identitycard = $r->number_i;
+	 		$userinfo->phone1 = $r->phone;
+	 		$userinfo->assess_id = 1;
  		// $userinfo->created_at=\Carbon::now();
- 		$user->save();
- 		$user->userinfo()->save($userinfo);
- 		$users=User::whereIn('groupuser_id',[3])->get();
- 		Notification::send($users, new UserNotification($userinfo->fullname.' đã yêu cầu đăng ký mới ',$userinfo));
- 		return Response::json(['user_id'=>$user->id,'fullname'=>$userinfo->fullname]);
+	 		$user->save();
+	 		$user->userinfo()->save($userinfo);
+	 		$users=User::whereIn('groupuser_id',[3])->get();
+	 		Notification::send($users, new UserNotification($userinfo->fullname.' đã yêu cầu đăng ký mới ',$userinfo));
+	 		return Response::json(['user_id'=>$user->id,'fullname'=>$userinfo->fullname]);
  	}
  	else if(!empty($r->btn_order_new)){
  		$user = new User();

@@ -368,6 +368,9 @@ class PurchaseinfoController extends Controller
 			$name = RetailSystem::groupBy('nameretail')->pluck('nameretail');
 			return view('business.orders.upload',compact('user','city','name'));
 		}
+		if(!empty($request->btn_update_info) || !empty($request->btn_update_info_xs)){
+			return view('business.orders.update_info');
+		}
 		else
 		{
 			return redirect('/');
