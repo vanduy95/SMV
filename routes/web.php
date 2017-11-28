@@ -49,7 +49,7 @@ Route::post('orders',array('as'=>'postAjaxOrder','uses'=>'OrdersController@postA
 // Route::get('orders/upload/{user}',array('as'=>'getUploadOrders','uses'=>'OrdersController@getupload'));
 Route::post('orders/upload/{user}',array('as'=>'postUploadOrders','uses'=>'OrdersController@postupload'));
 Route::post('orders/show', array('as'=>'postOrdersCreate','uses'=>'PurchaseinfoController@postsearch'));
-
+Route::post('userinfo/register',array('as'=>'postAddUserinfo','uses'=>'PurchaseinfoController@postAddUserinfo'));
 Route::get('orders/add', array('as'=>'ordershowadd','uses'=>'PurchaseinfoController@ordershowadd'));
 // Route::post('orders/add', array('as'=>'orderadd','uses'=>'OrdersController@orderadd'));
 Route::post('orders/postAjaxNewUserOrder',array('as'=>'postAjaxNewUserOrder','uses'=>'OrdersController@postAjaxNewUserOrder'));

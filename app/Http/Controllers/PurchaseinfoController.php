@@ -7,6 +7,8 @@ use App\Organization;
 use App\User;
 use App\Assess;
 use Response;
+// use App\Uploadfile;
+use App\UploadFile;
 use App\Orders;
 use App\UserInfo;
 use App\RetailSystem;
@@ -31,6 +33,52 @@ class PurchaseinfoController extends Controller
 				return $company;
 			}
 		}
+	}
+	public function postAddUserinfo(Request $r){
+		$user_id =$r["_user"];
+		$upMoreInfo = new UserInfo();
+		$path = "uploadfile/userinfo";
+		if($r->hasFile("upIden")){
+			$temp="";
+			$obj= $r->file("upIden");
+			foreach ($obj as $item) {
+				$name = $item->getClientOriginalName();
+				$temp.= $name."***";
+				$item->move($path,$name);
+			}
+			$query= DB::table('userinfo')->where('user_id','=',$user_id)->update(["identitycard_image"=>$temp]);
+		}
+		if($r->hasFile("_upHome")){
+			$temp="";
+			$obj= $r->file("_upHome");
+			foreach ($obj as $item) {
+				$name = $item->getClientOriginalName();
+				$temp.= $name."***";
+				$item->move($path,$name);	
+			}
+			$query= DB::table('userinfo')->where('user_id','=',$user_id)->update(["household_image"=>$temp]);
+		}
+		if($r->hasFile("_upBill")){
+			$temp="";
+			$obj= $r->file("_upBill");
+			foreach ($obj as $item) {
+				$name = $item->getClientOriginalName();
+				$temp.= $name."***";
+				$item->move($path,$name);	
+			}
+			$query= DB::table('userinfo')->where('user_id','=',$user_id)->update(["bill_image"=>$temp]);
+		}
+		if($r->hasFile("_upOther")){
+			$temp="";
+			$obj= $r->file("_upOther");
+			foreach ($obj as $item) {
+				$name = $item->getClientOriginalName();
+				$temp.= $name."***";
+				$item->move($path,$name);
+			}
+			$query= DB::table('userinfo')->where('user_id','=',$user_id)->update(["other_image"=>$temp]);
+		}
+		return redirect()->route('success');
 	}
 	public function getAjaxUser(Request $r){
 		$cmt = $_POST['cmt'];

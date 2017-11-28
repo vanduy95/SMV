@@ -1175,6 +1175,7 @@ function convertname($str) {
  			$user->password= Hash::make("password");
  			$user->status = 4;
  			$user->syslock=1;
+ 			// $user->organization_id = 0;
  			$user->organization_id = 25;
  			// $user->created_at = \Carbon::today();
  			// $userinfo->employee_id = rand(10000000,99999999);
@@ -1186,6 +1187,7 @@ function convertname($str) {
 	 		$userinfo->issuedby = $r->addr_issue;//noi cap
 	 		$userinfo->identitycard = $r->number_i;
 	 		$userinfo->phone1 = $r->phone;
+	 		$userinfo->company = $r->company;
 	 		$userinfo->assess_id = 1;
  		// $userinfo->created_at=\Carbon::now();
 	 		$user->save();

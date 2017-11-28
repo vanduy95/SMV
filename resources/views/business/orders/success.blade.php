@@ -9,7 +9,7 @@
       <div class="col-lg-12 client-success">
         <h1>Quý khách đã đăng kí thành công</h1>
         <div>
-          <p>Tổng đài viên của SỨC MUA VIỆT sẽ liên hệ đến quý khách trong vòng 5 phút</p>
+          <p>Tổng đài viên của SỨC MUA VIỆT sẽ liên hệ đến quý khách trong vòng 10 phút</p>
           <p>Xin cảm ơn!</p>
         </div>
       </div>

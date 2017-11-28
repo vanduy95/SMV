@@ -70,6 +70,7 @@ $(document).ready(function() {
     if($('#userifo_form').valid()){
       $('#loading').show();
       // var company = $('#company').val();
+      var company = $("#company").val();
       var name = $('#name_user').val();
       var salary = $('#salary_user').val();
       var phone = $('#phone_user').val();
@@ -89,6 +90,7 @@ $(document).ready(function() {
         url: "/orders/postAjaxNewUserOrder",
         data:{
           // company: company,
+          company: company,
           name: name,
           salary: salary,
           phone: phone,

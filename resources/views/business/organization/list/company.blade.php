@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('content')
-<script>
+<script type="text/javascript">
   $(document).ready(function(){
     $("#form_upexcel").validate({
       rules:{
