@@ -36,10 +36,7 @@ class CreateUserinfoTable extends Migration
             $table->foreign('user_id')->references('id')->on('user')->onDelete('cascade');
             $table->string('image1')->nullable();
             $table->string('image2')->nullable();
-            $table->string('identitycard_image')->nullable();
-            $table->string('household_image')->nullable();
-            $table->string('bill_image')->nullable();
-            $table->string('other_image')->nullable();
+
             $table->timestamps();
         });
     }

@@ -1175,7 +1175,7 @@ function convertname($str) {
  			$user->password= Hash::make("password");
  			$user->status = 4;
  			$user->syslock=1;
- 			$user->organization_id = 0;
+ 			$user->organization_id = 25;
  			// $user->created_at = \Carbon::today();
  			// $userinfo->employee_id = rand(10000000,99999999);
  			$userinfo->fullname = $r->name;
