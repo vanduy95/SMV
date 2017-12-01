@@ -210,9 +210,9 @@
 								{!!Form::label('fullname','Ảnh chứng minh thư :',['class'=>'control-label col-lg-2'])!!}
 								<div class="col-lg-8">
 									<p>
-										@foreach (explode("***",$userinfo->identitycard_image) as $img)
-										@if ($img!='')
-											<img width="400px" height="300px" src="{{url('/uploadfile/userinfo/'.$img)}}">
+										@foreach (explode("***",$userinfo->identitycard_image) as $key=>$img)
+											@if ($img!='')
+												<a class="text-info" id='show' data-image='{{$img}}'><i class="fa fa-file-image-o" aria-hidden="true"></i> CMND{{++$key}}</a>&nbsp;
 											@endif
 										@endforeach
 										
@@ -223,9 +223,9 @@
 								{!!Form::label('fullname','Ảnh sổ hộ khẩu :',['class'=>'control-label col-lg-2'])!!}
 								<div class="col-lg-8">
 									<p>
-										@foreach (explode("***",$userinfo->household_image) as $img)
-										@if ($img!='')
-											<img width="400px" height="300px" src="{{url('/uploadfile/userinfo/'.$img)}}">
+										@foreach (explode("***",$userinfo->household_image) as $key=>$img)
+											@if ($img!='')
+												<a class="text-info" id='show' data-image='{{$img}}'><i class="fa fa-file-image-o" aria-hidden="true"></i> HK{{++$key}}</a>&nbsp;
 											@endif
 										@endforeach
 									</p>
@@ -235,9 +235,9 @@
 								{!!Form::label('fullname','Ảnh hóa đơn điện, nước, điện thoại : ',['class'=>'control-label col-lg-2'])!!}
 								<div class="col-lg-8">
 									<p>
-										@foreach (explode("***",$userinfo->bill_image) as $img)
-										@if ($img!='')
-											<img width="400px" height="300px" src="{{url('/uploadfile/userinfo/'.$img)}}">
+										@foreach (explode("***",$userinfo->bill_image) as $key=>$img)
+											@if ($img!='')
+												<a class="text-info" id='show' data-image='{{$img}}'><i class="fa fa-file-image-o" aria-hidden="true"></i> HD{{++$key}}</a>&nbsp;
 											@endif
 										@endforeach
 									</p>
@@ -247,9 +247,9 @@
 								{!!Form::label('fullname','Ảnh giấy tờ thể hiện nơi làm việc :',['class'=>'control-label col-lg-2'])!!}
 								<div class="col-lg-8">
 									<p>
-										@foreach (explode("***",$userinfo->other_image) as $img)
-										@if ($img!='')
-											<img width="400px" height="300px" src="{{url('/uploadfile/userinfo/'.$img)}}">
+										@foreach (explode("***",$userinfo->other_image) as $key=>$img)
+											@if ($img!='')
+												<a class="text-info" id='show' data-image='{{$img}}'><i class="fa fa-file-image-o" aria-hidden="true"></i> NLV{{++$key}}</a> &nbsp;
 											@endif
 										@endforeach
 									</p>
@@ -265,6 +265,26 @@
 					</div>
 				</div>
 			</div>
+			<div class="modal fade" id="myModal" role="dialog">
+				<div class="modal-dialog">
+
+					<!-- Modal content-->
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+							<h4 class="modal-title">Ảnh</h4>
+						</div>
+						<div class="modal-body">
+							<img src="" id="image_modal">
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						</div>
+					</div>
+
+				</div>
+			</div>
+  
 		</section>
 		@stop
 		@section('script')
@@ -294,5 +314,12 @@
 				newVal += val;
 				this.value = newVal;
 			});
+			$(document).ready(function() {
+				$('body').on('click','#show',function(){
+					$("#myModal").modal();
+					$("#image_modal").attr('src', '/uploadfile/userinfo/'+$(this).data('image'));
+				});
+			});
+			
 		</script>
 		@stop

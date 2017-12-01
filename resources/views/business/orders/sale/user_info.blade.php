@@ -51,10 +51,17 @@
                @endif
              </label>
            </div>
-            <label class="control-label col-sm-4">Công ty hiện tại: </label>
-            <div class="col-sm-8"> 
-             <label class=" bg-gray-fix form-control">{{$UserInfo->user->organization->name}}</label>
+           <label class="control-label col-sm-4">Ảnh CMND :</label>
+           <div class="col-sm-8">          
+            <label class="bg-gray-fix form-control">
+              @foreach (explode("***",$UserInfo->identitycard_image) as $key=>$img)
+              @if ($img!='')
+              <a class="text-info" href="#" id='show' data-image='{{$img}}'><i class="fa fa-file-image-o" aria-hidden="true"></i> CMND{{++$key}}</a>&nbsp;
+              @endif
+              @endforeach
+            </label>
           </div>
+           
         </div>
       </div> 
       <div class="col-md-6">
@@ -94,6 +101,10 @@
             {{$orders->store}}
           </label>
         </div>
+         <label class="control-label col-sm-3">Công ty hiện tại: </label>
+            <div class="col-sm-8"> 
+             <label class=" bg-gray-fix form-control">{{$UserInfo->user->organization->name}}</label>
+          </div>
       </div>
     </div>
   </div>
@@ -103,3 +114,31 @@
 <!-- /.box-body -->
 <!-- /.box-footer -->
 </div>
+<div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Ảnh</h4>
+            </div>
+            <div class="modal-body">
+              <img src="" id="image_modal">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <script type="text/javascript">
+        $(document).ready(function() {
+        $('body').on('click','#show',function(){
+          $("#myModal").modal();
+          $("#image_modal").attr('src', '/uploadfile/userinfo/'+$(this).data('image'));
+        });
+      });
+      </script>
