@@ -13,12 +13,10 @@
 							<div class="col-lg-12 col-md-12 col-xs-12 text-center">
 								<h3><b>Thông tin hội viên chưa được xác thực</b></h3>
 							</div>
-							<div class="col-lg-12 col-md-12 col-xs-12 text-center">
-								<p>Bạn có thể nhập lại thông tin hoặc đăng ký mới. Thông tin</p>
+							<div class="col-lg-12 col-md-12 col-xs-12 text-center font-weight-bold">
+								<p class="font-weight-bold"><h4><b>Hãy đăng ký ngay để trở thành hội viên trong ít phút.</b></h4</p>
 							</div>
-							<div class="col-lg-12 col-md-12 col-xs-12 text-center">
-								<p>đăng ký mới của bạn sẽ được xác nhận trong 10 phút.</p>
-							</div>
+							
 							<div class="pb-md-5 pb-5 col-lg-12 col-md-12 col-xs-12 div-flex">
 								<input class="col-lg-4 col-md-5 col-xs-9 btn btn-primary" id="btn_retype" type="button" value="Nhập lại thông tin" style="background: #cccccc; border: 1px solid #cccccc">
 								<input class="col-lg-3 col-md-5 col-xs-5 col-xs-offset-1 col-md-offset-1 col-lg-offset-1 btn btn-primary" id="btn_new_reg" type="button" value="Đăng ký hội viên" style="background: #170e66" >
@@ -183,10 +181,7 @@
 						<h5 class="text-vw-3" style="margin: 0;"><b>Thông tin hội viên chưa được xác thực</b></h5>
 					</div>
 					<div class="col-lg-12 col-md-12 col-xs-12 text-center">
-						<p  class="text-vw-3">Bạn có thể nhập lại thông tin hoặc đăng ký mới. Thông tin</p>
-					</div>
-					<div class="col-lg-12 col-md-12 col-xs-12 text-center">
-						<p  class="text-vw-3">đăng ký mới của bạn sẽ được xác nhận trong 10 phút.</p>
+						<p class="font-weight-bold"><h3><b>Hãy đăng ký ngay để trở thành hội viên trong ít phút.</b></h3></p>
 					</div>
 					<div class="col-lg-12 col-md-12 col-xs-12 div-flex">
 						<input class="col-lg-4 col-md-5 col-xs-6 btn btn-primary" id="btn_retype_xs" type="button" value="Nhập lại thông tin" style="background: #cccccc; border: 1px solid #cccccc; font-size: 3vw">

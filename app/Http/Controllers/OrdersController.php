@@ -1181,13 +1181,13 @@ function convertname($str) {
  			// $userinfo->employee_id = rand(10000000,99999999);
  			$userinfo->fullname = $r->name;
  			$userinfo->address1 = $r->add_u;
- 			$userinfo->address2 = $r->selected_city;
+ 			$userinfo->note2 = $r->selected_city;
  			// $userinfo->dateissue = Carbon::createFromFormat('d/m/Y', $r->date_issue);
 	 		$userinfo->salary = str_replace(['.',' đồng'],"",$r->salary);
 	 		$userinfo->issuedby = $r->addr_issue;//noi cap
 	 		$userinfo->identitycard = $r->number_i;
 	 		$userinfo->phone1 = $r->phone;
-	 		$userinfo->company = $r->company;
+	 		$userinfo->note1 = $r->company;
 	 		$userinfo->assess_id = 1;
  		// $userinfo->created_at=\Carbon::now();
 	 		$user->save();

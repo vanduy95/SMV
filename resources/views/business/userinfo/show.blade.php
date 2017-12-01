@@ -206,6 +206,55 @@
 										@if($errors->has('filename2'))<p style="color: red;">{{$errors->first('filename2')}}</p>@endif
 								</div>
 							</div>
+							<div class="form-group ">
+								{!!Form::label('fullname','Ảnh chứng minh thư :',['class'=>'control-label col-lg-2'])!!}
+								<div class="col-lg-8">
+									<p>
+										@foreach (explode("***",$userinfo->identitycard_image) as $img)
+										@if ($img!='')
+											<img width="400px" height="300px" src="{{url('/uploadfile/userinfo/'.$img)}}">
+											@endif
+										@endforeach
+										
+									</p>
+								</div>
+							</div>
+							<div class="form-group ">
+								{!!Form::label('fullname','Ảnh sổ hộ khẩu :',['class'=>'control-label col-lg-2'])!!}
+								<div class="col-lg-8">
+									<p>
+										@foreach (explode("***",$userinfo->household_image) as $img)
+										@if ($img!='')
+											<img width="400px" height="300px" src="{{url('/uploadfile/userinfo/'.$img)}}">
+											@endif
+										@endforeach
+									</p>
+								</div>
+							</div>
+							<div class="form-group ">
+								{!!Form::label('fullname','Ảnh hóa đơn điện, nước, điện thoại : ',['class'=>'control-label col-lg-2'])!!}
+								<div class="col-lg-8">
+									<p>
+										@foreach (explode("***",$userinfo->bill_image) as $img)
+										@if ($img!='')
+											<img width="400px" height="300px" src="{{url('/uploadfile/userinfo/'.$img)}}">
+											@endif
+										@endforeach
+									</p>
+								</div>
+							</div>
+							<div class="form-group ">
+								{!!Form::label('fullname','Ảnh giấy tờ thể hiện nơi làm việc :',['class'=>'control-label col-lg-2'])!!}
+								<div class="col-lg-8">
+									<p>
+										@foreach (explode("***",$userinfo->other_image) as $img)
+										@if ($img!='')
+											<img width="400px" height="300px" src="{{url('/uploadfile/userinfo/'.$img)}}">
+											@endif
+										@endforeach
+									</p>
+								</div>
+							</div>
 							<div class="form-group">
 								<div class="col-lg-offset-2 col-lg-10">
 									{!!Form::submit('Save',['class'=>'btn btn-primary'])!!}
