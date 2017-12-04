@@ -78,7 +78,7 @@ class PurchaseinfoController extends Controller
 			}
 			$query= DB::table('userinfo')->where('user_id','=',$user_id)->update(["other_image"=>$temp]);
 		}
-		return redirect()->route('success');
+		return view('business.checkuser.success');
 	}
 	public function getAjaxUser(Request $r){
 		$cmt = $_POST['cmt'];

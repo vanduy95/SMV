@@ -140,7 +140,7 @@
     <div class="form-group">
       <label class="control-label col-sm-4" for="note2">Ghi chú 2: </label>
       <div class="col-sm-8"> 
-        <textarea name="note2" tabindex="18" class="form-control">{{$user->userinfo->note1}}</textarea>
+        <textarea name="note2" tabindex="18" class="form-control">{{$user->userinfo->note2}}</textarea>
       </div>
     </div>
     <div class="form-group">
